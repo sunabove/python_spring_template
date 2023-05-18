@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="~{template.html :: head}">
+<head th:replace="~{layout.html :: head}">
 <title>Bootstrap Example</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -64,7 +64,7 @@
 
 	<!--  start of header --> 
 	<div class="container">
-		<header th:replace="~{template.html :: header}" class="p-3 mb-3 border-bottom" >
+		<header th:replace="~{layout.html :: header}" class="p-3 mb-3 border-bottom" >
 
 			<div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
 				<a href="#" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none"> <img
@@ -115,7 +115,7 @@
 		<div class="row">
 
 			<!--  side bar -->
-			<nav th:replace="~{template.html :: sidebarMenu}" id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-body-tertiary sidebar collapse">
+			<nav th:replace="~{layout.html :: sidebarMenu}" id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-body-tertiary sidebar collapse">
 				<div class="position-sticky pt-3 sidebar-sticky">
 					<a href="/" class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom"> <svg
 							class="bi pe-none me-2" width="30" height="24">
@@ -323,7 +323,7 @@
 
 	<!-- footer -->
 	<div class="container">
-		<footer th:replace="~{template.html :: footer}"
+		<footer th:replace="~{layout.html :: footer}"
 			class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
 			<div class="col-md-4 d-flex align-items-center">
 				<a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1"> <svg class="bi" width="30"

@@ -62,9 +62,9 @@
 
 <body>
 
-	<!--  start of header --> 
+	<!--  start of header -->
 	<div class="container">
-		<header th:replace="~{layout.html :: header}" class="p-3 mb-3 border-bottom" >
+		<header th:replace="~{layout.html :: header}" class="p-3 mb-3 border-bottom">
 
 			<div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
 				<a href="#" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none"> <img
@@ -114,74 +114,29 @@
 
 		<div class="row">
 
-			<!--  side bar -->
-			<nav th:replace="~{layout.html :: sidebarMenu}" id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-body-tertiary sidebar collapse">
-				<div class="position-sticky pt-3 sidebar-sticky">
-					<a href="/" class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom"> <svg
-							class="bi pe-none me-2" width="30" height="24">
-					<use xlink:href="#bootstrap"></use></svg> <span class="fs-5 fw-semibold">Collapsible</span>
-					</a>
-
-					<ul class="list-unstyled ps-0">
-						<li class="mb-1">
-							<button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse"
-								data-bs-target="#home-collapse" aria-expanded="true">Home</button>
-							<div class="collapse show" id="home-collapse" style="">
-								<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-									<li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Overview</a></li>
-									<li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Updates</a></li>
-									<li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Reports</a></li>
-								</ul>
-							</div>
-						</li>
-						<li class="mb-1">
-							<button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse"
-								data-bs-target="#dashboard-collapse" aria-expanded="true">Dashboard</button>
-							<div class="collapse show" id="dashboard-collapse" style="">
-								<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-									<li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Overview</a></li>
-									<li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Weekly</a></li>
-									<li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Monthly</a></li>
-									<li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Annually</a></li>
-								</ul>
-							</div>
-						</li>
-						<li class="mb-1">
-							<button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse"
-								data-bs-target="#orders-collapse" aria-expanded="true">Orders</button>
-							<div class="collapse show" id="orders-collapse" style="">
-								<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-									<li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">New</a></li>
-									<li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Processed</a></li>
-									<li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Shipped</a></li>
-									<li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Returned</a></li>
-								</ul>
-							</div>
-						</li>
-						<li class="border-top my-3"></li>
-						<li class="mb-1">
-							<button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse"
-								data-bs-target="#account-collapse" aria-expanded="true">Account</button>
-							<div class="collapse show" id="account-collapse" style="">
-								<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-									<li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">New...</a></li>
-									<li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Profile</a></li>
-									<li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Settings</a></li>
-									<li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Sign out</a></li>
-								</ul>
-							</div>
-						</li>
-					</ul>
-				</div>
-			</nav>
-			<!-- // side bar -->
-
 			<!-- main contents -->
 
 			<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 				<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-					<h1 class="h2"> Main Contents </h1>
-				</div> 
+					<h1 class="h2">Main Contents</h1>
+
+					<div th:if="${param.error}">Invalid username and password.</div>
+					<div th:if="${param.logout}">You have been logged out.</div>
+
+					<form th:action="@{/user/login.html}" method="post">
+						<div>
+							<label> User Name : <input type="text" name="username" />
+							</label>
+						</div>
+						<div>
+							<label> Password: <input type="password" name="password" />
+							</label>
+						</div>
+						<div>
+							<input type="submit" value="Sign In" />
+						</div>
+					</form>
+				</div>
 			</main>
 
 			<!-- // main contents -->
@@ -220,7 +175,7 @@
 			</ul>
 		</footer>
 	</div>
-	<!-- // footer --> 
+	<!-- // footer -->
 
 </body>
 

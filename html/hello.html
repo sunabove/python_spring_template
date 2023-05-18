@@ -1,21 +1,24 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" >
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Hello Python </title>
+<title>Hello Python</title>
 </head>
 <body>
 	<h2>Hello Python ... World!</h2>
-	
-	<a href="/" th:href="@{/}" > Root </a> <br/>
-	<a href="./index.htm" th:href="@{/index.htm}" > index.htm </a> <br/>
-	<a href="./index.html" th:href="@{/index.html}" > index.html </a> <br/>
-	<a href="./hello.html" th:href="@{/hello.html}" > hello.html </a> <br/>
-	<a href="./boot_test.html" th:href="@{/boot_test.html}" > boot_test.html </a> <br/>
-	<a href="./template.html" th:href="@{/template.html}" > template.html </a> <br/>
-	<a href="./login.html" th:href="@{/login.html}" > login.html </a> <br/>
-	
-	<br/>
+
+	<ol>
+		<li> <a href="/" th:href="@{/}"> Root </a> </li>
+		<li> <a href="./index.htm" th:href="@{/index.htm}"> index.htm </a> </li>
+		<li> <a href="./index.html" th:href="@{/index.html}"> index.html </a> </li>
+		<li> <a href="./hello.html" th:href="@{/hello.html}"> hello.html </a> </li>
+		<li> <a href="./boot_test.html" th:href="@{/boot_test.html}"> boot_test.html </a> </li>
+		<li> <a href="./layout.html" th:href="@{/layout.html}"> layout.html </a> </li>
+		<li> <a href="./template.html" th:href="@{/template.html}"> template.html </a> </li>
+		<li> <a href="./login.html" th:href="@{/login.html}"> login.html </a> </li>
+	</ol>
+
+	<br />
 
 	<table>
 		<tbody>
@@ -25,6 +28,6 @@
 			</tr>
 		</tbody>
 	</table>
-	
+
 </body>
 </html>
