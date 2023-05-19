@@ -108,7 +108,7 @@
 						<li><a class="dropdown-item" href="#">Settings</a></li>
 						<li>
 							<a class="dropdown-item" href="#">
-								<span th:if="${ #authentication }" th:text="${#authentication.principal.username}">Bob</span> Profile
+								<span sec:authentication="name"></span> Profile
 							</a>
 						</li>
 						<li><hr class="dropdown-divider"></li>

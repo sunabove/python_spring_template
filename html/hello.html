@@ -7,6 +7,10 @@
 <body>
 	<h2>Hello Python ... World!</h2>
 
+	<div sec:authorize="isAuthenticated()">
+		Welcome, <span sec:authentication="name">Username</span>
+	</div>
+
 	<ol>
 		<li> <a href="/" th:href="@{/}"> Root </a> </li>
 		<li> <a href="./index.htm" th:href="@{/index.htm}"> index.htm </a> </li>
