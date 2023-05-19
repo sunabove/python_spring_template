@@ -4,6 +4,8 @@
 <head th:fragment="head" >
 <title th:text="${html.title}"> html.title </title>
 
+<base th:href="@{/}">
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -72,8 +74,8 @@
 	<div class="container">
 		<header class="p-3 mb-3 border-bottom" th:fragment="header" >
 			<div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-				<a href="#" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none"> <img
-					src="rsc/img/python-64.png" width="50" />
+				<a href="#" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none">
+				<img src="rsc/img/python-64.png" width="50" />
 				</a> &nbsp;&nbsp;
 
 				<ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">

@@ -110,38 +110,27 @@
 	</div>
 	<!-- end of header -->
 
-	<div class="container-fluid">
-
-		<div class="row">
-
-			<!-- main contents -->
-
-			<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-				<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-					<h1 class="h2">Main Contents</h1>
-
-					<div th:if="${param.error}">Invalid username and password.</div>
-					<div th:if="${param.logout}">You have been logged out.</div>
-
-					<form th:action="@{/user/login.html}" method="post">
-						<div>
-							<label> User Name : <input type="text" name="username" />
-							</label>
-						</div>
-						<div>
-							<label> Password: <input type="password" name="password" />
-							</label>
-						</div>
-						<div>
-							<input type="submit" value="Sign In" />
-						</div>
-					</form>
-				</div>
-			</main>
-
-			<!-- // main contents -->
-		</div>
-
+	<div class="container mt-3">
+		<h2>Login</h2>
+		
+		<br/>
+		
+		<div th:if="${param.error}">Invalid user name and password.</div>
+		<div th:if="${param.logout}">You have been logged out.</div>
+		
+		<form th:action="@{/user/login.html}" method="post" >
+			<div class="mb-3 mt-3">
+				<label for="username">User Id:</label> <input type="text" class="form-control" id="email" placeholder="Enter id" name="username">
+			</div>
+			<div class="mb-3">
+				<label for="pwd">Password:</label> <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password">
+			</div>
+			<div class="form-check mb-3">
+				<label class="form-check-label"> <input class="form-check-input" type="checkbox" name="remember"> Remember me
+				</label>
+			</div>
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
 	</div>
 
 	<!-- footer -->
