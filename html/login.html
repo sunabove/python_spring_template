@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" >
 
 <head th:replace="~{layout.html :: head}">
 <title>Bootstrap Example</title>
@@ -110,6 +110,7 @@
 	</div>
 	<!-- end of header -->
 
+	<!--  main -->
 	<div class="container mt-3">
 		<h2>Login</h2>
 		
@@ -120,10 +121,12 @@
 		
 		<form th:action="@{/user/login.html}" method="post" >
 			<div class="mb-3 mt-3">
-				<label for="username">User Id:</label> <input type="text" class="form-control" id="email" placeholder="Enter id" name="username">
+				<label for="username">User Id :</label>
+				<input type="text" class="form-control" style="width:50%;" id="username" placeholder="Enter id" name="username" autofocus="autofocus">
 			</div>
 			<div class="mb-3">
-				<label for="pwd">Password:</label> <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password">
+				<label for="password">Password :</label>
+				<input type="password" class="form-control" style="width:50%;" id="password" placeholder="Enter password" name="password">
 			</div>
 			<div class="form-check mb-3">
 				<label class="form-check-label"> <input class="form-check-input" type="checkbox" name="remember"> Remember me
@@ -132,6 +135,7 @@
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</form>
 	</div>
+	<!-- // main -->
 
 	<!-- footer -->
 	<div class="container">

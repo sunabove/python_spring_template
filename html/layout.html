@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" >
 
 <head th:fragment="head" >
 <title th:text="${html.title}"> html.title </title>
@@ -106,7 +106,11 @@
 					<ul class="dropdown-menu text-small">
 						<li><a class="dropdown-item" href="#">New project...</a></li>
 						<li><a class="dropdown-item" href="#">Settings</a></li>
-						<li><a class="dropdown-item" href="#">Profile</a></li>
+						<li>
+							<a class="dropdown-item" href="#">
+								<span th:if="${ #authentication }" th:text="${#authentication.principal.username}">Bob</span> Profile
+							</a>
+						</li>
 						<li><hr class="dropdown-divider"></li>
 						<li><a class="dropdown-item" href="logout.html" th:href="@{/logout}" >Sign out</a></li>
 					</ul>
