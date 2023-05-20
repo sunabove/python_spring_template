@@ -108,7 +108,7 @@
 						<li><a class="dropdown-item" href="#">Settings</a></li>
 						<li>
 							<a class="dropdown-item" href="#">
-								<span sec:authentication="name"></span> Profile
+								<span th:text="${session.loginUserName}"></span> Profile
 							</a>
 						</li>
 						<li><hr class="dropdown-divider"></li>

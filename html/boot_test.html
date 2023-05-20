@@ -184,7 +184,7 @@
 				</div>
 
 				<div sec:authorize="isAuthenticated()">
-					Welcome, <span sec:authentication="name">Username</span>
+					Welcome <span th:text="${loginUserName}">Username</span>
 				</div>
 
 				<canvas class="my-4 w-100" id="myChart" width="1330" height="561"
