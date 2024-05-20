@@ -8,7 +8,7 @@
 	<h2>Hello Python ... World!</h2>
 
 	<div sec:authorize="isAuthenticated()">
-		Welcome, <span sec:authentication="name">Username</span>
+		Welcome, <span sec:authentication="name"> Username </span>
 	</div>
 
 	<ol>
@@ -20,6 +20,7 @@
 		<li> <a href="./layout.html" th:href="@{/layout.html}"> layout.html </a> </li>
 		<li> <a href="./template.html" th:href="@{/template.html}"> template.html </a> </li>
 		<li> <a href="./login.html" th:href="@{/login.html}"> login.html </a> </li>
+		<li> <a href="./error.html" th:href="@{/error.html}"> error.html </a> </li>
 	</ol>
 
 	<br />
