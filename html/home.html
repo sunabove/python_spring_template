@@ -112,7 +112,7 @@
 		<div class="row">
 
 			<!--  side bar -->
-			<nav th:replace="~{layout.html :: sidebarMenu}" id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-body-tertiary sidebar collapse">
+			<nav th:replace="~{layout.html :: sidebarLeft}" id="sidebarLeft" class="col-2 d-md-block bg-body-tertiary sidebar collapse">
 				<div class="position-sticky pt-3 sidebar-sticky">
 
 					<a href="#" class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom">
@@ -176,7 +176,7 @@
 
 			<!-- main contents -->
 
-			<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+			<main class="col-8 px-md-4">
 				<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
 					<h1 class="h2">Index Dashboard</h1> 
 				</div>
@@ -277,6 +277,48 @@
 			</main>
 
 			<!-- // main contents -->
+
+			<!--  side bar right -->
+			<nav th:replace="~{layout.html :: sidebarLeft}" id="sidebarRight" class="col-2 d-md-block bg-body-tertiary sidebar collapse">
+
+				<div class="position-sticky pt-3 sidebar-sticky">
+					
+					<a href="#" class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom">
+						<i class="fa-brands fa-python fa-xl" style="color: Dodgerblue;"></i>
+						<span class="fs-5 fw-semibold"> &nbsp; 메뉴 </span>
+					</a>
+
+					<ul class="list-unstyled ps-0">
+						<li class="mb-1">
+							<button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse"
+								data-bs-target="#home-collapse" aria-expanded="true">Home</button>
+							<div class="collapse show" id="home-collapse">
+								<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+									<li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Overview</a></li>
+									<li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Updates</a></li>
+									<li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Reports</a></li>
+								</ul>
+							</div>
+						</li> 
+
+						<li class="border-top my-3"></li>
+						<li class="mb-1">
+							<button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse"
+								data-bs-target="#account-collapse" aria-expanded="true">Account</button>
+							<div class="collapse show" id="account-collapse">
+								<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+									<li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">New...</a></li>
+									<li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Profile</a></li>
+									<li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Settings</a></li>
+									<li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Sign out</a></li>
+								</ul>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</nav>
+			<!-- // side bar right-->
+
 		</div>
 
 	</div>
