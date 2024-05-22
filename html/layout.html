@@ -47,7 +47,13 @@
 				<ul class="nav col-12 justify-content-center ">
 					<li>
 						<a th:href="@{/}" href="/" class="nav-link px-2 link-body-emphasis"> 
-							<i class="fa-solid fa-house fa-2xl"></i> &nbsp;파이썬 코리아
+							<i class="bi bi-house fa-2xl"></i> &nbsp;파이썬 코리아
+						</a>
+					</li>
+					<li>
+						<a th:href="@{/pub/download}" href="/pub/download" class="nav-link px-2 link-body-emphasis">
+							<i class="fa-solid fa-file-arrow-down fa-2xl"></i>&nbsp;
+							파이썬 다운로드 (3.12.3)
 						</a>
 					</li>
 					<li>
@@ -56,14 +62,13 @@
 						</a>
 					</li>					
 					<li>
-						<a th:href="@{/pub/download}" href="/pub/download" class="nav-link px-2 link-body-emphasis">
-							<i class="fa-solid fa-file-arrow-down fa-2xl"></i>&nbsp;
-							파이썬 다운로드 (3.12.3)
+						<a href="https://docs.python.org/ko/3" class="nav-link px-2 link-body-emphasis"> 
+							<i class="fa-solid fa-book fa-2xl"></i> &nbsp;파이썬 문서
 						</a>
 					</li>
 					<li>
-						<a href="https://docs.python.org/ko/3" class="nav-link px-2 link-body-emphasis"> 
-							<i class="fa-solid fa-book fa-2xl"></i> &nbsp;파이썬 문서
+						<a th:href="@{/pub/history}" href="/pub/history" class="nav-link px-2 link-body-emphasis">
+							<i class="fa-solid fa-landmark fa-2xl"></i> &nbsp; 파이썬 역사
 						</a>
 					</li>
 					<li>
@@ -73,14 +78,9 @@
 					</li>
 					<li>
 						<a th:href="@{/pub/news}" href="/pub/news" target="_new" class="nav-link px-2 link-body-emphasis">
-							<i class="fa-solid fa-news-paper fa-2xl"></i> &nbsp; 뉴스
+							<i class="bi bi-newspaper fa-2xl"></i> &nbsp; 뉴스
 						</a>
-					</li>
-					<li>
-						<a th:href="@{/pub/history}" href="/pub/history" class="nav-link px-2 link-body-emphasis">
-							<i class="fa-solid fa-landmark fa-2xl"></i> &nbsp; 파이썬 역사
-						</a>
-					</li>
+					</li>					
 				</ul>
 				
 				<div class="col-auto">
@@ -142,9 +142,9 @@
 						<span class="fs-5 fw-semibold"> &nbsp; 메뉴 </span>
 					</a>
 
-					<ul class="nav flex-column nav-tabs nav-pills">
+					<ul class="nav flex-column nav-tabs nav-pills fs-5">
 						<li class="nav-item">
-						  <a class="nav-link active" href="#">Active</a>
+						  <a class="nav-link active" href="#"><i class="bi bi-house-door-fill"></i>&nbsp; Active</a>
 						</li>
 
 						<li class="nav-item">
@@ -209,7 +209,7 @@
 						<span class="fs-5 fw-semibold"> &nbsp; 메뉴 </span>
 					</a>
 
-					<ul class="list-unstyled ps-0">
+					<ul class="list-unstyled ps-0 fs-5 ">
 						<li class="mb-1">
 							<button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse"
 								data-bs-target="#home-collapse" aria-expanded="true">Home
