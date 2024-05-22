@@ -31,152 +31,184 @@
 <body>
 
 	<!--  start of header --> 
-	<div th:replace="~{layout.html :: header}" class="container">
-		
-		<header class="p-2" >
 
-			<div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-				<ul class="nav col-12 col-lg-auto me-lg-auto justify-content-center ">
-					<li>
-						<a href="#" class="nav-link px-2 link-body-emphasis"> 
-							<i class="fa-brands fa-python fa-2xl"></i> &nbsp;Python
-						</a>
-					</li>
-					<li>
-						<a href="#" class="nav-link px-2 link-body-emphasis"> 
-							<i class="fa-solid fa-globe fa-2xl"></i> &nbsp;Overview
-						</a>
-					</li>
-					<li>
-						<a href="#" class="nav-link px-2 link-body-emphasis">
-							<i class="fa-solid fa-warehouse fa-2xl"></i> &nbsp;Inventory
-						</a>
-					</li>
-					<li>
-						<a href="#" class="nav-link px-2 link-body-emphasis">
-							<i class="fa-solid fa-person fa-2xl"></i> &nbsp; Customers
-						</a>
-					</li>
-					<li>
-						<a href="#" class="nav-link px-2 link-body-emphasis">
-							<i class="fa-brands fa-product-hunt fa-2xl"></i> Products
-						</a>
-					</li>
-				</ul>
+	<div th:replace="~{layout.html :: header}" >
 
-				<form>
-					<div class="col-auto">
-						<div class="input-group">
-						  <div class="input-group-prepend">
-							<div class="input-group-text">
-								<i class="fa-solid fa-magnifying-glass fa-xl" ></i>
-							</div>
-						  </div>
-						  <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Search...">
-						  <button type="submit" class="btn btn-primary">검색</button>
-						</div>
-					</div>
-				</form>
+		<!-- Message -->
+		<nav class="navbar navbar-expand-lg navbar-light" >
 
-				<div>
-					&nbsp;&nbsp;
-					<button type="button" class="btn btn-primary">Login</button>
-					<button type="button" class="btn btn-warning">Sign-up</button>
-					&nbsp;&nbsp;
-				</div>
-
-				<div class="dropdown text-end">
-					<a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-						<img src="rsc/img/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
-					</a>
-					<ul class="dropdown-menu text-small">
-						<li><a class="dropdown-item" href="#">New project...</a></li>
-						<li><a class="dropdown-item" href="#">Settings</a></li>
-						<li>
-							<a class="dropdown-item" href="#">
-								<span th:text="${session.loginUserName}"></span> Profile
-							</a>
-						</li>
-						<li><hr class="dropdown-divider"></li>
-						<li><a class="dropdown-item" href="logout.html" th:href="@{/logout}" >Sign out</a></li>
-					</ul>
-				</div>
+			<div class="container-fluid">
+				<marquee width="100%" direction="left" >
+					파이썬은 행복한 언어입니다. 파이썬 코리아는 파이썬 커뮤니티와 개발자들을 지원합니다.
+				</marquee>
 			</div>
 
-		</header>
+		</nav>
+		<!-- end of message -->
+
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+			<!-- Container wrapper -->
+			<div class="container-fluid">
+
+				<!-- Toggle button -->
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<i class="fas fa-bars"></i>
+				</button>
+		
+				<!-- Collapsible wrapper -->
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<!-- Navbar brand -->
+					<a class="navbar-brand mt-2 mt-lg-0" th:href="@{/}" href="/" >
+						&nbsp;<i class="fa-brands fa-python fa-2xl" style="color:darkolivegreen"></i>
+						&nbsp;파이썬 코리아
+					</a>
+
+					<!-- Left links -->
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0 text-nowrap">
+						<li>
+							<a th:href="@{/pub/download}" href="/pub/download" class="nav-link px-2 link-body-emphasis">
+								<i class="fa-solid fa-file-arrow-down fa-xl"></i>&nbsp;
+								파이썬 다운로드 (3.12.3)
+							</a>
+						</li>
+						<li>
+							<a th:href="@{/pub/intro}" href="/pub/intro" class="nav-link px-2 link-body-emphasis"> 
+								<i class="fa-brands fa-python fa-xl"></i> &nbsp;파이썬 소개
+							</a>
+						</li>					
+						<li>
+							<a href="https://docs.python.org/ko/3" class="nav-link px-2 link-body-emphasis"> 
+								<i class="fa-solid fa-book fa-xl"></i> &nbsp;파이썬 문서
+							</a>
+						</li>
+						<li>
+							<a th:href="@{/pub/history}" href="/pub/history" class="nav-link px-2 link-body-emphasis">
+								<i class="fa-solid fa-landmark fa-xl"></i> &nbsp; 파이썬 역사
+							</a>
+						</li>
+						<li>
+							<a href="https://pypi.org" target="_new" class="nav-link px-2 link-body-emphasis">
+								<i class="fa-solid fa-box-open fa-xl"></i> &nbsp;패키지 검색
+							</a>
+						</li>
+						<li>
+							<a th:href="@{/pub/news}" href="/pub/news" target="_new" class="nav-link px-2 link-body-emphasis">
+								<i class="bi bi-newspaper fa-xl"></i> &nbsp; 뉴스
+							</a>
+						</li>
+					</ul>
+				<!-- Left links -->
+				</div>
+				<!-- Collapsible wrapper -->
+		
+				<!-- Right elements -->
+				<div class="d-flex align-items-center">
+					
+					<div class="col-auto">
+						<form>
+							<div class="input-group input-group-sm ">
+								&nbsp;&nbsp;						
+								<div class="input-group-prepend">
+								<div class="input-group-text">
+									<i class="fa-solid fa-magnifying-glass fa-xl" ></i>
+								</div>
+								</div>
+								<input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Search...">
+								<button type="submit" class="btn btn-primary">검색</button>
+							</div>
+						</form>
+					</div>
+
+					<div class="col-auto">
+						&nbsp;
+						<button type="button" class="btn btn-sm btn-primary">Login</button>
+						<button type="button" class="btn btn-sm btn-warning">Sign-up</button>
+						&nbsp;&nbsp;
+					</div>
+
+					<div class="col-auto dropdown text-end">
+						<a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+							<img src="rsc/img/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+						</a>
+						<ul class="dropdown-menu text-small">
+							<li><a class="dropdown-item" href="#">New project...</a></li>
+							<li><a class="dropdown-item" href="#">Settings</a></li>
+							<li>
+								<a class="dropdown-item" href="#">
+									<span th:text="${session.loginUserName}"></span> Profile
+								</a>
+							</li>
+							<li><hr class="dropdown-divider"></li>
+							<li><a class="dropdown-item" href="logout.html" th:href="@{/logout}" >Sign out</a></li>
+						</ul>
+					</div>
+				</div>
+				<!-- Right elements -->
+			</div>
+			<!-- Container wrapper -->
+			
+		</nav>
+		<!-- Navbar -->
 	</div>
+	
 	<!-- end of header -->
 
 	<div class="container-fluid border-top border-bottom">
 
 		<div class="row">
 
-			<!--  side bar -->
+			<!--  side bar left -->
 			<nav th:replace="~{layout.html :: sidebarLeft}" id="sidebarLeft" class="col-2 d-md-block bg-body-tertiary sidebar collapse">
-				<div class="position-sticky pt-3 sidebar-sticky">
 
+				<div class="position-sticky pt-3 sidebar-sticky">
+					
 					<a href="#" class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom">
 						<i class="fa-brands fa-python fa-xl" style="color: Dodgerblue;"></i>
 						<span class="fs-5 fw-semibold"> &nbsp; 메뉴 </span>
 					</a>
 
-					<ul class="list-unstyled ps-0">
-						<li class="mb-1">
-							<button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse"
-								data-bs-target="#home-collapse" aria-expanded="true">Home</button>
-							<div class="collapse show" id="home-collapse" style="">
-								<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-									<li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Overview</a></li>
-									<li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Updates</a></li>
-									<li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Reports</a></li>
-								</ul>
-							</div>
+					<ul class="nav flex-column nav-tabs nav-pills fs-5">
+						<li class="nav-item">
+						  <a class="nav-link active" href="#"><i class="bi bi-house-door-fill"></i>&nbsp; Active</a>
 						</li>
-						<li class="mb-1">
-							<button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse"
-								data-bs-target="#dashboard-collapse" aria-expanded="true">Dashboard</button>
-							<div class="collapse show" id="dashboard-collapse" style="">
-								<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-									<li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Overview</a></li>
-									<li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Weekly</a></li>
-									<li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Monthly</a></li>
-									<li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Annually</a></li>
+
+						<li class="nav-item">
+							<button class="nav-link btn align-items-center rounded border-0 dropdown-toggle" data-bs-toggle="collapse"
+								data-bs-target="#home-collapse" aria-expanded="true">
+								Home
+							</button>
+							<div class="collapse show" id="home-collapse">
+								<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ">
+									<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="text-decoration-none">Overview</a></li>
+									<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="text-decoration-none">Updates</a></li>
+									<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="text-decoration-none">Reports</a></li>
 								</ul>
 							</div>
+						</li> 
+						
+						<li class="nav-item">
+						  <a class="nav-link " href="#">Link</a>
+						</li>  
+
+						<li class="nav-item">
+						  <a class="nav-link" href="#">Link</a>
 						</li>
-						<li class="mb-1">
-							<button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse"
-								data-bs-target="#orders-collapse" aria-expanded="true">Orders</button>
-							<div class="collapse show" id="orders-collapse" style="">
-								<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-									<li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">New</a></li>
-									<li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Processed</a></li>
-									<li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Shipped</a></li>
-									<li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Returned</a></li>
-								</ul>
-							</div>
-						</li>
-						<li class="border-top my-3"></li>
-						<li class="mb-1">
-							<button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse"
-								data-bs-target="#account-collapse" aria-expanded="true">Account</button>
-							<div class="collapse show" id="account-collapse" style="">
-								<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-									<li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">New...</a></li>
-									<li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Profile</a></li>
-									<li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Settings</a></li>
-									<li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Sign out</a></li>
-								</ul>
-							</div>
+
+						<li class="nav-item">
+						  <a class="nav-link disabled" href="#">Disabled</a>
 						</li>
 					</ul>
+
 				</div>
+
 			</nav>
-			<!-- // side bar -->
+			<!-- // side bar left -->
 
 			<!-- main contents -->
 
-			<main class="col-8 px-md-4">
+			<main class="col-8">
+
 				<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
 					<h1 class="h2">Index Dashboard</h1> 
 				</div>
@@ -288,15 +320,16 @@
 						<span class="fs-5 fw-semibold"> &nbsp; 메뉴 </span>
 					</a>
 
-					<ul class="list-unstyled ps-0">
+					<ul class="list-unstyled ps-0 fs-5 ">
 						<li class="mb-1">
 							<button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse"
-								data-bs-target="#home-collapse" aria-expanded="true">Home</button>
+								data-bs-target="#home-collapse" aria-expanded="true">Home
+							</button>
 							<div class="collapse show" id="home-collapse">
 								<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-									<li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Overview</a></li>
-									<li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Updates</a></li>
-									<li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Reports</a></li>
+									<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Overview</a></li>
+									<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Updates</a></li>
+									<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Reports</a></li>
 								</ul>
 							</div>
 						</li> 
@@ -307,15 +340,15 @@
 								data-bs-target="#account-collapse" aria-expanded="true">Account</button>
 							<div class="collapse show" id="account-collapse">
 								<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-									<li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">New...</a></li>
-									<li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Profile</a></li>
-									<li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Settings</a></li>
-									<li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Sign out</a></li>
+									<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="link-dark d-inline-flex text-decoration-none rounded">New...</a></li>
+									<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Profile</a></li>
+									<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Settings</a></li> 
 								</ul>
 							</div>
-						</li>
+						</li> 
 					</ul>
 				</div>
+				
 			</nav>
 			<!-- // side bar right-->
 
@@ -323,45 +356,84 @@
 
 	</div>
 
-	<!-- footer -->
-	<div th:replace="~{layout.html :: footer}" class="container mt-2 p-0"> 
+	<!-- Footer -->
+	<footer th:replace="~{layout.html :: footer}" class="text-center text-lg-start bg-light text-muted">
 
-		<footer class="d-flex flex-wrap justify-content-between align-items-center">
-			
-			<div class="col-md-4 d-flex align-items-center">
-				<a href="#" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
-					<i class="fa-brands fa-python fa-xl" style="color: Mediumslateblue;"></i>
-				</a> <span class="mb-3 mb-md-0 text-body-secondary">© 2024 파이썬 코리아</span>
+		<!-- Section: Social media -->
+		<section class="d-flex justify-content-center p-2 border-bottom">
+			<a class="text-reset" href="https://www.youtube.com/@pythonkorea/videos" target="_new">
+				<i class="fa-brands fa-youtube fa-xl" ></i>
+			</a>
+			&nbsp;&nbsp;
+			<a class="text-reset" href="https://www.facebook.com/groups/python.co.kr" target="_new">
+				<i class="fa-brands fa-facebook fa-xl"></i>
+			</a>
+		</section>
+		<!-- Section: Social media -->
+	
+		<!-- Section: Links  -->
+		<section class="">
+		<div class="container text-center text-md-start mt-2">
+			<!-- Grid row -->
+			<div class="row mt-3">
+				<!-- Grid column -->
+				<div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+					<h6 class="fw-bold mb-3">
+						<i class="fas fa-gem me-3"></i>파이썬 코리아
+					</h6>
+					<p>
+						파이썬은 행복한 언어입니다.<br/>
+						커뮤니티와 개발자들을 지원합니다.
+					</p>
+				</div>
+				<!-- Grid column -->
+		
+				<!-- Grid column -->
+				<div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4 text-center">
+					<h6 class="text-uppercase fw-bold mb-3">
+						정책
+					</h6>
+					<p>
+						<a th:href="@{/public/privacy.html}" href="./privacy.html" class="text-reset">개인정보 처리방침</a>
+					</p> 
+				</div>
+				<!-- Grid column -->
+		
+				<!-- Grid column -->
+				<div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4  text-center">
+					<h6 class="text-uppercase fw-bold mb-3">
+						약관
+					</h6>
+					<p>
+						<a th:href="@{/public/service.html}" href="./service.html" class="text-reset">이용 약관</a>
+					</p>
+				</div>
+				<!-- Grid column -->
+		
+				<!-- Grid column -->
+				<div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+					<h6 class="text-uppercase fw-bold mb-3">Contact</h6>
+					<p class="text-nowrap">
+						<i class="fas fa-home me-3"></i> 대한민국 경기도 수원시
+					</p>
+					<p class="text-nowrap">
+						<i class="fas fa-envelope me-3"></i> skyslam.kr@gmail.com
+					</p>
+				</div>
+				<!-- Grid column -->
 			</div>
-
-			<div class="col-md-4 d-flex align-items-center d-flex">
-				<ul class="list-unstyled justify-content-center d-flex">
-					<li class="nav-item">
-						<a href="/" class="nav-link px-2 text-body-secondary">홈</a>
-					</li>
-				</ul>
-			</div>
-
-			<div class="col-md-4 justify-content-end d-flex">
-				<ul class="list-unstyled d-flex">
-					<li class="ms-3">
-						<a class="btn btn-sm btn-secondary" href="https://www.youtube.com/@pythonkorea/videos" target="_new">
-							<i class="fa-brands fa-youtube fa-xl" ></i>
-						</a>
-					</li>
-					<li class="ms-3">
-						<a class="btn btn-sm btn-secondary" href="https://www.facebook.com/groups/python.co.kr" target="_new">
-							<i class="fa-brands fa-facebook fa-xl" ></i>
-						</a>
-					</li>
-				</ul>
-			</div> 
-			
-		</footer>
-
-		<br/>
-	</div>
-	<!-- // footer -->
+			<!-- Grid row -->
+		</div>
+		</section>
+		<!-- Section: Links  -->
+	
+		<!-- Copyright -->
+		<div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+			<span class="mb-3 mb-md-0 text-body-secondary"> &nbsp; © 2024 파이썬 코리아</span>
+		</div>
+		<!-- Copyright -->
+	</footer>
+	<!-- Footer -->
 
 	<script>
 	(() => {

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" >
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head th:fragment="head" >
 
@@ -33,107 +33,135 @@
 <body>
 
 	<!--  start of header -->
-	<div class="container" th:fragment="header" >
+		
+	<div th:fragment="header" >
 
-		<header class="p-2" >
+		<!-- Message -->
+		<nav class="navbar navbar-expand-lg navbar-light" >
 
-			<div class="row p-2">
+			<div class="container-fluid">
 				<marquee width="100%" direction="left" >
 					파이썬은 행복한 언어입니다. 파이썬 코리아는 파이썬 커뮤니티와 개발자들을 지원합니다.
 				</marquee>
 			</div>
 
-			<div class="d-flex flex-wrap align-items-center justify-content-center">
-				<ul class="nav col-12 justify-content-center ">
-					<li>
-						<a th:href="@{/}" href="/" class="nav-link px-2 link-body-emphasis"> 
-							<i class="bi bi-house fa-2xl"></i> &nbsp;파이썬 코리아
-						</a>
-					</li>
-					<li>
-						<a th:href="@{/pub/download}" href="/pub/download" class="nav-link px-2 link-body-emphasis">
-							<i class="fa-solid fa-file-arrow-down fa-2xl"></i>&nbsp;
-							파이썬 다운로드 (3.12.3)
-						</a>
-					</li>
-					<li>
-						<a th:href="@{/pub/intro}" href="/pub/intro" class="nav-link px-2 link-body-emphasis"> 
-							<i class="fa-brands fa-python fa-2xl"></i> &nbsp;파이썬 소개
-						</a>
-					</li>					
-					<li>
-						<a href="https://docs.python.org/ko/3" class="nav-link px-2 link-body-emphasis"> 
-							<i class="fa-solid fa-book fa-2xl"></i> &nbsp;파이썬 문서
-						</a>
-					</li>
-					<li>
-						<a th:href="@{/pub/history}" href="/pub/history" class="nav-link px-2 link-body-emphasis">
-							<i class="fa-solid fa-landmark fa-2xl"></i> &nbsp; 파이썬 역사
-						</a>
-					</li>
-					<li>
-						<a href="https://pypi.org" target="_new" class="nav-link px-2 link-body-emphasis">
-							<i class="fa-solid fa-box-open fa-2xl"></i> &nbsp;패키지 검색
-						</a>
-					</li>
-					<li>
-						<a th:href="@{/pub/news}" href="/pub/news" target="_new" class="nav-link px-2 link-body-emphasis">
-							<i class="bi bi-newspaper fa-2xl"></i> &nbsp; 뉴스
-						</a>
-					</li>					
-				</ul>
-				
-				<div class="col-auto">
-					<form>
-						<div class="input-group">
-							&nbsp;&nbsp;						
-							<div class="input-group-prepend">
-							<div class="input-group-text">
-								<i class="fa-solid fa-magnifying-glass fa-xl" ></i>
-							</div>
-							</div>
-							<input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Search...">
-							<button type="submit" class="btn btn-primary">검색</button>
-						</div>
-					</form>
-				</div>
+		</nav>
+		<!-- end of message -->
 
-				<div class="col-auto">
-					&nbsp;&nbsp;
-					<button type="button" class="btn btn-primary">Login</button>
-					<button type="button" class="btn btn-warning">Sign-up</button>
-					&nbsp;&nbsp;
-				</div>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-				<div class="col-auto dropdown text-end">
-					<a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-						<img src="rsc/img/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+			<!-- Container wrapper -->
+			<div class="container-fluid">
+
+				<!-- Toggle button -->
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<i class="fas fa-bars"></i>
+				</button>
+		
+				<!-- Collapsible wrapper -->
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<!-- Navbar brand -->
+					<a class="navbar-brand mt-2 mt-lg-0 text-muted" th:href="@{/}" href="/" >
+						&nbsp;<i class="fa-brands fa-python fa-2xl" style="color:darkolivegreen"></i>
+						&nbsp;파이썬 코리아
 					</a>
-					<ul class="dropdown-menu text-small">
-						<li><a class="dropdown-item" href="#">New project...</a></li>
-						<li><a class="dropdown-item" href="#">Settings</a></li>
+
+					<!-- Left links -->
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0 text-nowrap text-muted">
 						<li>
-							<a class="dropdown-item" href="#">
-								<span th:text="${session.loginUserName}"></span> Profile
+							<a th:href="@{/pub/download}" href="/pub/download" class="nav-link px-2 link-body-emphasis">
+								<i class="fa-solid fa-file-arrow-down fa-xl"></i>&nbsp;
+								파이썬 다운로드 (3.12.3)
 							</a>
 						</li>
-						<li><hr class="dropdown-divider"></li>
-						<li><a class="dropdown-item" href="logout.html" th:href="@{/logout}" >Sign out</a></li>
+						<li>
+							<a th:href="@{/pub/intro}" href="/pub/intro" class="nav-link px-2 link-body-emphasis"> 
+								<i class="fa-brands fa-python fa-xl"></i> &nbsp;파이썬 소개
+							</a>
+						</li>					
+						<li>
+							<a href="https://docs.python.org/ko/3" class="nav-link px-2 link-body-emphasis"> 
+								<i class="fa-solid fa-book fa-xl"></i> &nbsp;파이썬 문서
+							</a>
+						</li>
+						<li>
+							<a th:href="@{/pub/history}" href="/pub/history" class="nav-link px-2 link-body-emphasis">
+								<i class="fa-solid fa-landmark fa-xl"></i> &nbsp; 파이썬 역사
+							</a>
+						</li>
+						<li>
+							<a href="https://pypi.org" target="_new" class="nav-link px-2 link-body-emphasis">
+								<i class="fa-solid fa-box-open fa-xl"></i> &nbsp;패키지 검색
+							</a>
+						</li>
+						<li>
+							<a th:href="@{/pub/news}" href="/pub/news" target="_new" class="nav-link px-2 link-body-emphasis">
+								<i class="bi bi-newspaper fa-xl"></i> &nbsp; 뉴스
+							</a>
+						</li>
 					</ul>
+				<!-- Left links -->
 				</div>
+				<!-- Collapsible wrapper -->
+		
+				<!-- Right elements -->
+				<div class="d-flex align-items-center">
+					
+					<div class="col-auto">
+						<form>
+							<div class="input-group input-group-sm ">
+								&nbsp;&nbsp;						
+								<div class="input-group-prepend">
+								<div class="input-group-text">
+									<i class="fa-solid fa-magnifying-glass fa-xl" ></i>
+								</div>
+								</div>
+								<input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Search...">
+								<button type="submit" class="btn btn-primary">검색</button>
+							</div>
+						</form>
+					</div>
+
+					<div class="col-auto">
+						&nbsp;
+						<button type="button" class="btn btn-sm btn-primary">Login</button>
+						<button type="button" class="btn btn-sm btn-warning">Sign-up</button>
+						&nbsp;&nbsp;
+					</div>
+
+					<div class="col-auto dropdown text-end">
+						<a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+							<img src="rsc/img/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+						</a>
+						<ul class="dropdown-menu text-small">
+							<li><a class="dropdown-item" href="#">New project...</a></li>
+							<li><a class="dropdown-item" href="#">Settings</a></li>
+							<li>
+								<a class="dropdown-item" href="#">
+									<span th:text="${session.loginUserName}"></span> Profile
+								</a>
+							</li>
+							<li><hr class="dropdown-divider"></li>
+							<li><a class="dropdown-item" href="logout.html" th:href="@{/logout}" >Sign out</a></li>
+						</ul>
+					</div>
+				</div>
+				<!-- Right elements -->
 			</div>
-
-		</header>
-
+			<!-- Container wrapper -->
+			
+		</nav>
+		<!-- Navbar -->
 	</div>
-	<!-- end of header -->
 
-	<div class="container-fluid border-top border-bottom">
+	<!-- Header -->
+
+	<div class="container-fluid border-top border-bottom" style="height: 70vh;">
 
 		<div class="row">
 
 			<!--  side bar left -->
-			<nav th:fragment="sidebarLeft" id="sidebarLeft" class="col-2 d-md-block bg-body-tertiary sidebar collapse">
+			<nav th:fragment="sidebarLeft" id="sidebarLeft" class="col-2 d-md-block sidebar collapse"  >
 
 				<div class="position-sticky pt-3 sidebar-sticky">
 					
@@ -142,7 +170,7 @@
 						<span class="fs-5 fw-semibold"> &nbsp; 메뉴 </span>
 					</a>
 
-					<ul class="nav flex-column nav-tabs nav-pills fs-5">
+					<ul class="nav flex-column nav-tabs nav-pills fs-5 text-nowrap">
 						<li class="nav-item">
 						  <a class="nav-link active" href="#"><i class="bi bi-house-door-fill"></i>&nbsp; Active</a>
 						</li>
@@ -175,12 +203,13 @@
 					</ul>
 
 				</div>
+
 			</nav>
 			<!-- // side bar left-->
 
 			<!-- main contents -->
 
-			<main class="col-8">
+			<main class="col-8" >
 				<h2>Main Contents</h2> 
 
 				<div class="dropdown">
@@ -209,7 +238,7 @@
 						<span class="fs-5 fw-semibold"> &nbsp; 메뉴 </span>
 					</a>
 
-					<ul class="list-unstyled ps-0 fs-5 ">
+					<ul class="list-unstyled ps-0 fs-5 text-nowrap">
 						<li class="mb-1">
 							<button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse"
 								data-bs-target="#home-collapse" aria-expanded="true">Home
@@ -237,6 +266,7 @@
 						</li> 
 					</ul>
 				</div>
+				
 			</nav>
 			<!-- // side bar right-->
 
@@ -244,50 +274,84 @@
 
 	</div>
 
-	<!-- footer -->
-	<div th:fragment="footer" class="container mt-2 p-0"> 
+	<!-- Footer -->
+	<footer th:fragment="footer" class="text-center text-lg-start bg-light text-muted">
+
+		<!-- Section: Social media -->
+		<section class="d-flex justify-content-center p-2 border-bottom">
+			<a class="text-reset" href="https://www.youtube.com/@pythonkorea/videos" target="_new">
+				<i class="fa-brands fa-youtube fa-xl" ></i>
+			</a>
+			&nbsp;&nbsp;
+			<a class="text-reset" href="https://www.facebook.com/groups/python.co.kr" target="_new">
+				<i class="fa-brands fa-facebook fa-xl"></i>
+			</a>
+		</section>
+		<!-- Section: Social media -->
+	
+		<!-- Section: Links  -->
+		<section class="">
+		<div class="container text-center text-md-start mt-2">
+			<!-- Grid row -->
+			<div class="row mt-3">
+				<!-- Grid column -->
+				<div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+					<h6 class="fw-bold mb-3">
+						<i class="fas fa-gem me-3"></i>파이썬 코리아
+					</h6>
+					<p>
+						파이썬은 행복한 언어입니다.<br/>
+						커뮤니티와 개발자들을 지원합니다.
+					</p>
+				</div>
+				<!-- Grid column -->
 		
-		<footer class="d-flex flex-wrap justify-content-between align-items-center">
-
-			<div class="col-4 d-flex">
-				<a href="#" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
-					<i class="fa-brands fa-python fa-xl" style="color: Mediumslateblue;"></i>
-					<span class="mb-3 mb-md-0 text-body-secondary"> &nbsp; © 2024 파이썬 코리아</span>
-				</a>
+				<!-- Grid column -->
+				<div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4 text-center">
+					<h6 class="text-uppercase fw-bold mb-3">
+						정책
+					</h6>
+					<p>
+						<a th:href="@{/public/privacy.html}" href="./privacy.html" class="text-reset">개인정보 처리방침</a>
+					</p> 
+				</div>
+				<!-- Grid column -->
+		
+				<!-- Grid column -->
+				<div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4  text-center">
+					<h6 class="text-uppercase fw-bold mb-3">
+						약관
+					</h6>
+					<p>
+						<a th:href="@{/public/service.html}" href="./service.html" class="text-reset">이용 약관</a>
+					</p>
+				</div>
+				<!-- Grid column -->
+		
+				<!-- Grid column -->
+				<div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+					<h6 class="text-uppercase fw-bold mb-3">Contact</h6>
+					<p class="text-nowrap">
+						<i class="fas fa-home me-3"></i> 대한민국 경기도 수원시
+					</p>
+					<p class="text-nowrap">
+						<i class="fas fa-envelope me-3"></i> skyslam.kr@gmail.com
+					</p>
+				</div>
+				<!-- Grid column -->
 			</div>
-
-			<div class="col-4 d-flex">
-				<ul class="list-unstyled justify-content-center d-flex">
-					<li class="nav-item">
-						<a href="/" class="nav-link px-2 text-body-secondary">이용약관</a>
-					</li>
-					<li class="nav-item">
-						<a href="/" class="nav-link px-2 text-body-secondary">개인정보처리방침</a>
-					</li>
-				</ul>
-			</div>
-
-			<div class="col-4justify-content-end">
-				<ul class="list-unstyled d-flex">
-					<li class="">
-						<a class="btn btn-sm btn-secondary" href="https://www.youtube.com/@pythonkorea/videos" target="_new">
-							<i class="fa-brands fa-youtube fa-xl" ></i>
-						</a>
-					</li>
-					&nbsp;&nbsp;
-					<li class="">
-						<a class="btn btn-sm btn-secondary" href="https://www.facebook.com/groups/python.co.kr" target="_new">
-							<i class="fa-brands fa-facebook fa-xl" ></i>
-						</a>
-					</li>
-				</ul>
-			</div>
-
-		</footer>
-
-		<br/>
-	</div>
-	<!-- // footer -->
+			<!-- Grid row -->
+		</div>
+		</section>
+		<!-- Section: Links  -->
+	
+		<!-- Copyright -->
+		<div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+			<span class="mb-3 mb-md-0 text-body-secondary"> &nbsp; © 2024 파이썬 코리아</span>
+		</div>
+		<!-- Copyright -->
+	</footer>
+	<!-- Footer -->
 
 </body>
 
