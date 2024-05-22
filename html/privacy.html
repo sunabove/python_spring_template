@@ -1,18 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" >
 
-<head th:fragment="head" >
+<head th:replace="~{layout.html :: head}">
 
 	<title th:text="${html.title}"> html.title </title>
 	<base th:href="@{/}">
 	<meta charset="utf-8">
-
-	<meta name="description" content="파이썬 한글 커뮤니티">
-	<meta name="keywords" content="파이썬, 코리아, 파이썬 공부, 파이썬 튜토리얼, python, korea, python tutorial">
-	<meta name="author" content="Python Korea">
-
-	<link rel="icon" type="image/x-icon" href="./rsc/img/favicon.ico" th:href="@{/rsc/img/favicon.ico}"/>
-
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
@@ -22,19 +15,24 @@
 	<script src="https://use.fontawesome.com/releases/v6.5.2/js/all.js" crossorigin="anonymous"></script>
 	<script src="https://kit.fontawesome.com/fb6a9a8bef.js" crossorigin="anonymous"></script>
 
+	<!-- Google fonts-->
+	<link rel="preconnect" href="https://fonts.gstatic.com" />
+	<link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&amp;display=swap" rel="stylesheet" />
+
 	<link th:href="@{/rsc/css/python.css}" href="rsc/css/python.css" rel="stylesheet" />
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/chart.js@4.1.2/dist/chart.umd.min.js"></script>
 
-</head>
+</head> 
 
 <body>
 
-	<!--  start of header -->
-		
-	<div th:fragment="header" >
+	<!--  start of header --> 
+
+	<div th:replace="~{layout.html :: header}" >
 
 		<!-- Message -->
 		<nav class="navbar navbar-expand-lg navbar-light" >
@@ -61,13 +59,13 @@
 				<!-- Collapsible wrapper -->
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<!-- Navbar brand -->
-					<a class="navbar-brand mt-2 mt-lg-0 text-muted" th:href="@{/}" href="/" >
+					<a class="navbar-brand mt-2 mt-lg-0" th:href="@{/}" href="/" >
 						&nbsp;<i class="fa-brands fa-python fa-2xl" style="color:darkolivegreen"></i>
 						&nbsp;파이썬 코리아
 					</a>
-
+					
 					<!-- Left links -->
-					<ul class="navbar-nav me-auto mb-2 mb-lg-0 text-nowrap text-muted">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0 text-nowrap">
 						<li>
 							<a th:href="@{/pub/download}" href="/pub/download" class="nav-link px-2 link-body-emphasis">
 								<i class="fa-solid fa-file-arrow-down fa-xl"></i>&nbsp;
@@ -153,16 +151,15 @@
 		</nav>
 		<!-- Navbar -->
 	</div>
+	
+	<!-- end of header -->
 
-	<!-- Header -->
-
-	<div class="container-fluid border-top border-bottom" style="height: 70vh;">
+	<div class="container-fluid border-top border-bottom">
 
 		<div class="row">
 
 			<!--  side bar left -->
-
-			<nav th:fragment="sidebarLeft" id="sidebarLeft" class="col-2 d-md-block bg-body-tertiary sidebar collapse">
+			<nav th:replace="~{layout.html :: sidebarLeft}" id="sidebarLeft" class="col-2 d-md-block bg-body-tertiary sidebar collapse">
 
 				<div class="position-sticky pt-3 sidebar-sticky">
 					
@@ -171,7 +168,7 @@
 						<span class="fs-5 fw-semibold"> &nbsp; 메뉴 </span>
 					</a>
 
-					<ul class="nav flex-column nav-tabs nav-pills fs-5 text-nowrap">
+					<ul class="nav flex-column nav-tabs nav-pills fs-5">
 						<li class="nav-item">
 						  <a class="nav-link active" href="#"><i class="bi bi-house-door-fill"></i>&nbsp; Active</a>
 						</li>
@@ -206,31 +203,227 @@
 				</div>
 
 			</nav>
-			<!-- // side bar left-->
+			<!-- // side bar left -->
 
 			<!-- main contents -->
 
-			<main class="col-8 " >
-				<h2>Main Contents</h2> 
+			<main class="col-8 p-3">
 
-				<div class="dropdown">
-					<a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					  Dropdown link
-					</a>
-				  
-					<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-					  <a class="dropdown-item" href="#">Action</a>
-					  <a class="dropdown-item" href="#">Another action</a>
-					  <a class="dropdown-item" href="#">Something else here</a>
-					</div>
-				</div>
+				<br/>
+
+				<h3>개인정보 보호처리방침</h3>
+
+				<br/>
+
+				<h5>
+					[파이썬 코리아](이하 '사이트'라 합니다)는 이용자의 개인정보를 중요시하며, "개인정보 보호법" 및 "정보통신망 이용촉진 및 정보보호 등에 관한 법률"을 준수하고 있습니다.
+				</h5>
+
+				<br/>
+
+				<h5>
+					이 사이트는 개인정보 보호처리방침을 통하여 이용자가 제공하는 개인정보가 어떠한 용도와 방식으로 이용되고 있으며, 개인정보 보호를 위해 어떠한 조치가 취해지고 있는지 알려드립니다.
+				</h5>
+
+				<br/>
+
+				<h5>1. 개인정보의 수집 항목 및 수집 방법</h5>
+
+				<br/>
+
+				<h5>1.1. 수집 항목</h5>
+
+				<br/>
+
+				<h5>
+					<ul>
+						<li>필수 항목: 이름, 이메일 주소, 비밀번호, 전화번호</li>
+						<li>선택 항목: 생년월일, 성별, 주소, 결제 정보 등</li>
+					</ul>
+				</h5>
+
+				<br/>
+
+				<h5>1.2. 수집 방법</h5>
+
+				<br/>
+
+				<h5>
+					<ul>
+						<li>회원가입, 서비스 이용, 이벤트 응모, 고객 상담, 제휴사로부터의 제공 등</li>
+					</ul>
+				</h5>
+
+				<br/>
+
+				<h5>2. 개인정보의 수집 및 이용 목적</h5>
+
+				<br/>
+
+				<h5>사이트는 수집한 개인정보를 다음의 목적을 위해 사용합니다.</h5>
+
+				<br/>
+
+				<h5>
+					<ul>
+						<li>서비스 제공 및 회원 관리</li>
+						<li>서비스 개선 및 신규 서비스 개발</li>
+						<li>마케팅 및 광고에의 활용</li>
+						<li>고객 문의 및 불만 처리</li>
+					</ul>
+				</h5>
+
+				<br/>
+
+				<h5>3. 개인정보의 보유 및 이용 기간</h5>
+
+				<br/>
+
+				<h5>
+					개인정보는 수집 및 이용 목적이 달성된 후에는 해당 정보를 지체 없이 파기합니다.
+				</h5>
+				<h5>
+					단, 다음의 정보에 대해서는 아래의 이유로 명시한 기간 동안 보존합니다.
+				</h5>
+
+				<br/>
+
+				<h5>
+					<ul>
+						<li>회원 탈퇴 시 보존 개인정보: 이름, 이메일 주소, 전화번호 (보존 이유: 회원 탈퇴 후 고객 문의 대응)</li>
+						<li>보존 기간: 1년</li>
+					</ul>
+				</h5>
+
+				<br/>
+
+				<h5>4. 개인정보의 파기 절차 및 방법</h5>
+
+				<br/>
+
+				<h5>4.1. 파기 절차</h5>
+
+				<br/>
+
+				<h5>
+					<ul>
+						<li>
+							이용자가 입력한 정보는 목적 달성 후 별도의 DB로 옮겨져(종이의 경우 별도의 서류함) 내부 방침 및 기타 관련 법령에 따라 일정 기간 저장된 후 파기됩니다.
+						</li>
+					</ul>					
+				</h5>
+
+				<br/>
+
+				<h5>4.2. 파기 방법</h5>
+
+				<br/>
+
+				<h5>
+					<ul>
+						<li>전자적 파일 형태의 정보는 기록을 재생할 수 없는 기술적 방법을 사용하여 삭제합니다.</li>
+						<li>종이에 출력된 개인정보는 분쇄기로 분쇄하거나 소각을 통하여 파기합니다.</li>
+					</ul>
+				</h5>
+
+				<br/>
+
+				<h5>5. 개인정보의 제3자 제공</h5>
+				<br/>
+
+				<h5>
+					사이트는 이용자의 개인정보를 원칙적으로 외부에 제공하지 않습니다.
+				</h5>
+				<h5>
+					다만, 다음의 경우에는 예외로 합니다.
+				</h5>
+
+				<br/>
+
+				<h5>
+					<ul>
+						<li>이용자가 사전에 동의한 경우</li>
+						<li>
+							법령의 규정에 의거하거나, 수사 목적으로 법령에 정해진 절차와 방법에 따라 수사기관의 요구가 있는 경우
+						</li>
+					</ul>
+				</h5>
+
+				<br/>
+
+				<h5>6. 이용자의 권리와 그 행사 방법</h5>
+
+				<br/>
+
+				<h5>
+					이용자는 언제든지 등록된 자신의 개인정보를 조회하거나 수정할 수 있으며, 가입 해지를 요청할 수도 있습니다. 
+					이용자의 개인정보 조회, 수정을 위해서는 '개인정보 변경'을, 가입 해지(동의 철회)를 위해서는 '회원 탈퇴'를 클릭하여 직접 열람, 정정 또는 탈퇴가 가능합니다.
+				</h5>
+
+				<br/>
+
+				<h5>7. 개인정보의 안전성 확보 조치</h5>
+				<br/>
+
+				<h5>
+					사이트는 개인정보보호법 제29조에 따라 다음과 같이 안전성 확보에 필요한 기술적, 관리적 및 물리적 조치를 하고 있습니다.
+				</h5>
+
+				<br/>
+
+				<h5>
+					<ul>
+						<li>개인정보 암호화</li>
+						<li>해킹 등에 대비한 대책</li>
+						<li>개인정보 취급 직원의 최소화 및 교육</li>
+						<li>물리적 접근 제한</li>
+					</ul>
+				</h5>
+
+				<br/>
+
+				<h5>8. 개인정보 보호책임자 및 담당자</h5>
+				
+				<br/>
+
+				<h5>
+					귀하의 개인정보를 보호하고 개인정보와 관련한 불만을 처리하기 위하여 사이트는 개인정보 보호책임자를 두고 있습니다. 개인정보와 관련한 문의사항이 있으시면 아래의 연락처로 문의하시기 바랍니다.
+				</h5>
+
+				<br/>
+
+				<h5>
+					<ul>
+						<li>개인정보 보호책임자: [이름]</li>
+						<li>연락처: [전화번호], [이메일 주소]</li>
+					</ul>
+				</h5>
+
+				<br/>
+
+				<h5>9. 개인정보 처리방침 변경</h5>
+				<br/>
+
+				<h5>
+					이 개인정보 처리방침은 시행일로부터 적용되며, 법령 및 방침에 따른 변경내용의 추가, 삭제 및 정정이 있는 경우에는 변경사항의 시행 7일 전부터 사이트의 공지사항을 통하여 고지할 것입니다.
+				</h5>
+
+				<br/>
+
+				<h5>
+					<ul>
+						<li>공고일자: 2024년 5월 22일</li>
+						<li>시행일자: 2024년 5월 22일</li>
+					</ul>
+				</h5>
+				<h5></h5>
 
 			</main>
 
-			<!-- // main contents --> 
+			<!-- // main contents -->
 
 			<!--  side bar right -->
-			<nav th:fragment="sidebarRight" id="sidebarRight" class="col-2 d-md-block bg-body-tertiary sidebar collapse">
+			<nav th:replace="~{layout.html :: sidebarLeft}" id="sidebarRight" class="col-2 d-md-block bg-body-tertiary sidebar collapse">
 
 				<div class="position-sticky pt-3 sidebar-sticky">
 					
@@ -239,7 +432,7 @@
 						<span class="fs-5 fw-semibold"> &nbsp; 메뉴 </span>
 					</a>
 
-					<ul class="list-unstyled ps-0 fs-5 text-nowrap">
+					<ul class="list-unstyled ps-0 fs-5 ">
 						<li class="mb-1">
 							<button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse"
 								data-bs-target="#home-collapse" aria-expanded="true">Home
@@ -276,7 +469,7 @@
 	</div>
 
 	<!-- Footer -->
-	<footer th:fragment="footer" class="text-center text-lg-start bg-light text-muted">
+	<footer th:replace="~{layout.html :: footer}" class="text-center text-lg-start bg-light text-muted">
 
 		<!-- Section: Social media -->
 		<section class="d-flex justify-content-center p-2 border-bottom">
@@ -354,9 +547,55 @@
 	</footer>
 	<!-- Footer -->
 
-</body>
+	<script>
+	(() => {
+		  // Graphs
+		  const ctx = document.getElementById('myChart')
+		  // eslint-disable-next-line no-unused-vars
+		  const myChart = new Chart(ctx, {
+		    type: 'line',
+		    data: {
+		      labels: [
+		        'Sunday',
+		        'Monday',
+		        'Tuesday',
+		        'Wednesday',
+		        'Thursday',
+		        'Friday',
+		        'Saturday'
+		      ],
+		      datasets: [{
+		        data: [
+		          15339,
+		          21345,
+		          18483,
+		          24003,
+		          23489,
+		          24092,
+		          12034
+		        ],
+		        lineTension: 0,
+		        backgroundColor: 'transparent',
+		        borderColor: '#007bff',
+		        borderWidth: 4,
+		        pointBackgroundColor: '#007bff'
+		      }]
+		    },
+		    options: {
+		      plugins: {
+		        legend: {
+		          display: false
+		        },
+		        tooltip: {
+		          boxPadding: 3
+		        }
+		      }
+		    }
+		  })
+		})()
 
-<script> 
-</script>
+	</script>
+
+</body>
 
 </html>
