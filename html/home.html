@@ -11,6 +11,9 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 
+	<link rel="stylesheet" th:href="@{/rsc/css/python.css}" href="rsc/css/python.css" />
+	<link rel="stylesheet" th:href="@{/rsc/css/sidebars.css}" href="./rsc/css/sidebars.css" />
+
 	<!-- Font Awesome icons (free version)-->
 	<script src="https://use.fontawesome.com/releases/v6.5.2/js/all.js" crossorigin="anonymous"></script>
 	<script src="https://kit.fontawesome.com/fb6a9a8bef.js" crossorigin="anonymous"></script>
@@ -19,8 +22,6 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" />
 	<link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet" />
 	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&amp;display=swap" rel="stylesheet" />
-
-	<link th:href="@{/rsc/css/python.css}" href="rsc/css/python.css" rel="stylesheet" />
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -161,43 +162,60 @@
 			<!--  side bar left -->
 			<nav th:replace="~{layout.html :: sidebarLeft}" id="sidebarLeft" class="col-2 d-md-block bg-body-tertiary sidebar collapse">
 
-				<div class="position-sticky pt-3 sidebar-sticky">
-					
-					<a href="#" class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom">
-						<i class="fa-brands fa-python fa-xl" style="color: Dodgerblue;"></i>
-						<span class="fs-5 fw-semibold"> &nbsp; 메뉴 </span>
-					</a>
+				<div class="position-sticky sidebar-sticky">
 
-					<ul class="nav flex-column nav-tabs nav-pills fs-5">
-						<li class="nav-item">
-						  <a class="nav-link active" href="#"><i class="bi bi-house-door-fill"></i>&nbsp; Active</a>
-						</li>
+					<ul class="nav flex-column nav-tabs nav-pills text-nowrap list-unstyled ps-0 mt-2">
 
-						<li class="nav-item">
-							<button class="nav-link btn align-items-center rounded border-0 dropdown-toggle" data-bs-toggle="collapse"
-								data-bs-target="#home-collapse" aria-expanded="true">
-								Home
-							</button>
-							<div class="collapse show" id="home-collapse">
-								<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ">
-									<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="text-decoration-none">Overview</a></li>
-									<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="text-decoration-none">Updates</a></li>
-									<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="text-decoration-none">Reports</a></li>
+						<li class="mb-1">
+							<a class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#python_download" aria-expanded="false" >
+								파이썬 다운로드
+							</a> 
+							<div class="collapse" id="python_download">
+								<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+									<li class="mt-2"><a th:href="@{pub/download}" href="#" class="link-dark rounded text-decoration-none">파이썬 3.12.3</a></li>
 								</ul>
 							</div>
-						</li> 
-						
-						<li class="nav-item">
-						  <a class="nav-link " href="#">Link</a>
-						</li>  
-
-						<li class="nav-item">
-						  <a class="nav-link" href="#">Link</a>
 						</li>
 
-						<li class="nav-item">
-						  <a class="nav-link disabled" href="#">Disabled</a>
+						<li class="mb-1">
+							<a class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+								data-bs-target="#python_overview" aria-expanded="false">
+								파이썬 소개
+							</a>
+							<div class="collapse" id="python_overview">
+								<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+
+									<li class="mt-2"><a th:href="@{/pub/intro}" href="#" class="link-dark rounded text-decoration-none">파이썬 소개</a></li>
+									<li><a th:href="@{/pub/history}" href="#" class="link-dark rounded text-decoration-none">파이썬 역사</a></li>
+									
+									<hr/>
+
+									<li><a href="https://docs.python.org/ko/3/tutorial/index.html" target="_new" class="link-dark rounded text-decoration-none">파이썬 자습서</a></li> 
+									<li><a href="https://docs.python.org/ko/3/reference/index.html" target="_new" class="link-dark rounded text-decoration-none">파이썬 레퍼런스</a></li> 
+									<li><a href="https://docs.python.org/ko/3/library/index.html" target="_new" class="link-dark rounded text-decoration-none">파이썬 표준 라이브러리</a></li>
+									
+									<hr/>
+									
+									<li><a href="https://docs.python.org/ko/3/using/index.html" target="_new" class="link-dark rounded text-decoration-none">파이썬 설치 및 사용법</a></li> 
+									<li><a href="https://docs.python.org/ko/3/glossary.html" target="_new" class="link-dark rounded text-decoration-none">파이썬 용어집</a></li> 
+								</ul>
+							</div>
 						</li>
+
+						<li class="mb-1">
+							<a class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+								data-bs-target="#python_news" aria-expanded="false">
+								파이썬 뉴스
+							</a>
+							<div class="collapse" id="python_news">
+								<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+									<li><a th:href="@{/pub/news}" href="#" class="link-dark rounded text-decoration-none">파이썬 뉴스</a></li> 
+								</ul>
+							</div>
+						</li>
+
+						<li class="border-top my-3"></li> 
+
 					</ul>
 
 				</div>
@@ -207,50 +225,78 @@
 
 			<!-- main contents -->
 
-			<main class="col-8 mb-5 mt-2" style="height: 100vh;">
+			<main class="col-8 mb-5 mt-4" style="height: 100vh;">
 
-				<h1 class="h2">Index Dashboard</h1>
+				<h1 class="h2"> 파이썬 홈 </h1> 
 
-				<div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+				<div id="mainSlider" class="carousel carousel-dark slide mt-4 border border-secondary" data-bs-ride="carousel">
 					
 					<div class="carousel-indicators">
-						<button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-						<button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-						<button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+						<button type="button" data-bs-target="#mainSlider" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1" 
+							style="border-radius:50%; width:20px; height:20px; background-color:chocolate;" ></button>
+						<button type="button" data-bs-target="#mainSlider" data-bs-slide-to="1" aria-label="Slide 2" 
+							style="border-radius:50%; width:20px; height:20px; background-color:chocolate;"></button>
+						<button type="button" data-bs-target="#mainSlider" data-bs-slide-to="2" aria-label="Slide 3" 
+							style="border-radius:50%; width:20px; height:20px; background-color:chocolate;"></button>
 					</div>
 
 					<div class="carousel-inner">
-						<div class="carousel-item active" data-bs-interval="3000">
-							<img src="https://www.w3schools.com/bootstrap/la.jpg" class="d-block w-100" alt="...">
-							<div class="carousel-caption d-none d-md-block">
-								<h5>First slide label</h5>
-								<p>Some representative placeholder content for the first slide.</p>
+						<div class="carousel-item active" data-bs-interval="10000">
+							<a href="https://www.eswcontest.or.kr/main.php" >
+								<img th:src="@{/rsc/data/img/24-05-21-01_embeded_contest.png}" 
+									src="./rsc/data/img/24-05-21-01_embeded_contest.png" 
+									class="d-block w-100" alt="제 22회 임베디드 소프트웨어 경진대회"
+								>
+							</a>
+
+							<div class="carousel-caption d-none d-md-block" style="color:orange;" >
+								<h5> </h5>
+								<p> </p>
 							</div>
 						</div>
-						<div class="carousel-item" data-bs-interval="3000">
-							<img src="https://www.w3schools.com/bootstrap/chicago.jpg" class="d-block w-100" alt="...">
-							<div class="carousel-caption d-none d-md-block">
-								<h5>Second slide label</h5>
-								<p>Some representative placeholder content for the second slide.</p>
+
+						<div class="carousel-item" data-bs-interval="5000">
+							<a href="https://dacon.io/competitions/official/236255/overview/description">
+								<img th:src="@{/rsc/data/img/24-05-21-02_daegu_contest.png}" 
+									src="./rsc/data/img/24-05-21-02_daegu_contest.png" 
+									class="d-block w-100" alt="대구광역시 공공데이터 활용 창업경진대회"
+								>
+							</a>
+							<div class="carousel-caption d-none d-md-block" style="color:orange;" >
+								<h5> </h5>
+								<p> </p>
 							</div>
 						</div>
-						<div class="carousel-item" data-bs-interval="3000">
-							<img src="https://www.w3schools.com/bootstrap/ny.jpg" class="d-block w-100" alt="...">
-							<div class="carousel-caption d-none d-md-block">
-								<h5>Third slide label</h5>
-								<p>Some representative placeholder content for the third slide.</p>
+
+						<div class="carousel-item" data-bs-interval="5000">
+							<a href="https://dacon.io/competitions/official/236255/overview/description">
+								<img th:src="@{/rsc/data/img/24-05-21-03_daegu_contest.png}" 
+									src="./rsc/data/img/24-05-21-03_daegu_contest.png" 
+									class="d-block w-100" alt="대구광역시 공공데이터 활용 창업경진대회"
+								>
+							</a>
+							<div class="carousel-caption d-none d-md-block" style="color:orange;" >
+								<h5> </h5>
+								<p> </p>
 							</div>
-						</div>
+						</div> 
+
 					</div>
 
-					<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+					<!-- Prev and Next buttons -->
+					<!--
+					<button class="carousel-control-prev" type="button" data-bs-target="#mainSlider" data-bs-slide="prev">
 						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-						<span class="visually-hidden">Previous</span>
+						<span class="visually-hidden"  style="color:orange;" >Previous</span>
 					</button>
-					<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+
+					<button class="carousel-control-next" type="button" data-bs-target="#mainSlider" data-bs-slide="next">
 						<span class="carousel-control-next-icon" aria-hidden="true"></span>
-						<span class="visually-hidden">Next</span>
+						<span class="visually-hidden"  style="color:orange;" >Next</span>
 					</button>
+					-->
+					<!-- // Prev and Next buttons -->
+
 				</div>
 				 
 			</main>
@@ -262,38 +308,8 @@
 
 				<div class="position-sticky pt-3 sidebar-sticky">
 					
-					<a href="#" class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom">
-						<i class="fa-brands fa-python fa-xl" style="color: Dodgerblue;"></i>
-						<span class="fs-5 fw-semibold"> &nbsp; 메뉴 </span>
-					</a>
+					<!-- ad -->
 
-					<ul class="list-unstyled ps-0 fs-5 ">
-						<li class="mb-1">
-							<button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse"
-								data-bs-target="#home-collapse" aria-expanded="true">Home
-							</button>
-							<div class="collapse show" id="home-collapse">
-								<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-									<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Overview</a></li>
-									<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Updates</a></li>
-									<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Reports</a></li>
-								</ul>
-							</div>
-						</li> 
-
-						<li class="border-top my-3"></li>
-						<li class="mb-1">
-							<button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse"
-								data-bs-target="#account-collapse" aria-expanded="true">Account</button>
-							<div class="collapse show" id="account-collapse">
-								<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-									<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="link-dark d-inline-flex text-decoration-none rounded">New...</a></li>
-									<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Profile</a></li>
-									<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Settings</a></li> 
-								</ul>
-							</div>
-						</li> 
-					</ul>
 				</div>
 				
 			</nav>
