@@ -16,7 +16,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+	<link rel="stylesheet" href="https://icons.getbootstrap.com/assets/font/bootstrap-icons.min.css">
 
 	<!-- Font Awesome icons (free version)-->
 	<script src="https://use.fontawesome.com/releases/v6.5.2/js/all.js" crossorigin="anonymous"></script>
@@ -27,6 +27,9 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/chart.js@4.1.2/dist/chart.umd.min.js"></script>
+
+	<!-- Custom styles for this template --> 
+    <link th:href="@{/rsc/css/sidebars.css}" href="https://getbootstrap.com/docs/5.3/examples/sidebars/sidebars.css" rel="stylesheet">
 
 </head>
 
@@ -43,6 +46,15 @@
 				<marquee width="100%" direction="left" >
 					★ 파이썬은 행복한 언어입니다 ★ 파이썬 코리아는 파이썬 커뮤니티와 개발자들을 지원합니다 ★
 				</marquee>
+				&nbsp;&nbsp;&nbsp;&nbsp;
+				<a class="text-reset" href="https://www.youtube.com/@pythonkorea/videos" target="_new" title="유투브 채털">
+					<i class="fa-brands fa-youtube fa-xl" ></i>
+				</a>
+				&nbsp;&nbsp;
+				<a class="text-reset" href="https://www.facebook.com/groups/python.co.kr" target="_new" title="페이스북 그룹">
+					<i class="fa-brands fa-facebook fa-lg"></i>
+				</a>
+				&nbsp;&nbsp;&nbsp;
 			</div>
 
 		</nav>
@@ -60,9 +72,10 @@
 		
 				<!-- Collapsible wrapper -->
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					
 					<!-- Navbar brand -->
 					<a class="navbar-brand mt-2 mt-lg-0 text-muted" th:href="@{/}" href="/" >
-						&nbsp;<i class="fa-brands fa-python fa-2xl" style="color:darkolivegreen"></i>
+						&nbsp;<i class="fa-brands fa-python fa-xl" style="color:black;"></i>
 						&nbsp;파이썬 코리아
 					</a>
 
@@ -78,11 +91,6 @@
 							<a th:href="@{/pub/intro}" href="/pub/intro" class="nav-link px-2 link-body-emphasis"> 
 								<i class="fa-brands fa-python fa-xl"></i> &nbsp;파이썬 소개
 							</a>
-						</li>					
-						<li>
-							<a href="https://docs.python.org/ko/3" class="nav-link px-2 link-body-emphasis"> 
-								<i class="fa-solid fa-book fa-xl"></i> &nbsp;파이썬 문서
-							</a>
 						</li>
 						<li>
 							<a th:href="@{/pub/history}" href="/pub/history" class="nav-link px-2 link-body-emphasis">
@@ -90,12 +98,17 @@
 							</a>
 						</li>
 						<li>
-							<a href="https://pypi.org" target="_new" class="nav-link px-2 link-body-emphasis">
-								<i class="fa-solid fa-box-open fa-xl"></i> &nbsp;패키지 검색
+							<a href="https://docs.python.org/ko/3" class="nav-link px-2 link-body-emphasis"> 
+								<i class="fa-solid fa-book fa-xl"></i> &nbsp;파이썬 문서
 							</a>
 						</li>
 						<li>
-							<a th:href="@{/pub/news}" href="/pub/news" target="_new" class="nav-link px-2 link-body-emphasis">
+							<a href="https://pypi.org" target="_new" class="nav-link px-2 link-body-emphasis">
+								<i class="bi bi-box-fill fa-xl"></i> &nbsp;패키지 검색
+							</a>
+						</li>
+						<li>
+							<a th:href="@{/pub/news}" href="/pub/news" class="nav-link px-2 link-body-emphasis">
 								<i class="bi bi-newspaper fa-xl"></i> &nbsp; 뉴스
 							</a>
 						</li>
@@ -135,7 +148,6 @@
 						</a>
 						<ul class="dropdown-menu text-small">
 							<li><a class="dropdown-item" href="#">New project...</a></li>
-							<li><a class="dropdown-item" href="#">Settings</a></li>
 							<li>
 								<a class="dropdown-item" href="#">
 									<span th:text="${session.loginUserName}"></span> Profile
@@ -144,6 +156,17 @@
 							<li><hr class="dropdown-divider"></li>
 							<li><a class="dropdown-item" href="logout.html" th:href="@{/logout}" >Sign out</a></li>
 						</ul>
+					</div>
+
+					<div class="col-auto text-end" >
+						<span th:text="${#numbers.formatInteger( visitCountToday, 3, 'COMMA' ) }">1,234</span> / 
+						<span th:text="${#numbers.formatInteger( visitCountTotal, 3, 'COMMA' ) }">1,234</span> &nbsp;&nbsp;
+					</div>
+
+					<div class="col-auto dropdown text-end" th:if="${ ! html.isUserLogin() }">
+						<a th:href="@{/admin}" href="./admin.html" class="d-block link-dark text-decoration-none" >
+							<i class="bi bi-gear fa-xl" title="관리자"></i> 
+						</a>
 					</div>
 				</div>
 				<!-- Right elements -->
@@ -156,51 +179,68 @@
 
 	<!-- end of Header -->
 
-	<div class="container-fluid border-top border-bottom" style="height: 70vh;">
+	<div class="container-fluid border-top border-bottom" >
 
-		<div class="row">
+		<div class="row" style="height: 60vh;">
 
 			<!--  side bar left -->
 
 			<nav th:fragment="sidebarLeft" id="sidebarLeft" class="col-2 d-md-block bg-body-tertiary sidebar collapse">
 
-				<div class="position-sticky pt-3 sidebar-sticky">
-					
-					<a href="#" class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom">
-						<i class="fa-brands fa-python fa-xl" style="color: Dodgerblue;"></i>
-						<span class="fs-5 fw-semibold"> &nbsp; 메뉴 </span>
-					</a>
+				<div class="position-sticky sidebar-sticky">
 
-					<ul class="nav flex-column nav-tabs nav-pills fs-5 text-nowrap">
-						<li class="nav-item">
-						  <a class="nav-link active" href="#"><i class="bi bi-house-door-fill"></i>&nbsp; Active</a>
-						</li>
+					<ul class="nav flex-column nav-tabs nav-pills text-nowrap list-unstyled ps-0 mt-2">
 
-						<li class="nav-item">
-							<button class="nav-link btn align-items-center rounded border-0 dropdown-toggle" data-bs-toggle="collapse"
-								data-bs-target="#home-collapse" aria-expanded="true">
-								Home
-							</button>
-							<div class="collapse show" id="home-collapse">
-								<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ">
-									<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="text-decoration-none">Overview</a></li>
-									<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="text-decoration-none">Updates</a></li>
-									<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="text-decoration-none">Reports</a></li>
+						<li class="mb-1">
+							<a class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#python_download" aria-expanded="false" >
+								파이썬 다운로드
+							</a> 
+							<div class="collapse" id="python_download">
+								<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+									<li class="mt-2"><a th:href="@{pub/download}" href="#" class="link-dark rounded text-decoration-none">파이썬 3.12.3</a></li>
 								</ul>
 							</div>
-						</li> 
-						
-						<li class="nav-item">
-						  <a class="nav-link " href="#">Link</a>
-						</li>  
-
-						<li class="nav-item">
-						  <a class="nav-link" href="#">Link</a>
 						</li>
 
-						<li class="nav-item">
-						  <a class="nav-link disabled" href="#">Disabled</a>
+						<li class="mb-1">
+							<a class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+								data-bs-target="#python_overview" aria-expanded="false">
+								파이썬 소개
+							</a>
+							<div class="collapse" id="python_overview">
+								<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+
+									<li class="mt-2"><a th:href="@{/pub/intro}" href="#" class="link-dark rounded text-decoration-none">파이썬 소개</a></li>
+									<li><a th:href="@{/pub/history}" href="#" class="link-dark rounded text-decoration-none">파이썬 역사</a></li>
+									
+									<hr/>
+
+									<li><a href="https://docs.python.org/ko/3/tutorial/index.html" target="_new" class="link-dark rounded text-decoration-none">파이썬 자습서</a></li> 
+									<li><a href="https://docs.python.org/ko/3/reference/index.html" target="_new" class="link-dark rounded text-decoration-none">파이썬 레퍼런스</a></li> 
+									<li><a href="https://docs.python.org/ko/3/library/index.html" target="_new" class="link-dark rounded text-decoration-none">파이썬 표준 라이브러리</a></li>
+									
+									<hr/>
+									
+									<li><a href="https://docs.python.org/ko/3/using/index.html" target="_new" class="link-dark rounded text-decoration-none">파이썬 설치 및 사용법</a></li> 
+									<li><a href="https://docs.python.org/ko/3/glossary.html" target="_new" class="link-dark rounded text-decoration-none">파이썬 용어집</a></li> 
+								</ul>
+							</div>
 						</li>
+
+						<li class="mb-1">
+							<a class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+								data-bs-target="#python_news" aria-expanded="false">
+								파이썬 뉴스
+							</a>
+							<div class="collapse" id="python_news">
+								<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+									<li><a th:href="@{/pub/news}" href="#" class="link-dark rounded text-decoration-none">파이썬 뉴스</a></li> 
+								</ul>
+							</div>
+						</li>
+
+						<li class="border-top my-3"></li> 
+
 					</ul>
 
 				</div>
@@ -211,6 +251,7 @@
 			<!-- main contents -->
 
 			<main class="col-8 " >
+				
 				<h2>Main Contents</h2> 
 
 				<div class="dropdown">
@@ -221,7 +262,6 @@
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 					  <a class="dropdown-item" href="#">Action</a>
 					  <a class="dropdown-item" href="#">Another action</a>
-					  <a class="dropdown-item" href="#">Something else here</a>
 					</div>
 				</div>
 
@@ -230,42 +270,12 @@
 			<!-- // main contents --> 
 
 			<!--  side bar right -->
-			<nav th:fragment="sidebarRight" id="sidebarRight" class="col-2 d-md-block bg-body-tertiary sidebar collapse">
+			<nav th:fragment="sidebarRight" id="sidebarRight" class="col-2 d-md-block bg-body-tertiary_ sidebar collapse">
 
 				<div class="position-sticky pt-3 sidebar-sticky">
 					
-					<a href="#" class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom">
-						<i class="fa-brands fa-python fa-xl" style="color: Dodgerblue;"></i>
-						<span class="fs-5 fw-semibold"> &nbsp; 메뉴 </span>
-					</a>
+					 <!-- ad -->
 
-					<ul class="list-unstyled ps-0 fs-5 text-nowrap">
-						<li class="mb-1">
-							<button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse"
-								data-bs-target="#home-collapse" aria-expanded="true">Home
-							</button>
-							<div class="collapse show" id="home-collapse">
-								<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-									<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Overview</a></li>
-									<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Updates</a></li>
-									<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Reports</a></li>
-								</ul>
-							</div>
-						</li> 
-
-						<li class="border-top my-3"></li>
-						<li class="mb-1">
-							<button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse"
-								data-bs-target="#account-collapse" aria-expanded="true">Account</button>
-							<div class="collapse show" id="account-collapse">
-								<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-									<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="link-dark d-inline-flex text-decoration-none rounded">New...</a></li>
-									<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Profile</a></li>
-									<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Settings</a></li> 
-								</ul>
-							</div>
-						</li> 
-					</ul>
 				</div>
 				
 			</nav>
@@ -280,11 +290,11 @@
 
 		<!-- Section: Social media -->
 		<section class="d-flex justify-content-center p-2 border-bottom">
-			<a class="text-reset" href="https://www.youtube.com/@pythonkorea/videos" target="_new">
+			<a class="text-reset" href="https://www.youtube.com/@pythonkorea/videos" target="_new" title="유투브 채털">
 				<i class="fa-brands fa-youtube fa-xl" ></i>
 			</a>
 			&nbsp;&nbsp;
-			<a class="text-reset" href="https://www.facebook.com/groups/python.co.kr" target="_new">
+			<a class="text-reset" href="https://www.facebook.com/groups/python.co.kr" target="_new" title="페이스북 그룹">
 				<i class="fa-brands fa-facebook fa-xl"></i>
 			</a>
 		</section>
@@ -331,12 +341,12 @@
 						협력 사이트
 					</h6>
 					<p>
-						<a href="https://python.org" target="_new" class="text-decoration-none text-reset">
+						<a href="https://python.org" target="_new" class="text-decoration-none text-reset" title="파이썬 공식 영문 사이트">
 							파이썬 영문 사이트
 						</a>
 					</p>
 					<p>
-						<a href="https://www.gimi9.com" target="_new" class="text-decoration-none text-reset">
+						<a href="https://www.gimi9.com" target="_new" class="text-decoration-none text-reset" title="모든 공공데이터를 한 번에 검색">
 							공공데이터 검색
 						</a>
 					</p>
