@@ -29,7 +29,7 @@
 
 </head> 
 
-<body>
+<body style="width: 100%;">
 
 	<!--  start of header --> 
 
@@ -155,9 +155,9 @@
 	
 	<!-- end of header -->
 
-	<div class="container-fluid border-top border-bottom">
+	<div class="container-fluid border-top border-bottom" style="width: 100%;">
 
-		<div class="row">
+		<div class="row" >
 
 			<!--  side bar left -->
 			<nav th:replace="~{layout.html :: sidebarLeft}" id="sidebarLeft" class="col-2 d-md-block bg-body-tertiary sidebar collapse">
@@ -225,13 +225,14 @@
 
 			<!-- main contents -->
 
-			<main class="col-8 mb-5 mt-4" style="overflow:auto; height: 100vh;">
+			<main class="col-8 mb-5 mt-4" style="overflow-y: auto; min-height: 1000px;">
 
 				<h3 class="h3"> &nbsp; 파이썬 </h3> 
 
 				<!-- Main Banner -->
 
-				<div id="mainSlider" class="carousel carousel-dark slide mt-4 border border-secondary" data-bs-ride="carousel">
+				<div id="mainSlider" class="carousel carousel-dark slide mt-1 border border-secondary" 
+				data-bs-ride="carousel" style="width: 870px; height: 501px;">
 					
 					<div class="carousel-indicators">
 						<button type="button" data-bs-target="#mainSlider" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1" 
@@ -247,7 +248,7 @@
 							<a href="https://www.eswcontest.or.kr/main.php" >
 								<img th:src="@{/rsc/data/img/24-05-21-01_embeded_contest.png}" 
 									src="./rsc/data/img/24-05-21-01_embeded_contest.png" 
-									class="d-block w-100" alt="제 22회 임베디드 소프트웨어 경진대회"
+									class="d-block w-100 h-100 mx-auto" alt="제 22회 임베디드 소프트웨어 경진대회"
 								>
 							</a>
 
@@ -261,7 +262,7 @@
 							<a href="https://dacon.io/competitions/official/236255/overview/description">
 								<img th:src="@{/rsc/data/img/24-05-21-02_daegu_contest.png}" 
 									src="./rsc/data/img/24-05-21-02_daegu_contest.png" 
-									class="d-block w-100" alt="대구광역시 공공데이터 활용 창업경진대회"
+									class="d-block w-100 h-100 mx-auto" alt="대구광역시 공공데이터 활용 창업경진대회"
 								>
 							</a>
 							<div class="carousel-caption d-none d-md-block" style="color:orange;" >
@@ -274,7 +275,7 @@
 							<a href="https://dacon.io/competitions/official/236255/overview/description">
 								<img th:src="@{/rsc/data/img/24-05-21-03_daegu_contest.png}" 
 									src="./rsc/data/img/24-05-21-03_daegu_contest.png" 
-									class="d-block w-100" alt="대구광역시 공공데이터 활용 창업경진대회"
+									class="d-block w-100 h-100 mx-auto" alt="대구광역시 공공데이터 활용 창업경진대회"
 								>
 							</a>
 							<div class="carousel-caption d-none d-md-block" style="color:orange;" >
@@ -304,13 +305,14 @@
 
 				<!-- 주요 링크 -->
 
-				<div class="container mt-4 border">
-					<div class="row p-1 "> 
+				<div class="container-fluid mt-4 border" >
+					<div class="row p-1">
+
 						<ul class="col-2 border p-0 list-group text-center">
 							<li class="list-group-item list-group-item-primary p-0 fs-7">NumPy</li>
-							<li class="list-group-item p-0">
-								<a href="https://numpy.org" target="_new">
-									<img src="https://numpy.org/images/logo.svg" height="135px"/>
+							<li class="list-group-item p-2">
+								<a href="https://numpy.org" target="_new" title="수치 계산을 위한 패키지로, 다차원 배열 객체와 다양한 수학 함수들을 제공합니다." >
+									<img src="https://numpy.org/images/logo.svg" height="118px" />
 								</a>
 							</li>
 							<li class="list-group-item list-group-item-warning p-1 fs-8 text-nowrap">
@@ -319,22 +321,22 @@
 						</ul>
 
 						<ul class="col-2 border p-0 list-group text-center">
-							<li class="list-group-item list-group-item-primary p-0 fs-7">Pandas</li>
-							<li class="list-group-item p-0">
-								<a href="https://pandas.pydata.org" target="_new">
-									<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Pandas_logo.svg/450px-Pandas_logo.svg.png" height="135px"/>
+							<li class="list-group-item list-group-item-primary p-0 fs-7">Matplotlib</li>
+							<li class="list-group-item p-2">
+								<a href="https://matplotlib.org/" target="_new" title="데이터 시각화를 위한 패키지로, 다양한 그래프와 플롯을 그릴 수 있습니다." >
+									<img src="https://matplotlib.org/_static/images/documentation.svg" height="118px" />
 								</a>
 							</li>
 							<li class="list-group-item list-group-item-warning p-1 fs-8 text-nowrap">
-								데이터 조작 분석
+								그래프 챠트
 							</li>
 						</ul>
 
 						<ul class="col-2 border p-0 list-group text-center">
 							<li class="list-group-item list-group-item-primary p-0 fs-7">Pandas</li>
-							<li class="list-group-item p-0">
-								<a href="https://pandas.pydata.org" target="_new">
-									<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Pandas_logo.svg/450px-Pandas_logo.svg.png" height="135px"/>
+							<li class="list-group-item p-2">
+								<a href="https://pandas.pydata.org" target="_new" title="데이터 조작 및 분석을 위한 패키지로, 데이터프레임 객체를 중심으로 데이터 구조와 함수들을 제공합니다.">
+									<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Pandas_logo.svg/450px-Pandas_logo.svg.png" height="118px" />
 								</a>
 							</li>
 							<li class="list-group-item list-group-item-warning p-1 fs-8 text-nowrap">
@@ -342,21 +344,76 @@
 							</li>
 						</ul>
 						
-						<div class="col-2 border">col</div>
-						<div class="col-2 border">col</div>
-						<div class="col-2 border">col</div>
+						<ul class="col-2 border p-0 list-group text-center">
+							<li class="list-group-item list-group-item-primary p-0 fs-7">Scikit-Learn</li>
+							<li class="list-group-item p-2">
+								<a href="https://scikit-learn.org" target="_new" title="머신러닝을 위한 패키지로, 다양한 머신러닝 알고리즘과 도구들을 제공합니다.">
+									<img src="https://scikit-learn.org/stable/_images/sphx_glr_plot_classifier_comparison_001_carousel.png"  height="118px" />
+								</a>
+							</li>
+							<li class="list-group-item list-group-item-warning p-1 fs-8 text-nowrap">
+								머신 러닝
+							</li>
+						</ul>
+						
+						<ul class="col-2 border p-0 list-group text-center">
+							<li class="list-group-item list-group-item-primary p-0 fs-7">Tensorflow</li>
+							<li class="list-group-item p-2">
+								<a href="https://www.tensorflow.org" target="_new" title="딥러닝을 위한 오픈소스 라이브러리로, 다양한 딥러닝 모델을 구현할 수 있습니다.">
+									<img src="https://www.tensorflow.org/static/site-assets/images/marketing/learn/learn-hero.svg"  height="118px" />
+								</a>
+							</li>
+							<li class="list-group-item list-group-item-warning p-1 fs-8 text-nowrap">
+								딥 러닝
+							</li>
+						</ul>
+						
+						<ul class="col-2 border p-0 list-group text-center">
+							<li class="list-group-item list-group-item-primary p-0 fs-7">PyTorch</li>
+							<li class="list-group-item p-2">
+								<a href="https://pytorch.org" target="_new" title="딥러닝과 인공지능 연구 및 응용에 사용됩니다." >
+									<img src="https://pytorch.org/assets/images/logo-icon.svg"  height="118px" />
+								</a>
+							</li>
+							<li class="list-group-item list-group-item-warning p-1 fs-8 text-nowrap">
+								딥 러닝
+							</li>
+						</ul>
 					</div>
 
 					<div class="row p-1">
-						<div class="col-2 border">col</div>
-						<div class="col-2 border">col</div>
-						<div class="col-2 border">col</div>
-						<div class="col-2 border">col</div>
-						<div class="col-2 border">col</div>
-						<div class="col-2 border">col</div>
+						
+						<ul class="col-2 border p-0 list-group text-center">
+							<li class="list-group-item list-group-item-primary p-0 fs-7">NumPy</li>
+							<li class="list-group-item p-2">
+								<a href="https://numpy.org" target="_new" title="수치 계산을 위한 패키지로, 다차원 배열 객체와 다양한 수학 함수들을 제공합니다." >
+									<img src="https://numpy.org/images/logo.svg" height="118px" />
+								</a>
+							</li>
+							<li class="list-group-item list-group-item-warning p-1 fs-8 text-nowrap">
+								수치 계산 패키지
+							</li>
+						</ul>
+
+						<div class="col-2 border"> </div>
+						<div class="col-2 border"> </div>
+						<div class="col-2 border"> </div>
+						<div class="col-2 border"> </div>
+						<div class="col-2 border"> </div>
 					</div>
 
-				  </div>
+					<div class="row p-1">
+						<div class="col-2 border"> &nbsp </div>
+						<div class="col-2 border"> </div>
+						<div class="col-2 border"> </div>
+						<div class="col-2 border"> </div>
+						<div class="col-2 border"> </div>
+						<div class="col-2 border"> </div>
+					</div>
+
+				</div>
+
+				<br/>
 
 				<!-- // 주요 링크 -->
 				 
@@ -460,6 +517,9 @@
 	<!-- Footer -->
 
 	<script>
+		$(function () {
+			$('[data-toggle="tooltip"]').tooltip()
+		})
 	</script>
 
 </body>
