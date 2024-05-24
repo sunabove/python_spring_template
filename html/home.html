@@ -29,15 +29,14 @@
 
 </head> 
 
-<body style="width: 100%;">
+<body style="width: 100%;" >
 
 	<!--  start of header --> 
 
 	<div th:replace="~{layout.html :: header}" >
 
 		<!-- Message -->
-		<nav class="navbar navbar-expand-lg navbar-light" >
-
+		<nav class="navbar navbar-expand-lg navbar-light bg-light" >
 			<div class="container-fluid">
 				<marquee width="100%" direction="left" >
 					파이썬은 행복한 언어입니다. 파이썬 코리아는 파이썬 커뮤니티와 개발자들을 지원합니다.
@@ -155,289 +154,292 @@
 	
 	<!-- end of header -->
 
-	<div class="container-fluid border-top border-bottom" style="width: 100%;">
+	<!-- main content -->
 
-		<div class="row" >
+	<div class="wrapper d-flex align-items-stretch border-top border-bottom">
 
-			<!--  side bar left -->
-			<nav th:replace="~{layout.html :: sidebarLeft}" id="sidebarLeft" class="col-2 d-md-block bg-body-tertiary sidebar collapse">
+		<!--  side bar left -->
+		<nav th:replace="~{layout.html :: sidebarLeft}" id="sidebarLeft" class="d-md-block bg-body-tertiary sidebar collapse">
 
-				<div class="position-sticky sidebar-sticky">
+			<div class="position-sticky sidebar-sticky">
 
-					<ul class="nav flex-column nav-tabs nav-pills text-nowrap list-unstyled ps-0 mt-2">
+				<ul class="nav flex-column nav-tabs nav-pills text-nowrap list-unstyled ps-0 mt-2">
 
-						<li class="mb-1">
-							<a class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#python_download" aria-expanded="false" >
-								파이썬 다운로드
-							</a> 
-							<div class="collapse" id="python_download">
-								<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-									<li class="mt-2"><a th:href="@{pub/download}" href="#" class="link-dark rounded text-decoration-none">파이썬 3.12.3</a></li>
-								</ul>
-							</div>
-						</li>
+					<li class="mb-1">
+						<a class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#python_download" aria-expanded="false" >
+							파이썬 다운로드
+						</a> 
+						<div class="collapse" id="python_download">
+							<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+								<li class="mt-2"><a th:href="@{pub/download}" href="#" class="link-dark rounded text-decoration-none">파이썬 3.12.3</a></li>
+							</ul>
+						</div>
+					</li>
 
-						<li class="mb-1">
-							<a class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
-								data-bs-target="#python_overview" aria-expanded="false">
-								파이썬 소개
+					<li class="mb-1">
+						<a class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+							data-bs-target="#python_overview" aria-expanded="false">
+							파이썬 소개
+						</a>
+						<div class="collapse" id="python_overview">
+							<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+
+								<li class="mt-2"><a th:href="@{/pub/intro}" href="#" class="link-dark rounded text-decoration-none">파이썬 소개</a></li>
+								<li><a th:href="@{/pub/history}" href="#" class="link-dark rounded text-decoration-none">파이썬 역사</a></li>
+								
+								<hr/>
+
+								<li><a href="https://docs.python.org/ko/3/tutorial/index.html" target="_new" class="link-dark rounded text-decoration-none">파이썬 자습서</a></li> 
+								<li><a href="https://docs.python.org/ko/3/reference/index.html" target="_new" class="link-dark rounded text-decoration-none">파이썬 레퍼런스</a></li> 
+								<li><a href="https://docs.python.org/ko/3/library/index.html" target="_new" class="link-dark rounded text-decoration-none">파이썬 표준 라이브러리</a></li>
+								
+								<hr/>
+								
+								<li><a href="https://docs.python.org/ko/3/using/index.html" target="_new" class="link-dark rounded text-decoration-none">파이썬 설치 및 사용법</a></li> 
+								<li><a href="https://docs.python.org/ko/3/glossary.html" target="_new" class="link-dark rounded text-decoration-none">파이썬 용어집</a></li> 
+							</ul>
+						</div>
+					</li>
+
+					<li class="mb-1">
+						<a class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+							data-bs-target="#python_news" aria-expanded="false">
+							파이썬 뉴스
+						</a>
+						<div class="collapse" id="python_news">
+							<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+								<li><a th:href="@{/pub/news}" href="#" class="link-dark rounded text-decoration-none">파이썬 뉴스</a></li> 
+							</ul>
+						</div>
+					</li>
+
+					<li class="border-top my-3"></li> 
+
+				</ul>
+
+			</div>
+
+		</nav>
+		<!-- // side bar left --> 
+
+		<!-- main content --> 
+
+		<main class="p-4 p-md-5 pt-5 col-auto" style="overflow-y: auto; min-width: 500px; max-width:1000px; ">
+
+			<h3 class="h3"> &nbsp; 파이썬 </h3> 
+
+			<!-- Main Banner -->
+
+			<div id="mainSlider" class="carousel carousel-dark slide mt-1 border border-secondary" 
+			data-bs-ride="carousel" style="width: 870px; height: 501px;">
+				
+				<div class="carousel-indicators">
+					<button type="button" data-bs-target="#mainSlider" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1" 
+						style="border-radius:50%; width:20px; height:20px; background-color:chocolate;" ></button>
+					<button type="button" data-bs-target="#mainSlider" data-bs-slide-to="1" aria-label="Slide 2" 
+						style="border-radius:50%; width:20px; height:20px; background-color:chocolate;"></button>
+					<button type="button" data-bs-target="#mainSlider" data-bs-slide-to="2" aria-label="Slide 3" 
+						style="border-radius:50%; width:20px; height:20px; background-color:chocolate;"></button>
+				</div>
+
+				<div class="carousel-inner">
+					<div class="carousel-item active" data-bs-interval="10000">
+						<a href="https://www.eswcontest.or.kr/main.php" >
+							<img th:src="@{/rsc/data/img/24-05-21-01_embeded_contest.png}" 
+								src="./rsc/data/img/24-05-21-01_embeded_contest.png" 
+								class="d-block w-100 h-100 mx-auto" alt="제 22회 임베디드 소프트웨어 경진대회"
+							>
+						</a>
+
+						<div class="carousel-caption d-none d-md-block" style="color:orange;" >
+							<h5> </h5>
+							<p> </p>
+						</div>
+					</div>
+
+					<div class="carousel-item" data-bs-interval="5000">
+						<a href="https://dacon.io/competitions/official/236255/overview/description">
+							<img th:src="@{/rsc/data/img/24-05-21-02_daegu_contest.png}" 
+								src="./rsc/data/img/24-05-21-02_daegu_contest.png" 
+								class="d-block w-100 h-100 mx-auto" alt="대구광역시 공공데이터 활용 창업경진대회"
+							>
+						</a>
+						<div class="carousel-caption d-none d-md-block" style="color:orange;" >
+							<h5> </h5>
+							<p> </p>
+						</div>
+					</div>
+
+					<div class="carousel-item" data-bs-interval="5000">
+						<a href="https://dacon.io/competitions/official/236255/overview/description">
+							<img th:src="@{/rsc/data/img/24-05-21-03_daegu_contest.png}" 
+								src="./rsc/data/img/24-05-21-03_daegu_contest.png" 
+								class="d-block w-100 h-100 mx-auto" alt="대구광역시 공공데이터 활용 창업경진대회"
+							>
+						</a>
+						<div class="carousel-caption d-none d-md-block" style="color:orange;" >
+							<h5> </h5>
+							<p> </p>
+						</div>
+					</div> 
+
+				</div>
+
+				<!-- Prev and Next buttons -->
+				<!--
+				<button class="carousel-control-prev" type="button" data-bs-target="#mainSlider" data-bs-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="visually-hidden"  style="color:orange;" >Previous</span>
+				</button>
+
+				<button class="carousel-control-next" type="button" data-bs-target="#mainSlider" data-bs-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="visually-hidden"  style="color:orange;" >Next</span>
+				</button>
+				-->
+				<!-- // Prev and Next buttons -->
+
+			</div>
+			<!-- // Main Banner -->
+
+			<!-- 주요 링크 -->
+
+			<div class="container-fluid mt-4 border" >
+				<div class="row p-1">
+
+					<ul class="col-2 border p-0 list-group text-center">
+						<li class="list-group-item list-group-item-primary p-0 fs-7">NumPy</li>
+						<li class="list-group-item p-2">
+							<a href="https://numpy.org" target="_new" title="수치 계산을 위한 패키지로, 다차원 배열 객체와 다양한 수학 함수들을 제공합니다." >
+								<img src="https://numpy.org/images/logo.svg" height="118px" />
 							</a>
-							<div class="collapse" id="python_overview">
-								<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-
-									<li class="mt-2"><a th:href="@{/pub/intro}" href="#" class="link-dark rounded text-decoration-none">파이썬 소개</a></li>
-									<li><a th:href="@{/pub/history}" href="#" class="link-dark rounded text-decoration-none">파이썬 역사</a></li>
-									
-									<hr/>
-
-									<li><a href="https://docs.python.org/ko/3/tutorial/index.html" target="_new" class="link-dark rounded text-decoration-none">파이썬 자습서</a></li> 
-									<li><a href="https://docs.python.org/ko/3/reference/index.html" target="_new" class="link-dark rounded text-decoration-none">파이썬 레퍼런스</a></li> 
-									<li><a href="https://docs.python.org/ko/3/library/index.html" target="_new" class="link-dark rounded text-decoration-none">파이썬 표준 라이브러리</a></li>
-									
-									<hr/>
-									
-									<li><a href="https://docs.python.org/ko/3/using/index.html" target="_new" class="link-dark rounded text-decoration-none">파이썬 설치 및 사용법</a></li> 
-									<li><a href="https://docs.python.org/ko/3/glossary.html" target="_new" class="link-dark rounded text-decoration-none">파이썬 용어집</a></li> 
-								</ul>
-							</div>
 						</li>
-
-						<li class="mb-1">
-							<a class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
-								data-bs-target="#python_news" aria-expanded="false">
-								파이썬 뉴스
-							</a>
-							<div class="collapse" id="python_news">
-								<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-									<li><a th:href="@{/pub/news}" href="#" class="link-dark rounded text-decoration-none">파이썬 뉴스</a></li> 
-								</ul>
-							</div>
+						<li class="list-group-item list-group-item-warning p-1 fs-8 text-nowrap">
+							수치 계산 패키지
 						</li>
-
-						<li class="border-top my-3"></li> 
-
 					</ul>
 
-				</div>
+					<ul class="col-2 border p-0 list-group text-center">
+						<li class="list-group-item list-group-item-primary p-0 fs-7">Matplotlib</li>
+						<li class="list-group-item p-2">
+							<a href="https://matplotlib.org/" target="_new" title="데이터 시각화를 위한 패키지로, 다양한 그래프와 플롯을 그릴 수 있습니다." >
+								<img src="https://matplotlib.org/_static/images/documentation.svg" height="118px" />
+							</a>
+						</li>
+						<li class="list-group-item list-group-item-warning p-1 fs-8 text-nowrap">
+							그래프 챠트
+						</li>
+					</ul>
 
-			</nav>
-			<!-- // side bar left -->
-
-			<!-- main contents -->
-
-			<main class="col-8 mb-5 mt-4" style="overflow-y: auto; min-height: 1000px;">
-
-				<h3 class="h3"> &nbsp; 파이썬 </h3> 
-
-				<!-- Main Banner -->
-
-				<div id="mainSlider" class="carousel carousel-dark slide mt-1 border border-secondary" 
-				data-bs-ride="carousel" style="width: 870px; height: 501px;">
+					<ul class="col-2 border p-0 list-group text-center">
+						<li class="list-group-item list-group-item-primary p-0 fs-7">Pandas</li>
+						<li class="list-group-item p-2">
+							<a href="https://pandas.pydata.org" target="_new" title="데이터 조작 및 분석을 위한 패키지로, 데이터프레임 객체를 중심으로 데이터 구조와 함수들을 제공합니다.">
+								<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Pandas_logo.svg/450px-Pandas_logo.svg.png" height="118px" />
+							</a>
+						</li>
+						<li class="list-group-item list-group-item-warning p-1 fs-8 text-nowrap">
+							데이터 조작 분석
+						</li>
+					</ul>
 					
-					<div class="carousel-indicators">
-						<button type="button" data-bs-target="#mainSlider" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1" 
-							style="border-radius:50%; width:20px; height:20px; background-color:chocolate;" ></button>
-						<button type="button" data-bs-target="#mainSlider" data-bs-slide-to="1" aria-label="Slide 2" 
-							style="border-radius:50%; width:20px; height:20px; background-color:chocolate;"></button>
-						<button type="button" data-bs-target="#mainSlider" data-bs-slide-to="2" aria-label="Slide 3" 
-							style="border-radius:50%; width:20px; height:20px; background-color:chocolate;"></button>
-					</div>
-
-					<div class="carousel-inner">
-						<div class="carousel-item active" data-bs-interval="10000">
-							<a href="https://www.eswcontest.or.kr/main.php" >
-								<img th:src="@{/rsc/data/img/24-05-21-01_embeded_contest.png}" 
-									src="./rsc/data/img/24-05-21-01_embeded_contest.png" 
-									class="d-block w-100 h-100 mx-auto" alt="제 22회 임베디드 소프트웨어 경진대회"
-								>
+					<ul class="col-2 border p-0 list-group text-center">
+						<li class="list-group-item list-group-item-primary p-0 fs-7">Scikit-Learn</li>
+						<li class="list-group-item p-2">
+							<a href="https://scikit-learn.org" target="_new" title="머신러닝을 위한 패키지로, 다양한 머신러닝 알고리즘과 도구들을 제공합니다.">
+								<img src="https://scikit-learn.org/stable/_images/sphx_glr_plot_classifier_comparison_001_carousel.png"  height="118px" />
 							</a>
-
-							<div class="carousel-caption d-none d-md-block" style="color:orange;" >
-								<h5> </h5>
-								<p> </p>
-							</div>
-						</div>
-
-						<div class="carousel-item" data-bs-interval="5000">
-							<a href="https://dacon.io/competitions/official/236255/overview/description">
-								<img th:src="@{/rsc/data/img/24-05-21-02_daegu_contest.png}" 
-									src="./rsc/data/img/24-05-21-02_daegu_contest.png" 
-									class="d-block w-100 h-100 mx-auto" alt="대구광역시 공공데이터 활용 창업경진대회"
-								>
-							</a>
-							<div class="carousel-caption d-none d-md-block" style="color:orange;" >
-								<h5> </h5>
-								<p> </p>
-							</div>
-						</div>
-
-						<div class="carousel-item" data-bs-interval="5000">
-							<a href="https://dacon.io/competitions/official/236255/overview/description">
-								<img th:src="@{/rsc/data/img/24-05-21-03_daegu_contest.png}" 
-									src="./rsc/data/img/24-05-21-03_daegu_contest.png" 
-									class="d-block w-100 h-100 mx-auto" alt="대구광역시 공공데이터 활용 창업경진대회"
-								>
-							</a>
-							<div class="carousel-caption d-none d-md-block" style="color:orange;" >
-								<h5> </h5>
-								<p> </p>
-							</div>
-						</div> 
-
-					</div>
-
-					<!-- Prev and Next buttons -->
-					<!--
-					<button class="carousel-control-prev" type="button" data-bs-target="#mainSlider" data-bs-slide="prev">
-						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-						<span class="visually-hidden"  style="color:orange;" >Previous</span>
-					</button>
-
-					<button class="carousel-control-next" type="button" data-bs-target="#mainSlider" data-bs-slide="next">
-						<span class="carousel-control-next-icon" aria-hidden="true"></span>
-						<span class="visually-hidden"  style="color:orange;" >Next</span>
-					</button>
-					-->
-					<!-- // Prev and Next buttons -->
-
-				</div>
-				<!-- // Main Banner -->
-
-				<!-- 주요 링크 -->
-
-				<div class="container-fluid mt-4 border" >
-					<div class="row p-1">
-
-						<ul class="col-2 border p-0 list-group text-center">
-							<li class="list-group-item list-group-item-primary p-0 fs-7">NumPy</li>
-							<li class="list-group-item p-2">
-								<a href="https://numpy.org" target="_new" title="수치 계산을 위한 패키지로, 다차원 배열 객체와 다양한 수학 함수들을 제공합니다." >
-									<img src="https://numpy.org/images/logo.svg" height="118px" />
-								</a>
-							</li>
-							<li class="list-group-item list-group-item-warning p-1 fs-8 text-nowrap">
-								수치 계산 패키지
-							</li>
-						</ul>
-
-						<ul class="col-2 border p-0 list-group text-center">
-							<li class="list-group-item list-group-item-primary p-0 fs-7">Matplotlib</li>
-							<li class="list-group-item p-2">
-								<a href="https://matplotlib.org/" target="_new" title="데이터 시각화를 위한 패키지로, 다양한 그래프와 플롯을 그릴 수 있습니다." >
-									<img src="https://matplotlib.org/_static/images/documentation.svg" height="118px" />
-								</a>
-							</li>
-							<li class="list-group-item list-group-item-warning p-1 fs-8 text-nowrap">
-								그래프 챠트
-							</li>
-						</ul>
-
-						<ul class="col-2 border p-0 list-group text-center">
-							<li class="list-group-item list-group-item-primary p-0 fs-7">Pandas</li>
-							<li class="list-group-item p-2">
-								<a href="https://pandas.pydata.org" target="_new" title="데이터 조작 및 분석을 위한 패키지로, 데이터프레임 객체를 중심으로 데이터 구조와 함수들을 제공합니다.">
-									<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Pandas_logo.svg/450px-Pandas_logo.svg.png" height="118px" />
-								</a>
-							</li>
-							<li class="list-group-item list-group-item-warning p-1 fs-8 text-nowrap">
-								데이터 조작 분석
-							</li>
-						</ul>
-						
-						<ul class="col-2 border p-0 list-group text-center">
-							<li class="list-group-item list-group-item-primary p-0 fs-7">Scikit-Learn</li>
-							<li class="list-group-item p-2">
-								<a href="https://scikit-learn.org" target="_new" title="머신러닝을 위한 패키지로, 다양한 머신러닝 알고리즘과 도구들을 제공합니다.">
-									<img src="https://scikit-learn.org/stable/_images/sphx_glr_plot_classifier_comparison_001_carousel.png"  height="118px" />
-								</a>
-							</li>
-							<li class="list-group-item list-group-item-warning p-1 fs-8 text-nowrap">
-								머신 러닝
-							</li>
-						</ul>
-						
-						<ul class="col-2 border p-0 list-group text-center">
-							<li class="list-group-item list-group-item-primary p-0 fs-7">Tensorflow</li>
-							<li class="list-group-item p-2">
-								<a href="https://www.tensorflow.org" target="_new" title="딥러닝을 위한 오픈소스 라이브러리로, 다양한 딥러닝 모델을 구현할 수 있습니다.">
-									<img src="https://www.tensorflow.org/static/site-assets/images/marketing/learn/learn-hero.svg"  height="118px" />
-								</a>
-							</li>
-							<li class="list-group-item list-group-item-warning p-1 fs-8 text-nowrap">
-								딥 러닝
-							</li>
-						</ul>
-						
-						<ul class="col-2 border p-0 list-group text-center">
-							<li class="list-group-item list-group-item-primary p-0 fs-7">PyTorch</li>
-							<li class="list-group-item p-2">
-								<a href="https://pytorch.org" target="_new" title="딥러닝과 인공지능 연구 및 응용에 사용됩니다." >
-									<img src="https://pytorch.org/assets/images/logo-icon.svg"  height="118px" />
-								</a>
-							</li>
-							<li class="list-group-item list-group-item-warning p-1 fs-8 text-nowrap">
-								딥 러닝
-							</li>
-						</ul>
-					</div>
-
-					<div class="row p-1">
-						
-						<ul class="col-2 border p-0 list-group text-center">
-							<li class="list-group-item list-group-item-primary p-0 fs-7">NumPy</li>
-							<li class="list-group-item p-2">
-								<a href="https://numpy.org" target="_new" title="수치 계산을 위한 패키지로, 다차원 배열 객체와 다양한 수학 함수들을 제공합니다." >
-									<img src="https://numpy.org/images/logo.svg" height="118px" />
-								</a>
-							</li>
-							<li class="list-group-item list-group-item-warning p-1 fs-8 text-nowrap">
-								수치 계산 패키지
-							</li>
-						</ul>
-
-						<div class="col-2 border"> </div>
-						<div class="col-2 border"> </div>
-						<div class="col-2 border"> </div>
-						<div class="col-2 border"> </div>
-						<div class="col-2 border"> </div>
-					</div>
-
-					<div class="row p-1">
-						<div class="col-2 border"> &nbsp </div>
-						<div class="col-2 border"> </div>
-						<div class="col-2 border"> </div>
-						<div class="col-2 border"> </div>
-						<div class="col-2 border"> </div>
-						<div class="col-2 border"> </div>
-					</div>
-
-				</div>
-
-				<br/>
-
-				<!-- // 주요 링크 -->
-				 
-			</main>
-
-			<!-- // main contents -->
-
-			<!--  side bar right -->
-			<nav th:replace="~{layout.html :: sidebarRight}" id="sidebarRight" class="col-2 d-md-block bg-body-tertiary sidebar collapse">
-
-				<div class="position-sticky pt-3 sidebar-sticky">
+						</li>
+						<li class="list-group-item list-group-item-warning p-1 fs-8 text-nowrap">
+							머신 러닝 패키지
+						</li>
+					</ul>
 					
-					<!-- ad -->
-
+					<ul class="col-2 border p-0 list-group text-center">
+						<li class="list-group-item list-group-item-primary p-0 fs-7">Tensorflow</li>
+						<li class="list-group-item p-2">
+							<a href="https://www.tensorflow.org" target="_new" title="딥러닝을 위한 오픈소스 라이브러리로, 다양한 딥러닝 모델을 구현할 수 있습니다.">
+								<img src="https://www.tensorflow.org/static/site-assets/images/marketing/learn/learn-hero.svg"  height="118px" />
+							</a>
+						</li>
+						<li class="list-group-item list-group-item-warning p-1 fs-8 text-nowrap">
+							딥 러닝 패키지
+						</li>
+					</ul>
+					
+					<ul class="col-2 border p-0 list-group text-center">
+						<li class="list-group-item list-group-item-primary p-0 fs-7">PyTorch</li>
+						<li class="list-group-item p-2">
+							<a href="https://pytorch.org" target="_new" title="딥러닝과 인공지능 연구 및 응용에 사용됩니다." >
+								<img src="https://pytorch.org/assets/images/logo-icon.svg"  height="118px" />
+							</a>
+						</li>
+						<li class="list-group-item list-group-item-warning p-1 fs-8 text-nowrap">
+							딥 러닝 패키지
+						</li>
+					</ul>
 				</div>
+
+				<div class="row p-1">
+					
+					<ul class="col-2 border p-0 list-group text-center">
+						<li class="list-group-item list-group-item-primary p-0 fs-7">NumPy</li>
+						<li class="list-group-item p-2">
+							<a href="https://numpy.org" target="_new" title="수치 계산을 위한 패키지로, 다차원 배열 객체와 다양한 수학 함수들을 제공합니다." >
+								<img src="https://numpy.org/images/logo.svg" height="118px" />
+							</a>
+						</li>
+						<li class="list-group-item list-group-item-warning p-1 fs-8 text-nowrap">
+							수치 계산 패키지
+						</li>
+					</ul>
+
+					<div class="col-2 border"> </div>
+					<div class="col-2 border"> </div>
+					<div class="col-2 border"> </div>
+					<div class="col-2 border"> </div>
+					<div class="col-2 border"> </div>
+				</div>
+
+				<div class="row p-1">
+					<div class="col-2 border"> &nbsp </div>
+					<div class="col-2 border"> </div>
+					<div class="col-2 border"> </div>
+					<div class="col-2 border"> </div>
+					<div class="col-2 border"> </div>
+					<div class="col-2 border"> </div>
+				</div>
+
+			</div>
+
+			<br/>
+
+			<!-- // 주요 링크 -->
+			 
+		</main>
+
+		<!-- // main content --> 
+
+		<!--  side bar right -->
+		<nav th:replace="~{layout.html :: sidebarRight}" id="sidebarRight" class="col-2 d-md-block bg-body-tertiary_ sidebar collapse">
+
+			<div class="position-sticky pt-3 sidebar-sticky">
 				
-			</nav>
-			<!-- // side bar right-->
+				<!-- ad -->
 
-		</div>
+				abcdefghij
 
+			</div>
+			
+		</nav>
+		<!-- // side bar right-->
+		
 	</div>
 
-	<!-- Footer -->
+	<!-- // main content -->
+
+	<!-- footer -->
+
 	<footer th:replace="~{layout.html :: footer}" class="text-center text-lg-start bg-light text-muted">
 
 		<!-- Section: Social media -->
@@ -514,12 +516,10 @@
 		</div>
 		<!-- Copyright -->
 	</footer>
-	<!-- Footer -->
 
-	<script>
-		$(function () {
-			$('[data-toggle="tooltip"]').tooltip()
-		})
+	<!-- // footer -->
+
+	<script> 
 	</script>
 
 </body>

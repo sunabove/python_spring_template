@@ -35,10 +35,10 @@
 
 	<!--  Header -->
 		
-	<div th:fragment="header" >
+	<div th:fragment="header" class="navbar-light bg-light" >
 
 		<!-- Message -->
-		<nav class="navbar navbar-expand-lg navbar-light bg-light" >
+		<nav class="navbar navbar-expand-lg navbar-light bg-light"  style="max-width: 1300px;" >
 
 			<div class="container-fluid">
 				<marquee width="100%" direction="left" >
@@ -60,7 +60,7 @@
 		</nav>
 		<!-- end of message -->
 
-		<nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-top: -10px;">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light" style="max-width: 1300px; margin-top: -10px;">
 
 			<!-- Container wrapper -->
 			<div class="container-fluid">
@@ -186,110 +186,107 @@
 
 	<!-- Main Contents -->
 
-	<div class="container-fluid border-top border-bottom" >
+	<div class="wrapper d-flex align-items-stretch border-top border-bottom">
 
-		<div class="row" >
+		<!--  side bar left -->
 
-			<!--  side bar left -->
+		<nav th:fragment="sidebarLeft" id="sidebarLeft" class="d-md-block bg-body-tertiary sidebar collapse">
 
-			<nav th:fragment="sidebarLeft" id="sidebarLeft" class="col-2 d-md-block bg-body-tertiary sidebar collapse">
+			<div class="position-sticky sidebar-sticky">
 
-				<div class="position-sticky sidebar-sticky">
+				<ul class="nav flex-column nav-tabs nav-pills text-nowrap list-unstyled ps-0 mt-2">
 
-					<ul class="nav flex-column nav-tabs nav-pills text-nowrap list-unstyled ps-0 mt-2">
+					<li class="mb-1">
+						<a class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#python_download" aria-expanded="false" >
+							파이썬 다운로드
+						</a> 
+						<div class="collapse" id="python_download">
+							<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+								<li class="mt-2"><a th:href="@{pub/download}" href="#" class="link-dark rounded text-decoration-none">파이썬 3.12.3</a></li>
+							</ul>
+						</div>
+					</li>
 
-						<li class="mb-1">
-							<a class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#python_download" aria-expanded="false" >
-								파이썬 다운로드
-							</a> 
-							<div class="collapse" id="python_download">
-								<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-									<li class="mt-2"><a th:href="@{pub/download}" href="#" class="link-dark rounded text-decoration-none">파이썬 3.12.3</a></li>
-								</ul>
-							</div>
-						</li>
+					<li class="mb-1">
+						<a class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+							data-bs-target="#python_overview" aria-expanded="false">
+							파이썬 소개
+						</a>
+						<div class="collapse" id="python_overview">
+							<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
 
-						<li class="mb-1">
-							<a class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
-								data-bs-target="#python_overview" aria-expanded="false">
-								파이썬 소개
-							</a>
-							<div class="collapse" id="python_overview">
-								<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+								<li class="mt-2"><a th:href="@{/pub/intro}" href="#" class="link-dark rounded text-decoration-none">파이썬 소개</a></li>
+								<li><a th:href="@{/pub/history}" href="#" class="link-dark rounded text-decoration-none">파이썬 역사</a></li>
+								
+								<hr/>
 
-									<li class="mt-2"><a th:href="@{/pub/intro}" href="#" class="link-dark rounded text-decoration-none">파이썬 소개</a></li>
-									<li><a th:href="@{/pub/history}" href="#" class="link-dark rounded text-decoration-none">파이썬 역사</a></li>
-									
-									<hr/>
+								<li><a href="https://docs.python.org/ko/3/tutorial/index.html" target="_new" class="link-dark rounded text-decoration-none">파이썬 자습서</a></li> 
+								<li><a href="https://docs.python.org/ko/3/reference/index.html" target="_new" class="link-dark rounded text-decoration-none">파이썬 레퍼런스</a></li> 
+								<li><a href="https://docs.python.org/ko/3/library/index.html" target="_new" class="link-dark rounded text-decoration-none">파이썬 표준 라이브러리</a></li>
+								
+								<hr/>
+								
+								<li><a href="https://docs.python.org/ko/3/using/index.html" target="_new" class="link-dark rounded text-decoration-none">파이썬 설치 및 사용법</a></li> 
+								<li><a href="https://docs.python.org/ko/3/glossary.html" target="_new" class="link-dark rounded text-decoration-none">파이썬 용어집</a></li> 
+							</ul>
+						</div>
+					</li>
 
-									<li><a href="https://docs.python.org/ko/3/tutorial/index.html" target="_new" class="link-dark rounded text-decoration-none">파이썬 자습서</a></li> 
-									<li><a href="https://docs.python.org/ko/3/reference/index.html" target="_new" class="link-dark rounded text-decoration-none">파이썬 레퍼런스</a></li> 
-									<li><a href="https://docs.python.org/ko/3/library/index.html" target="_new" class="link-dark rounded text-decoration-none">파이썬 표준 라이브러리</a></li>
-									
-									<hr/>
-									
-									<li><a href="https://docs.python.org/ko/3/using/index.html" target="_new" class="link-dark rounded text-decoration-none">파이썬 설치 및 사용법</a></li> 
-									<li><a href="https://docs.python.org/ko/3/glossary.html" target="_new" class="link-dark rounded text-decoration-none">파이썬 용어집</a></li> 
-								</ul>
-							</div>
-						</li>
+					<li class="mb-1">
+						<a class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+							data-bs-target="#python_news" aria-expanded="false">
+							파이썬 뉴스
+						</a>
+						<div class="collapse" id="python_news">
+							<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+								<li><a th:href="@{/pub/news}" href="#" class="link-dark rounded text-decoration-none">파이썬 뉴스</a></li> 
+							</ul>
+						</div>
+					</li>
 
-						<li class="mb-1">
-							<a class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
-								data-bs-target="#python_news" aria-expanded="false">
-								파이썬 뉴스
-							</a>
-							<div class="collapse" id="python_news">
-								<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-									<li><a th:href="@{/pub/news}" href="#" class="link-dark rounded text-decoration-none">파이썬 뉴스</a></li> 
-								</ul>
-							</div>
-						</li>
+					<li class="border-top my-3"></li> 
 
-						<li class="border-top my-3"></li> 
+				</ul>
 
-					</ul>
+			</div>
 
-				</div>
+		</nav>
+		<!-- // side bar left-->
 
-			</nav>
-			<!-- // side bar left-->
+		<!-- main contents -->
 
-			<!-- main contents -->
+		<main class="p-4 p-md-5 pt-5 col-auto" style="overflow-y: auto; ">
+			
+			<h2>Main Contents</h2> 
 
-			<main class="col-8 mb-5 mt-4" style="height: 120vh;">
+			<div class="dropdown">
+				<a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Dropdown link
+				</a>
 				
-				<h2>Main Contents</h2> 
-
-				<div class="dropdown">
-					<a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					  Dropdown link
-					</a>
-				  
-					<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-					  <a class="dropdown-item" href="#">Action</a>
-					  <a class="dropdown-item" href="#">Another action</a>
-					</div>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+					<a class="dropdown-item" href="#">Action</a>
+					<a class="dropdown-item" href="#">Another action</a>
 				</div>
+			</div>
 
-			</main>
+		</main>
 
-			<!-- // main contents --> 
+		<!-- // main contents --> 
 
-			<!--  side bar right -->
-			<nav th:fragment="sidebarRight" id="sidebarRight" class="col-2 d-md-block bg-body-tertiary_ sidebar collapse">
+		<!--  side bar right -->
+		<nav th:fragment="sidebarRight" id="sidebarRight" class="col-2 d-md-block bg-body-tertiary_ sidebar collapse">
 
-				<div class="position-sticky pt-3 sidebar-sticky">
-					
-					 <!-- ad -->
-					 ad
-
-				</div>
+			<div class="position-sticky pt-3 sidebar-sticky">
 				
-			</nav>
-			<!-- // side bar right-->
+					<!-- ad -->
+					ad
 
-		</div>
+			</div>
+			
+		</nav>
+		<!-- // side bar right-->
+ 
 
 	</div>
 

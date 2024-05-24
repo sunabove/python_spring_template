@@ -11,6 +11,9 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 
+	<link rel="stylesheet" th:href="@{/rsc/css/python.css}" href="rsc/css/python.css" />
+	<link rel="stylesheet" th:href="@{/rsc/css/sidebars.css}" href="./rsc/css/sidebars.css" />
+
 	<!-- Font Awesome icons (free version)-->
 	<script src="https://use.fontawesome.com/releases/v6.5.2/js/all.js" crossorigin="anonymous"></script>
 	<script src="https://kit.fontawesome.com/fb6a9a8bef.js" crossorigin="anonymous"></script>
@@ -20,23 +23,20 @@
 	<link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet" />
 	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&amp;display=swap" rel="stylesheet" />
 
-	<link th:href="@{/rsc/css/python.css}" href="rsc/css/python.css" rel="stylesheet" />
-
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/chart.js@4.1.2/dist/chart.umd.min.js"></script>
 
 </head> 
 
-<body>
+<body style="width: 100%;">
 
 	<!--  start of header --> 
 
 	<div th:replace="~{layout.html :: header}" >
 
 		<!-- Message -->
-		<nav class="navbar navbar-expand-lg navbar-light" >
-
+		<nav class="navbar navbar-expand-lg navbar-light bg-light" >
 			<div class="container-fluid">
 				<marquee width="100%" direction="left" >
 					파이썬은 행복한 언어입니다. 파이썬 코리아는 파이썬 커뮤니티와 개발자들을 지원합니다.
@@ -63,7 +63,7 @@
 						&nbsp;<i class="fa-brands fa-python fa-2xl" style="color:darkolivegreen"></i>
 						&nbsp;파이썬 코리아
 					</a>
-					
+
 					<!-- Left links -->
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0 text-nowrap">
 						<li>
@@ -154,214 +154,204 @@
 	
 	<!-- end of header -->
 
-	<div class="container-fluid border-top border-bottom">
+	<!-- main content -->
 
-		<div class="row" >
+	<div class="wrapper d-flex align-items-stretch border-top border-bottom">
 
-			<!--  side bar left -->
-			<nav th:replace="~{layout.html :: sidebarLeft}" id="sidebarLeft" class="col-2 d-md-block bg-body-tertiary sidebar collapse">
+		<!--  side bar left -->
+		<nav th:replace="~{layout.html :: sidebarLeft}" id="sidebarLeft" class="d-md-block bg-body-tertiary sidebar collapse">
 
-				<div class="position-sticky pt-3 sidebar-sticky">
-					
-					<a href="#" class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom">
-						<i class="fa-brands fa-python fa-xl" style="color: Dodgerblue;"></i>
-						<span class="fs-5 fw-semibold"> &nbsp; 메뉴 </span>
-					</a>
+			<div class="position-sticky sidebar-sticky">
 
-					<ul class="nav flex-column nav-tabs nav-pills fs-5">
-						<li class="nav-item">
-						  <a class="nav-link active" href="#"><i class="bi bi-house-door-fill"></i>&nbsp; Active</a>
-						</li>
+				<ul class="nav flex-column nav-tabs nav-pills text-nowrap list-unstyled ps-0 mt-2">
 
-						<li class="nav-item">
-							<button class="nav-link btn align-items-center rounded border-0 dropdown-toggle" data-bs-toggle="collapse"
-								data-bs-target="#home-collapse" aria-expanded="true">
-								Home
-							</button>
-							<div class="collapse show" id="home-collapse">
-								<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ">
-									<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="text-decoration-none">Overview</a></li>
-									<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="text-decoration-none">Updates</a></li>
-									<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="text-decoration-none">Reports</a></li>
-								</ul>
-							</div>
-						</li> 
-						
-						<li class="nav-item">
-						  <a class="nav-link " href="#">Link</a>
-						</li>  
+					<li class="mb-1">
+						<a class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#python_download" aria-expanded="false" >
+							파이썬 다운로드
+						</a> 
+						<div class="collapse" id="python_download">
+							<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+								<li class="mt-2"><a th:href="@{pub/download}" href="#" class="link-dark rounded text-decoration-none">파이썬 3.12.3</a></li>
+							</ul>
+						</div>
+					</li>
 
-						<li class="nav-item">
-						  <a class="nav-link" href="#">Link</a>
-						</li>
+					<li class="mb-1">
+						<a class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+							data-bs-target="#python_overview" aria-expanded="false">
+							파이썬 소개
+						</a>
+						<div class="collapse" id="python_overview">
+							<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
 
-						<li class="nav-item">
-						  <a class="nav-link disabled" href="#">Disabled</a>
-						</li>
+								<li class="mt-2"><a th:href="@{/pub/intro}" href="#" class="link-dark rounded text-decoration-none">파이썬 소개</a></li>
+								<li><a th:href="@{/pub/history}" href="#" class="link-dark rounded text-decoration-none">파이썬 역사</a></li>
+								
+								<hr/>
+
+								<li><a href="https://docs.python.org/ko/3/tutorial/index.html" target="_new" class="link-dark rounded text-decoration-none">파이썬 자습서</a></li> 
+								<li><a href="https://docs.python.org/ko/3/reference/index.html" target="_new" class="link-dark rounded text-decoration-none">파이썬 레퍼런스</a></li> 
+								<li><a href="https://docs.python.org/ko/3/library/index.html" target="_new" class="link-dark rounded text-decoration-none">파이썬 표준 라이브러리</a></li>
+								
+								<hr/>
+								
+								<li><a href="https://docs.python.org/ko/3/using/index.html" target="_new" class="link-dark rounded text-decoration-none">파이썬 설치 및 사용법</a></li> 
+								<li><a href="https://docs.python.org/ko/3/glossary.html" target="_new" class="link-dark rounded text-decoration-none">파이썬 용어집</a></li> 
+							</ul>
+						</div>
+					</li>
+
+					<li class="mb-1">
+						<a class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+							data-bs-target="#python_news" aria-expanded="false">
+							파이썬 뉴스
+						</a>
+						<div class="collapse" id="python_news">
+							<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+								<li><a th:href="@{/pub/news}" href="#" class="link-dark rounded text-decoration-none">파이썬 뉴스</a></li> 
+							</ul>
+						</div>
+					</li>
+
+					<li class="border-top my-3"></li> 
+
+				</ul>
+
+			</div>
+
+		</nav>
+		<!-- // side bar left --> 
+
+		<!-- main content --> 
+
+		<main class="p-4 p-md-5 pt-5 col-auto" style="overflow-y: auto; min-width: 700px; max-width: 1000px; "> 
+
+			<h3> <i class="fa-brands fa-servicestack"></i> 이용 약관 <i class="fa-brands fa-servicestack"></i> </h3>
+			<hr>
+		
+			<p>
+				<strong>파이썬 코리아</strong>(이하 '사이트')는 
+				이용자의 권리와 의무 및 기타 필요한 사항을 규정하기 위해 아래와 같이 이용 약관을 정합니다.
+			</p>
+
+			<br/>
+
+			<h4>제 1조 (목적)</h4>
+			<p>
+				이 약관은 사이트가 제공하는 모든 서비스(이하 '서비스')의 이용과 관련하여 사이트와 이용자의 권리, 의무 및 책임사항, 기타 필요한 사항을 규정함을 목적으로 합니다.
+			</p>
+
+			<h4>제 2조 (용어의 정의)</h4>
+			<ol>
+				<li>'사이트'란 파이썬 코리아 홈페이지를 의미합니다.</li>
+				<li>'이용자'란 사이트에 접속하여 이 약관에 따라 사이트가 제공하는 서비스를 받는 회원 및 비회원을 말합니다.</li>
+				<li>'회원'이란 사이트에 개인정보를 제공하여 회원 등록을 한 자로서, 사이트의 정보를 지속적으로 제공받으며 사이트가 제공하는 서비스를 계속적으로 이용할 수 있는 자를 말합니다.</li>
+				<li>'비회원'이란 회원에 가입하지 않고 사이트가 제공하는 서비스를 이용하는 자를 말합니다.</li>
+			</ol>
+			<h4>제 3조 (약관의 게시와 개정)</h4>
+			<ol>
+				<li>사이트는 이 약관의 내용을 이용자가 쉽게 알 수 있도록 서비스 초기 화면에 게시합니다.</li>
+				<li>사이트는 필요하다고 인정되는 경우 관련 법령을 위배하지 않는 범위 내에서 이 약관을 개정할 수 있습니다.</li>
+				<li>사이트가 약관을 개정할 경우에는 적용일자 및 개정사유를 명시하여 현행 약관과 함께 서비스 초기 화면에 그 적용일자 7일 이전부터 공지합니다.</li>
+			</ol>
+			<h4>제 4조 (서비스의 제공 및 변경)</h4>
+			<ol>
+				<li>사이트는 다음과 같은 서비스를 제공합니다.<ul>
+						<li>정보 제공 서비스</li>
+						<li>커뮤니티 서비스</li>
+						<li>기타 사이트가 정하는 서비스</li>
 					</ul>
-
-				</div>
-
-			</nav>
-			<!-- // side bar left -->
-
-			<!-- main contents -->
-
-			<main class="col-8 p-4" style="overflow: auto;">
-
-				<h3> <i class="fa-brands fa-servicestack"></i> 이용 약관 <i class="fa-brands fa-servicestack"></i> </h3>
-				<hr>
-			
-				<p>
-					<strong>파이썬 코리아</strong>(이하 '사이트')는 
-					이용자의 권리와 의무 및 기타 필요한 사항을 규정하기 위해 아래와 같이 이용 약관을 정합니다.
-				</p>
-
-				<br/>
-
-				<h4>제 1조 (목적)</h4>
-				<p>
-					이 약관은 사이트가 제공하는 모든 서비스(이하 '서비스')의 이용과 관련하여 사이트와 이용자의 권리, 의무 및 책임사항, 기타 필요한 사항을 규정함을 목적으로 합니다.
-				</p>
-
-				<h4>제 2조 (용어의 정의)</h4>
-				<ol>
-					<li>'사이트'란 파이썬 코리아 홈페이지를 의미합니다.</li>
-					<li>'이용자'란 사이트에 접속하여 이 약관에 따라 사이트가 제공하는 서비스를 받는 회원 및 비회원을 말합니다.</li>
-					<li>'회원'이란 사이트에 개인정보를 제공하여 회원 등록을 한 자로서, 사이트의 정보를 지속적으로 제공받으며 사이트가 제공하는 서비스를 계속적으로 이용할 수 있는 자를 말합니다.</li>
-					<li>'비회원'이란 회원에 가입하지 않고 사이트가 제공하는 서비스를 이용하는 자를 말합니다.</li>
-				</ol>
-				<h4>제 3조 (약관의 게시와 개정)</h4>
-				<ol>
-					<li>사이트는 이 약관의 내용을 이용자가 쉽게 알 수 있도록 서비스 초기 화면에 게시합니다.</li>
-					<li>사이트는 필요하다고 인정되는 경우 관련 법령을 위배하지 않는 범위 내에서 이 약관을 개정할 수 있습니다.</li>
-					<li>사이트가 약관을 개정할 경우에는 적용일자 및 개정사유를 명시하여 현행 약관과 함께 서비스 초기 화면에 그 적용일자 7일 이전부터 공지합니다.</li>
-				</ol>
-				<h4>제 4조 (서비스의 제공 및 변경)</h4>
-				<ol>
-					<li>사이트는 다음과 같은 서비스를 제공합니다.<ul>
-							<li>정보 제공 서비스</li>
-							<li>커뮤니티 서비스</li>
-							<li>기타 사이트가 정하는 서비스</li>
-						</ul>
-					</li>
-					<li>사이트는 필요하다고 인정되는 경우 제공하는 서비스의 내용을 변경할 수 있습니다. 이 경우에는 변경된 내용 및 제공일자를 명시하여 공지합니다.</li>
-				</ol>
-				<h4>제 5조 (서비스의 중단)</h4>
-				<ol>
-					<li>사이트는 컴퓨터 등 정보통신설비의 보수점검, 교체 및 고장, 통신의 두절 등의 사유가 발생한 경우에는 서비스의 제공을 일시적으로 중단할 수 있습니다.</li>
-					<li>제1항에 의한 서비스 중단의 경우 사이트는 이용자에게 사전 통지하며, 부득이한 경우 사후에 통지할 수 있습니다.</li>
-				</ol>
-				<h4>제 6조 (회원가입)</h4>
-				<ol>
-					<li>이용자는 사이트가 정한 절차에 따라 회원가입을 신청하고, 사이트는 이에 대한 승낙을 통해 회원가입이 완료됩니다.</li>
-					<li>사이트는 다음 각 호에 해당하는 경우 회원가입을 승인하지 않거나 사후에 회원자격을 박탈할 수 있습니다.<ul>
-							<li>등록 내용에 허위, 기재누락, 오기가 있는 경우</li>
-							<li>타인의 정보를 도용하여 가입한 경우</li>
-							<li>기타 사이트가 정한 이용신청 요건을 충족하지 못하는 경우</li>
-						</ul>
-					</li>
-				</ol>
-				<h4>제 7조 (회원 탈퇴 및 자격 상실)</h4>
-				<ol>
-					<li>회원은 언제든지 탈퇴를 요청할 수 있으며, 사이트는 즉시 회원 탈퇴를 처리합니다.</li>
-					<li>회원이 다음 각 호의 사유에 해당하는 경우, 사이트는 회원 자격을 제한 및 정지시킬 수 있습니다.<ul>
-							<li>가입 신청 시에 허위 내용을 등록한 경우</li>
-							<li>다른 사람의 서비스 이용을 방해하거나 그 정보를 도용하는 등 전자거래 질서를 위협하는 경우</li>
-							<li>사이트를 이용하여 법령 또는 이 약관이 금지하거나 공서양속에 반하는 행위를 하는 경우</li>
-						</ul>
-					</li>
-				</ol>
-				<h4>제 8조 (회원의 ID 및 비밀번호에 대한 의무)</h4>
-				<ol>
-					<li>ID와 비밀번호에 관한 관리 책임은 회원에게 있습니다.</li>
-					<li>회원은 자신의 ID 및 비밀번호를 제3자에게 이용하게 해서는 안 됩니다.</li>
-					<li>회원이 자신의 ID 및 비밀번호를 도난 당하거나 제3자가 사용하고 있음을 인지한 경우에는 즉시 사이트에 통보하고 사이트의 안내에 따라야 합니다.</li>
-				</ol>
-				<h4>제 9조 (이용자의 의무)</h4>
-				<p>이용자는 다음의 행위들을 하여서는 안 됩니다.</p>
-				<ol>
-					<li>신청 또는 변경 시 허위 내용의 등록</li>
-					<li>타인의 정보 도용</li>
-					<li>사이트에 게시된 정보의 변경</li>
-					<li>사이트가 정한 정보 이외의 정보(컴퓨터 프로그램 등) 등의 송신 또는 게시</li>
-					<li>사이트 기타 제3자의 저작권 등 지적재산권에 대한 침해</li>
-					<li>사이트 기타 제3자의 명예를 손상시키거나 업무를 방해하는 행위</li>
-					<li>외설 또는 폭력적인 메시지, 화상, 음성, 기타 공서양속에 반하는 정보를 사이트에 공개 또는 게시하는 행위</li>
-				</ol>
-
-				<h4>제 10조 (저작권의 귀속 및 이용 제한)</h4>
-				<ol>
-					<li>사이트가 작성한 저작물에 대한 저작권 기타 지적재산권은 사이트에 귀속합니다.</li>
-					<li>이용자는 사이트를 이용함으로써 얻은 정보를 사이트의 사전 승낙 없이 복제, 송신, 출판, 배포, 방송 기타 방법에 의하여 영리목적으로 이용하거나 제3자에게 이용하게 하여서는 안 됩니다.</li>
-				</ol>
-				<h4>제 11조 (면책 조항)</h4>
-				<ol>
-					<li>사이트는 천재지변 또는 이에 준하는 불가항력으로 인하여 서비스를 제공할 수 없는 경우에는 서비스 제공에 관한 책임이 면제됩니다.</li>
-					<li>사이트는 이용자의 귀책사유로 인한 서비스 이용의 장애에 대하여 책임을 지지 않습니다.</li>
-					<li>사이트는 이용자가 서비스와 관련하여 게재한 정보, 자료, 사실의 신뢰도, 정확성 등의 내용에 관해서는 책임을 지지 않습니다.</li>
-				</ol>
-				<h4>제 12조 (분쟁 해결)</h4>
-				<ol>
-					<li>사이트는 이용자가 제기하는 정당한 의견이나 불만을 반영하고 그 피해를 보상처리하기 위하여 피해보상처리기구를 설치·운영합니다.</li>
-					<li>사이트는 이용자로부터 제출되는 불만사항 및 의견을 신속하게 처리합니다. 다만, 신속한 처리가 곤란한 경우 이용자에게 그 사유와 처리 일정을 통보합니다.</li>
-					<li>이 약관의 해석 및 사이트와 이용자 간의 분쟁에 대하여는 대한민국의 법을 적용합니다.</li>
-				</ol>
-				<h4>제 13조 (기타 조항)</h4>
-				<ol>
-					<li>이 약관은 2024년 6월 1일부터 적용됩니다.</li>
-				</ol>
-			</main>
-
-			<!-- // main contents -->
-
-			<!--  side bar right -->
-			<nav th:replace="~{layout.html :: sidebarLeft}" id="sidebarRight" class="col-2 d-md-block bg-body-tertiary sidebar collapse">
-
-				<div class="position-sticky pt-3 sidebar-sticky">
-					
-					<a href="#" class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom">
-						<i class="fa-brands fa-python fa-xl" style="color: Dodgerblue;"></i>
-						<span class="fs-5 fw-semibold"> &nbsp; 메뉴 </span>
-					</a>
-
-					<ul class="list-unstyled ps-0 fs-5 ">
-						<li class="mb-1">
-							<button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse"
-								data-bs-target="#home-collapse" aria-expanded="true">Home
-							</button>
-							<div class="collapse show" id="home-collapse">
-								<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-									<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Overview</a></li>
-									<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Updates</a></li>
-									<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Reports</a></li>
-								</ul>
-							</div>
-						</li> 
-
-						<li class="border-top my-3"></li>
-						<li class="mb-1">
-							<button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse"
-								data-bs-target="#account-collapse" aria-expanded="true">Account</button>
-							<div class="collapse show" id="account-collapse">
-								<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-									<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="link-dark d-inline-flex text-decoration-none rounded">New...</a></li>
-									<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Profile</a></li>
-									<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Settings</a></li> 
-								</ul>
-							</div>
-						</li> 
+				</li>
+				<li>사이트는 필요하다고 인정되는 경우 제공하는 서비스의 내용을 변경할 수 있습니다. 이 경우에는 변경된 내용 및 제공일자를 명시하여 공지합니다.</li>
+			</ol>
+			<h4>제 5조 (서비스의 중단)</h4>
+			<ol>
+				<li>사이트는 컴퓨터 등 정보통신설비의 보수점검, 교체 및 고장, 통신의 두절 등의 사유가 발생한 경우에는 서비스의 제공을 일시적으로 중단할 수 있습니다.</li>
+				<li>제1항에 의한 서비스 중단의 경우 사이트는 이용자에게 사전 통지하며, 부득이한 경우 사후에 통지할 수 있습니다.</li>
+			</ol>
+			<h4>제 6조 (회원가입)</h4>
+			<ol>
+				<li>이용자는 사이트가 정한 절차에 따라 회원가입을 신청하고, 사이트는 이에 대한 승낙을 통해 회원가입이 완료됩니다.</li>
+				<li>사이트는 다음 각 호에 해당하는 경우 회원가입을 승인하지 않거나 사후에 회원자격을 박탈할 수 있습니다.<ul>
+						<li>등록 내용에 허위, 기재누락, 오기가 있는 경우</li>
+						<li>타인의 정보를 도용하여 가입한 경우</li>
+						<li>기타 사이트가 정한 이용신청 요건을 충족하지 못하는 경우</li>
 					</ul>
-				</div>
+				</li>
+			</ol>
+			<h4>제 7조 (회원 탈퇴 및 자격 상실)</h4>
+			<ol>
+				<li>회원은 언제든지 탈퇴를 요청할 수 있으며, 사이트는 즉시 회원 탈퇴를 처리합니다.</li>
+				<li>회원이 다음 각 호의 사유에 해당하는 경우, 사이트는 회원 자격을 제한 및 정지시킬 수 있습니다.<ul>
+						<li>가입 신청 시에 허위 내용을 등록한 경우</li>
+						<li>다른 사람의 서비스 이용을 방해하거나 그 정보를 도용하는 등 전자거래 질서를 위협하는 경우</li>
+						<li>사이트를 이용하여 법령 또는 이 약관이 금지하거나 공서양속에 반하는 행위를 하는 경우</li>
+					</ul>
+				</li>
+			</ol>
+			<h4>제 8조 (회원의 ID 및 비밀번호에 대한 의무)</h4>
+			<ol>
+				<li>ID와 비밀번호에 관한 관리 책임은 회원에게 있습니다.</li>
+				<li>회원은 자신의 ID 및 비밀번호를 제3자에게 이용하게 해서는 안 됩니다.</li>
+				<li>회원이 자신의 ID 및 비밀번호를 도난 당하거나 제3자가 사용하고 있음을 인지한 경우에는 즉시 사이트에 통보하고 사이트의 안내에 따라야 합니다.</li>
+			</ol>
+			<h4>제 9조 (이용자의 의무)</h4>
+			<p>이용자는 다음의 행위들을 하여서는 안 됩니다.</p>
+			<ol>
+				<li>신청 또는 변경 시 허위 내용의 등록</li>
+				<li>타인의 정보 도용</li>
+				<li>사이트에 게시된 정보의 변경</li>
+				<li>사이트가 정한 정보 이외의 정보(컴퓨터 프로그램 등) 등의 송신 또는 게시</li>
+				<li>사이트 기타 제3자의 저작권 등 지적재산권에 대한 침해</li>
+				<li>사이트 기타 제3자의 명예를 손상시키거나 업무를 방해하는 행위</li>
+				<li>외설 또는 폭력적인 메시지, 화상, 음성, 기타 공서양속에 반하는 정보를 사이트에 공개 또는 게시하는 행위</li>
+			</ol>
+
+			<h4>제 10조 (저작권의 귀속 및 이용 제한)</h4>
+			<ol>
+				<li>사이트가 작성한 저작물에 대한 저작권 기타 지적재산권은 사이트에 귀속합니다.</li>
+				<li>이용자는 사이트를 이용함으로써 얻은 정보를 사이트의 사전 승낙 없이 복제, 송신, 출판, 배포, 방송 기타 방법에 의하여 영리목적으로 이용하거나 제3자에게 이용하게 하여서는 안 됩니다.</li>
+			</ol>
+			<h4>제 11조 (면책 조항)</h4>
+			<ol>
+				<li>사이트는 천재지변 또는 이에 준하는 불가항력으로 인하여 서비스를 제공할 수 없는 경우에는 서비스 제공에 관한 책임이 면제됩니다.</li>
+				<li>사이트는 이용자의 귀책사유로 인한 서비스 이용의 장애에 대하여 책임을 지지 않습니다.</li>
+				<li>사이트는 이용자가 서비스와 관련하여 게재한 정보, 자료, 사실의 신뢰도, 정확성 등의 내용에 관해서는 책임을 지지 않습니다.</li>
+			</ol>
+			<h4>제 12조 (분쟁 해결)</h4>
+			<ol>
+				<li>사이트는 이용자가 제기하는 정당한 의견이나 불만을 반영하고 그 피해를 보상처리하기 위하여 피해보상처리기구를 설치·운영합니다.</li>
+				<li>사이트는 이용자로부터 제출되는 불만사항 및 의견을 신속하게 처리합니다. 다만, 신속한 처리가 곤란한 경우 이용자에게 그 사유와 처리 일정을 통보합니다.</li>
+				<li>이 약관의 해석 및 사이트와 이용자 간의 분쟁에 대하여는 대한민국의 법을 적용합니다.</li>
+			</ol>
+			<h4>제 13조 (기타 조항)</h4>
+			<ol>
+				<li>이 약관은 2024년 6월 1일부터 적용됩니다.</li>
+			</ol>
+		</main>
+
+		<!-- // main content --> 
+
+		<!--  side bar right -->
+		<nav th:replace="~{layout.html :: sidebarRight}" id="sidebarRight" class="col-2 d-md-block bg-body-tertiary_ sidebar collapse">
+
+			<div class="position-sticky pt-3 sidebar-sticky">
 				
-			</nav>
-			<!-- // side bar right-->
+				<!-- ad -->
 
-		</div>
+				abcdefghij
 
+			</div>
+			
+		</nav>
+		<!-- // side bar right-->
+		
 	</div>
 
-	<!-- Footer -->
+	<!-- // main content -->
+
+	<!-- footer -->
+
 	<footer th:replace="~{layout.html :: footer}" class="text-center text-lg-start bg-light text-muted">
 
 		<!-- Section: Social media -->
@@ -438,55 +428,10 @@
 		</div>
 		<!-- Copyright -->
 	</footer>
-	<!-- Footer -->
 
-	<script>
-	(() => {
-		  // Graphs
-		  const ctx = document.getElementById('myChart')
-		  // eslint-disable-next-line no-unused-vars
-		  const myChart = new Chart(ctx, {
-		    type: 'line',
-		    data: {
-		      labels: [
-		        'Sunday',
-		        'Monday',
-		        'Tuesday',
-		        'Wednesday',
-		        'Thursday',
-		        'Friday',
-		        'Saturday'
-		      ],
-		      datasets: [{
-		        data: [
-		          15339,
-		          21345,
-		          18483,
-		          24003,
-		          23489,
-		          24092,
-		          12034
-		        ],
-		        lineTension: 0,
-		        backgroundColor: 'transparent',
-		        borderColor: '#007bff',
-		        borderWidth: 4,
-		        pointBackgroundColor: '#007bff'
-		      }]
-		    },
-		    options: {
-		      plugins: {
-		        legend: {
-		          display: false
-		        },
-		        tooltip: {
-		          boxPadding: 3
-		        }
-		      }
-		    }
-		  })
-		})()
+	<!-- // footer -->
 
+	<script> 
 	</script>
 
 </body>
