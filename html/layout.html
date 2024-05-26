@@ -73,9 +73,11 @@
 		
 				<!-- Collapsible wrapper -->
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+					<hr/>
 					
 					<!-- Navbar brand -->
-					<a class="navbar-brand mt-lg-0 text-muted" th:href="@{/}" href="/" >
+					<a class="navbar-brand mt-lg-0 text-muted" th:href="@{/}" href="#" >
 						&nbsp;<i class="fa-brands fa-python fa-xl" style="color:black;"></i>
 						&nbsp;파이썬 코리아
 					</a>
@@ -190,17 +192,17 @@
 
 		<!--  side bar left -->
 
-		<nav th:fragment="sidebarLeft" id="sidebarLeft" class="d-md-block bg-body-tertiary sidebar collapse">
+		<nav th:fragment="sidebarLeft" id="sidebarLeft" class="container-fluid col-auto d-md-block bg-body-tertiary sidebar collapse">
 
-			<div class="position-sticky sidebar-sticky" id="sidebarLeftContent">
+			<div class="position-sticky sidebar-sticky collapse show " id="sidebarLeftContent">
 
-				<ul class="nav flex-column nav-tabs nav-pills text-nowrap list-unstyled ps-0 mt-2">
+				<ul class="nav flex-column nav-tabs nav-pills text-nowrap list-unstyled ps-0 mt-2"> 
 
 					<li class="mb-1">
 						<a class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#python_download" aria-expanded="false" >
 							파이썬 다운로드
 						</a> 
-						<div class="collapse" id="python_download">
+						<div class="collapse show" id="python_download">
 							<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
 								<li class="mt-2"><a th:href="@{pub/download}" href="#" class="link-dark rounded text-decoration-none">파이썬 3.12.3</a></li>
 							</ul>
@@ -212,7 +214,7 @@
 							data-bs-target="#python_overview" aria-expanded="false">
 							파이썬 소개
 						</a>
-						<div class="collapse" id="python_overview">
+						<div class="collapse show" id="python_overview">
 							<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
 
 								<li class="mt-2"><a th:href="@{/pub/intro}" href="#" class="link-dark rounded text-decoration-none">파이썬 소개</a></li>
@@ -237,7 +239,7 @@
 							data-bs-target="#python_news" aria-expanded="false">
 							파이썬 뉴스
 						</a>
-						<div class="collapse" id="python_news">
+						<div class="collapse show" id="python_news">
 							<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
 								<li><a th:href="@{/pub/news}" href="#" class="link-dark rounded text-decoration-none">파이썬 뉴스</a></li> 
 							</ul>
@@ -257,11 +259,11 @@
 
 		<main class="p-4 p-md-5 pt-5 container-fluid" style="overflow-y: auto; ">
 
-			<!-- Toggle button -->
+			<!-- Toggle button sidebar left -->
 			<a href="#" data-bs-target="#sidebarLeftContent" data-bs-toggle="collapse" class="border rounded-3 p-1 text-decoration-none">
 				<i class="bi bi-list bi-lg py-2 p-1"></i>
 			</a> 
-			<!-- // Toggle button -->
+			<!-- // Toggle button sidebar left -->
 			
 			<h2>Main Contents Main Contents Main Contents Main Contents Main Contents Main Contents Main Contents Main Contents</h2> 
 
@@ -283,10 +285,21 @@
 		<!--  side bar right -->
 		<nav th:fragment="sidebarRight" id="sidebarRight" class="col-auto d-md-block bg-body-tertiary_ sidebar collapse">
 
-			<div class="position-sticky pt-3 sidebar-sticky">
+			<div class="position-sticky pt-3 sidebar-sticky text-nowrap">
 				
-					<!-- ad -->
-					<h4>abcdefghij</h4>
+					<h6><b>좋은 개발 사이트</b></h6>
+
+					<a href="https://getbootstrap.com/docs/5.3/examples" target="_blank" class="text-decoration-none text-black" >
+						<i class="bi bi-bootstrap"></i> Bootstrap CSS
+					</a><br/>
+
+					<a href="https://icons.getbootstrap.com" target="_blank" class="text-decoration-none text-black" >
+						<i class="bi bi-bootstrap-fill"></i> Bootstrap Icon
+					</a><br/>
+
+					<a href="https://fontawesome.com/search" target="_blank" class="text-decoration-none text-black" >
+						<i class="fa-solid fa-font-awesome"></i> Font Awesome Icon
+					</a><br/>
 
 			</div>
 			
