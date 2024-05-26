@@ -139,7 +139,7 @@
 	<div class="wrapper d-flex align-items-stretch border-top border-bottom" >
 
 		<!--  side bar left -->
-		<nav th:replace="~{layout.html :: sidebarLeft}" id="sidebarLeft" class="d-md-block bg-body-tertiary sidebar collapse">
+		<nav th:replace="~{layout.html :: sidebarLeft}" id="sidebarLeft" class="container-fluid col-auto d-md-block bg-body-tertiary sidebar collapse">
 
 			<div class="position-sticky sidebar-sticky">
 
@@ -149,7 +149,7 @@
 						<a class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#python_download" aria-expanded="false" >
 							파이썬 다운로드
 						</a> 
-						<div class="collapse" id="python_download">
+						<div class="collapse show" id="python_download">
 							<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
 								<li class="mt-2"><a th:href="@{pub/download}" href="#" class="link-dark rounded text-decoration-none">파이썬 3.12.3</a></li>
 							</ul>
@@ -161,7 +161,7 @@
 							data-bs-target="#python_overview" aria-expanded="false">
 							파이썬 소개
 						</a>
-						<div class="collapse" id="python_overview">
+						<div class="collapse show" id="python_overview">
 							<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
 
 								<li class="mt-2"><a th:href="@{/pub/intro}" href="#" class="link-dark rounded text-decoration-none">파이썬 소개</a></li>
@@ -186,7 +186,7 @@
 							data-bs-target="#python_news" aria-expanded="false">
 							파이썬 뉴스
 						</a>
-						<div class="collapse" id="python_news">
+						<div class="collapse show" id="python_news">
 							<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
 								<li><a th:href="@{/pub/news}" href="#" class="link-dark rounded text-decoration-none">파이썬 뉴스</a></li> 
 							</ul>
@@ -404,11 +404,19 @@
 
 			<div class="position-sticky pt-3 sidebar-sticky">
 				
-				<!-- ad -->
+				<h6><b>좋은 사이트</b></h6>
 
-				<h3>abcdefghij</h3>
-				<h3>abcdefghij</h3>
-				<h3>abcdefghij</h3>
+				<a href="https://getbootstrap.com/docs/5.3/examples" target="_blank" class="text-decoration-none text-black" >
+					<i class="bi bi-bootstrap"></i> Bootstrap CSS
+				</a><br/>
+
+				<a href="https://icons.getbootstrap.com" target="_blank" class="text-decoration-none text-black" >
+					<i class="bi bi-bootstrap-fill"></i> Bootstrap Icon
+				</a><br/>
+
+				<a href="https://fontawesome.com/search" target="_blank" class="text-decoration-none text-black" >
+					<i class="fa-solid fa-font-awesome"></i> Font Awesome Icon
+				</a><br/>
 
 			</div>
 			
