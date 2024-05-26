@@ -31,17 +31,17 @@
 
 	<!-- Google tag (gtag.js) -->
 	<script async src="http://www.googletagmanager.com/gtag/js?id=G-546RKN18SQ"></script>
+
 	<script>
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-546RKN18SQ');
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'G-546RKN18SQ');
 	</script>
 	<!-- // Google tag (gtag.js) -->
 
 	<!-- Google ads -->
-	<script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2022521024023929" crossorigin="anonymous">
-	</script>
+	<script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2022521024023929" crossorigin="anonymous"></script>
 	<!-- // Google ads -->
 
 </head>
@@ -198,7 +198,7 @@
 					</div>
 
 					<div class="col-auto dropdown text-end" th:if="${ ! html.isUserLogin() }">
-						<a th:href="@{/admin}" href="./admin.html" class="d-block link-dark text-decoration-none" >
+						<a th:href="@{#}" href="#" class="d-block link-dark text-decoration-none" >
 							<i class="bi bi-gear fa-xl" title="관리자"></i> 
 						</a>
 					</div>
