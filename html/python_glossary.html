@@ -3512,81 +3512,63 @@
 							<font style="vertical-align: inherit;">.</font>
 						</font>
 					</p>
-				</dd>
-				<dt id="term-lambda">
-					<font style="vertical-align: inherit;">
-						<font style="vertical-align: inherit;">람다 </font>
-					</font><a class="headerlink" href="#term-lambda" title="이 용어에 대한 링크">
-						<font style="vertical-align: inherit;">
-							<font style="vertical-align: inherit;"></font>
-						</font>
-					</a>
-				</dt>
+				</dd> 
+
+				<dt id="term-lambda">lambda (람다)<a class="headerlink" href="#term-lambda" title="Link to this term"></a></dt>
 				<dd>
-					<p>An anonymous inline function consisting of a single <a class="reference internal"
-							href="#term-expression"><span class="xref std std-term">expression</span></a>
-						which is evaluated when the function is called. The syntax to create
-						a lambda function is <code
+					<p>호출될 때 값이 구해지는 하나의 <a class="reference internal" href="#term-expression"><span
+								class="xref std std-term">표현식</span></a> 으로 구성된 이름 없는 인라인 함수. 람다 함수를 만드는 문법은 <code
 							class="docutils literal notranslate"><span class="pre">lambda</span> <span class="pre">[parameters]:</span> <span class="pre">expression</span></code>
-					</p>
+						입니다.</p>
 				</dd>
-				<dt id="term-LBYL">LBYL<a class="headerlink" href="#term-LBYL" title="이 용어에 대한 링크"></a></dt>
+
+
+				<dt id="term-LBYL">LBYL<a class="headerlink" href="#term-LBYL" title="Link to this term"></a></dt>
 				<dd>
-					<p>Look before you leap. This coding style explicitly tests for
-						pre-conditions before making calls or lookups. This style contrasts with
-						the <a class="reference internal" href="#term-EAFP"><span class="xref std std-term">EAFP</span></a> approach
-						and is characterized by the presence of many
-						<a class="reference internal" href="reference/compound_stmts.html#if"><code
-								class="xref std std-keyword docutils literal notranslate"><span class="pre">if</span></code></a>
-						statements.
-					</p>
-					<p>In a multi-threaded environment, the LBYL approach can risk introducing a
-						race condition between “the looking” and “the leaping”. For example, the
-						code, <code
+					<p>뛰기 전에 보라 (Look before you leap). 이 코딩 스타일은 호출이나 조회를 하기 전에 명시적으로 사전 조건들을 검사합니다. 이 스타일은 <a
+							class="reference internal" href="#term-EAFP"><span class="xref std std-term">EAFP</span></a> 접근법과 대비되고,
+						많은 <a class="reference internal" href="reference/compound_stmts.html#if"><code
+								class="xref std std-keyword docutils literal notranslate"><span class="pre">if</span></code></a> 문의
+						존재로 특징지어집니다.</p>
+					<p>다중 스레드 환경에서, LBYL 접근법은 “보기”와 “뛰기” 간에 경쟁 조건을 만들게 될 위험이 있습니다. 예를 들어, 코드 <code
 							class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">key</span> <span class="pre">in</span> <span class="pre">mapping:</span> <span class="pre">return</span> <span class="pre">mapping[key]</span></code>
-						can fail if another
-						thread removes <em>key</em> from <em>mapping</em> after the test, but before the lookup.
-						This issue can be solved with locks or by using the EAFP approach.</p>
+						는 검사 후에, 하지만 조회 전에, 다른 스레드가 <em>key</em>를 <em>mapping</em>에서 제거하면 실패할 수 있습니다. 이런 이슈는 록이나 EAFP 접근법을 사용함으로써
+						해결될 수 있습니다.</p>
 				</dd>
-				<dt id="term-list">list<a class="headerlink" href="#term-list" title="이 용어에 대한 링크"></a></dt>
+				<dt id="term-list">list (리스트)<a class="headerlink" href="#term-list" title="Link to this term"></a></dt>
 				<dd>
 					<p>A built-in Python <a class="reference internal" href="#term-sequence"><span
 								class="xref std std-term">sequence</span></a>. Despite its name it is more akin
 						to an array in other languages than to a linked list since access to
 						elements is <em>O</em>(1).</p>
 				</dd>
-				<dt id="term-list-comprehension">list comprehension<a class="headerlink" href="#term-list-comprehension"
-						title="이 용어에 대한 링크"></a></dt>
+				<dt id="term-list-comprehension">list comprehension (리스트 컴프리헨션)<a class="headerlink" href="#term-list-comprehension"
+						title="Link to this term"></a></dt>
 				<dd>
-					<p>A compact way to process all or part of the elements in a sequence and
-						return a list with the results. <code
-							class="docutils literal notranslate"><span class="pre">result</span> <span class="pre">=</span> <span class="pre">['{:#04x}'.format(x)</span> <span class="pre">for</span> <span class="pre">x</span> <span class="pre">in</span>
-							<span class="pre">range(256)</span> <span class="pre">if</span> <span class="pre">x</span> <span class="pre">%</span> <span class="pre">2</span> <span class="pre">==</span> <span class="pre">0]</span></code>
-						generates a list of strings containing
-						even hex numbers (0x..) in the range from 0 to 255. The <a class="reference internal"
+					<p>시퀀스의 요소들 전부 또는 일부를 처리하고 그 결과를 리스트로 돌려주는 간결한 방법. <code
+							class="docutils literal notranslate"><span class="pre">result</span> <span class="pre">=</span> <span class="pre">['{:#04x}'.format(x)</span> <span class="pre">for</span> <span class="pre">x</span> <span class="pre">in</span> <span class="pre">range(256)</span> <span class="pre">if</span> <span class="pre">x</span> <span class="pre">%</span> <span class="pre">2</span> <span class="pre">==</span> <span class="pre">0]</span></code>
+						는 0에서 255 사이에 있는 짝수들의 16진수 (0x..) 들을 포함하는 문자열의 리스트를 만듭니다. <a class="reference internal"
 							href="reference/compound_stmts.html#if"><code
-								class="xref std std-keyword docutils literal notranslate"><span class="pre">if</span></code></a>
-						clause is optional. If omitted, all elements in <code
-							class="docutils literal notranslate"><span class="pre">range(256)</span></code> are
-						processed.</p>
+								class="xref std std-keyword docutils literal notranslate"><span class="pre">if</span></code></a> 절은
+						생략할 수 있습니다. 생략하면, <code class="docutils literal notranslate"><span class="pre">range(256)</span></code>에 있는
+						모든 요소가 처리됩니다.</p>
 				</dd>
-				<dt id="term-loader">loader<a class="headerlink" href="#term-loader" title="이 용어에 대한 링크"></a></dt>
+				<dt id="term-loader">loader (로더)<a class="headerlink" href="#term-loader" title="Link to this term"></a></dt>
 				<dd>
-					<p>An object that loads a module. It must define a method named
-						<code class="xref py py-meth docutils literal notranslate"><span class="pre">load_module()</span></code>. A
-						loader is typically returned by a
-						<a class="reference internal" href="#term-finder"><span class="xref std std-term">finder</span></a>. See
-						<span class="target" id="index-25"></span><a class="pep reference external"
-							href="https://peps.python.org/pep-0302/"><strong>PEP 302</strong></a> for details and
-						<a class="reference internal" href="library/importlib.html#importlib.abc.Loader"
+					<p>모듈을 로드하는 객체. <code
+							class="xref py py-meth docutils literal notranslate"><span class="pre">load_module()</span></code> 이라는
+						이름의 메서드를 정의해야 합니다. 로더는 보통 <a class="reference internal" href="#term-finder"><span
+								class="xref std std-term">파인더</span></a> 가 돌려줍니다. 자세한 내용은 <span class="target"
+							id="index-71"></span><a class="pep reference external"
+							href="https://peps.python.org/pep-0302/"><strong>PEP 302</strong></a> 를, <a class="reference internal"
+							href="#term-abstract-base-class"><span class="xref std std-term">추상 베이스 클래스</span></a> 는 <a
+							class="reference internal" href="library/importlib.html#importlib.abc.Loader"
 							title="importlib.abc.Loader"><code
 								class="xref py py-class docutils literal notranslate"><span class="pre">importlib.abc.Loader</span></code></a>
-						for an <a class="reference internal" href="#term-abstract-base-class"><span
-								class="xref std std-term">abstract base class</span></a>.
-					</p>
+						를 보세요.</p>
 				</dd>
 				<dt id="term-locale-encoding">locale encoding<a class="headerlink" href="#term-locale-encoding"
-						title="이 용어에 대한 링크"></a></dt>
+						title="Link to this term"></a></dt>
 				<dd>
 					<p>On Unix, it is the encoding of the LC_CTYPE locale. It can be set with
 						<a class="reference internal" href="library/locale.html#locale.setlocale" title="locale.setlocale"><code
@@ -3602,17 +3584,17 @@
 					<p>See also the <a class="reference internal" href="#term-filesystem-encoding-and-error-handler"><span
 								class="xref std std-term">filesystem encoding and error handler</span></a>.</p>
 				</dd>
-				<dt id="term-magic-method">magic method<a class="headerlink" href="#term-magic-method" title="이 용어에 대한 링크"></a>
-				</dt>
+				<dt id="term-magic-method">magic method (매직 메서드)<a class="headerlink" href="#term-magic-method"
+						title="Link to this term"></a></dt>
 				<dd>
-					<p id="index-26">An informal synonym for <a class="reference internal" href="#term-special-method"><span
-								class="xref std std-term">special method</span></a>.</p>
+					<p id="index-26"><a class="reference internal" href="#term-special-method"><span class="xref std std-term">특수
+								메서드</span></a> 의 비공식적인 비슷한 말.</p>
 				</dd>
-				<dt id="term-mapping">mapping<a class="headerlink" href="#term-mapping" title="이 용어에 대한 링크"></a></dt>
+				<dt id="term-mapping">mapping (매핑)<a class="headerlink" href="#term-mapping" title="Link to this term"></a></dt>
 				<dd>
 					<p>A container object that supports arbitrary key lookups and implements the
 						methods specified in the <a class="reference internal"
-							href="library/collections.abc.html#collections.abc.Mapping" title="collections.abc.매핑"><code
+							href="library/collections.abc.html#collections.abc.Mapping" title="collections.abc.Mapping"><code
 								class="xref py py-class docutils literal notranslate"><span class="pre">collections.abc.Mapping</span></code></a>
 						or
 						<a class="reference internal" href="library/collections.abc.html#collections.abc.MutableMapping"
@@ -3620,7 +3602,7 @@
 								class="xref py py-class docutils literal notranslate"><span class="pre">collections.abc.MutableMapping</span></code></a>
 						<a class="reference internal" href="library/collections.abc.html#collections-abstract-base-classes"><span
 								class="std std-ref">abstract base classes</span></a>. Examples
-						include <a class="reference internal" href="library/stdtypes.html#dict" title="딕셔너리"><code
+						include <a class="reference internal" href="library/stdtypes.html#dict" title="dict"><code
 								class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>, <a
 							class="reference internal" href="library/collections.html#collections.defaultdict"
 							title="collections.defaultdict"><code
@@ -3628,103 +3610,89 @@
 						<a class="reference internal" href="library/collections.html#collections.OrderedDict"
 							title="collections.OrderedDict"><code
 								class="xref py py-class docutils literal notranslate"><span class="pre">collections.OrderedDict</span></code></a>
-						and <a class="reference internal" href="library/collections.html#collections.Counter" title="컬렉션.카운터"><code
+						and <a class="reference internal" href="library/collections.html#collections.Counter"
+							title="collections.Counter"><code
 								class="xref py py-class docutils literal notranslate"><span class="pre">collections.Counter</span></code></a>.
 					</p>
 				</dd>
-				<dt id="term-meta-path-finder">meta path finder<a class="headerlink" href="#term-meta-path-finder"
-						title="이 용어에 대한 링크"></a></dt>
+				<dt id="term-meta-path-finder">meta path finder (메타 경로 파인더)<a class="headerlink" href="#term-meta-path-finder"
+						title="Link to this term"></a></dt>
 				<dd>
-					<p>A <a class="reference internal" href="#term-finder"><span class="xref std std-term">finder</span></a>
-						returned by a search of <a class="reference internal" href="library/sys.html#sys.meta_path"
-							title="sys.meta_path"><code
-								class="xref py py-data docutils literal notranslate"><span class="pre">sys.meta_path</span></code></a>.
-						Meta path
-						finders are related to, but different from <a class="reference internal"
-							href="#term-path-entry-finder"><span class="xref std std-term">path entry finders</span></a>.</p>
-					<p>See <a class="reference internal" href="library/importlib.html#importlib.abc.MetaPathFinder"
-							title="importlib.abc.MetaPathFinder"><code
+					<p><a class="reference internal" href="library/sys.html#sys.meta_path" title="sys.meta_path"><code
+								class="xref py py-data docutils literal notranslate"><span class="pre">sys.meta_path</span></code></a>
+						의 검색이 돌려주는 <a class="reference internal" href="#term-finder"><span class="xref std std-term">파인더</span></a>.
+						메타 경로 파인더는 <a class="reference internal" href="#term-path-entry-finder"><span class="xref std std-term">경로
+								엔트리 파인더</span></a> 와 관련되어 있기는 하지만 다릅니다.</p>
+					<p>메타 경로 파인더가 구현하는 메서드들에 대해서는 <a class="reference internal"
+							href="library/importlib.html#importlib.abc.MetaPathFinder" title="importlib.abc.MetaPathFinder"><code
 								class="xref py py-class docutils literal notranslate"><span class="pre">importlib.abc.MetaPathFinder</span></code></a>
-						for the methods that meta path
-						finders implement.</p>
+						를 보면 됩니다.</p>
 				</dd>
-				<dt id="term-metaclass">metaclass<a class="headerlink" href="#term-metaclass" title="이 용어에 대한 링크"></a></dt>
+				<dt id="term-metaclass">metaclass (메타 클래스)<a class="headerlink" href="#term-metaclass"
+						title="Link to this term"></a></dt>
 				<dd>
-					<p>The class of a class. Class definitions create a class name, a class
-						dictionary, and a list of base classes. The metaclass is responsible for
-						taking those three arguments and creating the class. Most object oriented
-						programming languages provide a default implementation. What makes Python
-						special is that it is possible to create custom metaclasses. Most users
-						never need this tool, but when the need arises, metaclasses can provide
-						powerful, elegant solutions. They have been used for logging attribute
-						access, adding thread-safety, tracking object creation, implementing
-						singletons, and many other tasks.</p>
-					<p>More information can be found in <a class="reference internal"
-							href="reference/datamodel.html#metaclasses"><span class="std std-ref">Metaclasses</span></a>.</p>
+					<p>클래스의 클래스. 클래스 정의는 클래스 이름, 클래스 딕셔너리, 베이스 클래스들의 목록을 만듭니다. 메타 클래스는 이 세 인자를 받아서 클래스를 만드는 책임을 집니다. 대부분의 객체 지향형
+						프로그래밍 언어들은 기본 구현을 제공합니다. 파이썬을 특별하게 만드는 것은 커스텀 메타 클래스를 만들 수 있다는 것입니다. 대부분 사용자에게는 이 도구가 전혀 필요 없지만, 필요가 생길 때,
+						메타 클래스는 강력하고 우아한 해법을 제공합니다. 어트리뷰트 액세스의 로깅(logging), 스레드 안전성의 추가, 객체 생성 추적, 싱글톤 구현과 많은 다른 작업에 사용됐습니다.</p>
+					<p><a class="reference internal" href="reference/datamodel.html#metaclasses"><span class="std std-ref">메타
+								클래스</span></a> 에서 더 자세한 내용을 찾을 수 있습니다.</p>
 				</dd>
-				<dt id="term-method">method<a class="headerlink" href="#term-method" title="이 용어에 대한 링크"></a></dt>
+				<dt id="term-method">method (메서드)<a class="headerlink" href="#term-method" title="Link to this term"></a></dt>
 				<dd>
-					<p>A function which is defined inside a class body. If called as an attribute
-						of an instance of that class, the method will get the instance object as
-						its first <a class="reference internal" href="#term-argument"><span
-								class="xref std std-term">argument</span></a> (which is usually called <code
-							class="docutils literal notranslate"><span class="pre">self</span></code>).
-						See <a class="reference internal" href="#term-function"><span class="xref std std-term">function</span></a>
-						and <a class="reference internal" href="#term-nested-scope"><span class="xref std std-term">nested
-								scope</span></a>.</p>
+					<p>클래스 바디 안에서 정의되는 함수. 그 클래스의 인스턴스의 어트리뷰트로서 호출되면, 그 메서드는 첫 번째 <a class="reference internal"
+							href="#term-argument"><span class="xref std std-term">인자</span></a> (보통 <code
+							class="docutils literal notranslate"><span class="pre">self</span></code> 라고 불린다) 로 인스턴스 객체를 받습니다. <a
+							class="reference internal" href="#term-function"><span class="xref std std-term">함수</span></a> 와 <a
+							class="reference internal" href="#term-nested-scope"><span class="xref std std-term">중첩된 스코프</span></a>
+						를 보세요.</p>
 				</dd>
-				<dt id="term-method-resolution-order">method resolution order<a class="headerlink"
-						href="#term-method-resolution-order" title="이 용어에 대한 링크"></a></dt>
+				<dt id="term-method-resolution-order">method resolution order (메서드 결정 순서)<a class="headerlink"
+						href="#term-method-resolution-order" title="Link to this term"></a></dt>
 				<dd>
 					<p>Method Resolution Order is the order in which base classes are searched
 						for a member during lookup. See <a class="reference internal" href="howto/mro.html#python-2-3-mro"><span
 								class="std std-ref">The Python 2.3 Method Resolution Order</span></a> for details of the
 						algorithm used by the Python interpreter since the 2.3 release.</p>
 				</dd>
-				<dt id="term-module">module<a class="headerlink" href="#term-module" title="이 용어에 대한 링크"></a></dt>
+				<dt id="term-module">module (모듈)<a class="headerlink" href="#term-module" title="Link to this term"></a></dt>
 				<dd>
-					<p>An object that serves as an organizational unit of Python code. Modules
-						have a namespace containing arbitrary Python objects. Modules are loaded
-						into Python by the process of <a class="reference internal" href="#term-importing"><span
-								class="xref std std-term">importing</span></a>.</p>
-					<p>See also <a class="reference internal" href="#term-package"><span
-								class="xref std std-term">package</span></a>.</p>
+					<p>파이썬 코드의 조직화 단위를 담당하는 객체. 모듈은 임의의 파이썬 객체들을 담는 이름 공간을 갖습니다. 모듈은 <a class="reference internal"
+							href="#term-importing"><span class="xref std std-term">임포팅</span></a> 절차에 의해 파이썬으로 로드됩니다.</p>
+					<p><a class="reference internal" href="#term-package"><span class="xref std std-term">패키지</span></a> 도 보세요.</p>
 				</dd>
-				<dt id="term-module-spec">module spec<a class="headerlink" href="#term-module-spec" title="이 용어에 대한 링크"></a></dt>
+				<dt id="term-module-spec">module spec (모듈 스펙)<a class="headerlink" href="#term-module-spec"
+						title="Link to this term"></a></dt>
 				<dd>
-					<p>A namespace containing the import-related information used to load a
-						module. An instance of <a class="reference internal"
+					<p>모듈을 로드하는데 사용되는 임포트 관련 정보들을 담고 있는 이름 공간. <a class="reference internal"
 							href="library/importlib.html#importlib.machinery.ModuleSpec"
 							title="importlib.machinery.ModuleSpec"><code
-								class="xref py py-class docutils literal notranslate"><span class="pre">importlib.machinery.ModuleSpec</span></code></a>.
-					</p>
+								class="xref py py-class docutils literal notranslate"><span class="pre">importlib.machinery.ModuleSpec</span></code></a>
+						의 인스턴스.</p>
 				</dd>
-				<dt id="term-MRO">MRO<a class="headerlink" href="#term-MRO" title="이 용어에 대한 링크"></a></dt>
+				<dt id="term-MRO">MRO<a class="headerlink" href="#term-MRO" title="Link to this term"></a></dt>
 				<dd>
-					<p>See <a class="reference internal" href="#term-method-resolution-order"><span class="xref std std-term">method
-								resolution order</span></a>.</p>
+					<p><a class="reference internal" href="#term-method-resolution-order"><span class="xref std std-term">메서드 결정
+								순서</span></a> 를 보세요.</p>
 				</dd>
-				<dt id="term-mutable">mutable<a class="headerlink" href="#term-mutable" title="이 용어에 대한 링크"></a></dt>
+				<dt id="term-mutable">mutable (가변)<a class="headerlink" href="#term-mutable" title="Link to this term"></a></dt>
 				<dd>
-					<p>Mutable objects can change their value but keep their <a class="reference internal"
-							href="library/functions.html#id" title="ID"><code
-								class="xref py py-func docutils literal notranslate"><span class="pre">id()</span></code></a>. See
-						also <a class="reference internal" href="#term-immutable"><span
-								class="xref std std-term">immutable</span></a>.</p>
+					<p>가변 객체는 값이 변할 수 있지만 <a class="reference internal" href="library/functions.html#id" title="id"><code
+								class="xref py py-func docutils literal notranslate"><span class="pre">id()</span></code></a> 는 일정하게
+						유지합니다. <a class="reference internal" href="#term-immutable"><span class="xref std std-term">불변</span></a> 도
+						보세요.</p>
 				</dd>
-				<dt id="term-named-tuple">named tuple<a class="headerlink" href="#term-named-tuple" title="이 용어에 대한 링크"></a></dt>
+				<dt id="term-named-tuple">named tuple (네임드 튜플)<a class="headerlink" href="#term-named-tuple"
+						title="Link to this term"></a></dt>
 				<dd>
-					<p>The term “named tuple” applies to any type or class that inherits from
-						tuple and whose indexable elements are also accessible using named
-						attributes. The type or class may have other features as well.</p>
-					<p>Several built-in types are named tuples, including the values returned
-						by <a class="reference internal" href="library/time.html#time.localtime" title="시간.현지시간"><code
-								class="xref py py-func docutils literal notranslate"><span class="pre">time.localtime()</span></code></a>
-						and <a class="reference internal" href="library/os.html#os.stat" title="os.stat"><code
-								class="xref py py-func docutils literal notranslate"><span class="pre">os.stat()</span></code></a>.
-						Another example is
-						<a class="reference internal" href="library/sys.html#sys.float_info" title="sys.float_info"><code
-								class="xref py py-data docutils literal notranslate"><span class="pre">sys.float_info</span></code></a>:
+					<p>“named tuple(네임드 튜플)”이라는 용어는 튜플에서 상속하고 이름 붙은 어트리뷰트를 사용하여 인덱스 할 수 있는 요소에 액세스 할 수 있는 모든 형이나 클래스에 적용됩니다. 형이나
+						클래스에는 다른 기능도 있을 수 있습니다.</p>
+					<p><a class="reference internal" href="library/time.html#time.localtime" title="time.localtime"><code
+								class="xref py py-func docutils literal notranslate"><span class="pre">time.localtime()</span></code></a>과
+						<a class="reference internal" href="library/os.html#os.stat" title="os.stat"><code
+								class="xref py py-func docutils literal notranslate"><span class="pre">os.stat()</span></code></a>가
+						반환한 값을 포함하여, 여러 내장형이 네임드 튜플입니다. 또 다른 예는 <a class="reference internal" href="library/sys.html#sys.float_info"
+							title="sys.float_info"><code
+								class="xref py py-data docutils literal notranslate"><span class="pre">sys.float_info</span></code></a>입니다:
 					</p>
 					<div class="highlight-python3 notranslate">
 						<div class="highlight" style="position: relative;"><span class="copybutton"
@@ -3741,12 +3709,12 @@
 					<p>Some named tuples are built-in types (such as the above examples).
 						Alternatively, a named tuple can be created from a regular class
 						definition that inherits from <a class="reference internal" href="library/stdtypes.html#tuple"
-							title="튜플"><code
+							title="tuple"><code
 								class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a> and
 						that defines named
 						fields. Such a class can be written by hand, or it can be created by
 						inheriting <a class="reference internal" href="library/typing.html#typing.NamedTuple"
-							title="타이핑.NamedTuple"><code
+							title="typing.NamedTuple"><code
 								class="xref py py-class docutils literal notranslate"><span class="pre">typing.NamedTuple</span></code></a>,
 						or with the factory function
 						<a class="reference internal" href="library/collections.html#collections.namedtuple"
@@ -3757,68 +3725,55 @@
 						tuples.
 					</p>
 				</dd>
-				<dt id="term-namespace">namespace<a class="headerlink" href="#term-namespace" title="이 용어에 대한 링크"></a></dt>
+				<dt id="term-namespace">namespace (이름 공간)<a class="headerlink" href="#term-namespace"
+						title="Link to this term"></a></dt>
 				<dd>
-					<p>The place where a variable is stored. Namespaces are implemented as
-						dictionaries. There are the local, global and built-in namespaces as well
-						as nested namespaces in objects (in methods). Namespaces support
-						modularity by preventing naming conflicts. For instance, the functions
-						<a class="reference internal" href="library/functions.html#open" title="열려 있는"><code
+					<p>변수가 저장되는 장소. 이름 공간은 딕셔너리로 구현됩니다. 객체에 중첩된 이름 공간 (메서드 에서) 뿐만 아니라 지역, 전역, 내장 이름 공간이 있습니다. 이름 공간은 이름 충돌을 방지해서
+						모듈성을 지원합니다. 예를 들어, 함수 <a class="reference internal" href="library/functions.html#open" title="open"><code
 								class="xref py py-func docutils literal notranslate"><span class="pre">builtins.open</span></code></a>
-						and <a class="reference internal" href="library/os.html#os.open" title="os.open"><code
-								class="xref py py-func docutils literal notranslate"><span class="pre">os.open()</span></code></a>
-						are distinguished by
-						their namespaces. Namespaces also aid readability and maintainability by
-						making it clear which module implements a function. For instance, writing
-						<a class="reference internal" href="library/random.html#random.seed" title="무작위.시드"><code
+						과 <a class="reference internal" href="library/os.html#os.open" title="os.open"><code
+								class="xref py py-func docutils literal notranslate"><span class="pre">os.open()</span></code></a> 은
+						그들의 이름 공간에 의해 구별됩니다. 또한, 이름 공간은 어떤 모듈이 함수를 구현하는지를 분명하게 만들어서 가독성과 유지 보수성에 도움을 줍니다. 예를 들어, <a
+							class="reference internal" href="library/random.html#random.seed" title="random.seed"><code
 								class="xref py py-func docutils literal notranslate"><span class="pre">random.seed()</span></code></a>
-						or <a class="reference internal" href="library/itertools.html#itertools.islice"
+						또는 <a class="reference internal" href="library/itertools.html#itertools.islice"
 							title="itertools.islice"><code
 								class="xref py py-func docutils literal notranslate"><span class="pre">itertools.islice()</span></code></a>
-						makes it clear that those
-						functions are implemented by the <a class="reference internal" href="library/random.html#module-random"
-							title="무작위: 다양한 공통 분포를 사용하여 의사 난수를 생성합니다."><code
-								class="xref py py-mod docutils literal notranslate"><span class="pre">random</span></code></a> and
-						<a class="reference internal" href="library/itertools.html#module-itertools"
-							title="itertools: 효율적인 루핑을 위해 반복자를 생성하는 함수입니다."><code
+						라고 쓰면 그 함수들이 각각 <a class="reference internal" href="library/random.html#module-random"
+							title="random: Generate pseudo-random numbers with various common distributions."><code
+								class="xref py py-mod docutils literal notranslate"><span class="pre">random</span></code></a> 과 <a
+							class="reference internal" href="library/itertools.html#module-itertools"
+							title="itertools: Functions creating iterators for efficient looping."><code
 								class="xref py py-mod docutils literal notranslate"><span class="pre">itertools</span></code></a>
-						modules, respectively.
-					</p>
+						모듈에 의해 구현되었음이 명확해집니다.</p>
 				</dd>
-				<dt id="term-namespace-package">namespace package<a class="headerlink" href="#term-namespace-package"
-						title="이 용어에 대한 링크"></a></dt>
+				<dt id="term-namespace-package">namespace package (이름 공간 패키지)<a class="headerlink" href="#term-namespace-package"
+						title="Link to this term"></a></dt>
 				<dd>
-					<p>A <span class="target" id="index-27"></span><a class="pep reference external"
+					<p>오직 서브 패키지들의 컨테이너로만 기능하는 <span class="target" id="index-72"></span><a class="pep reference external"
 							href="https://peps.python.org/pep-0420/"><strong>PEP 420</strong></a> <a class="reference internal"
-							href="#term-package"><span class="xref std std-term">package</span></a> which serves only as a container
-						for
-						subpackages. Namespace packages may have no physical representation,
-						and specifically are not like a <a class="reference internal" href="#term-regular-package"><span
-								class="xref std std-term">regular package</span></a> because they
-						have no <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> file.</p>
-					<p>See also <a class="reference internal" href="#term-module"><span class="xref std std-term">module</span></a>.
-					</p>
+							href="#term-package"><span class="xref std std-term">패키지</span></a>. 이름 공간 패키지는 물리적인 실체가 없을 수도 있고, 특히
+						<code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> 파일이 없으므로 <a
+							class="reference internal" href="#term-regular-package"><span class="xref std std-term">정규
+								패키지</span></a> 와는 다릅니다.</p>
+					<p><a class="reference internal" href="#term-module"><span class="xref std std-term">모듈</span></a> 도 보세요.</p>
 				</dd>
-				<dt id="term-nested-scope">nested scope<a class="headerlink" href="#term-nested-scope" title="이 용어에 대한 링크"></a>
-				</dt>
+				<dt id="term-nested-scope">nested scope (중첩된 스코프)<a class="headerlink" href="#term-nested-scope"
+						title="Link to this term"></a></dt>
 				<dd>
-					<p>The ability to refer to a variable in an enclosing definition. For
-						instance, a function defined inside another function can refer to
-						variables in the outer function. Note that nested scopes by default work
-						only for reference and not for assignment. Local variables both read and
-						write in the innermost scope. Likewise, global variables read and write
-						to the global namespace. The <a class="reference internal" href="reference/simple_stmts.html#nonlocal"><code
+					<p>둘러싼 정의에서 변수를 참조하는 능력. 예를 들어, 다른 함수 내부에서 정의된 함수는 바깥 함수에 있는 변수들을 참조할 수 있습니다. 중첩된 스코프는 기본적으로는 참조만 가능할 뿐, 대입은 되지
+						않는다는 것에 주의해야 합니다. 지역 변수들은 가장 내부의 스코프에서 읽고 씁니다. 마찬가지로, 전역 변수들은 전역 이름 공간에서 읽고 씁니다. <a
+							class="reference internal" href="reference/simple_stmts.html#nonlocal"><code
 								class="xref std std-keyword docutils literal notranslate"><span class="pre">nonlocal</span></code></a>
-						allows writing to outer
-						scopes.</p>
+						은 바깥 스코프에 쓰는 것을 허락합니다.</p>
 				</dd>
-				<dt id="term-new-style-class">new-style class<a class="headerlink" href="#term-new-style-class"
-						title="이 용어에 대한 링크"></a></dt>
+				<dt id="term-new-style-class">new-style class (뉴스타일 클래스)<a class="headerlink" href="#term-new-style-class"
+						title="Link to this term"></a></dt>
 				<dd>
 					<p>Old name for the flavor of classes now used for all class objects. In
 						earlier Python versions, only new-style classes could use Python’s newer,
 						versatile features like <a class="reference internal" href="reference/datamodel.html#object.__slots__"
-							title="개체.__슬롯__"><code
+							title="object.__slots__"><code
 								class="xref py py-attr docutils literal notranslate"><span class="pre">__slots__</span></code></a>,
 						descriptors,
 						properties, <a class="reference internal" href="reference/datamodel.html#object.__getattribute__"
@@ -3827,39 +3782,35 @@
 						class methods, and static
 						methods.</p>
 				</dd>
-				<dt id="term-object">object<a class="headerlink" href="#term-object" title="이 용어에 대한 링크"></a></dt>
+				<dt id="term-object">object (객체)<a class="headerlink" href="#term-object" title="Link to this term"></a></dt>
 				<dd>
-					<p>Any data with state (attributes or value) and defined behavior
-						(methods). Also the ultimate base class of any <a class="reference internal"
-							href="#term-new-style-class"><span class="xref std std-term">new-style
-								class</span></a>.</p>
+					<p>상태 (어트리뷰트나 값) 를 갖고 동작 (메서드) 이 정의된 모든 데이터. 또한, 모든 <a class="reference internal"
+							href="#term-new-style-class"><span class="xref std std-term">뉴스타일 클래스</span></a> 의 최종적인 베이스 클래스입니다.</p>
 				</dd>
-				<dt id="term-package">package<a class="headerlink" href="#term-package" title="이 용어에 대한 링크"></a></dt>
+				<dt id="term-package">package (패키지)<a class="headerlink" href="#term-package" title="Link to this term"></a></dt>
 				<dd>
 					<p>A Python <a class="reference internal" href="#term-module"><span class="xref std std-term">module</span></a>
 						which can contain submodules or recursively,
 						subpackages. Technically, a package is a Python module with a
 						<code class="docutils literal notranslate"><span class="pre">__path__</span></code> attribute.
 					</p>
-					<p>See also <a class="reference internal" href="#term-regular-package"><span class="xref std std-term">regular
-								package</span></a> and <a class="reference internal" href="#term-namespace-package"><span
-								class="xref std std-term">namespace package</span></a>.</p>
+					<p><a class="reference internal" href="#term-regular-package"><span class="xref std std-term">정규 패키지</span></a>
+						와 <a class="reference internal" href="#term-namespace-package"><span class="xref std std-term">이름 공간
+								패키지</span></a> 도 보세요.</p>
 				</dd>
-				<dt id="term-parameter">parameter<a class="headerlink" href="#term-parameter" title="이 용어에 대한 링크"></a></dt>
+				<dt id="term-parameter">parameter (매개변수)<a class="headerlink" href="#term-parameter" title="Link to this term"></a>
+				</dt>
 				<dd>
-					<p>A named entity in a <a class="reference internal" href="#term-function"><span
-								class="xref std std-term">function</span></a> (or method) definition that
-						specifies an <a class="reference internal" href="#term-argument"><span
-								class="xref std std-term">argument</span></a> (or in some cases, arguments) that the
-						function can accept. There are five kinds of parameter:</p>
+					<p><a class="reference internal" href="#term-function"><span class="xref std std-term">함수</span></a> (또는 메서드)
+						정의에서 함수가 받을 수 있는 <a class="reference internal" href="#term-argument"><span
+								class="xref std std-term">인자</span></a> (또는 어떤 경우 인자들) 를 지정하는 이름 붙은 엔티티. 다섯 종류의 매개변수가 있습니다:</p>
 					<ul>
 						<li>
-							<p><em class="dfn">positional-or-keyword</em>: specifies an argument that can be passed
-								either <a class="reference internal" href="#term-argument"><span
-										class="xref std std-term">positionally</span></a> or as a <a class="reference internal"
-									href="#term-argument"><span class="xref std std-term">keyword argument</span></a>. This is the
-								default kind of parameter, for example <em>foo</em>
-								and <em>bar</em> in the following:</p>
+							<p><em class="dfn">위치-키워드 (positional-or-keyword)</em>: <a class="reference internal"
+									href="#term-positional-argument"><span class="xref std std-term">위치 인자</span></a> 나 <a
+									class="reference internal" href="#term-keyword-argument"><span class="xref std std-term">키워드
+										인자</span></a> 로 전달될 수 있는 인자를 지정합니다. 이것이 기본 형태의 매개변수입니다, 예를 들어 다음에서 <em>foo</em> 와
+								<em>bar</em>:</p>
 							<div class="highlight-python3 notranslate">
 								<div class="highlight" style="position: relative;">
 									<pre><span></span><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">foo</span><span class="p">,</span> <span class="n">bar</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span> <span class="o">...</span>
@@ -3870,12 +3821,9 @@
 					</ul>
 					<ul id="positional-only-parameter">
 						<li>
-							<p><em class="dfn">positional-only</em>: specifies an argument that can be supplied only
-								by position. Positional-only parameters can be defined by including a
-								<code class="docutils literal notranslate"><span class="pre">/</span></code> character in the
-								parameter list of the function definition after
-								them, for example <em>posonly1</em> and <em>posonly2</em> in the following:
-							</p>
+							<p><em class="dfn">위치-전용 (positional-only)</em>: 위치로만 제공될 수 있는 인자를 지정합니다. 위치 전용 매개변수는 함수 정의의 매개변수 목록에
+								<code class="docutils literal notranslate"><span class="pre">/</span></code> 문자를 포함하고 그 뒤에 정의할 수
+								있습니다, 예를 들어 다음에서 <em>posonly1</em>과 <em>posonly2</em>:</p>
 							<div class="highlight-python3 notranslate">
 								<div class="highlight" style="position: relative;">
 									<pre><span></span><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">posonly1</span><span class="p">,</span> <span class="n">posonly2</span><span class="p">,</span> <span class="o">/</span><span class="p">,</span> <span class="n">positional_or_keyword</span><span class="p">):</span> <span class="o">...</span>
@@ -3886,13 +3834,9 @@
 					</ul>
 					<ul id="keyword-only-parameter">
 						<li>
-							<p><em class="dfn">keyword-only</em>: specifies an argument that can be supplied only
-								by keyword. Keyword-only parameters can be defined by including a
-								single var-positional parameter or bare <code
-									class="docutils literal notranslate"><span class="pre">*</span></code> in the parameter list
-								of the function definition before them, for example <em>kw_only1</em> and
-								<em>kw_only2</em> in the following:
-							</p>
+							<p><em class="dfn">키워드-전용 (keyword-only)</em>: 키워드로만 제공될 수 있는 인자를 지정합니다. 키워드-전용 매개변수는 함수 정의의 매개변수 목록에서
+								앞에 하나의 가변-위치 매개변수나 <code class="docutils literal notranslate"><span class="pre">*</span></code>를 그대로
+								포함해서 정의할 수 있습니다. 예를 들어, 다음에서 <em>kw_only1</em> 와 <em>kw_only2</em>:</p>
 							<div class="highlight-python3 notranslate">
 								<div class="highlight" style="position: relative;">
 									<pre><span></span><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">kw_only1</span><span class="p">,</span> <span class="n">kw_only2</span><span class="p">):</span> <span class="o">...</span>
@@ -3901,13 +3845,10 @@
 							</div>
 						</li>
 						<li>
-							<p><em class="dfn">var-positional</em>: specifies that an arbitrary sequence of
-								positional arguments can be provided (in addition to any positional
-								arguments already accepted by other parameters). Such a parameter can
-								be defined by prepending the parameter name with <code
-									class="docutils literal notranslate"><span class="pre">*</span></code>, for example
-								<em>args</em> in the following:
-							</p>
+							<p><em class="dfn">가변-위치 (var-positional)</em>: (다른 매개변수들에 의해서 이미 받아들여진 위치 인자들에 더해) 제공될 수 있는 위치 인자들의 임의의
+								시퀀스를 지정합니다. 이런 매개변수는 매개변수 이름에 <code
+									class="docutils literal notranslate"><span class="pre">*</span></code> 를 앞에 붙여서 정의될 수 있습니다, 예를
+								들어 다음에서 <em>args</em>:</p>
 							<div class="highlight-python3 notranslate">
 								<div class="highlight" style="position: relative;">
 									<pre><span></span><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span> <span class="o">...</span>
@@ -3916,56 +3857,46 @@
 							</div>
 						</li>
 						<li>
-							<p><em class="dfn">var-keyword</em>: specifies that arbitrarily many keyword arguments
-								can be provided (in addition to any keyword arguments already accepted
-								by other parameters). Such a parameter can be defined by prepending
-								the parameter name with <code
-									class="docutils literal notranslate"><span class="pre">**</span></code>, for example
-								<em>kwargs</em> in the example
-								above.</p>
+							<p><em class="dfn">가변-키워드 (var-keyword)</em>: (다른 매개변수들에 의해서 이미 받아들여진 키워드 인자들에 더해) 제공될 수 있는 임의의 개수 키워드
+								인자들을 지정합니다. 이런 매개변수는 매개변수 이름에 <code
+									class="docutils literal notranslate"><span class="pre">**</span></code>를 앞에 붙여서 정의될 수 있습니다, 예를
+								들어 위의 예에서 <em>kwargs</em>.</p>
 						</li>
 					</ul>
-					<p>Parameters can specify both optional and required arguments, as well as
-						default values for some optional arguments.</p>
-					<p>See also the <a class="reference internal" href="#term-argument"><span
-								class="xref std std-term">argument</span></a> glossary entry, the FAQ question on
-						<a class="reference internal" href="faq/programming.html#faq-argument-vs-parameter"><span
-								class="std std-ref">the difference between arguments and parameters</span></a>, the <a
-							class="reference internal" href="library/inspect.html#inspect.Parameter" title="검사.매개변수"><code
+					<p>매개변수는 선택적 인자들을 위한 기본값뿐만 아니라 선택적이거나 필수 인자들을 지정할 수 있습니다.</p>
+					<p><a class="reference internal" href="#term-argument"><span class="xref std std-term">인자</span></a> 용어집 항목, <a
+							class="reference internal" href="faq/programming.html#faq-argument-vs-parameter"><span
+								class="std std-ref">인자와 매개변수의 차이</span></a>에 나오는 FAQ 질문, <a class="reference internal"
+							href="library/inspect.html#inspect.Parameter" title="inspect.Parameter"><code
 								class="xref py py-class docutils literal notranslate"><span class="pre">inspect.Parameter</span></code></a>
-						class, the
-						<a class="reference internal" href="reference/compound_stmts.html#function"><span
-								class="std std-ref">Function definitions</span></a> section, and <span class="target"
-							id="index-28"></span><a class="pep reference external"
-							href="https://peps.python.org/pep-0362/"><strong>PEP 362</strong></a>.
-					</p>
+						클래스, <a class="reference internal" href="reference/compound_stmts.html#function"><span
+								class="std std-ref">함수 정의</span></a> 절, <span class="target" id="index-73"></span><a
+							class="pep reference external" href="https://peps.python.org/pep-0362/"><strong>PEP 362</strong></a>도
+						보세요.</p>
 				</dd>
-				<dt id="term-path-entry">path entry<a class="headerlink" href="#term-path-entry" title="이 용어에 대한 링크"></a></dt>
+				<dt id="term-path-entry">path entry (경로 엔트리)<a class="headerlink" href="#term-path-entry"
+						title="Link to this term"></a></dt>
 				<dd>
-					<p>A single location on the <a class="reference internal" href="#term-import-path"><span
-								class="xref std std-term">import path</span></a> which the <a class="reference internal"
-							href="#term-path-based-finder"><span class="xref std std-term">path
-								based finder</span></a> consults to find modules for importing.</p>
+					<p><a class="reference internal" href="#term-path-based-finder"><span class="xref std std-term">경로 기반
+								파인더</span></a> 가 임포트 할 모듈들을 찾기 위해 참고하는 <a class="reference internal" href="#term-import-path"><span
+								class="xref std std-term">임포트 경로</span></a> 상의 하나의 장소.</p>
 				</dd>
-				<dt id="term-path-entry-finder">path entry finder<a class="headerlink" href="#term-path-entry-finder"
-						title="이 용어에 대한 링크"></a></dt>
+				<dt id="term-path-entry-finder">path entry finder (경로 엔트리 파인더)<a class="headerlink" href="#term-path-entry-finder"
+						title="Link to this term"></a></dt>
 				<dd>
-					<p>A <a class="reference internal" href="#term-finder"><span class="xref std std-term">finder</span></a>
-						returned by a callable on <a class="reference internal" href="library/sys.html#sys.path_hooks"
-							title="sys.path_hooks"><code
+					<p><a class="reference internal" href="library/sys.html#sys.path_hooks" title="sys.path_hooks"><code
 								class="xref py py-data docutils literal notranslate"><span class="pre">sys.path_hooks</span></code></a>
-						(i.e. a <a class="reference internal" href="#term-path-entry-hook"><span class="xref std std-term">path
-								entry hook</span></a>) which knows how to locate modules given
-						a <a class="reference internal" href="#term-path-entry"><span class="xref std std-term">path
-								entry</span></a>.</p>
-					<p>See <a class="reference internal" href="library/importlib.html#importlib.abc.PathEntryFinder"
-							title="importlib.abc.PathEntryFinder"><code
+						에 있는 콜러블 (즉, <a class="reference internal" href="#term-path-entry-hook"><span class="xref std std-term">경로
+								엔트리 훅</span></a>) 이 돌려주는 <a class="reference internal" href="#term-finder"><span
+								class="xref std std-term">파인더</span></a> 인데, 주어진 <a class="reference internal"
+							href="#term-path-entry"><span class="xref std std-term">경로 엔트리</span></a> 로 모듈을 찾는 방법을 알고 있습니다.</p>
+					<p>경로 엔트리 파인더들이 구현하는 메서드들은 <a class="reference internal"
+							href="library/importlib.html#importlib.abc.PathEntryFinder" title="importlib.abc.PathEntryFinder"><code
 								class="xref py py-class docutils literal notranslate"><span class="pre">importlib.abc.PathEntryFinder</span></code></a>
-						for the methods that path entry
-						finders implement.</p>
+						에 나옵니다.</p>
 				</dd>
-				<dt id="term-path-entry-hook">path entry hook<a class="headerlink" href="#term-path-entry-hook"
-						title="이 용어에 대한 링크"></a></dt>
+				<dt id="term-path-entry-hook">path entry hook (경로 엔트리 훅)<a class="headerlink" href="#term-path-entry-hook"
+						title="Link to this term"></a></dt>
 				<dd>
 					<p>A callable on the <a class="reference internal" href="library/sys.html#sys.path_hooks"
 							title="sys.path_hooks"><code
@@ -3976,120 +3907,92 @@
 							href="#term-path-entry"><span class="xref std std-term">path
 								entry</span></a>.</p>
 				</dd>
-				<dt id="term-path-based-finder">path based finder<a class="headerlink" href="#term-path-based-finder"
-						title="이 용어에 대한 링크"></a></dt>
+				<dt id="term-path-based-finder">path based finder (경로 기반 파인더)<a class="headerlink" href="#term-path-based-finder"
+						title="Link to this term"></a></dt>
 				<dd>
-					<p>One of the default <a class="reference internal" href="#term-meta-path-finder"><span
-								class="xref std std-term">meta path finders</span></a> which
-						searches an <a class="reference internal" href="#term-import-path"><span class="xref std std-term">import
-								path</span></a> for modules.</p>
+					<p>기본 <a class="reference internal" href="#term-meta-path-finder"><span class="xref std std-term">메타 경로
+								파인더들</span></a> 중 하나인데, <a class="reference internal" href="#term-import-path"><span
+								class="xref std std-term">임포트 경로</span></a> 에서 모듈을 찾습니다.</p>
 				</dd>
-				<dt id="term-path-like-object">path-like object<a class="headerlink" href="#term-path-like-object"
-						title="이 용어에 대한 링크"></a></dt>
+				<dt id="term-path-like-object">path-like object (경로류 객체)<a class="headerlink" href="#term-path-like-object"
+						title="Link to this term"></a></dt>
 				<dd>
-					<p>An object representing a file system path. A path-like object is either
-						a <a class="reference internal" href="library/stdtypes.html#str" title="str"><code
-								class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> or <a
-							class="reference internal" href="library/stdtypes.html#bytes" title="바이트"><code
-								class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a>
-						object representing a path, or an object
-						implementing the <a class="reference internal" href="library/os.html#os.PathLike" title="os.PathLike"><code
-								class="xref py py-class docutils literal notranslate"><span class="pre">os.PathLike</span></code></a>
-						protocol. An object that supports
-						the <a class="reference internal" href="library/os.html#os.PathLike" title="os.PathLike"><code
-								class="xref py py-class docutils literal notranslate"><span class="pre">os.PathLike</span></code></a>
-						protocol can be converted to a <a class="reference internal" href="library/stdtypes.html#str"
+					<p>파일 시스템 경로를 나타내는 객체. 경로류 객체는 경로를 나타내는 <a class="reference internal" href="library/stdtypes.html#str"
 							title="str"><code
-								class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> or
-						<a class="reference internal" href="library/stdtypes.html#bytes" title="바이트"><code
-								class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> file
-						system path by calling the <a class="reference internal" href="library/os.html#os.fspath"
-							title="os.fspath"><code
-								class="xref py py-func docutils literal notranslate"><span class="pre">os.fspath()</span></code></a>
-						function;
-						<a class="reference internal" href="library/os.html#os.fsdecode" title="os.fs디코드"><code
-								class="xref py py-func docutils literal notranslate"><span class="pre">os.fsdecode()</span></code></a>
-						and <a class="reference internal" href="library/os.html#os.fsencode" title="os.fsencode"><code
-								class="xref py py-func docutils literal notranslate"><span class="pre">os.fsencode()</span></code></a>
-						can be used to guarantee a
-						<a class="reference internal" href="library/stdtypes.html#str" title="str"><code
-								class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> or <a
-							class="reference internal" href="library/stdtypes.html#bytes" title="바이트"><code
+								class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> 나 <a
+							class="reference internal" href="library/stdtypes.html#bytes" title="bytes"><code
 								class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a>
-						result instead, respectively. Introduced
-						by <span class="target" id="index-29"></span><a class="pep reference external"
-							href="https://peps.python.org/pep-0519/"><strong>PEP 519</strong></a>.
-					</p>
+						객체이거나 <a class="reference internal" href="library/os.html#os.PathLike" title="os.PathLike"><code
+								class="xref py py-class docutils literal notranslate"><span class="pre">os.PathLike</span></code></a>
+						프로토콜을 구현하는 객체입니다. <a class="reference internal" href="library/os.html#os.PathLike" title="os.PathLike"><code
+								class="xref py py-class docutils literal notranslate"><span class="pre">os.PathLike</span></code></a>
+						프로토콜을 지원하는 객체는 <a class="reference internal" href="library/os.html#os.fspath" title="os.fspath"><code
+								class="xref py py-func docutils literal notranslate"><span class="pre">os.fspath()</span></code></a>
+						함수를 호출해서 <a class="reference internal" href="library/stdtypes.html#str" title="str"><code
+								class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> 나 <a
+							class="reference internal" href="library/stdtypes.html#bytes" title="bytes"><code
+								class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> 파일
+						시스템 경로로 변환될 수 있습니다; 대신 <a class="reference internal" href="library/os.html#os.fsdecode"
+							title="os.fsdecode"><code
+								class="xref py py-func docutils literal notranslate"><span class="pre">os.fsdecode()</span></code></a>
+						와 <a class="reference internal" href="library/os.html#os.fsencode" title="os.fsencode"><code
+								class="xref py py-func docutils literal notranslate"><span class="pre">os.fsencode()</span></code></a>
+						는 각각 <a class="reference internal" href="library/stdtypes.html#str" title="str"><code
+								class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> 나 <a
+							class="reference internal" href="library/stdtypes.html#bytes" title="bytes"><code
+								class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> 결과를
+						보장하는데 사용될 수 있습니다. <span class="target" id="index-74"></span><a class="pep reference external"
+							href="https://peps.python.org/pep-0519/"><strong>PEP 519</strong></a>로 도입되었습니다.</p>
 				</dd>
-				<dt id="term-PEP">PEP<a class="headerlink" href="#term-PEP" title="이 용어에 대한 링크"></a></dt>
+				<dt id="term-PEP">PEP<a class="headerlink" href="#term-PEP" title="Link to this term"></a></dt>
 				<dd>
-					<p>Python Enhancement Proposal. A PEP is a design document
-						providing information to the Python community, or describing a new
-						feature for Python or its processes or environment. PEPs should
-						provide a concise technical specification and a rationale for proposed
-						features.</p>
-					<p>PEPs are intended to be the primary mechanisms for proposing major new
-						features, for collecting community input on an issue, and for documenting
-						the design decisions that have gone into Python. The PEP author is
-						responsible for building consensus within the community and documenting
-						dissenting opinions.</p>
-					<p>See <span class="target" id="index-30"></span><a class="pep reference external"
-							href="https://peps.python.org/pep-0001/"><strong>PEP 1</strong></a>.</p>
+					<p>파이썬 개선 제안. PEP는 파이썬 커뮤니티에 정보를 제공하거나 파이썬 또는 그 프로세스 또는 환경에 대한 새로운 기능을 설명하는 설계 문서입니다. PEP는 제안된 기능에 대한 간결한 기술 사양
+						및 근거를 제공해야 합니다.</p>
+					<p>PEP는 주요 새로운 기능을 제안하고 문제에 대한 커뮤니티 입력을 수집하며 파이썬에 들어간 설계 결정을 문서로 만들기 위한 기본 메커니즘입니다. PEP 작성자는 커뮤니티 내에서 합의를 구축하고
+						반대 의견을 문서화 할 책임이 있습니다.</p>
+					<p><span class="target" id="index-75"></span><a class="pep reference external"
+							href="https://peps.python.org/pep-0001/"><strong>PEP 1</strong></a> 참조하세요.</p>
 				</dd>
-				<dt id="term-portion">portion<a class="headerlink" href="#term-portion" title="이 용어에 대한 링크"></a></dt>
+				<dt id="term-portion">portion (포션)<a class="headerlink" href="#term-portion" title="Link to this term"></a></dt>
 				<dd>
-					<p>A set of files in a single directory (possibly stored in a zip file)
-						that contribute to a namespace package, as defined in <span class="target" id="index-31"></span><a
-							class="pep reference external" href="https://peps.python.org/pep-0420/"><strong>PEP 420</strong></a>.
-					</p>
+					<p><span class="target" id="index-76"></span><a class="pep reference external"
+							href="https://peps.python.org/pep-0420/"><strong>PEP 420</strong></a> 에서 정의한 것처럼, 이름 공간 패키지에 이바지하는 하나의
+						디렉터리에 들어있는 파일들의 집합 (zip 파일에 저장되는 것도 가능합니다).</p>
 				</dd>
-				<dt id="term-positional-argument">positional argument<a class="headerlink" href="#term-positional-argument"
-						title="이 용어에 대한 링크"></a></dt>
+				<dt id="term-positional-argument">positional argument (위치 인자)<a class="headerlink" href="#term-positional-argument"
+						title="Link to this term"></a></dt>
 				<dd>
-					<p>See <a class="reference internal" href="#term-argument"><span class="xref std std-term">argument</span></a>.
-					</p>
+					<p><a class="reference internal" href="#term-argument"><span class="xref std std-term">인자</span></a> 를 보세요.</p>
 				</dd>
-				<dt id="term-provisional-API">provisional API<a class="headerlink" href="#term-provisional-API"
-						title="이 용어에 대한 링크"></a></dt>
+				<dt id="term-provisional-API">provisional API (잠정 API)<a class="headerlink" href="#term-provisional-API"
+						title="Link to this term"></a></dt>
 				<dd>
-					<p>A provisional API is one which has been deliberately excluded from
-						the standard library’s backwards compatibility guarantees. While major
-						changes to such interfaces are not expected, as long as they are marked
-						provisional, backwards incompatible changes (up to and including removal
-						of the interface) may occur if deemed necessary by core developers. Such
-						changes will not be made gratuitously – they will occur only if serious
-						fundamental flaws are uncovered that were missed prior to the inclusion
-						of the API.</p>
-					<p>Even for provisional APIs, backwards incompatible changes are seen as
-						a “solution of last resort” - every attempt will still be made to find
-						a backwards compatible resolution to any identified problems.</p>
-					<p>This process allows the standard library to continue to evolve over
-						time, without locking in problematic design errors for extended periods
-						of time. See <span class="target" id="index-32"></span><a class="pep reference external"
-							href="https://peps.python.org/pep-0411/"><strong>PEP 411</strong></a> for more details.</p>
+					<p>잠정 API는 표준 라이브러리의 과거 호환성 보장으로부터 신중히 제외된 것입니다. 인터페이스의 큰 변화가 예상되지는 않지만, 잠정적이라고 표시되는 한, 코어 개발자들이 필요하다고 생각한다면 과거
+						호환성이 유지되지 않는 변경이 일어날 수 있습니다. 그런 변경은 불필요한 방식으로 일어나지는 않을 것입니다 — API를 포함하기 전에 놓친 중대하고 근본적인 결함이 발견된 경우에만 일어날
+						것입니다.</p>
+					<p>잠정 API에서조차도, 과거 호환성이 유지되지 않는 변경은 “최후의 수단”으로 여겨집니다 - 모든 식별된 문제들에 대해 과거 호환성을 유지하는 해법을 찾으려는 모든 시도가 선행됩니다.</p>
+					<p>이 절차는 표준 라이브러리가 오랜 시간 동안 잘못된 설계 오류에 발목 잡히지 않고 발전할 수 있도록 만듭니다. 더 자세한 내용은 <span class="target"
+							id="index-77"></span><a class="pep reference external"
+							href="https://peps.python.org/pep-0411/"><strong>PEP 411</strong></a>을 보면 됩니다.</p>
 				</dd>
-				<dt id="term-provisional-package">provisional package<a class="headerlink" href="#term-provisional-package"
-						title="이 용어에 대한 링크"></a></dt>
+				<dt id="term-provisional-package">provisional package (잠정 패키지)<a class="headerlink" href="#term-provisional-package"
+						title="Link to this term"></a></dt>
 				<dd>
-					<p>See <a class="reference internal" href="#term-provisional-API"><span class="xref std std-term">provisional
-								API</span></a>.</p>
+					<p><a class="reference internal" href="#term-provisional-API"><span class="xref std std-term">잠정 API</span></a>
+						를 보세요.</p>
 				</dd>
-				<dt id="term-Python-3000">Python 3000<a class="headerlink" href="#term-Python-3000" title="이 용어에 대한 링크"></a></dt>
+				<dt id="term-Python-3000">Python 3000 (파이썬 3000)<a class="headerlink" href="#term-Python-3000"
+						title="Link to this term"></a></dt>
 				<dd>
-					<p>Nickname for the Python 3.x release line (coined long ago when the
-						release of version 3 was something in the distant future.) This is also
-						abbreviated “Py3k”.</p>
+					<p>파이썬 3.x 배포 라인의 별명 (버전 3의 배포가 먼 미래의 이야기던 시절에 만들어진 이름이다.) 이것을 “Py3k” 로 줄여 쓰기도 합니다.</p>
 				</dd>
-				<dt id="term-Pythonic">Pythonic<a class="headerlink" href="#term-Pythonic" title="이 용어에 대한 링크"></a></dt>
+				<dt id="term-Pythonic">Pythonic (파이썬다운)<a class="headerlink" href="#term-Pythonic" title="Link to this term"></a>
+				</dt>
 				<dd>
-					<p>An idea or piece of code which closely follows the most common idioms
-						of the Python language, rather than implementing code using concepts
-						common to other languages. For example, a common idiom in Python is
-						to loop over all elements of an iterable using a <a class="reference internal"
-							href="reference/compound_stmts.html#for"><code
-								class="xref std std-keyword docutils literal notranslate"><span class="pre">for</span></code></a>
-						statement. Many other languages don’t have this type of construct, so
-						people unfamiliar with Python sometimes use a numerical counter instead:</p>
+					<p>다른 언어들에서 일반적인 개념들을 사용해서 코드를 구현하는 대신, 파이썬 언어에서 가장 자주 사용되는 이디엄들을 가까이 따르는 아이디어나 코드 조각. 예를 들어, 파이썬에서 자주 쓰는 이디엄은
+						<a class="reference internal" href="reference/compound_stmts.html#for"><code
+								class="xref std std-keyword docutils literal notranslate"><span class="pre">for</span></code></a> 문을
+						사용해서 이터러블의 모든 요소로 루핑하는 것입니다. 다른 많은 언어에는 이런 종류의 구성물이 없으므로, 파이썬에 익숙하지 않은 사람들은 대신에 숫자 카운터를 사용하기도 합니다:</p>
 					<div class="highlight-python3 notranslate">
 						<div class="highlight" style="position: relative;">
 							<pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">food</span><span class="p">)):</span>
@@ -4097,7 +4000,7 @@
 							</pre>
 						</div>
 					</div>
-					<p>As opposed to the cleaner, Pythonic method:</p>
+					<p>더 깔끔한, 파이썬다운 방법은 이렇습니다:</p>
 					<div class="highlight-python3 notranslate">
 						<div class="highlight" style="position: relative;">
 							<pre><span></span><span class="k">for</span> <span class="n">piece</span> <span class="ow">in</span> <span class="n">food</span><span class="p">:</span>
@@ -4106,16 +4009,12 @@
 						</div>
 					</div>
 				</dd>
-				<dt id="term-qualified-name">qualified name<a class="headerlink" href="#term-qualified-name"
-						title="이 용어에 대한 링크"></a></dt>
+				<dt id="term-qualified-name">qualified name (정규화된 이름)<a class="headerlink" href="#term-qualified-name"
+						title="Link to this term"></a></dt>
 				<dd>
-					<p>A dotted name showing the “path” from a module’s global scope to a
-						class, function or method defined in that module, as defined in
-						<span class="target" id="index-33"></span><a class="pep reference external"
-							href="https://peps.python.org/pep-3155/"><strong>PEP 3155</strong></a>. For top-level functions and
-						classes, the qualified name
-						is the same as the object’s name:
-					</p>
+					<p>모듈의 전역 스코프에서 모듈에 정의된 클래스, 함수, 메서드에 이르는 “경로”를 보여주는 점으로 구분된 이름. <span class="target" id="index-78"></span><a
+							class="pep reference external" href="https://peps.python.org/pep-3155/"><strong>PEP 3155</strong></a> 에서
+						정의됩니다. 최상위 함수와 클래스의 경우에, 정규화된 이름은 객체의 이름과 같습니다:</p>
 					<div class="highlight-python3 notranslate">
 						<div class="highlight" style="position: relative;"><span class="copybutton"
 								title="Hide the prompts and output" data-hidden="false">&gt;&gt;&gt;</span>
@@ -4133,9 +4032,8 @@
 							</pre>
 						</div>
 					</div>
-					<p>When used to refer to modules, the <em>fully qualified name</em> means the
-						entire dotted path to the module, including any parent packages,
-						e.g. <code class="docutils literal notranslate"><span class="pre">email.mime.text</span></code>:</p>
+					<p>모듈을 가리키는데 사용될 때, <em>완전히 정규화된 이름(fully qualified name)</em>은 모든 부모 패키지들을 포함해서 모듈로 가는 점으로 분리된 이름을 의미합니다, 예를
+						들어, <code class="docutils literal notranslate"><span class="pre">email.mime.text</span></code>:</p>
 					<div class="highlight-python3 notranslate">
 						<div class="highlight" style="position: relative;"><span class="copybutton"
 								title="Hide the prompts and output" data-hidden="false">&gt;&gt;&gt;</span>
@@ -4146,8 +4044,8 @@
 						</div>
 					</div>
 				</dd>
-				<dt id="term-reference-count">reference count<a class="headerlink" href="#term-reference-count"
-						title="이 용어에 대한 링크"></a></dt>
+				<dt id="term-reference-count">reference count (참조 횟수)<a class="headerlink" href="#term-reference-count"
+						title="Link to this term"></a></dt>
 				<dd>
 					<p>The number of references to an object. When the reference count of an
 						object drops to zero, it is deallocated. Some objects are
@@ -4162,25 +4060,21 @@
 						reference count for a particular object.
 					</p>
 				</dd>
-				<dt id="term-regular-package">regular package<a class="headerlink" href="#term-regular-package"
-						title="이 용어에 대한 링크"></a></dt>
+				<dt id="term-regular-package">regular package (정규 패키지)<a class="headerlink" href="#term-regular-package"
+						title="Link to this term"></a></dt>
 				<dd>
-					<p>A traditional <a class="reference internal" href="#term-package"><span
-								class="xref std std-term">package</span></a>, such as a directory containing an
-						<code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> file.
-					</p>
-					<p>See also <a class="reference internal" href="#term-namespace-package"><span
-								class="xref std std-term">namespace package</span></a>.</p>
+					<p><code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> 파일을 포함하는 디렉터리와 같은 전통적인
+						<a class="reference internal" href="#term-package"><span class="xref std std-term">패키지</span></a>.</p>
+					<p><a class="reference internal" href="#term-namespace-package"><span class="xref std std-term">이름 공간
+								패키지</span></a> 도 보세요.</p>
 				</dd>
-				<dt id="term-__slots__">__slots__<a class="headerlink" href="#term-__slots__" title="이 용어에 대한 링크"></a></dt>
+				<dt id="term-__slots__">__slots__<a class="headerlink" href="#term-__slots__" title="Link to this term"></a></dt>
 				<dd>
-					<p>A declaration inside a class that saves memory by pre-declaring space for
-						instance attributes and eliminating instance dictionaries. Though
-						popular, the technique is somewhat tricky to get right and is best
-						reserved for rare cases where there are large numbers of instances in a
-						memory-critical application.</p>
+					<p>클래스 내부의 선언인데, 인스턴스 어트리뷰트들을 위한 공간을 미리 선언하고 인스턴스 딕셔너리를 제거함으로써 메모리를 절감하는 효과를 줍니다. 인기 있기는 하지만, 이 테크닉은 올바르게 사용하기가
+						좀 까다로운 편이라서, 메모리에 민감한 응용 프로그램에서 많은 수의 인스턴스가 있는 특별한 경우로 한정하는 것이 좋습니다.</p>
 				</dd>
-				<dt id="term-sequence">sequence<a class="headerlink" href="#term-sequence" title="이 용어에 대한 링크"></a></dt>
+				<dt id="term-sequence">sequence (시퀀스)<a class="headerlink" href="#term-sequence" title="Link to this term"></a>
+				</dt>
 				<dd>
 					<p>An <a class="reference internal" href="#term-iterable"><span class="xref std std-term">iterable</span></a>
 						which supports efficient element access using integer
@@ -4188,19 +4082,19 @@
 							title="object.__getitem__"><code
 								class="xref py py-meth docutils literal notranslate"><span class="pre">__getitem__()</span></code></a>
 						special method and defines a
-						<a class="reference internal" href="reference/datamodel.html#object.__len__" title="객체.__len__"><code
+						<a class="reference internal" href="reference/datamodel.html#object.__len__" title="object.__len__"><code
 								class="xref py py-meth docutils literal notranslate"><span class="pre">__len__()</span></code></a>
 						method that returns the length of the sequence.
 						Some built-in sequence types are <a class="reference internal" href="library/stdtypes.html#list"
-							title="목록"><code
+							title="list"><code
 								class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>, <a
 							class="reference internal" href="library/stdtypes.html#str" title="str"><code
 								class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>,
-						<a class="reference internal" href="library/stdtypes.html#tuple" title="튜플"><code
+						<a class="reference internal" href="library/stdtypes.html#tuple" title="tuple"><code
 								class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>, and
-						<a class="reference internal" href="library/stdtypes.html#bytes" title="바이트"><code
+						<a class="reference internal" href="library/stdtypes.html#bytes" title="bytes"><code
 								class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a>.
-						Note that <a class="reference internal" href="library/stdtypes.html#dict" title="딕셔너리"><code
+						Note that <a class="reference internal" href="library/stdtypes.html#dict" title="dict"><code
 								class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> also
 						supports <a class="reference internal" href="reference/datamodel.html#object.__getitem__"
 							title="object.__getitem__"><code
@@ -4212,14 +4106,15 @@
 						keys rather than integers.
 					</p>
 					<p>The <a class="reference internal" href="library/collections.abc.html#collections.abc.Sequence"
-							title="collections.abc.시퀀스"><code
+							title="collections.abc.Sequence"><code
 								class="xref py py-class docutils literal notranslate"><span class="pre">collections.abc.Sequence</span></code></a>
 						abstract base class
 						defines a much richer interface that goes beyond just
 						<a class="reference internal" href="reference/datamodel.html#object.__getitem__"
 							title="object.__getitem__"><code
 								class="xref py py-meth docutils literal notranslate"><span class="pre">__getitem__()</span></code></a>
-						and <a class="reference internal" href="reference/datamodel.html#object.__len__" title="객체.__len__"><code
+						and <a class="reference internal" href="reference/datamodel.html#object.__len__"
+							title="object.__len__"><code
 								class="xref py py-meth docutils literal notranslate"><span class="pre">__len__()</span></code></a>,
 						adding
 						<code class="xref py py-meth docutils literal notranslate"><span class="pre">count()</span></code>, <code
@@ -4228,7 +4123,8 @@
 							title="object.__contains__"><code
 								class="xref py py-meth docutils literal notranslate"><span class="pre">__contains__()</span></code></a>,
 						and
-						<a class="reference internal" href="reference/datamodel.html#object.__reversed__" title="객체.__역전__"><code
+						<a class="reference internal" href="reference/datamodel.html#object.__reversed__"
+							title="object.__reversed__"><code
 								class="xref py py-meth docutils literal notranslate"><span class="pre">__reversed__()</span></code></a>.
 						Types that implement this expanded
 						interface can be registered explicitly using
@@ -4241,76 +4137,65 @@
 								Sequence Operations</span></a>.
 					</p>
 				</dd>
-				<dt id="term-set-comprehension">set comprehension<a class="headerlink" href="#term-set-comprehension"
-						title="이 용어에 대한 링크"></a></dt>
+				<dt id="term-set-comprehension">set comprehension (집합 컴프리헨션)<a class="headerlink" href="#term-set-comprehension"
+						title="Link to this term"></a></dt>
 				<dd>
-					<p>A compact way to process all or part of the elements in an iterable and
-						return a set with the results. <code
-							class="docutils literal notranslate"><span class="pre">results</span> <span class="pre">=</span> <span class="pre">{c</span> <span class="pre">for</span> <span class="pre">c</span> <span class="pre">in</span> <span class="pre">'abracadabra'</span> <span class="pre">if</span>
-							<span class="pre">c</span> <span class="pre">not</span> <span class="pre">in</span> <span class="pre">'abc'}</span></code> generates the set of
-						strings <code
-							class="docutils literal notranslate"><span class="pre">{'r',</span> <span class="pre">'d'}</span></code>.
-						See
-						<a class="reference internal" href="reference/expressions.html#comprehensions"><span
-								class="std std-ref">Displays for lists, sets and dictionaries</span></a>.
-					</p>
+					<p>이터러블에 있는 요소 전체나 일부를 처리하고 결과를 담은 집합을 반환하는 간결한 방법. <code
+							class="docutils literal notranslate"><span class="pre">results</span> <span class="pre">=</span> <span class="pre">{c</span> <span class="pre">for</span> <span class="pre">c</span> <span class="pre">in</span> <span class="pre">'abracadabra'</span> <span class="pre">if</span> <span class="pre">c</span> <span class="pre">not</span> <span class="pre">in</span> <span class="pre">'abc'}</span></code>는
+						문자열의 집합 <code
+							class="docutils literal notranslate"><span class="pre">{'r',</span> <span class="pre">'d'}</span></code>를
+						생성합니다. <a class="reference internal" href="reference/expressions.html#comprehensions"><span
+								class="std std-ref">리스트, 집합, 딕셔너리의 디스플레이(display)</span></a>을 참조하십시오.</p>
 				</dd>
-				<dt id="term-single-dispatch">single dispatch<a class="headerlink" href="#term-single-dispatch"
-						title="이 용어에 대한 링크"></a></dt>
+				<dt id="term-single-dispatch">single dispatch (싱글 디스패치)<a class="headerlink" href="#term-single-dispatch"
+						title="Link to this term"></a></dt>
 				<dd>
-					<p>A form of <a class="reference internal" href="#term-generic-function"><span class="xref std std-term">generic
-								function</span></a> dispatch where the implementation is
-						chosen based on the type of a single argument.</p>
+					<p>구현이 하나의 인자의 형에 기초해서 결정되는 <a class="reference internal" href="#term-generic-function"><span
+								class="xref std std-term">제네릭 함수</span></a> 디스패치의 한 형태.</p>
 				</dd>
-				<dt id="term-slice">slice<a class="headerlink" href="#term-slice" title="이 용어에 대한 링크"></a></dt>
+				<dt id="term-slice">slice (슬라이스)<a class="headerlink" href="#term-slice" title="Link to this term"></a></dt>
 				<dd>
-					<p>An object usually containing a portion of a <a class="reference internal" href="#term-sequence"><span
-								class="xref std std-term">sequence</span></a>. A slice is
-						created using the subscript notation, <code
-							class="docutils literal notranslate"><span class="pre">[]</span></code> with colons between numbers
-						when several are given, such as in <code
-							class="docutils literal notranslate"><span class="pre">variable_name[1:3:5]</span></code>. The bracket
-						(subscript) notation uses <a class="reference internal" href="library/functions.html#slice"
-							title="일부분"><code
-								class="xref py py-class docutils literal notranslate"><span class="pre">slice</span></code></a>
-						objects internally.</p>
+					<p>보통 <a class="reference internal" href="#term-sequence"><span class="xref std std-term">시퀀스</span></a> 의 일부를
+						포함하는 객체. 슬라이스는 서브 스크립트 표기법을 사용해서 만듭니다. <code
+							class="docutils literal notranslate"><span class="pre">variable_name[1:3:5]</span></code> 처럼, <code
+							class="docutils literal notranslate"><span class="pre">[]</span></code> 안에서 여러 개의 숫자를 콜론으로 분리합니다. 대괄호
+						(서브 스크립트) 표기법은 내부적으로 <a class="reference internal" href="library/functions.html#slice" title="slice"><code
+								class="xref py py-class docutils literal notranslate"><span class="pre">slice</span></code></a> 객체를
+						사용합니다.</p>
 				</dd>
-				<dt id="term-special-method">special method<a class="headerlink" href="#term-special-method"
-						title="이 용어에 대한 링크"></a></dt>
+				<dt id="term-special-method">special method (특수 메서드)<a class="headerlink" href="#term-special-method"
+						title="Link to this term"></a></dt>
 				<dd>
-					<p id="index-34">A method that is called implicitly by Python to execute a certain
-						operation on a type, such as addition. Such methods have names starting
-						and ending with double underscores. Special methods are documented in
-						<a class="reference internal" href="reference/datamodel.html#specialnames"><span class="std std-ref">Special
-								method names</span></a>.
-					</p>
+					<p id="index-34">파이썬이 형에 어떤 연산을, 덧셈 같은, 실행할 때 묵시적으로 호출되는 메서드. 이런 메서드는 두 개의 밑줄로 시작하고 끝나는 이름을 갖고 있습니다. 특수 메서드는 <a
+							class="reference internal" href="reference/datamodel.html#specialnames"><span class="std std-ref">특수 메서드
+								이름들</span></a> 에 문서로 만들어져 있습니다.</p>
 				</dd>
-				<dt id="term-statement">statement<a class="headerlink" href="#term-statement" title="이 용어에 대한 링크"></a></dt>
+				<dt id="term-statement">statement (문장)<a class="headerlink" href="#term-statement" title="Link to this term"></a>
+				</dt>
 				<dd>
-					<p>A statement is part of a suite (a “block” of code). A statement is either
-						an <a class="reference internal" href="#term-expression"><span
-								class="xref std std-term">expression</span></a> or one of several constructs with a keyword, such
-						as <a class="reference internal" href="reference/compound_stmts.html#if"><code
+					<p>문장은 스위트 (코드의 “블록(block)”) 를 구성하는 부분입니다. 문장은 <a class="reference internal" href="#term-expression"><span
+								class="xref std std-term">표현식</span></a> 이거나 키워드를 사용하는 여러 가지 구조물 중의 하나입니다. 가령 <a
+							class="reference internal" href="reference/compound_stmts.html#if"><code
 								class="xref std std-keyword docutils literal notranslate"><span class="pre">if</span></code></a>, <a
 							class="reference internal" href="reference/compound_stmts.html#while"><code
-								class="xref std std-keyword docutils literal notranslate"><span class="pre">while</span></code></a>
-						or <a class="reference internal" href="reference/compound_stmts.html#for"><code
+								class="xref std std-keyword docutils literal notranslate"><span class="pre">while</span></code></a>,
+						<a class="reference internal" href="reference/compound_stmts.html#for"><code
 								class="xref std std-keyword docutils literal notranslate"><span class="pre">for</span></code></a>.
 					</p>
 				</dd>
 				<dt id="term-static-type-checker">static type checker<a class="headerlink" href="#term-static-type-checker"
-						title="이 용어에 대한 링크"></a></dt>
+						title="Link to this term"></a></dt>
 				<dd>
 					<p>An external tool that reads Python code and analyzes it, looking for
 						issues such as incorrect types. See also <a class="reference internal" href="#term-type-hint"><span
 								class="xref std std-term">type hints</span></a>
 						and the <a class="reference internal" href="library/typing.html#module-typing"
-							title="입력: 유형 힌트 지원( :pep:`484` 참조)."><code
+							title="typing: Support for type hints (see :pep:`484`)."><code
 								class="xref py py-mod docutils literal notranslate"><span class="pre">typing</span></code></a>
 						module.</p>
 				</dd>
 				<dt id="term-strong-reference">strong reference<a class="headerlink" href="#term-strong-reference"
-						title="이 용어에 대한 링크"></a></dt>
+						title="Link to this term"></a></dt>
 				<dd>
 					<p>In Python’s C API, a strong reference is a reference to an object
 						which is owned by the code holding the reference. The strong
@@ -4334,8 +4219,8 @@
 					<p>See also <a class="reference internal" href="#term-borrowed-reference"><span
 								class="xref std std-term">borrowed reference</span></a>.</p>
 				</dd>
-				<dt id="term-text-encoding">text encoding<a class="headerlink" href="#term-text-encoding" title="이 용어에 대한 링크"></a>
-				</dt>
+				<dt id="term-text-encoding">text encoding (텍스트 인코딩)<a class="headerlink" href="#term-text-encoding"
+						title="Link to this term"></a></dt>
 				<dd>
 					<p>A string in Python is a sequence of Unicode code points (in range
 						<code class="docutils literal notranslate"><span class="pre">U+0000</span></code>–<code
@@ -4351,60 +4236,47 @@
 						“text encodings”.
 					</p>
 				</dd>
-				<dt id="term-text-file">text file<a class="headerlink" href="#term-text-file" title="이 용어에 대한 링크"></a></dt>
+				<dt id="term-text-file">text file (텍스트 파일)<a class="headerlink" href="#term-text-file"
+						title="Link to this term"></a></dt>
 				<dd>
-					<p>A <a class="reference internal" href="#term-file-object"><span class="xref std std-term">file
-								object</span></a> able to read and write <a class="reference internal"
-							href="library/stdtypes.html#str" title="str"><code
-								class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>
-						objects.
-						Often, a text file actually accesses a byte-oriented datastream
-						and handles the <a class="reference internal" href="#term-text-encoding"><span
-								class="xref std std-term">text encoding</span></a> automatically.
-						Examples of text files are files opened in text mode (<code
-							class="docutils literal notranslate"><span class="pre">'r'</span></code> or <code
-							class="docutils literal notranslate"><span class="pre">'w'</span></code>),
-						<a class="reference internal" href="library/sys.html#sys.stdin" title="sys.stdin"><code
+					<p><a class="reference internal" href="library/stdtypes.html#str" title="str"><code
+								class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> 객체를 읽고
+						쓸 수 있는 <a class="reference internal" href="#term-file-object"><span class="xref std std-term">파일
+								객체</span></a>. 종종, 텍스트 파일은 실제로는 바이트 지향 데이터스트림을 액세스하고 <a class="reference internal"
+							href="#term-text-encoding"><span class="xref std std-term">텍스트 인코딩</span></a> 을 자동 처리합니다. 텍스트 파일의 예로는
+						텍스트 모드 (<code class="docutils literal notranslate"><span class="pre">'r'</span></code> 또는 <code
+							class="docutils literal notranslate"><span class="pre">'w'</span></code>) 로 열린 파일, <a
+							class="reference internal" href="library/sys.html#sys.stdin" title="sys.stdin"><code
 								class="xref py py-data docutils literal notranslate"><span class="pre">sys.stdin</span></code></a>,
 						<a class="reference internal" href="library/sys.html#sys.stdout" title="sys.stdout"><code
 								class="xref py py-data docutils literal notranslate"><span class="pre">sys.stdout</span></code></a>,
-						and instances of
 						<a class="reference internal" href="library/io.html#io.StringIO" title="io.StringIO"><code
-								class="xref py py-class docutils literal notranslate"><span class="pre">io.StringIO</span></code></a>.
-					</p>
-					<p>See also <a class="reference internal" href="#term-binary-file"><span class="xref std std-term">binary
-								file</span></a> for a file object able to read and write
-						<a class="reference internal" href="#term-bytes-like-object"><span class="xref std std-term">bytes-like
-								objects</span></a>.
-					</p>
+								class="xref py py-class docutils literal notranslate"><span class="pre">io.StringIO</span></code></a>
+						의 인스턴스를 들 수 있습니다.</p>
+					<p><a class="reference internal" href="#term-bytes-like-object"><span class="xref std std-term">바이트열류
+								객체</span></a> 를 읽고 쓸 수 있는 파일 객체에 대해서는 <a class="reference internal" href="#term-binary-file"><span
+								class="xref std std-term">바이너리 파일</span></a> 도 참조하세요.</p>
 				</dd>
-				<dt id="term-triple-quoted-string">triple-quoted string<a class="headerlink" href="#term-triple-quoted-string"
-						title="이 용어에 대한 링크"></a></dt>
+				<dt id="term-triple-quoted-string">triple-quoted string (삼중 따옴표 된 문자열)<a class="headerlink"
+						href="#term-triple-quoted-string" title="Link to this term"></a></dt>
 				<dd>
-					<p>A string which is bound by three instances of either a quotation mark
-						(”) or an apostrophe (‘). While they don’t provide any functionality
-						not available with single-quoted strings, they are useful for a number
-						of reasons. They allow you to include unescaped single and double
-						quotes within a string and they can span multiple lines without the
-						use of the continuation character, making them especially useful when
-						writing docstrings.</p>
+					<p>따옴표 (”) 나 작은따옴표 (’) 세 개로 둘러싸인 문자열. 그냥 따옴표 하나로 둘러싸인 문자열에 없는 기능을 제공하지는 않지만, 여러 가지 이유에서 쓸모가 있습니다. 이스케이프 되지 않은
+						작은따옴표나 큰따옴표를 문자열 안에 포함할 수 있도록 하고, 연결 문자를 쓰지 않고도 여러 줄에 걸칠 수 있는데, 독스트링을 쓸 때 특히 쓸모 있습니다.</p>
 				</dd>
-				<dt id="term-type">type<a class="headerlink" href="#term-type" title="이 용어에 대한 링크"></a></dt>
+				<dt id="term-type">type (형)<a class="headerlink" href="#term-type" title="Link to this term"></a></dt>
 				<dd>
-					<p>The type of a Python object determines what kind of object it is; every
-						object has a type. An object’s type is accessible as its
-						<a class="reference internal" href="library/stdtypes.html#instance.__class__" title="인스턴스.__클래스__"><code
+					<p>파이썬 객체의 형은 그것이 어떤 종류의 객체인지를 결정합니다; 모든 객체는 형이 있습니다. 객체의 형은 <a class="reference internal"
+							href="library/stdtypes.html#instance.__class__" title="instance.__class__"><code
 								class="xref py py-attr docutils literal notranslate"><span class="pre">__class__</span></code></a>
-						attribute or can be retrieved with
-						<code class="docutils literal notranslate"><span class="pre">type(obj)</span></code>.
-					</p>
+						어트리뷰트로 액세스할 수 있거나 <code class="docutils literal notranslate"><span class="pre">type(obj)</span></code>로 얻을 수
+						있습니다.</p>
 				</dd>
-				<dt id="term-type-alias">type alias<a class="headerlink" href="#term-type-alias" title="이 용어에 대한 링크"></a></dt>
+				<dt id="term-type-alias">type alias (형 에일리어스)<a class="headerlink" href="#term-type-alias"
+						title="Link to this term"></a></dt>
 				<dd>
-					<p>A synonym for a type, created by assigning the type to an identifier.</p>
-					<p>Type aliases are useful for simplifying <a class="reference internal" href="#term-type-hint"><span
-								class="xref std std-term">type hints</span></a>.
-						For example:</p>
+					<p>형을 식별자에 대입하여 만들어지는 형의 동의어.</p>
+					<p>형 에일리어스는 <a class="reference internal" href="#term-type-hint"><span class="xref std std-term">형
+								힌트</span></a>를 단순화하는 데 유용합니다. 예를 들면:</p>
 					<div class="highlight-python3 notranslate">
 						<div class="highlight" style="position: relative;">
 							<pre><span></span><span class="k">def</span> <span class="nf">remove_gray_shades</span><span class="p">(</span>
@@ -4413,7 +4285,7 @@
 							</pre>
 						</div>
 					</div>
-					<p>could be made more readable like this:</p>
+					<p>는 다음과 같이 더 읽기 쉽게 만들 수 있습니다:</p>
 					<div class="highlight-python3 notranslate">
 						<div class="highlight" style="position: relative;">
 							<pre><span></span><span class="n">Color</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span>
@@ -4423,60 +4295,51 @@
 							</pre>
 						</div>
 					</div>
-					<p>See <a class="reference internal" href="library/typing.html#module-typing"
-							title="입력: 유형 힌트 지원( :pep:`484` 참조)."><code
-								class="xref py py-mod docutils literal notranslate"><span class="pre">typing</span></code></a> and
-						<span class="target" id="index-35"></span><a class="pep reference external"
-							href="https://peps.python.org/pep-0484/"><strong>PEP 484</strong></a>, which describe this
-						functionality.</p>
+					<p>이 기능을 설명하는 <a class="reference internal" href="library/typing.html#module-typing"
+							title="typing: Support for type hints (see :pep:`484`)."><code
+								class="xref py py-mod docutils literal notranslate"><span class="pre">typing</span></code></a>과
+						<span class="target" id="index-79"></span><a class="pep reference external"
+							href="https://peps.python.org/pep-0484/"><strong>PEP 484</strong></a>를 참조하세요.</p>
 				</dd>
-				<dt id="term-type-hint">type hint<a class="headerlink" href="#term-type-hint" title="이 용어에 대한 링크"></a></dt>
+				<dt id="term-type-hint">type hint (형 힌트)<a class="headerlink" href="#term-type-hint" title="Link to this term"></a>
+				</dt>
 				<dd>
-					<p>An <a class="reference internal" href="#term-annotation"><span
-								class="xref std std-term">annotation</span></a> that specifies the expected type for a variable, a
-						class
-						attribute, or a function parameter or return value.</p>
+					<p>변수, 클래스 어트리뷰트 및 함수 매개변수 나 반환 값의 기대되는 형을 지정하는 <a class="reference internal" href="#term-annotation"><span
+								class="xref std std-term">어노테이션</span></a>.</p>
 					<p>Type hints are optional and are not enforced by Python but
 						they are useful to <a class="reference internal" href="#term-static-type-checker"><span
 								class="xref std std-term">static type checkers</span></a>.
 						They can also aid IDEs with code completion and refactoring.</p>
-					<p>Type hints of global variables, class attributes, and functions,
-						but not local variables, can be accessed using
-						<a class="reference internal" href="library/typing.html#typing.get_type_hints"
-							title="타이핑.get_type_hints"><code
-								class="xref py py-func docutils literal notranslate"><span class="pre">typing.get_type_hints()</span></code></a>.
-					</p>
-					<p>See <a class="reference internal" href="library/typing.html#module-typing"
-							title="입력: 유형 힌트 지원( :pep:`484` 참조)."><code
-								class="xref py py-mod docutils literal notranslate"><span class="pre">typing</span></code></a> and
-						<span class="target" id="index-36"></span><a class="pep reference external"
-							href="https://peps.python.org/pep-0484/"><strong>PEP 484</strong></a>, which describe this
-						functionality.</p>
+					<p>지역 변수를 제외하고, 전역 변수, 클래스 어트리뷰트 및 함수의 형 힌트는 <a class="reference internal"
+							href="library/typing.html#typing.get_type_hints" title="typing.get_type_hints"><code
+								class="xref py py-func docutils literal notranslate"><span class="pre">typing.get_type_hints()</span></code></a>를
+						사용하여 액세스할 수 있습니다.</p>
+					<p>이 기능을 설명하는 <a class="reference internal" href="library/typing.html#module-typing"
+							title="typing: Support for type hints (see :pep:`484`)."><code
+								class="xref py py-mod docutils literal notranslate"><span class="pre">typing</span></code></a>과
+						<span class="target" id="index-80"></span><a class="pep reference external"
+							href="https://peps.python.org/pep-0484/"><strong>PEP 484</strong></a>를 참조하세요.</p>
 				</dd>
-				<dt id="term-universal-newlines">universal newlines<a class="headerlink" href="#term-universal-newlines"
-						title="이 용어에 대한 링크"></a></dt>
+				<dt id="term-universal-newlines">universal newlines (유니버설 줄 넘김)<a class="headerlink" href="#term-universal-newlines"
+						title="Link to this term"></a></dt>
 				<dd>
-					<p>A manner of interpreting text streams in which all of the following are
-						recognized as ending a line: the Unix end-of-line convention <code
-							class="docutils literal notranslate"><span class="pre">'\n'</span></code>,
-						the Windows convention <code class="docutils literal notranslate"><span class="pre">'\r\n'</span></code>,
-						and the old Macintosh convention
-						<code class="docutils literal notranslate"><span class="pre">'\r'</span></code>. See <span class="target"
-							id="index-37"></span><a class="pep reference external"
-							href="https://peps.python.org/pep-0278/"><strong>PEP 278</strong></a> and <span class="target"
-							id="index-38"></span><a class="pep reference external"
-							href="https://peps.python.org/pep-3116/"><strong>PEP 3116</strong></a>, as well as
-						<a class="reference internal" href="library/stdtypes.html#bytes.splitlines" title="바이트.분할선"><code
+					<p>다음과 같은 것들을 모두 줄의 끝으로 인식하는, 텍스트 스트림을 해석하는 태도: 유닉스 개행 문자 관례 <code
+							class="docutils literal notranslate"><span class="pre">'\n'</span></code>, 윈도우즈 관례 <code
+							class="docutils literal notranslate"><span class="pre">'\r\n'</span></code>, 예전의 매킨토시 관례 <code
+							class="docutils literal notranslate"><span class="pre">'\r'</span></code>. 추가적인 사용에 관해서는 <a
+							class="reference internal" href="library/stdtypes.html#bytes.splitlines" title="bytes.splitlines"><code
 								class="xref py py-func docutils literal notranslate"><span class="pre">bytes.splitlines()</span></code></a>
-						for an additional use.
-					</p>
+						뿐만 아니라 <span class="target" id="index-81"></span><a class="pep reference external"
+							href="https://peps.python.org/pep-0278/"><strong>PEP 278</strong></a> 와 <span class="target"
+							id="index-82"></span><a class="pep reference external"
+							href="https://peps.python.org/pep-3116/"><strong>PEP 3116</strong></a> 도 보세요.</p>
 				</dd>
-				<dt id="term-variable-annotation">variable annotation<a class="headerlink" href="#term-variable-annotation"
-						title="이 용어에 대한 링크"></a></dt>
+				<dt id="term-variable-annotation">variable annotation (변수 어노테이션)<a class="headerlink"
+						href="#term-variable-annotation" title="Link to this term"></a></dt>
 				<dd>
-					<p>An <a class="reference internal" href="#term-annotation"><span
-								class="xref std std-term">annotation</span></a> of a variable or a class attribute.</p>
-					<p>When annotating a variable or a class attribute, assignment is optional:</p>
+					<p>변수 또는 클래스 어트리뷰트의 <a class="reference internal" href="#term-annotation"><span
+								class="xref std std-term">어노테이션</span></a>.</p>
+					<p>변수 또는 클래스 어트리뷰트에 어노테이션을 달 때 대입은 선택 사항입니다:</p>
 					<div class="highlight-python3 notranslate">
 						<div class="highlight" style="position: relative;">
 							<pre><span></span><span class="k">class</span> <span class="nc">C</span><span class="p">:</span>
@@ -4484,119 +4347,51 @@
 							</pre>
 						</div>
 					</div>
-					<p>Variable annotations are usually used for
-						<a class="reference internal" href="#term-type-hint"><span class="xref std std-term">type hints</span></a>:
-						for example this variable is expected to take
-						<a class="reference internal" href="library/functions.html#int" title="정수"><code
-								class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>
-						values:
-					</p>
+					<p>변수 어노테이션은 일반적으로 <a class="reference internal" href="#term-type-hint"><span class="xref std std-term">형
+								힌트</span></a>로 사용됩니다: 예를 들어, 이 변수는 <a class="reference internal" href="library/functions.html#int"
+							title="int"><code
+								class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> 값을 가질
+						것으로 기대됩니다:</p>
 					<div class="highlight-python3 notranslate">
 						<div class="highlight" style="position: relative;">
 							<pre><span></span><span class="n">count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
 							</pre>
 						</div>
 					</div>
-					<p>Variable annotation syntax is explained in section <a class="reference internal"
-							href="reference/simple_stmts.html#annassign"><span class="std std-ref">Annotated assignment
-								statements</span></a>.</p>
+					<p>변수 어노테이션 문법은 섹션 <a class="reference internal" href="reference/simple_stmts.html#annassign"><span
+								class="std std-ref">어노테이트된 대입문(Annotated assignment statements)</span></a> 에서 설명합니다.</p>
 					<p>See <a class="reference internal" href="#term-function-annotation"><span class="xref std std-term">function
 								annotation</span></a>, <span class="target" id="index-39"></span><a class="pep reference external"
-							href="https://peps.python.org/pep-0484/"><strong>
-								<font style="vertical-align: inherit;">
-									<font style="vertical-align: inherit;">PEP 484</font>
-								</font>
-							</strong></a>
-						<font style="vertical-align: inherit;">
-							<font style="vertical-align: inherit;">
-								및</font>
-						</font><span class="target" id="index-40"></span><a class="pep reference external"
-							href="https://peps.python.org/pep-0526/"><strong>
-								<font style="vertical-align: inherit;"></font>
-							</strong></a>
-						<font style="vertical-align: inherit;">
-							<font style="vertical-align: inherit;">이 기능을 설명하는</font><a class="pep reference external"
-								href="https://peps.python.org/pep-0526/"><strong>
-									<font style="vertical-align: inherit;"> PEP 526</font>
-								</strong></a>
-							<font style="vertical-align: inherit;"> . 또한</font>
-							<font style="vertical-align: inherit;">
-								주석 작업에 대한</font>
-						</font><a class="reference internal" href="howto/annotations.html#annotations-howto"><span
-								class="std std-ref">
-								<font style="vertical-align: inherit;">
-									<font style="vertical-align: inherit;"> 모범 사례는 주석 모범 사례를 참조하세요.</font>
-								</font>
-							</span></a>
-						<font style="vertical-align: inherit;"></font>
+							href="https://peps.python.org/pep-0484/"><strong>PEP 484</strong></a>
+						and <span class="target" id="index-40"></span><a class="pep reference external"
+							href="https://peps.python.org/pep-0526/"><strong>PEP 526</strong></a>, which describe this
+						functionality.
+						Also see <a class="reference internal" href="howto/annotations.html#annotations-howto"><span
+								class="std std-ref">Annotations Best Practices</span></a>
+						for best practices on working with annotations.</p>
+				</dd>
+				<dt id="term-virtual-environment">virtual environment (가상 환경)<a class="headerlink" href="#term-virtual-environment"
+						title="Link to this term"></a></dt>
+				<dd>
+					<p>파이썬 사용자와 응용 프로그램이, 같은 시스템에서 실행되는 다른 파이썬 응용 프로그램들의 동작에 영향을 주지 않으면서, 파이썬 배포 패키지들을 설치하거나 업그레이드하는 것을 가능하게 하는,
+						협력적으로 격리된 실행 환경.</p>
+					<p><a class="reference internal" href="library/venv.html#module-venv"
+							title="venv: Creation of virtual environments."><code
+								class="xref py py-mod docutils literal notranslate"><span class="pre">venv</span></code></a> 도 보세요.
 					</p>
 				</dd>
-				<dt id="term-virtual-environment">
-					<font style="vertical-align: inherit;">
-						<font style="vertical-align: inherit;">가상 환경 </font>
-					</font><a class="headerlink" href="#term-virtual-environment" title="이 용어에 대한 링크">
-						<font style="vertical-align: inherit;">
-							<font style="vertical-align: inherit;"></font>
-						</font>
-					</a>
-				</dt>
+				<dt id="term-virtual-machine">virtual machine (가상 기계)<a class="headerlink" href="#term-virtual-machine"
+						title="Link to this term"></a></dt>
 				<dd>
-					<p>
-						<font style="vertical-align: inherit;">
-							<font style="vertical-align: inherit;">Python 사용자와 애플리케이션이 동일한 시스템에서 실행되는 다른 Python 애플리케이션의 동작을 방해하지 않고
-								Python 배포 패키지를 설치하고 업그레이드할 수 있도록 하는 협력적으로 격리된 런타임 환경입니다.</font>
-						</font>
-					</p>
-					<p>
-						<font style="vertical-align: inherit;">
-							<font style="vertical-align: inherit;">또한보십시오 </font>
-						</font><a class="reference internal" href="library/venv.html#module-venv" title="venv: 가상 환경 생성."><code
-								class="xref py py-mod docutils literal notranslate"><span class="pre">venv</span></code></a>
-						<font style="vertical-align: inherit;">
-							<font style="vertical-align: inherit;">.</font>
-						</font>
-					</p>
+					<p>소프트웨어만으로 정의된 컴퓨터. 파이썬의 가상 기계는 바이트 코드 컴파일러가 출력하는 <a class="reference internal" href="#term-bytecode"><span
+								class="xref std std-term">바이트 코드</span></a>를 실행합니다.</p>
 				</dd>
-				<dt id="term-virtual-machine">
-					<font style="vertical-align: inherit;">
-						<font style="vertical-align: inherit;">가상 기기 </font>
-					</font><a class="headerlink" href="#term-virtual-machine" title="이 용어에 대한 링크">
-						<font style="vertical-align: inherit;">
-							<font style="vertical-align: inherit;"></font>
-						</font>
-					</a>
-				</dt>
+				<dt id="term-Zen-of-Python">Zen of Python (파이썬 젠)<a class="headerlink" href="#term-Zen-of-Python"
+						title="Link to this term"></a></dt>
 				<dd>
-					<p>
-						<font style="vertical-align: inherit;">
-							<font style="vertical-align: inherit;">전적으로 소프트웨어로 정의된 컴퓨터입니다. Python의 가상 머신은 </font>
-							<font style="vertical-align: inherit;">바이트코드 컴파일러에서 생성된 </font>
-						</font><a class="reference internal" href="#term-bytecode"><span class="xref std std-term">
-								<font style="vertical-align: inherit;">
-									<font style="vertical-align: inherit;">바이트코드를 실행합니다.</font>
-								</font>
-							</span></a>
-						<font style="vertical-align: inherit;"></font>
-					</p>
-				</dd>
-				<dt id="term-Zen-of-Python">
-					<font style="vertical-align: inherit;">
-						<font style="vertical-align: inherit;">젠 오브 파이썬 </font>
-					</font><a class="headerlink" href="#term-Zen-of-Python" title="이 용어에 대한 링크">
-						<font style="vertical-align: inherit;">
-							<font style="vertical-align: inherit;"></font>
-						</font>
-					</a>
-				</dt>
-				<dd>
-					<p>
-						<font style="vertical-align: inherit;">
-							<font style="vertical-align: inherit;">언어를 이해하고 사용하는 데 도움이 되는 Python 디자인 원칙과 철학 목록입니다. 목록은 </font>
-							<font style="vertical-align: inherit;">대화형 프롬프트에 " "를 입력하여 찾을 수 있습니다.</font>
-						</font><code
-							class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">this</span></code>
-						<font style="vertical-align: inherit;"></font>
-					</p>
+					<p>파이썬 디자인 원리와 철학들의 목록인데, 언어를 이해하고 사용하는 데 도움이 됩니다. 이 목록은 대화형 프롬프트에서 “<code
+							class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">this</span></code>”
+						를 입력하면 보입니다.</p>
 				</dd>
 			</dl>
 			 
