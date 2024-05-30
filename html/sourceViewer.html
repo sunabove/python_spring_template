@@ -206,7 +206,7 @@
 
 		<main class="p-4 container-fluid" style="overflow-y: auto; "> 
 
-			<h3> 소스 코드 뷰어 </h3>
+			<h3> 소스 뷰어 </h3>
 
 			<div class="card text-center">
 
@@ -229,15 +229,13 @@
 				</div>
 
 				<div class="card-body">
-					<code th:text="${fileSource}" class="python w-100 mt-0 text-start fs-5" style="min-height: 50vh;">
-						<pre>def fib(n):
+					<pre><code th:text="${fileSource}" class="python w-100 mt-0 text-start fs-5" style="min-height: 50vh;">def fib(n):
   a, b = 0, 1
     while a < n:
       print(a, end=' ')
       a, b = b, a+b
       print()
-  fib(1000)</pre>
-					</code>
+  fib(1000)</code></pre>
 				</div>
 
 				<div class="card-footer text-muted" th:text="${ fileDate }">
