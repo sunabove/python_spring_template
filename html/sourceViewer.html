@@ -229,8 +229,13 @@
 				</div>
 
 				<div class="card-body">
-					<textarea th:text="${fileSource}" class="w-100 mt-2" style="min-height: 50vh;" readonly> 소스 
-					</textarea>
+					<pre><code th:text="${fileSource}" class="python w-100 mt-2 text-start fs-5" style="min-height: 50vh;">def fib(n):
+  a, b = 0, 1
+    while a < n:
+      print(a, end=' ')
+      a, b = b, a+b
+      print()
+  fib(1000)</code></pre>
 				</div>
 
 				<div class="card-footer text-muted" th:text="${ fileDate }">
@@ -238,9 +243,16 @@
 				</div>
 			</div>
 
-			<br/>
+			<br/> 
 
-			<!-- Main Banner --> 
+			<head>
+				<link rel="stylesheet"
+					  href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+				<script>hljs.initHighlightingOnLoad();</script>
+			</head>
+
+
 			 
 		</main>
 
