@@ -229,19 +229,19 @@
 				</div>
 
 				<div class="card-body">
-					<div id="codeViewer" class="w-100 text-start fs-5"style="height:40vh; border:1px solid grey;">
-						소스 코드
+					<div id="codeViewer" class="w-100 text-start fs-7" style="height:40vh; border:1px solid grey;">
 					</div>
 				</div>
 
 				<script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.27.0/min/vs/loader.js"></script>
 				<script>
+					var srcCode = "print( 'hello' )" ; 
 					require.config({
 							paths: { vs: "https://cdn.jsdelivr.net/npm/monaco-editor@0.27.0/min/vs" }
 						});
 						require(["vs/editor/editor.main"], function () {
 							var editor = monaco.editor.create(document.getElementById("codeViewer"), {
-								value: "print( 'hello')",
+								value: srcCode,
 								language: "python",
 								automaticLayout: true
 							});
