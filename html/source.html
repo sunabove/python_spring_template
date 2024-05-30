@@ -208,7 +208,7 @@
 			<h3 class="h3"> 파이썬 소스 </h3> 
 
 			<ul class="h5 list-unstyled mt-4" th:each="fileName: ${fileNames}">
-				<li>
+				<li class="mt-1 p-0">
 					- 
 					<a th:href="@{ ${path} + ${fileName} }" href="#" class="text-decoration-none">
 						<span th:text="${ fileName }">file name</span>
