@@ -205,9 +205,23 @@
 		<!-- main content --> 
 
 		<main class="p-4 container-fluid" style="overflow-y: auto; "> 
-			<h3 class="h3"> 소스 뷰어 </h3> 
 
-			<textarea th:text="fileSource" class="w-100" style="min-height: 40vh;"> 소스 </textarea>
+			<div class="row">
+				<div class="col-auto">
+					<h3> 소스 뷰어 </h3>
+				</div>
+				<div class="col-auto"> 
+					<a th:href="@{ ${filePath} }" href="#" class="btn btn-sm btn-primary" role="button">
+						다운로드
+					</a>
+				</div>
+				<div class="col-auto">
+					&nbsp;
+				</div>
+			</div>
+
+			<textarea th:text="${fileSource}" class="w-100 mt-2" style="min-height: 40vh;" readonly> 소스 
+			</textarea>
 
 			<!-- Main Banner --> 
 			 
