@@ -229,18 +229,20 @@
 				</div>
 
 				<div class="card-body">
-					<div id="codeViewer" class="w-100 text-start fs-7 m-4" style="height:40vh; border:1px solid grey;">
+					<div id="codeViewer" th:text="${fileSource}" class="w-100 text-start fs-7 m-4" style="height:40vh; border:1px solid grey;">
 					</div>
 				</div>
 
 				<script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.27.0/min/vs/loader.js"></script>
 				<script>
-					var srcCode = "print( 'hello' )" ; 
+					var srcCode = $( "#codeViewer" ).html() ; 
+					$( "#codeViewer" ).html( '' );
+					
 					require.config({
 							paths: { vs: "https://cdn.jsdelivr.net/npm/monaco-editor@0.27.0/min/vs" }
 						});
 						require(["vs/editor/editor.main"], function () {
-							var editor = monaco.editor.create(document.getElementById("codeViewer"), {
+							var editor = monaco.editor.create( document.getElementById("codeViewer"), {
 								value: srcCode,
 								language: "python",
 								automaticLayout: true,
@@ -249,7 +251,7 @@
 						});
 				</script>
 
-
+				<!--
 				<div class="card-body">
 					<pre><code th:text="${fileSource}" class="python w-100 mt-0 text-start fs-5" style="min-height: 50vh;">def fib(n):
   a, b = 0, 1
@@ -259,6 +261,7 @@
       print()
   fib(1000)</code></pre>
 				</div>
+				-->
 
 				<div class="card-footer text-muted" th:text="${ fileDate }">
 					2 days ago
