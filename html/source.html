@@ -204,19 +204,58 @@
 
 		<!-- main content --> 
 
-		<main class="p-4 container-fluid" style="overflow-y: auto; "> 
-			<h3 class="h3"> 파이썬 소스 </h3> 
+		<main class="container-fluid" style="overflow-y: auto; ">
 
-			<ul class="h5 list-unstyled mt-4" th:each="fileName: ${fileNames}">
-				<li class="mt-1 p-0">
-					- 
-					<a th:href="@{ ${path} + ${fileName} }" href="#" class="text-decoration-none">
-						<span th:text="${ fileName }">file name</span>
+			<div class="card mt-3">
+				
+				<div class="card-header">
+					<p class="h3"> 파이썬 소스 </p> 
+				</div>
+
+				<div class="card-header d-flex" th:if="${ fileParentPath != '/rsc' }">
+					<a th:href="@{ ${fileParentPath} }" href="#" class="text-decoration-none" title="상위 폴더">
+						<div class="input-group input-group-sm text-nowrap">
+							<div class="input-group-prepend">
+								<div class="input-group-text">
+									<i class="fa-regular fa-folder-open fa-xl"></i>
+								</div>
+							</div>
+							<button class="btn btn-sm btn-light ms-1">
+								<span class="fs-5" th:text="${ fileParentPathName }">상위 폴더 상위 폴더 상위 폴더</span> 
+							</button>
+						</div>
 					</a>
-				</li>
-			</ul>
 
-			<!-- Main Banner --> 
+					&nbsp;
+
+					<a th:href="@{ ${path} }" href="#" class="text-decoration-none" title="상위 폴더">
+						<div class="input-group input-group-sm text-nowrap">
+							<div class="input-group-prepend">
+								<div class="input-group-text">
+									<i class="bi bi-slash-lg"></i>
+								</div>
+							</div>
+							<button class="btn btn-sm btn-light">
+								<span class="fs-5" th:text="${ fileNameOnly }">상위 폴더 상위 폴더 상위 폴더</span> 
+							</button>
+						</div>
+					</a>
+				</div>
+
+				<div class="card-body">
+					<ul class="h5 list-unstyled_" th:each="fileName: ${fileNames}">
+						<li class="mt-1 p-0">
+							<a th:href="@{ ${path} + ${fileName} }" href="#" class="text-decoration-none">
+								<span th:text="${ fileName }">file name</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+
+				<div class="card-footer text-muted" th:text="${ fileDate }">
+					2 days ago
+				</div>
+			</div>
 			 
 		</main>
 
