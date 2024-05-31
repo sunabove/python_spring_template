@@ -214,34 +214,30 @@
 
 				<div class="card-header d-flex"> 
 
-					<a th:href="@{ ${fileParentPath} }" href="#" class="col-auto text-decoration-none" title="상위 폴더">
-						<div class="input-group input-group-sm ">
+					<a th:href="@{ ${fileParentPath} }" href="#" class="col text-decoration-none" title="상위 폴더">
+						<div class="input-group input-group-sm text-nowrap">
 							<div class="input-group-prepend">
 								<div class="input-group-text">
 									<i class="fa-regular fa-folder-open fa-xl"></i>
 								</div>
 							</div>
-							<button class="btn btn-sm btn-dark" th:text="${ fileParentPathName }"> 상위 폴더 </button>
+							<button class="btn btn-sm btn-dark" th:text="${ fileParentPathName }"> 상위 폴더 상위 폴더 상위 폴더 </button>
 						</div>
 					</a>
 
-					&nbsp;&nbsp;&nbsp;
-
-					<a th:href="@{ ${filePath} }" href="#" class="col-auto text-decoration-none" title="다운로드">
-						<div class="input-group input-group-sm ">
+					<a th:href="@{ ${filePath} }" href="#" class="col text-decoration-none" title="다운로드">
+						<div class="input-group input-group-sm text-nowrap">
 							<div class="input-group-prepend">
 								<div class="input-group-text">
 									<i class="fa-regular fa-file-lines fa-xl"></i>
 								</div>
 							</div>
-							<button class="btn btn-sm btn-dark" th:text="${ fileNameOnly }"> 파일명 파일명 </button>
+							<button class="btn btn-sm btn-dark" th:text="${ fileNameOnly }"> 파일명 파일명 파일명 파일명 파일명 </button>
 						</div>
 					</a>
 
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							
-					<a th:href="@{ ${filePath} }" href="#" class="col-auto">
-						<div class="input-group input-group-sm ">
+					<a th:href="@{ ${filePath} }" href="#" class="col">
+						<div class="input-group input-group-sm text-nowrap">
 							<div class="input-group-prepend">
 								<div class="input-group-text">
 									<i class="bi bi-download"></i>
@@ -253,7 +249,7 @@
 
 				</div>
 
-				<div id="codeViewer" th:text="${fileSource}" class="card-body w-100 text-start" style="height: 50vh;">
+				<div id="codeViewer" th:text="${fileSource}" class="card-body w-100 p-0 text-start" style="height: 45vh;">
 				</div>
 
 				<script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.27.0/min/vs/loader.js"></script>
