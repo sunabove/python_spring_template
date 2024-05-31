@@ -227,7 +227,7 @@
 
 				<div class="card-header d-flex"> 
 
-					<a th:href="@{ ${filePath} }" href="#" class="col-9 text-decoration-none" title="다운로드">
+					<a th:href="@{ ${filePath} }" href="#" class="col-8 text-decoration-none" title="다운로드">
 						<div class="input-group input-group-sm text-nowrap">
 							<div class="input-group-prepend">
 								<div class="input-group-text">
@@ -238,19 +238,20 @@
 						</div>
 					</a>
 
-					<a th:href="@{ ${filePath} }" href="#" class="col-3">
+					<a th:href="@{ ${filePath} }" href="#" class="col-4">
 						<div class="input-group input-group-sm text-nowrap">
 							<div class="input-group-prepend">
 								<div class="input-group-text">
 									<i class="bi bi-download"></i>
 								</div>
 							</div>
-							<button class="btn btn-sm btn-primary"> 다운로드 </button>
+							<button class="btn btn-sm btn-primary">다운로드</button>
 						</div>
 					</a>
 
 				</div>
 
+				<!--
 				<div id="codeViewer" th:text="${fileSource}" class="card-body w-100 p-0 text-start" style="height: 45vh;">
 				</div>
 
@@ -272,8 +273,8 @@
 							});
 						});
 				</script>
+				-->
 
-				<!--
 				<div class="card-body">
 					<pre><code th:text="${fileSource}" class="python w-100 mt-0 text-start fs-5" style="min-height: 50vh;">def fib(n):
   a, b = 0, 1
@@ -290,7 +291,6 @@
 					<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
 					<script>hljs.initHighlightingOnLoad();</script>
 				</head>
-				-->
 
 				<div class="card-footer text-muted" th:text="${ fileDate }">
 					2 days ago
