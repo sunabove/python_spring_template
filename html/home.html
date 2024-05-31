@@ -208,82 +208,95 @@
 			
 			<!-- Main Banner -->
 
-			<div class="row mt-3">
-				<div class="col-12 col-sm-12 col-xl-6">
-					<div id="mainSlider" class="carousel carousel-dark slide mt-0 border border-secondary"  data-bs-ride="carousel">
-				
-						<div class="carousel-indicators">
-							<button type="button" data-bs-target="#mainSlider" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1" 
-								style="border-radius:50%; width:20px; height:20px; background-color:chocolate;" ></button>
-							<button type="button" data-bs-target="#mainSlider" data-bs-slide-to="1" aria-label="Slide 2" 
-								style="border-radius:50%; width:20px; height:20px; background-color:chocolate;"></button>
-							<button type="button" data-bs-target="#mainSlider" data-bs-slide-to="2" aria-label="Slide 3" 
-								style="border-radius:50%; width:20px; height:20px; background-color:chocolate;"></button>
-						</div>
-		
-						<div class="carousel-inner">
-							<div class="carousel-item active" data-bs-interval="10000">
-								<a href="https://www.eswcontest.or.kr/main.php" >
-									<img th:src="@{/rsc/data/img/24-05-21-01_embeded_contest.png}" 
-										src="./rsc/data/img/24-05-21-01_embeded_contest.png" 
-										class="d-block w-100 h-100 mx-auto" alt="제 22회 임베디드 소프트웨어 경진대회"
-									>
-								</a>
-		
-								<div class="carousel-caption d-none d-md-block" style="color:orange;" >
-									<h5> </h5>
-									<p> </p>
-								</div>
+			<div class="card text-center mt-3">
+				<div class="card-header">
+					<span class="h5"> 경진대회 </span>
+				</div>
+
+				<div class="card-body row">
+					<div class="col-12 col-sm-12 col-xl-6">
+
+						<div id="mainSlider" class="carousel carousel-dark slide mt-0 border border-secondary"  data-bs-ride="carousel">
+					
+							<div class="carousel-indicators">
+								<button type="button" data-bs-target="#mainSlider" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1" 
+									style="border-radius:50%; width:20px; height:20px; background-color:chocolate;" ></button>
+								<button type="button" data-bs-target="#mainSlider" data-bs-slide-to="1" aria-label="Slide 2" 
+									style="border-radius:50%; width:20px; height:20px; background-color:chocolate;"></button>
+								<button type="button" data-bs-target="#mainSlider" data-bs-slide-to="2" aria-label="Slide 3" 
+									style="border-radius:50%; width:20px; height:20px; background-color:chocolate;"></button>
 							</div>
-		
-							<div class="carousel-item" data-bs-interval="5000">
-								<a href="https://dacon.io/competitions/official/236255/overview/description">
-									<img th:src="@{/rsc/data/img/24-05-21-02_daegu_contest.png}" 
-										src="./rsc/data/img/24-05-21-02_daegu_contest.png" 
-										class="d-block w-100 h-100 mx-auto" alt="대구광역시 공공데이터 활용 창업경진대회"
-									>
-								</a>
-								<div class="carousel-caption d-none d-md-block" style="color:orange;" >
-									<h5> </h5>
-									<p> </p>
+			
+							<div class="carousel-inner">
+								<div class="carousel-item active" data-bs-interval="10000">
+									<a href="https://www.eswcontest.or.kr/main.php" >
+										<img th:src="@{/rsc/data/img/24-05-21-01_embeded_contest.png}" 
+											src="./rsc/data/img/24-05-21-01_embeded_contest.png" 
+											class="d-block w-100 h-100 mx-auto" alt="제 22회 임베디드 소프트웨어 경진대회"
+										>
+									</a>
+			
+									<div class="carousel-caption d-none d-md-block" style="color:orange;" >
+										<h5> </h5>
+										<p> </p>
+									</div>
 								</div>
+			
+								<div class="carousel-item" data-bs-interval="5000">
+									<a href="https://dacon.io/competitions/official/236255/overview/description">
+										<img th:src="@{/rsc/data/img/24-05-21-02_daegu_contest.png}" 
+											src="./rsc/data/img/24-05-21-02_daegu_contest.png" 
+											class="d-block w-100 h-100 mx-auto" alt="대구광역시 공공데이터 활용 창업경진대회"
+										>
+									</a>
+									<div class="carousel-caption d-none d-md-block" style="color:orange;" >
+										<h5> </h5>
+										<p> </p>
+									</div>
+								</div>
+			
+								<div class="carousel-item" data-bs-interval="5000">
+									<a href="https://dacon.io/competitions/official/236255/overview/description">
+										<img th:src="@{/rsc/data/img/24-05-21-03_daegu_contest.png}" 
+											src="./rsc/data/img/24-05-21-03_daegu_contest.png" 
+											class="d-block w-100 h-100 mx-auto" alt="대구광역시 공공데이터 활용 창업경진대회"
+										>
+									</a>
+									<div class="carousel-caption d-none d-md-block" style="color:orange;" >
+										<h5> </h5>
+										<p> </p>
+									</div>
+								</div> 
+			
 							</div>
-		
-							<div class="carousel-item" data-bs-interval="5000">
-								<a href="https://dacon.io/competitions/official/236255/overview/description">
-									<img th:src="@{/rsc/data/img/24-05-21-03_daegu_contest.png}" 
-										src="./rsc/data/img/24-05-21-03_daegu_contest.png" 
-										class="d-block w-100 h-100 mx-auto" alt="대구광역시 공공데이터 활용 창업경진대회"
-									>
-								</a>
-								<div class="carousel-caption d-none d-md-block" style="color:orange;" >
-									<h5> </h5>
-									<p> </p>
-								</div>
-							</div> 
-		
+			
+							<!-- Prev and Next buttons -->
+							<!--
+							<button class="carousel-control-prev" type="button" data-bs-target="#mainSlider" data-bs-slide="prev">
+								<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+								<span class="visually-hidden"  style="color:orange;" >Previous</span>
+							</button>
+			
+							<button class="carousel-control-next" type="button" data-bs-target="#mainSlider" data-bs-slide="next">
+								<span class="carousel-control-next-icon" aria-hidden="true"></span>
+								<span class="visually-hidden"  style="color:orange;" >Next</span>
+							</button>
+							-->
+							<!-- // Prev and Next buttons -->
+			
 						</div>
-		
-						<!-- Prev and Next buttons -->
-						<!--
-						<button class="carousel-control-prev" type="button" data-bs-target="#mainSlider" data-bs-slide="prev">
-							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-							<span class="visually-hidden"  style="color:orange;" >Previous</span>
-						</button>
-		
-						<button class="carousel-control-next" type="button" data-bs-target="#mainSlider" data-bs-slide="next">
-							<span class="carousel-control-next-icon" aria-hidden="true"></span>
-							<span class="visually-hidden"  style="color:orange;" >Next</span>
-						</button>
-						-->
-						<!-- // Prev and Next buttons -->
-		
 					</div>
+					<div class="col-12 col-sm-12 col-xl-6">
+						<hr/>
+					</div>
+
 				</div>
-				<div class="col-12 col-sm-12 col-xl-6">
-					<hr/>
+
+				<div class="card-footer text-muted">
+					&nbsp;
 				</div>
-			</div>			
+
+			</div>
 			
 			<!-- // Main Banner -->
 
