@@ -212,9 +212,8 @@
 					<span class="h4 fw-bold p-0"> 소스 뷰어 </span>
 				</div>
 
-				<div class="card-header d-flex"> 
-
-					<a th:href="@{ ${fileParentPath} }" href="#" class="col-5 text-decoration-none" title="상위 폴더">
+				<div class="card-header d-flex">
+					<a th:href="@{ ${fileParentPath} }" href="#" class="col text-decoration-none" title="상위 폴더">
 						<div class="input-group input-group-sm text-nowrap">
 							<div class="input-group-prepend">
 								<div class="input-group-text">
@@ -224,8 +223,11 @@
 							<button class="btn btn-sm btn-dark" th:text="${ fileParentPathName }"> 상위 폴더 상위 폴더 상위 폴더 </button>
 						</div>
 					</a>
+				</div>
 
-					<a th:href="@{ ${filePath} }" href="#" class="col-5 text-decoration-none" title="다운로드">
+				<div class="card-header d-flex"> 
+
+					<a th:href="@{ ${filePath} }" href="#" class="col-9 text-decoration-none" title="다운로드">
 						<div class="input-group input-group-sm text-nowrap">
 							<div class="input-group-prepend">
 								<div class="input-group-text">
@@ -236,7 +238,7 @@
 						</div>
 					</a>
 
-					<a th:href="@{ ${filePath} }" href="#" class="col-2">
+					<a th:href="@{ ${filePath} }" href="#" class="col-3">
 						<div class="input-group input-group-sm text-nowrap">
 							<div class="input-group-prepend">
 								<div class="input-group-text">
