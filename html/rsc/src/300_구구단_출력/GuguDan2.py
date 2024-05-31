@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 fw = 119
 w = fw//4*4
 borders = [ 
