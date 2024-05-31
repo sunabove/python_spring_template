@@ -220,7 +220,7 @@
 									<i class="fa-regular fa-folder-open fa-xl" style="width: 20px;"></i>
 								</div>
 							</div>
-							<button class="btn btn-sm btn-light fs-5" th:text="${ fileParentPathName }"> 상위 폴더 상위 폴더 상위 폴더 </button>
+							<button class="btn btn-sm btn-light fs-5" th:text="${ fileParentPathName.replace( '_', ' ' ) }"> 상위 폴더 상위 폴더 상위 폴더 </button>
 						</div>
 					</a>
 				</div>
@@ -234,7 +234,7 @@
 									<i class="fa-regular fa-file-lines fa-xl" style="width: 20px;"></i>
 								</div>
 							</div>
-							<button class="btn btn-sm btn-light fs-5" th:text="${ fileNameOnly }"> 파일명 파일명 파일명 파일명 파일명 </button> 
+							<button class="btn btn-sm btn-light fs-5" th:text="${ fileNameOnly.replace( '_', ' ' ) }"> 파일명 파일명 파일명 파일명 파일명 </button> 
 							<button class="btn btn-sm btn-primary">다운로드</button>
 						</div>
 					</a> 
