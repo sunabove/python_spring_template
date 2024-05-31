@@ -243,10 +243,14 @@
 				</div>
 
 				<div class="card-body">
-					<ul class="h5 list-unstyled_" th:each="fileName: ${fileNames}">
+					<ul class="h5 list-unstyled" th:each="fileInfo: ${fileInfos}">
 						<li class="mt-1 p-0">
-							<a th:href="@{ ${path} + ${fileName} }" href="#" class="text-decoration-none">
-								<span th:text="${ fileName }">file name</span>
+							<a th:href="@{ ${path} + ${ fileInfo.fileName } }" href="#" class="text-decoration-none">
+								<i class="bi bi-folder-minus" th:if="${ fileInfo.isDir and fileInfo.fileCount lt 1 }"></i>
+								<i class="bi bi-folder-plus" th:if="${ fileInfo.isDir and fileInfo.fileCount gt 0 }" ></i>
+								<i class="bi bi-card-text" th:if="${ fileInfo.isFile }" ></i>
+								&nbsp;
+								<span th:text="${ fileInfo.fileName }" class="ms-0">file name</span>
 							</a>
 						</li>
 					</ul>
