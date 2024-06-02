@@ -13,7 +13,7 @@ fig, ax = plt.subplots()
 xdata, ydata = [], []
 line, = ax.plot([], [], 'b-')
 
-ax.set_ylim(0, 120)  # 거리 범위 (센티미터)
+ax.set_ylim(0, 110)  # 거리 범위 (센티미터)
 ax.set_xlim(0, 10)   # 시간 범위 (초)
 
 # 축, 레이블 제목 설정
