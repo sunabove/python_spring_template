@@ -248,8 +248,32 @@
 							<a th:href="@{ ${path} + ${ fileInfo.fileName } }" href="#" class="text-decoration-none text-muted">
 								<i class="bi bi-folder-minus" th:if="${ fileInfo.isDir and fileInfo.fileCount lt 1 }"></i>
 								<i class="bi bi-folder-plus" th:if="${ fileInfo.isDir and fileInfo.fileCount gt 0 }" ></i>
-								<i class="bi bi-card-text" th:if="${ ! fileInfo.isDir and fileInfo.isSrcFile }" ></i>
-								<i class="bi bi-card-image" th:if="${ ! fileInfo.isDir and ! fileInfo.isSrcFile }" ></i>
+								
+								<i class="bi bi-card-text" th:if="${ fileInfo.isSrcFile }" ></i>
+								<i class="bi bi-card-image" th:if="${ fileInfo.isImgFile }" ></i>
+
+								<i class="bi bi-film" th:if="${ fileInfo.ext == 'avi' }"></i>
+								<i class="bi bi-file-earmark-ruled" th:if="${ fileInfo.ext == 'ipynb' }"></i>
+
+								<i class="bi bi-file-earmark-word" th:if="${ fileInfo.ext == 'doc' }"></i>
+								<i class="bi bi-file-earmark-word" th:if="${ fileInfo.ext == 'docx' }"></i>
+								
+								<i class="bi bi-file-earmark-text" th:if="${ fileInfo.ext == 'txt' }"></i>
+
+								<i class="bi bi-file-earmark-ppt" th:if="${ fileInfo.ext == 'ppt' }"></i>
+								<i class="bi bi-file-earmark-ppt" th:if="${ fileInfo.ext == 'pptx' }"></i>
+
+								<i class="bi bi-file-earmark-zip" th:if="${ fileInfo.ext == 'zip' }"></i>
+
+								<i class="bi bi-file-excel" th:if="${ fileInfo.ext == 'xls' }"></i>
+								<i class="bi bi-file-excel" th:if="${ fileInfo.ext == 'xlsx' }"></i>
+								
+								<i class="bi bi-file-pdf" th:if="${ fileInfo.ext == 'pdf' }"></i>
+
+								<i class="bi bi-filetype-html" th:if="${ fileInfo.ext == 'htm' }"></i>
+								<i class="bi bi-filetype-html" th:if="${ fileInfo.ext == 'html' }"></i>
+
+								<i class="bi bi-filetype-md" th:if="${ fileInfo.ext == 'md' }"></i>
 
 								&nbsp;
 								<span th:text="${ fileInfo.fileName.replace( '_', ' ' ) }" class="ms-0">file name</span>

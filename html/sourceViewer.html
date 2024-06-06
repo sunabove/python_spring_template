@@ -231,7 +231,32 @@
 						<div class="input-group input-group-sm text-nowrap">
 							<div class="input-group-prepend">
 								<div class="input-group-text">
-									<i class="fa-regular fa-file-lines fa-xl" style="width: 20px;"></i>
+									
+									<i class="bi bi-card-text" th:if="${ fileInfo.isSrcFile }" ></i>
+									<i class="bi bi-card-image" th:if="${ fileInfo.isImgFile }" ></i>
+									
+									<i class="bi bi-film" th:if="${ fileInfo.ext == 'avi' }"></i>
+									<i class="bi bi-file-earmark-ruled" th:if="${ fileInfo.ext == 'ipynb' }"></i>
+
+									<i class="bi bi-file-earmark-word" th:if="${ fileInfo.ext == 'doc' }"></i>
+									<i class="bi bi-file-earmark-word" th:if="${ fileInfo.ext == 'docx' }"></i>
+									
+									<i class="bi bi-file-earmark-text" th:if="${ fileInfo.ext == 'txt' }"></i>
+
+									<i class="bi bi-file-earmark-ppt" th:if="${ fileInfo.ext == 'ppt' }"></i>
+									<i class="bi bi-file-earmark-ppt" th:if="${ fileInfo.ext == 'pptx' }"></i>
+
+									<i class="bi bi-file-earmark-zip" th:if="${ fileInfo.ext == 'zip' }"></i>
+
+									<i class="bi bi-file-excel" th:if="${ fileInfo.ext == 'xls' }"></i>
+									<i class="bi bi-file-excel" th:if="${ fileInfo.ext == 'xlsx' }"></i>
+									
+									<i class="bi bi-file-pdf" th:if="${ fileInfo.ext == 'pdf' }"></i>
+
+									<i class="bi bi-filetype-html" th:if="${ fileInfo.ext == 'htm' }"></i>
+									<i class="bi bi-filetype-html" th:if="${ fileInfo.ext == 'html' }"></i>
+
+									<i class="bi bi-filetype-md" th:if="${ fileInfo.ext == 'md' }"></i>
 								</div>
 							</div>
 							<button class="btn btn-sm btn-light fs-5" th:text="${ fileNameOnly.replace( '_', ' ' ) }"> 파일명 파일명 파일명 파일명 파일명 </button> 
@@ -273,14 +298,18 @@
       a, b = b, a+b
       print()
   fib(1000)</code></pre>
+
+					<head>
+						<link rel="stylesheet"
+							href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+						<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+						<script>hljs.initHighlightingOnLoad();</script>
+					</head>
 				</div>
 
-				<head>
-					<link rel="stylesheet"
-						href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
-					<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
-					<script>hljs.initHighlightingOnLoad();</script>
-				</head>
+				<div class="card-body" th:if="${ fileInfo.isImgFile }">
+					<img th:src="@{ ${filePath} }" src="" class="img-fluid" />
+				</div>
 
 				<div class="card-footer text-muted" th:text="${ fileDate }">
 					2 days ago
