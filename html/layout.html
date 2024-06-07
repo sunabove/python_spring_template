@@ -548,9 +548,50 @@
 		</style>
 
 		<script>
-			$(document).ready(function() {
-				$("body").tooltip({ selector: '[data-bs-toggle=tooltip]' });
+			
+			$(document).ready(function () {
+				console.log( "hello.... document loaded." )
+
+				$("body").tooltip({ selector: '[data-bs-toggle=tooltip]' }); 
 			});
+
+			var mouseMove = 0 ; 
+
+			function processCounter() {
+				if( mouseMove > 0 ) { 
+					return
+				}
+
+				mouseMove = 1
+
+				var url = $(location).attr('href')
+
+				if( ! url.includes( "?") ) {
+					url += "?"
+				}
+
+				url += "&mouse_move=1"
+
+				console.log( "url = ", url )
+
+				$.ajax({
+                    url: url,
+                    success: function(data) {
+                        console.log( "success: response = ", data )
+
+						mouseMove = 2
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        console.log( "error: errorThrown = ", errorThrown )
+                    }
+                });
+
+			}
+
+			$(document).mousemove(function (event) {
+				processCounter(); 
+			});
+
 		</script>
 		
 	</footer>
