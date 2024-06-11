@@ -311,6 +311,14 @@
 					<img th:src="@{ ${filePath} }" src="" class="img-fluid" />
 				</div>
 
+				<div class="card-body" th:if="${ markdownToHtml }" >
+					<p th:utext="${markdownToHtml}" > markdownToHtml </p>
+				</div>
+
+				<div class="card-body" th:if="${ fileInfo.ext == 'pdf' }" >
+					<iframe th:src="@{ ${filePath} }" src="#" width="100%" height="600px" loading="lazy" title="PDF-file" ></iframe>
+				</div>
+
 				<div class="card-footer text-muted" th:text="${ fileDate }">
 					2 days ago
 				</div>
