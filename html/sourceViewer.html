@@ -312,7 +312,9 @@
 				</div>
 
 				<div class="card-body" th:if="${ markdownToHtml }" >
-					<p th:utext="${markdownToHtml}" > markdownToHtml </p>
+					<div class="text-start">
+						<p th:utext="${markdownToHtml}" > markdownToHtml </p>
+					</div>
 				</div>
 
 				<div class="card-body" th:if="${ fileInfo.ext == 'pdf' }" >
