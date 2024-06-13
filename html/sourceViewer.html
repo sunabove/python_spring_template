@@ -239,7 +239,7 @@
 									<i class="bi bi-film" th:if="${ fileInfo.ext == 'mp4' }"></i>
 									<i class="bi bi-film" th:if="${ fileInfo.ext == 'mjpg' }"></i>
 									<i class="bi bi-film" th:if="${ fileInfo.ext == 'mjpeg' }"></i>
-									
+
 									<i class="bi bi-file-earmark-ruled" th:if="${ fileInfo.ext == 'ipynb' }"></i>
 
 									<i class="bi bi-file-earmark-word" th:if="${ fileInfo.ext == 'doc' }"></i>
@@ -323,6 +323,13 @@
 
 				<div class="card-body" th:if="${ fileInfo.ext == 'pdf' }" >
 					<iframe th:src="@{ ${filePath} }" src="#" width="100%" height="800px" loading="lazy" title="PDF-file" ></iframe>
+				</div>
+
+				<div class="card-body" th:if="${ fileInfo.isVideo }" >
+					<video width="320" height="240" controls>
+						<source th:src="@{ ${filePath} }" src="movie.mp4" type="video/mp4"> 
+						Your browser does not support the video tag.
+					</video>
 				</div>
 
 				<div class="card-footer text-muted" th:text="${ fileDate }">
