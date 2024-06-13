@@ -236,6 +236,10 @@
 									<i class="bi bi-card-image" th:if="${ fileInfo.isImgFile }" ></i>
 									
 									<i class="bi bi-film" th:if="${ fileInfo.ext == 'avi' }"></i>
+									<i class="bi bi-film" th:if="${ fileInfo.ext == 'mp4' }"></i>
+									<i class="bi bi-film" th:if="${ fileInfo.ext == 'mjpg' }"></i>
+									<i class="bi bi-film" th:if="${ fileInfo.ext == 'mjpeg' }"></i>
+									
 									<i class="bi bi-file-earmark-ruled" th:if="${ fileInfo.ext == 'ipynb' }"></i>
 
 									<i class="bi bi-file-earmark-word" th:if="${ fileInfo.ext == 'doc' }"></i>
