@@ -7,7 +7,11 @@ from time import sleep
 
 servo = Servo(17)
 
-while True:
+print( "Start calibrating ..." )
+
+for _ in range( 5 ) : 
     servo.mid()
     sleep( 2 )
 pass
+
+print( "Done calibrating." )

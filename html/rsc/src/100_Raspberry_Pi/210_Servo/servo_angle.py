@@ -1,4 +1,4 @@
-# servo_test.py
+# servo_angle.py
 # 서보의 위치를 값을 통하여 제어합니다.
 from gpiozero import AngularServo
 from time import sleep
