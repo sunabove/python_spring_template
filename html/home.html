@@ -239,55 +239,31 @@
 						<div id="mainSlider" class="carousel carousel-dark slide mt-0 border border-secondary"  data-bs-ride="carousel">
 					
 							<div class="carousel-indicators">
-								<button type="button" data-bs-target="#mainSlider" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1" 
+								<button th:each="banner, stats : ${bannerList}" 
+									type="button" data-bs-target="#mainSlider" 
+									th:data-bs-slide-to="${stats.index}" data-bs-slide-to="0" class="active" 
+									th:aria-current="${stats.index == 0}" aria-current="true" 
+									th:aria-label="${ banner.alt }" aria-label="Slide 1" 
 									style="border-radius:50%; width:20px; height:20px; background-color:chocolate;" ></button>
-								<button type="button" data-bs-target="#mainSlider" data-bs-slide-to="1" aria-label="Slide 2" 
-									style="border-radius:50%; width:20px; height:20px; background-color:chocolate;"></button>
-								<button type="button" data-bs-target="#mainSlider" data-bs-slide-to="2" aria-label="Slide 3" 
-									style="border-radius:50%; width:20px; height:20px; background-color:chocolate;"></button>
 							</div>
 			
 							<div class="carousel-inner">
-								<div class="carousel-item active" data-bs-interval="10000">
-									<a href="https://www.eswcontest.or.kr/main.php" target="_blank">
-										<img th:src="@{/rsc/data/img/24-05-21-01_embeded_contest.png}" 
-											src="./rsc/data/img/24-05-21-01_embeded_contest.png" 
-											class="d-block w-100 h-100 mx-auto" alt="제 22회 임베디드 소프트웨어 경진대회"
-										>
-									</a>
-			
-									<div class="carousel-caption d-none d-md-block" style="color:orange;" >
-										<h5> </h5>
-										<p> </p>
-									</div>
-								</div>
-			
-								<div class="carousel-item" data-bs-interval="5000">
-									<a href="https://dacon.io/competition/236292/overview" target="_blank">
-										<img th:src="@{/rsc/img/100_main_banner/24_06_07_daegu_big_data_contest_01.png}" 
-											src="./rsc/img/100_main_banner/24_06_07_daegu_big_data_contest_01.png" 
-											class="d-block w-100 h-100 mx-auto" alt="대구 빅데이터 분석 경진대회"
-										>
-									</a>
-									<div class="carousel-caption d-none d-md-block" style="color:orange;" >
-										<h5> </h5>
-										<p> </p>
-									</div>
-								</div>
 
-								<div class="carousel-item" data-bs-interval="5000">
-									<a href="https://dacon.io/competition/236292/overview" target="_blank">
-										<img th:src="@{/rsc/img/100_main_banner/24_06_07_daegu_big_data_contest_02.png}" 
-											src="./rsc/img/100_main_banner/24_06_07_daegu_big_data_contest_02.png" 
-											class="d-block w-100 h-100 mx-auto" alt="대구 빅데이터 분석 경진대회"
+								<div th:each="banner, stats : ${bannerList}" 
+									th:class="${ stats.index == 0 ? 'carousel-item active' : 'carousel-item' }" class="carousel-item active" 
+									data-bs-interval="10000" >
+									<a th:href="@{ ${banner.href} }" href="https://www.eswcontest.or.kr/main.php" target="_blank">
+										<img th:src="@{ ${banner.imageUrl} }"  src="./rsc/data/img/24-05-21-01_embeded_contest.png" 
+											th:alt="${ banner.alt }" alt="제 22회 임베디드 소프트웨어 경진대회"
+											class="d-block w-100 h-100 mx-auto" 
 										>
 									</a>
+			
 									<div class="carousel-caption d-none d-md-block" style="color:orange;" >
 										<h5> </h5>
 										<p> </p>
 									</div>
 								</div> 
-			
 							</div>
 			
 							<!-- Prev and Next buttons -->
