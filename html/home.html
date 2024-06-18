@@ -250,7 +250,7 @@
 
 								<div th:each="banner, stats : ${bannerList}" 
 									th:class="${ stats.index == 0 ? 'carousel-item active' : 'carousel-item' }" class="carousel-item active" 
-									data-bs-interval="5000" >
+									data-bs-interval="3000" >
 									<a th:href="@{ ${banner.href} }" href="https://www.eswcontest.or.kr/main.php" target="_blank">
 										<img th:src="@{ ${banner.imageUrl} }"  src="./rsc/data/img/24-05-21-01_embeded_contest.png" 
 											th:alt="${ banner.alt }" alt="제 22회 임베디드 소프트웨어 경진대회"
