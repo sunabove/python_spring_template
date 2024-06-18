@@ -79,18 +79,13 @@ class AttrDict:
     pass
 pass
 
-# 1. 기상청 API 키 설정
-# 기상청에서 발급받은 API 키를 입력하세요.
-API_KEY = "YOUR_API_KEY" 
-API_KEY = "VYvCIN07GWWXrxMyV7Gyyqs%2Bp7acaRleqrBZntsNR5%2F5Bwpy5H4uwE%2B7Rz2tiQWjSKttTX1QgapIc8hJQ1szRw%3D%3D"
-
-def load_satellite_image( date, area, image_klass ) : 
+def load_satellite_image( api_key, date, area, image_klass ) : 
 
     # 2. API 요청 URL 구성
     base_url = 'http://apis.data.go.kr/1360000/SatlitImgInfoService/getInsightSatlit'
 
     params = {
-        'serviceKey': API_KEY,
+        'serviceKey': api_key,
         'numOfRows': 10000,  # 한 번에 조회할 데이터 수
         'pageNo': 1,      # 페이지 번호
         'dataType': 'JSON',  # 데이터 타입 (JSON 또는 XML)
@@ -157,11 +152,16 @@ def load_satellite_image( date, area, image_klass ) :
 pass
 
 if __name__ == "__main__" :
+
+    # 1. 기상청 API 키 설정
+    # 기상청에서 발급받은 API 키를 입력하세요.
+    API_KEY = "YOUR_API_KEY" 
+    API_KEY = "VYvCIN07GWWXrxMyV7Gyyqs%2Bp7acaRleqrBZntsNR5%2F5Bwpy5H4uwE%2B7Rz2tiQWjSKttTX1QgapIc8hJQ1szRw%3D%3D"
     
     date = "20240616"
     area = "ko"
     image_klass = "ir105"
 
-    load_satellite_image( date, area, image_klass )
+    load_satellite_image( API_KEY, date, area, image_klass )
 pass
 
