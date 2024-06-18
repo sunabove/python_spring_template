@@ -83,10 +83,50 @@ class AttrDict:
     pass
 pass
 
-def load_satellite_image( api_key, date, area, image_klass ) : 
+def load_satellite_image( api_key ) : 
+
+    # 현재 소스 폴더
+    srcDir = Path( __file__ ).resolve().parent
 
     # 2. API 요청 URL 구성
     base_url = 'http://apis.data.go.kr/1360000/SatlitImgInfoService/getInsightSatlit'
+
+    date = "20240616"
+    yesterday = datetime.today() - timedelta(days=1)
+    date = ( yesterday ).strftime('%Y%m%d')
+
+    area = "ko"
+    image_klass = "ir105"
+
+    print( f"date = {date}, area = {area}, image_klass = {image_klass}" )
+
+    dateYmd = date[0:4] + "-" + date[4:6] + "-" + date[6:]
+
+    dataDir = srcDir.joinpath( "data" )
+    dataDir.mkdir(parents=1, exist_ok=1)
+
+    if not dataDir.exists() or not dataDir.is_dir() :
+        print( f"데이터 폴더가 없습니다." )
+
+        return -1
+    pass
+
+    imgDir = dataDir.joinpath( dateYmd )
+    imgDir.mkdir(parents=1, exist_ok=1)
+
+    if not imgDir.exists() or not imgDir.is_dir() :
+        print( f"이미지 폴더({imgDir.name})가 없습니다.")
+
+        return -1
+    pass
+
+    completeTxt = imgDir.joinpath( "complete.txt" )
+
+    if completeTxt.exists() :
+        print( "이미 완료되었습니다." )
+
+        return -1
+    pass
 
     params = {
         'serviceKey': api_key,
@@ -121,7 +161,7 @@ def load_satellite_image( api_key, date, area, image_klass ) :
     pass
 
     if jsonData is None :
-        print( "Response fail. Retray a moment later." ) 
+        print( "Response fail. 잠시후 다시 시도하세요." ) 
 
         return -1
     pass
@@ -135,18 +175,15 @@ def load_satellite_image( api_key, date, area, image_klass ) :
     print( "resultMsg: ", resultMsg )
 
     if resultCode != "00" :
-        print( "resultCode fail. Retray a moment later." )
+        print( "resultCode: 실패. 잠시후 재 시도" )
 
         return -1
     elif resultCode == "00" :
-        print( "resultCode success" )
+        print( "resultCode: 성공" )
     pass
 
     # 저장할 파일명 설정 (예: 조회 날짜와 시간 기준으로 파일명 설정)
     file_name = f"satellite_image_{params['time']}_{params['area']}_{params['data']}.json"
-
-    # 현재 소스 폴더
-    srcDir = Path( __file__ ).resolve().parent
 
     # JSON 데이터를 파일로 저장
     with open( srcDir.joinpath( file_name ), 'w', encoding='utf-8') as file:
@@ -155,30 +192,35 @@ def load_satellite_image( api_key, date, area, image_klass ) :
     
     print(f"파일이 성공적으로 저장되었습니다: {file_name}")
 
-    dateYmd = date[0:4] + "-" + date[4:6] + "-" + date[6:]
-
-    dataDir = srcDir.joinpath( "data" )
-    dataDir.mkdir(parents=1, exist_ok=1)
-
-    if not dataDir.exists() or not dataDir.is_dir() :
-        print( f"데이터 폴더가 없습니다." )
-
-        return -1
-    pass
-
-    imgDir = dataDir.joinpath( dateYmd )
-    imgDir.mkdir(parents=1, exist_ok=1)
-
-    if not imgDir.exists() or not imgDir.is_dir() :
-        print( f"이미지 폴더({imgDir.name})가 없습니다.")
-    pass
-
     item = jsonData.response.body.items.item[0]
     imgUrls = item[ "satImgC-file" ]
     imgUrls = imgUrls.replace( "[","" )
     imgUrls = imgUrls.replace( "]","" )
     imgUrls = imgUrls.replace( ", ","," )
     imgUrls = imgUrls.strip().split(",")
+
+    for i, imgUrl in enumerate( imgUrls ) :
+        try:
+            # HTTP GET 요청을 보내서 이미지 데이터 가져오기
+            response = requests.get( imgUrl )
+            response.raise_for_status()  # HTTP 에러가 발생하면 예외 발생
+
+            imgFileName = imgUrl[ imgUrl.rindex( "/") + 1 : ]
+            imgFile = imgDir.joinpath( imgFileName )
+            # 이미지 데이터를 파일로 저장
+            with open( imgFile, 'wb') as file:
+                file.write(response.content)
+
+                print( f"[{i:04d}] 이미지가 성공적으로 저장되었습니다: { imgFileName }" )
+            pass
+            
+        except Exception as e:
+            print( f"[{i:04d}] 이미지 다운로드 중 오류가 발생했습니다: {e}" )
+        pass
+    pass
+
+    completeTxt.touch( exist_ok=True )
+    print(f"완료 파일이 생성되었습니다. { completeTxt.name }")
 
 pass
 
@@ -189,16 +231,8 @@ if __name__ == "__main__" :
     API_KEY = "YOUR_API_KEY" 
     API_KEY = "VYvCIN07GWWXrxMyV7Gyyqs%2Bp7acaRleqrBZntsNR5%2F5Bwpy5H4uwE%2B7Rz2tiQWjSKttTX1QgapIc8hJQ1szRw%3D%3D"
 
-    date = "20240616"
-    yesterday = datetime.today() - timedelta(days=1)
-    date = ( yesterday ).strftime('%Y%m%d')
-    area = "ko"
-    image_klass = "ir105"
-
-    print( f"date = {date}, area = {area}, image_klass = {image_klass}" )
-
     if 1 : 
-        load_satellite_image( API_KEY, date, area, image_klass )
+        load_satellite_image( API_KEY )
     pass
 pass
 
