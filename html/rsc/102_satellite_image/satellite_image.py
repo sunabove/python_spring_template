@@ -120,7 +120,7 @@ def load_satellite_image( api_key ) :
         return -1
     pass
 
-    completeTxt = imgDir.joinpath( "complete.txt" )
+    completeTxt = imgDir.joinpath( "01_complete.txt" )
 
     if completeTxt.exists() :
         print( "이미 완료되었습니다." )
@@ -183,10 +183,10 @@ def load_satellite_image( api_key ) :
     pass
 
     # 저장할 파일명 설정 (예: 조회 날짜와 시간 기준으로 파일명 설정)
-    file_name = f"satellite_image_{params['time']}_{params['area']}_{params['data']}.json"
+    file_name = f"00_satellite_image_{params['time']}_{params['area']}_{params['data']}.json"
 
     # JSON 데이터를 파일로 저장
-    with open( srcDir.joinpath( file_name ), 'w', encoding='utf-8') as file:
+    with open( imgDir.joinpath( file_name ), 'w', encoding='utf-8') as file:
         file.write( response.text )
     pass
     
@@ -198,6 +198,8 @@ def load_satellite_image( api_key ) :
     imgUrls = imgUrls.replace( "]","" )
     imgUrls = imgUrls.replace( ", ","," )
     imgUrls = imgUrls.strip().split(",")
+
+    imgUrlsLen = len( imgUrls )
 
     for i, imgUrl in enumerate( imgUrls ) :
         try:
@@ -211,7 +213,7 @@ def load_satellite_image( api_key ) :
             with open( imgFile, 'wb') as file:
                 file.write(response.content)
 
-                print( f"[{i:04d}] 이미지가 성공적으로 저장되었습니다: { imgFileName }" )
+                print( f"[{i:4d}][{ i/imgUrlsLen:6.1%}] 이미지가 성공적으로 저장되었습니다: { imgFileName }" )
             pass
             
         except Exception as e:
