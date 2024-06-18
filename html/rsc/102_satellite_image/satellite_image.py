@@ -213,7 +213,7 @@ def load_satellite_image( api_key ) :
             with open( imgFile, 'wb') as file:
                 file.write(response.content)
 
-                print( f"[{i:4d}][{ i/imgUrlsLen:6.1%}] 이미지가 성공적으로 저장되었습니다: { imgFileName }" )
+                print( f"[{i +1:4d}][{ (i+1)/imgUrlsLen:6.1%}] 이미지가 성공적으로 저장되었습니다: { imgFileName }" )
             pass
             
         except Exception as e:
