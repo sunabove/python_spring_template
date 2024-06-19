@@ -326,7 +326,7 @@
 				</div>
 
 				<div class="card-body" th:if="${ fileInfo.isVideo }" >
-					<video width="320" height="240" controls>
+					<video class="img-fluid" controls muted autoplay >
 						<source th:src="@{ ${filePath} }" src="movie.mp4" type="video/mp4"> 
 						Your browser does not support the video tag.
 					</video>
