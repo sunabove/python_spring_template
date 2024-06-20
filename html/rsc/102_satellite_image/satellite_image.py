@@ -109,7 +109,7 @@ def load_satellite_image( api_key, area="ko", img_gb="ir105" ) :
         pass
     pass
 
-    imgDir = srcDir.joinpath( f"data/{dateYmd}/{area}/{img_gb}" )
+    imgDir = srcDir.joinpath( f"sat_data/{dateYmd}/{area}/{img_gb}" )
     imgDir.mkdir(parents=1, exist_ok=1)
 
     if not imgDir.exists() or not imgDir.is_dir() :
