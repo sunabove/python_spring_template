@@ -98,17 +98,6 @@ def load_satellite_image( api_key, area="ko", img_gb="ir105" ) :
 
     dateYmd = date[0:4] + "-" + date[4:6] + "-" + date[6:]
 
-    if 0 : 
-        dataDir = srcDir.joinpath( "data" )
-        dataDir.mkdir(parents=1, exist_ok=1)
-
-        if not dataDir.exists() or not dataDir.is_dir() :
-            print( f"데이터 폴더가 없습니다." )
-
-            return -1
-        pass
-    pass
-
     imgDir = srcDir.joinpath( f"sat_data/{dateYmd}/{area}/{img_gb}" )
     imgDir.mkdir(parents=1, exist_ok=1)
 
