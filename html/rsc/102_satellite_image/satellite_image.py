@@ -271,6 +271,12 @@ pass
 
 if __name__ == "__main__" :
 
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("api_key", help="API Key") 
+    args = parser.parse_args()
+    config = vars(args)
+
     # 1. 기상청 API 키 설정
     # 기상청에서 발급받은 API 키를 입력하세요.
     #API_KEY = "YOUR_API_KEY" 
