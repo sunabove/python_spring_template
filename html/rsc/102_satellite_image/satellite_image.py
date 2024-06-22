@@ -271,6 +271,7 @@ pass
 
 if __name__ == "__main__" :
 
+    # 아규먼트 처리
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument("api_key", help="API Key") 
@@ -280,14 +281,15 @@ if __name__ == "__main__" :
     # 1. 기상청 API 키 설정
     # 기상청에서 발급받은 API 키를 입력하세요.
     #API_KEY = "YOUR_API_KEY" 
-    API_KEY = "VYvCIN07GWWXrxMyV7Gyyqs+p7acaRleqrBZntsNR5/5Bwpy5H4uwE+7Rz2tiQWjSKttTX1QgapIc8hJQ1szRw=="
+    api_key = "VYvCIN07GWWXrxMyV7Gyyqs+p7acaRleqrBZntsNR5/5Bwpy5H4uwE+7Rz2tiQWjSKttTX1QgapIc8hJQ1szRw=="
+    api_key = args.api_key
 
     if 1 : 
         # 지역구분 'area' : 전구(fd), 동아시아(ea), 한반도(ko) 
         for area in [ "ko", "ea", "fd" ] :        
             # 영상구분 'data' : 적외영상(ir105), 가시영상(vi006),  수증기영상(wv069), 단파적외영상(sw038) RGB컬러(rgbt), RGB주야간합성(rgbdn)
             for img_gb in [ "ir105", "vi006", "wv069", "sw038", "rgbt", "rgbdn" ] :
-                load_satellite_image( API_KEY, area=area, img_gb=img_gb )
+                load_satellite_image( api_key, area=area, img_gb=img_gb )
             pass
         pass
     pass
