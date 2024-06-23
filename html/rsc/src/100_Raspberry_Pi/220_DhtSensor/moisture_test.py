@@ -22,3 +22,4 @@ motionSensor.when_motion = water_detected
 motionSensor.when_no_motion = water_not_detected
 
 input( "Press Enter to quit...\n" )
+print( "Good bye!")
