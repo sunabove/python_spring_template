@@ -14,8 +14,8 @@ instance = dht11.DHT11(pin=14)
 
 # 데이터 저장용 리스트 초기화
 temperature_data = []
-humidity_data = []
-time_data = []
+humidity_data    = []
+time_data        = []
 
 # 그래프 설정
 fig, ax1 = plt.subplots()
@@ -25,11 +25,13 @@ ax2 = ax1.twinx()  # 공유 x축을 가진 두 번째 y축
 
 def animate(i):
     result = instance.read()
-    if result.is_valid():
+    if result.is_valid():        
         current_time = datetime.now().strftime("%M:%S")
         temperature_data.append(result.temperature)
         humidity_data.append(result.humidity)
         time_data.append(current_time)
+
+        print(current_time, f"Temperature: {result.temperature:.1f} °C", f"Humidity: {result.humidity:.1f} %")
 
         # 최근 20개 데이터만 유지
         if len(time_data) > 20:
@@ -47,16 +49,19 @@ def animate(i):
         
         # 설정 갱신
         ax1.set_xlabel('Time')
+        # 그리드설정
+        ax1.grid(which='major', axis='both', linestyle='--')
+
         ax1.set_ylabel('Temperature (°C)', color='red')
         ax2.set_ylabel('Humidity (%)', color='blue')
-        ax2.yaxis.set_label_position("right")
+        ax2.yaxis.set_label_position( "right" )
         ax2.yaxis.tick_right()
         
         ax1.tick_params(axis='y', labelcolor='red')
         ax2.tick_params(axis='y', labelcolor='blue')
 
-        ax1.set_ylim( 0, 35 ) # y축 최대값 설정
-        ax2.set_ylim( 0, 70 ) # y축 최대값 설정
+        ax1.set_ylim( 0, 80 ) # 온도 y축 최대값 설정
+        ax2.set_ylim( 0, 80 ) # 습도 y축 최대값 설정
         
         # x축 눈금 각도 조정
         plt.setp(ax1.xaxis.get_majorticklabels(), rotation=45, ha='right')
