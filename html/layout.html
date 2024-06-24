@@ -370,6 +370,47 @@
 		<!--  side bar right -->
 		<nav th:fragment="sidebarRight" id="sidebarRight" class="col-auto_ col-2 d-md-block bg-body-tertiary_ sidebar collapse">
 
+			<div class="position-sticky pt-3 sidebar-sticky text-nowrap cotainer">
+				<div class="row">
+					<div class="col fs-2">
+						<span id="currHours" class="border rounded text-center p-1 bg-secondary">11</span>
+						<span id="currMinutes" class="border rounded text-center p-1 bg-secondary">59</span>
+					</div> 
+				</div>
+				
+				<script>
+					
+					function showCurrentTime() {
+						console.log( "show local time." )
+
+						var date = new Date()
+
+						var hours = date.getHours()
+						var minutes = date.getMinutes()
+
+						if( hours < 10 ) {
+							hours = "0" + hours
+						}
+
+						if( minutes < 10 ) {
+							minutes = "0" + minutes
+						}
+
+						$( "#currHours" ).html( "&nbsp;" + hours + "&nbsp;"  )
+						$( "#currMinutes" ).html( "&nbsp;" + minutes + "&nbsp;" )
+
+						console.log( "hours = ", hours, ", minutes = ", minutes )
+
+						setTimeout( showCurrentTime, 60000);
+					}
+					
+					$(document).ready(function (e) {
+						showCurrentTime();
+					});
+
+				</script>
+			</div>
+
 			<div class="position-sticky pt-3 sidebar-sticky text-nowrap">
 				
 				<h6><b>좋은 사이트</b></h6>
@@ -595,7 +636,6 @@
                         console.log( "error: errorThrown = ", errorThrown )
                     }
                 });
-
 			}
 
 			$(document).mousemove(function (event) {
