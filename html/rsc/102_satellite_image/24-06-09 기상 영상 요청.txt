@@ -1,11 +1,14 @@
-http://apis.data.go.kr/1360000/SatlitImgInfoService/getInsightSatlit
-?serviceKey=VYvCIN07GWWXrxMyV7Gyyqs%2Bp7acaRleqrBZntsNR5%2F5Bwpy5H4uwE%2B7Rz2tiQWjSKttTX1QgapIc8hJQ1szRw%3D%3D&numOfRows=10&pageNo=1&dataType=json
-&sat=g2&data=ir105&area=fd&time=20240608
+
+- ir 105 / fd
 
 http://apis.data.go.kr/1360000/SatlitImgInfoService/getInsightSatlit
-?serviceKey=VYvCIN07GWWXrxMyV7Gyyqs%2Bp7acaRleqrBZntsNR5%2F5Bwpy5H4uwE%2B7Rz2tiQWjSKttTX1QgapIc8hJQ1szRw%3D%3D&numOfRows=10&pageNo=1&dataType=json
-&sat=g2&data=ir105&area=ea&time=20240608
+?serviceKey=VYvCIN07GWWXrxMyV7Gyyqs%2Bp7acaRleqrBZntsNR5%2F5Bwpy5H4uwE%2B7Rz2tiQWjSKttTX1QgapIc8hJQ1szRw%3D%3D&numOfRows=10000&pageNo=1&dataType=json&sat=g2&data=ir105&area=fd&time=20240616
+
+- ir 105 / ea
+http://apis.data.go.kr/1360000/SatlitImgInfoService/getInsightSatlit
+?serviceKey=VYvCIN07GWWXrxMyV7Gyyqs%2Bp7acaRleqrBZntsNR5%2F5Bwpy5H4uwE%2B7Rz2tiQWjSKttTX1QgapIc8hJQ1szRw%3D%3D&numOfRows=10000&pageNo=1&dataType=json&sat=g2&data=ir105&area=ea&time=20240616
+
+- ir 105 / ko
 
 http://apis.data.go.kr/1360000/SatlitImgInfoService/getInsightSatlit
-?serviceKey=VYvCIN07GWWXrxMyV7Gyyqs%2Bp7acaRleqrBZntsNR5%2F5Bwpy5H4uwE%2B7Rz2tiQWjSKttTX1QgapIc8hJQ1szRw%3D%3D&numOfRows=10&pageNo=1&dataType=json
-&sat=g2&data=ir105&area=ko&time=20240608
+?serviceKey=VYvCIN07GWWXrxMyV7Gyyqs%2Bp7acaRleqrBZntsNR5%2F5Bwpy5H4uwE%2B7Rz2tiQWjSKttTX1QgapIc8hJQ1szRw%3D%3D&numOfRows=10000&pageNo=1&dataType=json&sat=g2&data=ir105&area=ko&time=20240616
