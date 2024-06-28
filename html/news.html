@@ -210,6 +210,61 @@
 			<hr/>
 
 			<ul class="list-unstyled">
+
+				<li>
+					<article >
+						<a href="https://micropython.org/download/RPI_PICO/" target="_blank" class="text-decoration-none text-muted">
+
+							<strong>
+								* <img src="https://micropython.org/resources/micropython-media/boards/RPI_PICO/rp2-pico.jpg" height="30px"/> 
+								Pico 펌웨어 v1.23.0 출시
+								*
+							</strong>
+
+							<p class="mt-2">
+								<ul>
+									<li>
+										이번 MicroPython 릴리스에서는 Python에 정의된 동적 USB 장치에 대한 지원을 추가하고, 새로운 모듈을 추가하였습니다.
+									</li>
+									<li>
+										openamp, tls웹 vfs어셈블리 포트를 완전히 개선하여 JavaScript와 Python 간의 프록시를 추가하였습니다.
+									</li>
+
+									<li>
+										고정된 모듈에 대해 상당한 코드 크기 최적화를 구현하였습니다.
+										그 밖에도 많은 개선 사항과 버그 수정이 이루어졌습니다.
+									</li>
+
+									<li>
+										많은 설계, 개발 및 테스트를 거쳐 MicroPython은 이제 사용자 정의 USB 장치를 완벽하게 지원합니다.
+									</li>
+
+									<li>
+										인터페이스는 새로운 machine.USBDevice클래스를 통해 제공되며, 이를 통해 사용자는 USB 설명자를 지정하고 USB 엔드포인트 전송을 위한 Python 콜백을 구현할 수 있습니다.
+									</li>
+
+									<li>
+										이를 통하여 모든 USB 장치를 순수 Python으로 구현할 수 있습니다.
+									</li>
+
+									<li>
+										인터페이스 machine.USBDevice는 저수준이고 완벽하지만, 키보드, 마우스, MIDI 및 직렬 CDC에 대한 예제와 함께 장치를 더 쉽게 구현할 수 있는 고수준 USB 라이브러리를 제공합니다.
+									</li>
+
+									<li>
+										micropython-lib 기능은 현재 rp2 및 samd 포트에서 사용할 수 있으며, 다른 포트도 나중에 제공될 예정입니다.
+									</li>
+
+								</ul>
+							</p>
+
+							<span class="ms-2"> - 2024-06-02 </span>
+							
+						</a>
+					</article>
+
+					<br/>
+				</li>
 				
 				<li>
 					<article >
@@ -247,8 +302,7 @@
 					</article>
 
 					<br/>
-				</li> 
-
+				</li>
 
 				<li>
 					<article >
