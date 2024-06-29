@@ -198,9 +198,6 @@ def load_satellite_image( api_key, area="ko", img_gb="ir105" ) :
     for i, imgUrl in enumerate( imgUrls ) :
 
         success = 0
-        imgFileName = imgUrl[ imgUrl.rindex( "/") + 1 : ]
-        imgFile = imgDir.joinpath( imgFileName )
-
         tryCnt = 0 
 
         header = f"[{i +1:4d}][{ (i+1)/imgUrlsLen:6.1%}][{tryCnt}]"
@@ -216,6 +213,10 @@ def load_satellite_image( api_key, area="ko", img_gb="ir105" ) :
             pass
         
             try:
+                ifn = imgFileName = imgUrl[ imgUrl.rindex( "/") + 1 : ]
+                imgFileName = ifn[ 0 : ifn.rindex( ".") ] + f".{tryCnt:02}" + ifn[ ifn.rindex( ".") : ]
+                imgFile = imgDir.joinpath( imgFileName )
+        
                 print( f"{header} 이미지를 다운로드 중입니다. { imgFileName }" )
 
                 # HTTP GET 요청을 보내서 이미지 데이터 가져오기
@@ -274,15 +275,15 @@ if __name__ == "__main__" :
     # 아규먼트 처리
     import argparse
     parser = argparse.ArgumentParser()
-    parser.add_argument("api_key", help="API Key") 
+    parser.add_argument("--api_key", help="API Key") 
     args = parser.parse_args()
     config = vars(args)
 
     # 1. 기상청 API 키 설정
     # 기상청에서 발급받은 API 키를 입력하세요.
     #API_KEY = "YOUR_API_KEY" 
-    api_key = "VYvCIN07GWWXrxMyV7Gyyqs+p7acaRleqrBZntsNR5/5Bwpy5H4uwE+7Rz2tiQWjSKttTX1QgapIc8hJQ1szRw=="
     api_key = args.api_key
+    api_key = "VYvCIN07GWWXrxMyV7Gyyqs+p7acaRleqrBZntsNR5/5Bwpy5H4uwE+7Rz2tiQWjSKttTX1QgapIc8hJQ1szRw=="
 
     if 1 : 
         # 지역구분 'area' : 전구(fd), 동아시아(ea), 한반도(ko) 
