@@ -145,9 +145,20 @@ def load_satellite_image( api_key, area="ko", img_gb="ir105" ) :
     
     jsonData = None 
     
-    try :
-        jsonData = response.json()
-    except:
+    tryCnt = 0
+
+    while jsonData is None and tryCnt < 10 : 
+        try :
+            tryCnt += 1
+            jsonData = response.json()
+        except:
+            pass
+        pass
+
+        if jsonData is None :
+            print( "Response fail. 잠시후 재시도 합니다." ) 
+
+            sleep( 1 )
         pass
     pass
 
