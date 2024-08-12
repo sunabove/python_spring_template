@@ -12,8 +12,8 @@ plt.grid(1, linestyle='--', color="g")
 x_data, y_data = [], []
 line, = ax.plot(x_data, y_data)
 # x축과 y축에 라벨 추가
-ax.set_xlabel('Time (100 ms)')  # x축 설명을 'Time (frames)'로 설정합니다.
-ax.set_ylabel('Distance (cm)')  # y축 설명을 'Distance (cm)'로 설정합니다.
+ax.set_xlabel('Time (100 ms)')  # x축 설명을 설정
+ax.set_ylabel('Distance (cm)')  # y축 설명을 설정
 
 def update(frame):
     global x_data, y_data
@@ -21,7 +21,7 @@ def update(frame):
     x_data.append(frame)  # 현재 시간을 x 축 데이터로 사용합니다.
     y_data.append(distanceSensor.distance*100)  # 센서의 측정 거리(cm)를 y 축 데이터로 사용합니다.
 
-    while len( x_data ) > 50 : 
+    while len( x_data ) > 50 : # 데이터 개수를 50개 이하로 유지
         x_data.pop( 0 )
         y_data.pop( 0 )
     pass
