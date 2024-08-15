@@ -1,5 +1,7 @@
-from gpiozero import Buzzer  # gpiozero 라이브러리에서 Buzzer 클래스 임포트
-from time import sleep       # time 모듈에서 sleep 함수를 임포트하여 시간 지연 사용
+# gpiozero 라이브러리에서 Buzzer 클래스 임포트
+from gpiozero import Buzzer  
+# time 모듈에서 sleep 함수를 임포트
+from time import sleep       
 
 # Buzzer 객체 생성, GPIO 4번 핀에 연결된 부저를 제어
 buzzer = Buzzer(4)

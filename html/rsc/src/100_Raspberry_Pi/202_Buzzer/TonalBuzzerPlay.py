@@ -1,4 +1,4 @@
-# gpiozero 패키지에서 TonalBuzzer 클래스를 임포트하여 톤을 생성할 수 있는 부저 제어
+# gpiozero 패키지에서 TonalBuzzer 클래스를 임포
 from gpiozero import TonalBuzzer
 # time 모듈에서 sleep 함수를 임포트하여 시간 지연 사용
 from time import sleep
