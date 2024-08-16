@@ -14,5 +14,5 @@ for i in range(0, 101, 10):
     sleep(1)  # 1초 동안 현재 설정된 PWM 값으로 부저를 유지
 pass
 
-# 부저 자원을 정리
+# 부저 자원 정리
 buzzer.close()

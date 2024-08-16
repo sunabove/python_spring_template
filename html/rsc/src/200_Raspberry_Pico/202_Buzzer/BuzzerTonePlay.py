@@ -11,7 +11,7 @@ for octave in range( 0, 9 ):
     # 도레미파솔라시 (ABCDEFG) 음계 순서대로 실행
     for scale in "abcdefg":
         try:
-            # 부저 꺼기
+            # 부저 끄기
             buzzer.off()
             # 현재 음계를 나타내는 문자열을 생성 (예: C4, D4, 등)
             tone = f"{scale}{octave}"
@@ -30,5 +30,4 @@ for octave in range( 0, 9 ):
     pass
 pass
 
-# 프로그램 종료 전 부저 자원을 정리
-buzzer.close()
+buzzer.close() # 부저 자원 정리

@@ -10,7 +10,8 @@ buzzer = Speaker(4)
 # on_time: 부저가 켜져 있는 시간 (초 단위)
 # off_time: 부저가 꺼져 있는 시간 (초 단위)
 # n: 비프음의 반복 횟수
+# wait: True일 경우, 모든 비프음이 재생될 때까지 대기
 buzzer.beep(on_time=1, off_time=0.5, n=4, wait=1)
 
-# 부저 자원을 정리
+# 부저 자원 정리
 buzzer.close()
