@@ -1,4 +1,4 @@
-# gpiozero 패키지에서 TonalBuzzer 클래스를 임포
+# gpiozero 패키지에서 TonalBuzzer 클래스를 임포트
 from gpiozero import TonalBuzzer
 # time 모듈에서 sleep 함수를 임포트하여 시간 지연 사용
 from time import sleep
@@ -7,7 +7,7 @@ from time import sleep
 buzzer = TonalBuzzer(4)
 
 # 음계와 길이 (초) 정의
-# '나비야 나비야'의 음계와 리듬
+# 노래 '나비야'의 음계와 리듬
 melody = [
     ('G4', 0.4), ('E4', 0.4), ('E4', 0.8),  # 나비야 / 솔미미
     ('F4', 0.4), ('D4', 0.4), ('D4', 0.8),  # 나비야 / 파레레 
