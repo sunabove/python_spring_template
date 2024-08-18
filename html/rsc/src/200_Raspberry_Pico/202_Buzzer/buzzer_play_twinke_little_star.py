@@ -7,14 +7,14 @@ speaker = Speaker(4)
 BEAT = 0.4
 
 melodies = [
-    ['c3', BEAT ], ['c3', BEAT ], ['g3', BEAT ], ['g3', BEAT ], ['a4', BEAT ], ['a4', BEAT ], ['g3', BEAT*2 ],
-    ['f3', BEAT ], ['f3', BEAT ], ['e3', BEAT ], ['e3', BEAT ], ['d3', BEAT ], ['d3', BEAT ], ['c3', BEAT*2 ],
+    ['c4', BEAT ], ['c4', BEAT ], ['g4', BEAT ], ['g4', BEAT ], ['a5', BEAT ], ['a5', BEAT ], ['g4', BEAT*2 ],
+    ['f4', BEAT ], ['f4', BEAT ], ['e4', BEAT ], ['e4', BEAT ], ['d4', BEAT ], ['d4', BEAT ], ['c4', BEAT*2 ],
     
-    ['g3', BEAT ], ['g3', BEAT ], ['f3', BEAT ], ['f3', BEAT ], ['e3', BEAT ], ['e3', BEAT ], ['d3', BEAT*2 ],
-    ['g3', BEAT ], ['g3', BEAT ], ['f3', BEAT ], ['f3', BEAT ], ['e3', BEAT ], ['e3', BEAT ], ['d3', BEAT*2 ],
+    ['g4', BEAT ], ['g4', BEAT ], ['f4', BEAT ], ['f4', BEAT ], ['e4', BEAT ], ['e4', BEAT ], ['d4', BEAT*2 ],
+    ['g4', BEAT ], ['g4', BEAT ], ['f4', BEAT ], ['f4', BEAT ], ['e4', BEAT ], ['e4', BEAT ], ['d4', BEAT*2 ],
     
-    ['c3', BEAT ], ['c3', BEAT ], ['g3', BEAT ], ['g3', BEAT ], ['a4', BEAT ], ['a4', BEAT ], ['g3', BEAT*2 ],
-    ['f3', BEAT ], ['f3', BEAT ], ['e3', BEAT ], ['e3', BEAT ], ['d3', BEAT ], ['d3', BEAT ], ['c3', BEAT*2 ],
+    ['c4', BEAT ], ['c4', BEAT ], ['g4', BEAT ], ['g4', BEAT ], ['a5', BEAT ], ['a5', BEAT ], ['g4', BEAT*2 ],
+    ['f4', BEAT ], ['f4', BEAT ], ['e4', BEAT ], ['e4', BEAT ], ['d4', BEAT ], ['d4', BEAT ], ['c4', BEAT*2 ],
 ]
 
 sleep( 1 )

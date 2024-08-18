@@ -6,8 +6,8 @@ speaker = Speaker(4)
 
 BEAT = 0.4
 
-notes_map = { "do": "c3", "re" : "d3", "mi" : "e3", "fa" : "f3", "so": "g3", "sol": "g3", "la" : "a4", "si" : "b4",
-              "do+": "c4", "re+" : "d4", "mi+": "e4" }
+notes_map = { "do": "c4", "re" : "d4", "mi" : "e4", "fa" : "f4", "so": "g4", "sol": "g4", "la" : "a4", "si" : "b4",
+              "do+": "c5", "re+" : "d5", "mi+": "e5" }
 
 song_0 = """do, do, sol, sol, la, la, sol2, fa, fa, mi, mi, re, re, do2,
 sol, sol, fa, fa, mi, mi, re2, sol, sol, fa, fa, mi, mi, re2,
