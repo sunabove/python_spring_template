@@ -77,9 +77,7 @@ pass
 
 print( "toggle each pin in descending order of pin number" )
 for row in range( row_len -1, -1, -1 ):
-    rng = range( col_len -1, -1, -1 ) if row%2 else range( col_len ) 
-    
-    for col in rng :
+    for col in range( col_len -1, -1, -1 ) :
         toggle(row=row, col=col, duration=duration)
     pass
 pass
@@ -173,4 +171,5 @@ for col in range( col_len -1, -1, -1 ):
     sleep(1)
 pass
 
+print( "turn on all pins" )
 turn_on()
