@@ -68,14 +68,14 @@ for _ in range( 3 ):
     toggle(duration=duration)
 pass
 
-print( "toggle each pin ascending pin number" )
+print( "toggle each pin in ascending order of pin number" )
 for row in range( row_len ):
     for col in range( col_len ) :
         toggle(row=row, col=col, duration=duration)
     pass
 pass
 
-print( "toggle each pin descending pin numbers" )
+print( "toggle each pin in descending order of pin number" )
 for row in range( row_len -1, -1, -1 ):
     rng = range( col_len -1, -1, -1 ) if row%2 else range( col_len ) 
     
@@ -135,24 +135,24 @@ for i in range( 1, row_len*col_len + 1 ) :
     pass 
 pass # toggle_spiral_direction
 
-print( "toggle each row asceding row number" )
+print( "toggle each row in asceding order of row number" )
 for row in range( row_len ):
     toggle(row=row, duration=duration)
 pass
 
-print( "toggle each colums ascending pin numbers" )
+print( "toggle each colums in ascending order of pin number" )
 for col in range( col_len ):
     toggle(col=col, duration=duration)
 pass 
 
 turn_off()
 
-print( "turn on each rows asceding row numbers" )
+print( "turn on each rows in asceding order of row number" )
 for row in range( row_len ):
     turn_on(row=row, duration=duration)
 pass
 
-print( "turn off each rows desceding row numbers" )
+print( "turn off each rows in desceding order of row number" )
 for row in range( row_len -1, -1, -1 ):
     set_row_pins(False, row)
     
@@ -161,12 +161,12 @@ pass
 
 turn_off()
 
-print( "turn on each columns asceding row numbers" )
+print( "turn on each columns in asceding order of row number" )
 for col in range( col_len ):
     turn_on(col=col, duration=duration)
 pass
 
-print( "turn off each columns desceding row numbers" )
+print( "turn off each columns in desceding order of row number" )
 for col in range( col_len -1, -1, -1 ):
     set_col_pins(False, col)
     
