@@ -1,5 +1,5 @@
 from machine import Pin
-from time import sleep
+from time import sleep 
 
 # 행(row) 핀들을 초기화하고 출력 모드로 설정합니다.
 row_pins = [ Pin(15, mode=Pin.OUT),
