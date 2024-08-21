@@ -2,16 +2,16 @@ from machine import Pin
 from time import sleep
 
 # 행(row) 핀들을 초기화하고 출력 모드로 설정합니다.
-row_pins = [ Pin(15, mode=Pin.OUT),
-             Pin(14, mode=Pin.OUT),
-             Pin(13, mode=Pin.OUT),
-             Pin(12, mode=Pin.OUT) ]
-
-# 열(column) 핀들을 초기화하고 출력 모드로 설정합니다.
-col_pins = [ Pin(10, mode=Pin.OUT),
+row_pins = [ Pin(10, mode=Pin.OUT),
              Pin(9, mode=Pin.OUT),
              Pin(8, mode=Pin.OUT),
              Pin(7, mode=Pin.OUT) ]
+
+# 열(column) 핀들을 초기화하고 출력 모드로 설정합니다.
+col_pins = [ Pin(12, mode=Pin.OUT),
+             Pin(13, mode=Pin.OUT),
+             Pin(14, mode=Pin.OUT),
+             Pin(15, mode=Pin.OUT) ]
 
 # 행과 열의 개수를 저장합니다.
 row_len = len(row_pins)
@@ -217,10 +217,4 @@ for col in range(col_len - 1, -1, -1):
     set_col_pins(False, col)
     sleep(1)  # 각 열을 끄는 시간 간격 설정
 pass
-
-# 대기 시간
-sleep( 3 )
-
-# 모든 핀을 켭니다.
-print("turn on all pins")
-turn_on()
+ 
