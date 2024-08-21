@@ -1,3 +1,4 @@
+# gpiozero 패키지의 LED 클래스를 Pin 이름으로 임포트
 from gpiozero import LED as Pin
 from time import sleep
 
