@@ -8,10 +8,10 @@ row_pins = [ Pin(15, mode=Pin.OUT),
              Pin(12, mode=Pin.OUT) ]
 
 # 열(column) 핀들을 초기화하고 출력 모드로 설정합니다.
-col_pins = [ Pin(16, mode=Pin.OUT),
-             Pin(17, mode=Pin.OUT),
-             Pin(18, mode=Pin.OUT),
-             Pin(19, mode=Pin.OUT) ]
+col_pins = [ Pin(10, mode=Pin.OUT),
+             Pin(9, mode=Pin.OUT),
+             Pin(8, mode=Pin.OUT),
+             Pin(7, mode=Pin.OUT) ]
 
 # 행과 열의 개수를 저장합니다.
 row_len = len(row_pins)
