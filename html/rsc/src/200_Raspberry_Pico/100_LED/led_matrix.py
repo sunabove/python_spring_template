@@ -69,6 +69,7 @@ pass
 
 # LED 토글 시 대기 시간 설정
 duration = 0.5
+scene_duration = 1.5
 
 # 모든 핀을 세 번 토글합니다.
 print("toggle all pins")
@@ -77,7 +78,7 @@ for _ in range(3):
 pass
 
 # 대기 시간
-sleep( 3 )
+sleep( scene_duration )
 
 # 모든 핀을 순차적으로 오름차순으로 토글합니다.
 print("toggle each pin in ascending order of pin number")
@@ -88,7 +89,7 @@ for row in range(row_len):
 pass
 
 # 대기 시간
-sleep( 3 )
+sleep( scene_duration )
 
 # 모든 핀을 내림차순으로 토글합니다.
 print("toggle each pin in descending order of pin number")
@@ -99,7 +100,7 @@ for row in range(row_len - 1, -1, -1):
 pass
 
 # 대기 시간
-sleep( 3 )
+sleep( scene_duration )
 
 # 지그재그 패턴으로 핀을 토글합니다.
 print("toggle each pin in zigzag direction")
@@ -113,7 +114,7 @@ for row in range(row_len):
 pass
 
 # 대기 시간
-sleep( 3 )
+sleep( scene_duration )
 
 # 나선형 방향으로 핀을 토글합니다.
 print("toggle each pin in spiral direction")
@@ -157,7 +158,7 @@ for i in range(1, row_len * col_len + 1):
 pass # toggle_spiral_direction
 
 # 대기 시간
-sleep( 3 )
+sleep( scene_duration )
 
 # 각 행을 순차적으로 토글합니다.
 print("toggle each row in ascending order of row number")
@@ -166,7 +167,7 @@ for row in range(row_len):
 pass
 
 # 대기 시간
-sleep( 3 )
+sleep( scene_duration )
 
 # 각 열을 순차적으로 토글합니다.
 print("toggle each column in ascending order of pin number")
@@ -178,7 +179,7 @@ pass
 turn_off()
 
 # 대기 시간
-sleep( 3 )
+sleep( scene_duration )
 
 # 각 행을 순차적으로 켭니다.
 print("turn on each row in ascending order of row number")
@@ -187,7 +188,7 @@ for row in range(row_len):
 pass
 
 # 대기 시간
-sleep( 3 )
+sleep( scene_duration )
 
 # 각 행을 역순으로 끕니다.
 print("turn off each row in descending order of row number")
@@ -200,7 +201,7 @@ pass
 turn_off()
 
 # 대기 시간
-sleep( 3 )
+sleep( scene_duration )
 
 # 각 열을 순차적으로 켭니다.
 print("turn on each column in ascending order of row number")
@@ -209,7 +210,7 @@ for col in range(col_len):
 pass
 
 # 대기 시간
-sleep( 3 )
+sleep( scene_duration )
 
 # 각 열을 역순으로 끕니다.
 print("turn off each column in descending order of row number")
