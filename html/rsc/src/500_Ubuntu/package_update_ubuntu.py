@@ -93,28 +93,41 @@ sudo -H pipdate
 
 """
 
+# os 모듈을 임포트하여 시스템 명령어 실행에 사용
 import os 
 
+# 명령어 문자열을 줄 단위로 나누어 리스트로 변환
 cmds = cmds.strip().splitlines()
 
-for idx, cmd in enumerate( cmds ) :
+# 리스트의 각 명령어를 순차적으로 처리
+for idx, cmd in enumerate(cmds):
+    # 명령어 앞뒤 공백을 제거
     cmd = cmd.strip()
 
-    if len( cmd ) == 0 :
-        continue # do nothing
-    elif cmd.startswith( "#" ) :
-        if "sudo" in cmd :
-            pass
-        else :
+    # 명령어가 빈 문자열인 경우, 다음 루프로 넘어감
+    if len(cmd) == 0:
+        continue  # do nothing
+    
+    # 명령어가 주석(#)으로 시작하는 경우
+    elif cmd.startswith("#"):
+        # 주석에 "sudo"가 포함된 경우
+        if "sudo" in cmd:
+            pass  # 아무 작업도 하지 않음
+        else:
+            # 주석을 출력하여 현재 진행 상황을 사용자에게 알림
             print()
-            print( cmd, flush=1 )
+            print(cmd, flush=1)
         pass
 
         continue
-    else :
+    
+    # 명령어가 주석이 아니고 실행 가능한 경우
+    else:
+        # 명령어를 출력하여 사용자에게 알림
         print()
-        print( cmd, flush=1 )
+        print(cmd, flush=1)
 
-        os.system( cmd )
+        # 명령어를 시스템에서 실행
+        os.system(cmd)
     pass
 pass
