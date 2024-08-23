@@ -101,18 +101,18 @@ for idx, cmd in enumerate( cmds ) :
     cmd = cmd.strip()
 
     if len( cmd ) == 0 :
-        continue
+        continue # do nothing
     elif cmd.startswith( "#" ) :
         if "sudo" in cmd :
             pass
         else :
+            print()
             print( cmd, flush=1 )
         pass
 
         continue
     else :
-        if idx : print()
-
+        print()
         print( cmd, flush=1 )
 
         os.system( cmd )
