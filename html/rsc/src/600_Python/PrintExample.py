@@ -47,5 +47,5 @@ print( "Hello", end=" ", flush=True )
 print( "World", 123 )
 
 # 데이터를 파일로 출력합니다.
-textFile = open('text.txt', 'w')
+textFile = open("text.txt", "w")
 print("Hello", "World!", 123, file=textFile)
