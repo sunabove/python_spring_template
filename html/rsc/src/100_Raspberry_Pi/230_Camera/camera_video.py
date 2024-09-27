@@ -10,8 +10,8 @@ cam = Camera()
 # 비디오 녹화 시작 메시지 출력
 print("Recording a video... ", end="")
 
-# 5초 동안 비디오를 녹화하고, 파일명은 "video_cam.mp4"로 저장
-file_name = cam.record_video("video_cam.mp4", duration=5)
+# 10초 동안 비디오를 녹화하고, 파일명은 "video_cam.mp4"로 저장
+file_name = cam.record_video("video_cam.mp4", duration=10)
 
 # 녹화 완료 후 파일명 출력
 print("Done.")
