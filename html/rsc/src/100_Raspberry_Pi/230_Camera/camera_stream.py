@@ -3,7 +3,8 @@
 # http://picamera.readthedocs.io/en/latest/recipes2.html#web-streaming
 
 import io
-import picamera
+from picamera2 import Picamera2 as PiCamera
+from picamera2.encoders import H264Encoder
 import logging
 import socketserver
 from threading import Condition
@@ -88,16 +89,19 @@ class StreamingOutput(object):
     pass
 pass
 
-with picamera.PiCamera(resolution='640x480', framerate=24) as camera:
-    output = StreamingOutput()
-    #Uncomment the next line to change your Pi's Camera rotation (in degrees)
-    #camera.rotation = 90
-    camera.start_recording(output, format='mjpeg')
-    try:
-        address = ('', 8000)
-        server = StreamingServer(address, StreamingHandler)
-        server.serve_forever()
-    finally:
-        camera.stop_recording()
-    pass
+camera = PiCamera()
+config = camera.create_video_configuration(
+    main={"size": (640, 480)}, lores={"size": (320, 240)}, encode="lores" ) 
+
+output = StreamingOutput()
+#Uncomment the next line to change your Pi's Camera rotation (in degrees)
+#camera.rotation = 90
+encoder = H264Encoder(bitrate=10000000)
+camera.start_recording(encoder, output)
+try:
+    address = ('', 8000)
+    server = StreamingServer(address, StreamingHandler)
+    server.serve_forever()
+finally:
+    camera.stop_recording()
 pass
