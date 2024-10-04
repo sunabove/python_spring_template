@@ -1,31 +1,32 @@
-# stream_server.py
-
-# Rui Santos & Sara Santos - Random Nerd Tutorials
-# Complete project details at https://RandomNerdTutorials.com/raspberry-pi-mjpeg-streaming-web-server-picamera2/
-
+# camera_stream_server.py
 # Mostly copied from https://picamera.readthedocs.io/en/release-1.13/recipes2.html
-# Run this script, then point a web browser at http:<this-ip-address>:7123
-# Note: needs simplejpeg to be installed (pip3 install simplejpeg).
 
-import io
-import logging
-import socketserver
+print( "Getting a camera ..." )
+import io, logging, socketserver, subprocess
 from http import server
 from threading import Condition
 
 from picamera2 import Picamera2
 from picamera2.encoders import JpegEncoder
+from picamera2.encoders import H264Encoder
 from picamera2.outputs import FileOutput
 
-PAGE = """\
+size = (width, height) = (640, 480)
+#size = (width, height) = (1296, 972)
+
+PAGE = f"""\
 <html>
-<head>
-<title>picamera2 MJPEG streaming demo</title>
-</head>
-<body>
-<h1>Picamera2 MJPEG Streaming Demo</h1>
-<img src="stream.mjpg" width="640" height="480" />
-</body>
+    <head>
+        <title>라즈베리파이 감시 카메라</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <center>
+            <br/>
+            <h3>라즈베리파이 감시 카메라</h3>
+            <img src="stream.mjpg" width="{width}" height="{height}" /> 
+        </center>
+    </body>
 </html>
 """
 
@@ -38,7 +39,9 @@ class StreamingOutput(io.BufferedIOBase):
         with self.condition:
             self.frame = buf
             self.condition.notify_all()
-
+        pass
+    pass
+pass
 
 class StreamingHandler(server.BaseHTTPRequestHandler):
     def do_GET(self):
@@ -78,7 +81,9 @@ class StreamingHandler(server.BaseHTTPRequestHandler):
         else:
             self.send_error(404)
             self.end_headers()
-
+        pass
+    pass
+pass
 
 class StreamingServer(socketserver.ThreadingMixIn, server.HTTPServer):
     allow_reuse_address = True
@@ -90,9 +95,15 @@ picam2.configure(picam2.create_video_configuration(main={"size": (640, 480)}))
 output = StreamingOutput()
 picam2.start_recording(JpegEncoder(), FileOutput(output))
 
+print( "start camera recording ..." )
+
 try:
-    address = ('', 8080)
+    port = 8080
+    address = ('', port)
     server = StreamingServer(address, StreamingHandler)
+    ip_addr = subprocess.getoutput("hostname -I").strip()
+    print( f"Serving the camera stream ..." )
+    print( f"http://{ip_addr}:{port}" )
     server.serve_forever()
 finally:
     picam2.stop_recording()
