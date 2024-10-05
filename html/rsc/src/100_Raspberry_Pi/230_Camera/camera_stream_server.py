@@ -22,7 +22,6 @@ PAGE = f"""\
     </head>
     <body>
         <center>
-            <br/>
             <h3>라즈베리파이 감시 카메라</h3>
             <img src="stream.mjpg" width="{width}" height="{height}" /> 
         </center>
