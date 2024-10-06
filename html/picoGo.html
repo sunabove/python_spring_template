@@ -209,7 +209,9 @@
 			<div class="card text-center mt-3">
 
 				<div class="card-header">
-					<span class="h2 fw-bold"> PicoGo App 다운로드 </span>
+					<a th:href="@{${href}}" href="rsc/picoGo/PicoGoApp_241004.apk">
+						<span class="h2 fw-bold"> PicoGo App 다운로드 </span>
+					</a>
 				</div>
 
 				<div class="card-body row">
@@ -218,7 +220,7 @@
 
 						<br/>
 
-						<a th:href="@{/rsc/picoGo/PicoGoApp_241004.apk}" href="rsc/picoGo/PicoGoApp_241004.apk">
+						<a th:href="@{${href}}" href="rsc/picoGo/PicoGoApp_241004.apk">
 							<img th:src="@{/rsc/picoGo/picoGoApp.png}" src="rsc/picoGo/picoGoApp.png" width="90%"/>
 
 							<br/><br/>
