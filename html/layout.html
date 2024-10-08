@@ -196,8 +196,9 @@
 					</div>
 
 					<div class="col-auto text-end" >
-						<span th:text="${#numbers.formatInteger( visitCountToday, 3, 'COMMA' ) }">1,234</span> / 
-						<span th:text="${#numbers.formatInteger( visitCountTotal, 3, 'COMMA' ) }">1,234</span> &nbsp;&nbsp;
+						<span th:text="${ visitCountToday }">1,234</span> / 
+						<span th:text="${ visitCountTotal }">1,234</span> / 
+						<span th:text="${ urlCount }">1,234</span> &nbsp;&nbsp;
 					</div>
 
 					<div class="col-auto text-end" th:if="${ loginUserName != '' && loginUserName != 'anonymousUser'}">
