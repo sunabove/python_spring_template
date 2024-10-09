@@ -1,15 +1,18 @@
 @charset "UTF-8";
 
 body {
-    min-height: 100vh;
-    min-height: -webkit-fill-available;
-  }
-  
-  html {
-    height: -webkit-fill-available;
-  }
-  
-  main {
-    height: -webkit-fill-available;
-  }
- 
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+}
+
+html {
+  height: -webkit-fill-available;
+}
+
+main {
+  height: -webkit-fill-available;
+}
+
+a {
+  text-decoration: none ;
+}
