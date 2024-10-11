@@ -3,7 +3,7 @@ from gpiozero import TonalBuzzer
 # time 모듈에서 sleep 함수를 임포트하여 시간 지연 사용
 from time import sleep
 
-# GPIO 15번 핀에 부저 연결
+# GPIO 4번 핀에 부저 연결
 buzzer = TonalBuzzer(4)
 
 # 음계와 길이 (초) 정의
