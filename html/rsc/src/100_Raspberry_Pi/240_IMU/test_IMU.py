@@ -76,7 +76,7 @@ while 1:
     print( f"Count: {count:d}" )
     print(f"가속도: X={Ax:.2f}g, Y={Ay:.2f}g, Z={Az:.2f}g")
     print(f"각속도: X={Gx:.2f}°/s, Y={Gy:.2f}°/s, Z={Gz:.2f}°/s")
-    print(f"회전각: 롤={roll:.2f}°, 피치={pitch:.2f}°")
+    print(f"회전각: Roll={roll:.2f}°, Pitch={pitch:.2f}°")
     
     # 1초 대기
     time.sleep(1)
