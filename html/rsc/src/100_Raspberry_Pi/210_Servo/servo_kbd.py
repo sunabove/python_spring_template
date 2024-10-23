@@ -1,12 +1,11 @@
-# servo_pwm.py
+# servo_kbd.py
 
+# 키보드 입력을 통하여 서보의 각도를 제어합니다.
 # GPIO 핀 17을 사용하여 PWM 신호를 생성합니다. 
 
 import curses
 import RPi.GPIO as GPIO  # 표준 Raspberry Pi GPIO 라이브러리 임포트
 from time import sleep   # 프로그램에 대기(일시 정지) 기능 추가
-
-
 
 def main(stdscr): 
     GPIO.setwarnings(False)
@@ -19,8 +18,8 @@ def main(stdscr):
     dc = 0 
     dc_increment = 2.5/4
 
-    p = GPIO.PWM(17, frequency)      # 핀 17을 PWM 핀으로 설정하고 주파수를 50Hz로 설정
-    p.start(0)                # PWM 시작, 듀티 사이클을 0으로 설정
+    p = GPIO.PWM(17, frequency) # 핀 17을 PWM 핀으로 설정하고 주파수를 50Hz로 설정
+    p.start(0) # PWM 시작, 듀티 사이클을 0으로 설정
     sleep( duration )
     p.ChangeDutyCycle( dc )
     sleep( duration )
@@ -43,7 +42,6 @@ def main(stdscr):
         pass
 
         if key != -1:
-            # KEY DOWN
             curses.halfdelay(3)
 
             if key in [ curses.KEY_UP, curses.KEY_LEFT ] :
@@ -73,9 +71,6 @@ def main(stdscr):
     GPIO.cleanup()  # GPIO 핀을 기본값으로 재설정
 pass
 
-
-
 if __name__ == "__main__" :
     curses.wrapper(main)
 pass
-
