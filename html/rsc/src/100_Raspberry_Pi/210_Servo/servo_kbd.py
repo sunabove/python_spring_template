@@ -27,7 +27,7 @@ def main(stdscr):
     stdscr.addstr(0, 0, "Enter q to quit!")  # 프로그램 종료 안내
     stdscr.addstr(1, 0, "Use ← ↑ → ↓ key to control servo!")  # 방향키로 서보 모터 제어 안내
     stdscr.addstr(2, 0, "")  # 빈 줄 추가
-    stdscr.addstr(3, 0, f"Duty cycle = {dc:5.2f}")  # 현재 듀티 사이클 출력
+    stdscr.addstr(5, 0, f"Duty cycle = {dc:5.2f}")  # 현재 듀티 사이클 출력
 
     next_key = None  # 다음 입력을 저장할 변수
 
@@ -49,11 +49,14 @@ def main(stdscr):
             # 방향키 ↑ 또는 ←가 입력된 경우 듀티 사이클 증가
             if key in [curses.KEY_UP, curses.KEY_LEFT]:
                 dc += dc_increment
+                stdscr.addstr(3, 0, f" ↑ : angle increased.")
             # 방향키 ↓ 또는 →가 입력된 경우 듀티 사이클 감소
             elif key in [curses.KEY_DOWN, curses.KEY_RIGHT]:
                 dc -= dc_increment
+                stdscr.addstr(3, 0, f" ↓ : angle decreased.")
             # 'q' 또는 'Q'가 입력되면 루프를 종료 (프로그램 종료)
             elif key in [ord('q'), ord('Q'), curses.KEY_ENTER]:
+                stdscr.addstr(3, 0, f"q pressed.")
                 break
             pass
 
@@ -61,7 +64,7 @@ def main(stdscr):
             dc = max(0, min(12.5, dc))
 
             # 화면에 현재 듀티 사이클을 출력
-            stdscr.addstr(3, 0, f"Duty cycle = {dc:5.2f}")
+            stdscr.addstr(5, 0, f"Duty cycle = {dc:5.2f}")
 
             # 새로운 듀티 사이클을 PWM에 적용하여 서보 모터 제어
             p.ChangeDutyCycle(dc)
