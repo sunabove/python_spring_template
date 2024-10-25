@@ -15,28 +15,28 @@ print("Start calibrating ...\n")  # 캘리브레이션 시작 메시지 출력
 count = 0  # 카운트 초기화
 for _ in range(3):  # 3회 반복하여 서보 이동
     count += 1 # 카운트 증가
-    print(f"{count:2d}: Locating servo min angle ...")  # 최소 각도로 이동 메시지
+    print(f"[{count:2d}] Locating servo min angle ...")  # 최소 각도로 이동 메시지
     servo.min()  # 서보를 최소 각도로 이동
     sleep(duration)  # duration 동안 대기
-    print(f"{count:2d}: Servo value = {servo.value:4.1f}")  # 현재 각도 출력
+    print(f"[{count:2d}] Servo value = {servo.value:4.1f}")  # 현재 각도 출력
 
     count += 1 # 카운트 증가
-    print(f"{count:2d}: Locating servo middle angle ...")  # 중간 각도로 이동 메시지
+    print(f"[{count:2d}] Locating servo middle angle ...")  # 중간 각도로 이동 메시지
     servo.mid()  # 서보를 중간(90도) 각도로 이동
     sleep(duration)  # duration 동안 대기
-    print(f"{count:2d}: Servo value = {servo.value:4.1f}")  # 현재 각도 출력
+    print(f"[{count:2d}] Servo value = {servo.value:4.1f}")  # 현재 각도 출력
 
     count += 1 # 카운트 증가
-    print(f"{count:2d}: Locating servo max angle ...")  # 최대 각도로 이동 메시지
+    print(f"[{count:2d}] Locating servo max angle ...")  # 최대 각도로 이동 메시지
     servo.max()  # 서보를 최대 각도로 이동
     sleep(duration)  # duration 동안 대기
-    print(f"{count:2d}: Servo value = {servo.value:4.1f}")  # 현재 각도 출력
+    print(f"[{count:2d}] Servo value = {servo.value:4.1f}")  # 현재 각도 출력
 
     count += 1 # 카운트 증가
-    print(f"{count:2d}: Locating servo middle angle ...")  # 중간 각도로 복귀 메시지
+    print(f"[{count:2d}] Locating servo middle angle ...")  # 중간 각도로 복귀 메시지
     servo.mid()  # 서보를 중간(90도) 각도로 이동
     sleep(duration)  # duration 동안 대기
-    print(f"{count:2d}: Servo value = {servo.value:4.1f}")  # 현재 각도 출력
+    print(f"[{count:2d}] Servo value = {servo.value:4.1f}")  # 현재 각도 출력
 pass
 
 # 서보 암을 중앙에 부착할 수 있도록 사용자에게 안내
