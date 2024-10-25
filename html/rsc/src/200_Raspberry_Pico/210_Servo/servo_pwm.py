@@ -14,7 +14,7 @@ count = 0  # 실행 카운트 초기화
 
 # 듀티 사이클을 2%에서 12.5%까지 증가시키며 서보 제어
 values = list( range(20, 125 + 5, 5) ) # 2%부터 12.5%까지 각도를 증가
-for value in ( values + values[-2:1:-1] ) * 4 :  
+for value in ( values + values[-2:1:-1] ) * 4 : # 각도 증가 감소를 4번 반복
     count += 1  # 카운트 증가
     percent = value/1000
     duty_u16 = int( 65535 * percent ) # 듀티 사이클을 16비트 정수로 변환
