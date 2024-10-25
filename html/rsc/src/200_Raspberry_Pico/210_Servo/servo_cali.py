@@ -1,11 +1,10 @@
 # servo_cali.py
 # 서보 암을 중앙 방향으로 부착합니다.
 
-from gpiozero import Servo
-from gpiozero.pins.pigpio import PiGPIOFactory
+from picozero import Servo
 from time import sleep
 
-servo = Servo(17, pin_factory=PiGPIOFactory())
+servo = Servo(1)
 
 duration = 1
 
@@ -38,4 +37,11 @@ for _ in range( 3 ) :
     print( f"{count:2d}: Servo value = {servo.value:4.1f}" )
 pass
 
-print( "\nAttach the servo arm at 90 degree!" )
+print( "\nAttach the servo arm at 90 degree for 20 seconds!" )
+sleep( 20 )
+
+servo.off()
+servo.close()
+
+print( "\nGood bye!" )
+

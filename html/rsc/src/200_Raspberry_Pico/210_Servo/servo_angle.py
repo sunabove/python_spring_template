@@ -1,29 +1,19 @@
-# servo_angle.py
-# 서보 각도를 제어합니다.
-
-from gpiozero import AngularServo
-from gpiozero.pins.pigpio import PiGPIOFactory
+from picozero import Servo
 from time import sleep
 
-servo = AngularServo(17, pin_factory=PiGPIOFactory())
+print( "Hello ...\n" )
 
-angle = -90
-dir = 1
-duration = 0.5
-angle_increment = 5
-for _ in range( 180//angle_increment*2 ) : 
-    angle = max( -90, min(90, angle) )
-    servo.angle = angle
-    print( f"angle = {angle:5.1f}, ", end="" )
-    print( f"servo.angle = {servo.angle:5.1f}, ", end="" )
-    print( f"dir = {dir:+2d}" )
-    sleep( duration )
+servo = Servo(1)
+servo.value = 0
+sleep( 0.5 )
 
-    angle += (dir*angle_increment) 
-
-    if angle >=90 :
-        dir = -1
-    elif angle <= -90 :
-        dir = 1
-    pass
+for i in range(0, 101, 5):
+    servo.value = i / 100
+    print( f"[{i//5:2d}] servo.value = {servo.value:4.2f}" )
+    sleep(0.25)
 pass
+
+servo.off()
+servo.close()
+
+print( "\nGood bye!" )
