@@ -1753,3 +1753,30 @@ class MPU6050IRQHandler:
                     print('yaw: ' + str(roll_pitch_yaw.z))
                 self.__count += 1
                 FIFO_count -= self.__packet_size
+            pass
+        pass
+    pass
+
+pass
+
+def init_mpu6050() :
+    i2c_bus = 1
+    device_address = 0x68
+    freq_divider = 0x01
+
+    # Make an MPU6050
+    mpu = MPU6050(i2c_bus, device_address, freq_divider)
+
+    # Initiate your DMP
+    mpu.dmp_initialize()
+    mpu.set_DMP_enabled(True)
+
+    packet_size = mpu.DMP_get_FIFO_packet_size()
+    fifo_buffer = [0]*64
+
+    return mpu, packet_size, fifo_buffer
+pass ## init mpu
+
+if __name__ == "__main__" :
+    print( "MPU6050 V1" )
+pass
