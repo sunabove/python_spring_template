@@ -8,7 +8,7 @@ mpu, packet_size, fifo_buffer = init_mpu6050()
 
 print( "Done.\n" )
 
-g = 9.8 # gravity acceleration (m/s^2)
+g = 9.80665 # gravity acceleration (m/s^2)
 
 accel_coeff = g/(2**14)
 admp_coeff = accel_coeff*2
@@ -49,22 +49,22 @@ while 1 :
     gy = gyro.y * gyro_coeff
     gz = gyro.z * gyro_coeff
 
-    print( f'[{count:4d}] Accl ', end="" )
+    print( f'[{count:4d}] IMU Accl ', end="" )
     print( f'  x: {ax/g:9.5f}', end="" )
     print( f', y: {ay/g:9.5f}', end="" )
     print( f', z: {az/g:9.5f} g(m/s2)' ) 
 
-    print( f'[{count:4d}] Admp ', end="" )
+    print( f'[{count:4d}] IMU Admp ', end="" )
     print( f'  x: {ax_dmp/g:9.5f}', end="" )
     print( f', y: {ay_dmp/g:9.5f}', end="" )
     print( f', z: {az_dmp/g:9.5f} g(m/s2)' ) 
 
-    print( f'[{count:4d}] Gyro ', end="" )
+    print( f'[{count:4d}] IMU Gyro ', end="" )
     print( f'  x: {gx:9.5f}', end="" )
     print( f', y: {gy:9.5f}', end= "" )
     print( f', z: {gz:9.5f} °/s' )
 
-    print( "-"*60 )
+    print( "-"*66 )
 
 pass
 
