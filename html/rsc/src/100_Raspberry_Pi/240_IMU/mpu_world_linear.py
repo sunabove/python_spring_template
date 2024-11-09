@@ -82,6 +82,11 @@ while 1 :
         count = 0 
     elif ( now - cali_start < cali_duration ) or abs(g_cali - g) > 0.001 : # 캘리브레이션
         g_measure = math.sqrt( ax*ax + ay*ay + az*az )
+
+        if len( accel_cali_data ) > 1_000 :
+            accel_cali_data.pop( 0 )
+        pass
+    
         accel_cali_data.append( [ax, ay, az] )
 
         if len( accel_cali_data ) < 20 :
