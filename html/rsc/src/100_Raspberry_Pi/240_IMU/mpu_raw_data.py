@@ -8,7 +8,7 @@ mpu, packet_size, fifo_buffer = init_mpu6050()
 
 print( "Done.\n" )
 
-g = 9.80665 # gravity acceleration (m/s^2)
+g = 9.8 # gravity acceleration (m/s^2)
 
 accel_coeff = g/(2**14)
 admp_coeff = accel_coeff*2

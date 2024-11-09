@@ -11,7 +11,7 @@ mpu, packet_size, fifo_buffer = init_mpu6050()
 
 print( "Done.\n" )
 
-g = 9.80665 # gravity acceleration (m/s^2)
+g = 9.8 # gravity acceleration (m/s^2)
 
 accel_coeff = g/(2**14)
 admp_coeff = accel_coeff*2
@@ -22,6 +22,7 @@ cali_start = -1
 cali_end = -1
 cali_duration = 20 # 캘리브레이션 시간
 g_cali = 0
+g_cali_diff = g # 캘리브레이션 차이
 
 then = time.time()
 
@@ -80,7 +81,7 @@ while 1 :
         input( "Enter to continue, please ... ")
         cali_start = time.time()
         count = 0 
-    elif ( now - cali_start < cali_duration ) or abs(g_cali - g) > 0.001 : # 캘리브레이션
+    elif g_cali_diff > 0.01 : # 캘리브레이션
         g_measure = math.sqrt( ax*ax + ay*ay + az*az )
 
         if len( accel_cali_data ) > 1_000 :
@@ -103,8 +104,9 @@ while 1 :
 
         g_cali_coeff = g/gravity_average
         g_cali = g_measure*(g_cali_coeff)
+        g_cali_diff = abs( g_cali - g )
 
-        print( f"[{count:4d}] {(now - cali_start):4.1f} sec: Gravity:", end="")
+        print( f"[{count:4d}] [{(now - cali_start):4.1f} sec. ] Gravity:", end="")
         print( f" avg = {gravity_average:6.3f}", end="")
         print( f", measure = {g_measure:6.3f}", end="")
         print( f", cali = {g_cali:6.3f} m/s2", end="" )
