@@ -1,5 +1,5 @@
 print( "Hello ...", flush=1 )
-print( "Initialting MPU6050 ...", flush=1 )
+print( "Initialing MPU6050 ...", flush=1 )
 
 from MPU6050 import init_mpu6050
 from time import sleep 
