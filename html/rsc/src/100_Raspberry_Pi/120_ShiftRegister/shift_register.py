@@ -43,7 +43,7 @@ try:
             print(f"[{count:4d}] {data:>3d} = {data:>08b}")
             shift_out(data)  # 데이터 전송
             latch()          # 출력 갱신
-            time.sleep(0.2)  # 대기
+            time.sleep( 1 )  # 대기
             count += 1       # 카운트 증가
         pass
     pass
