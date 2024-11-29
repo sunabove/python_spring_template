@@ -9,6 +9,7 @@ SHCP = 11     # 쉬프트 레지스터 클럭 핀
 STCP = 8      # 저장 레지스터 클럭 (래치) 핀
 
 # GPIO 설정
+GPIO.setwarnings( 0 )            # 경고 메시지 비활성화
 GPIO.setmode(GPIO.BCM)           # BCM 핀 번호 사용
 GPIO.setup(DS, GPIO.OUT)         # DS 핀 출력으로 설정
 GPIO.setup(SHCP, GPIO.OUT)       # SHCP 핀 출력으로 설정
