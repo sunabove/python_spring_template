@@ -42,7 +42,7 @@ try:
         # 0부터 7까지 증가한 뒤 다시 감소
         for i in ( list(range(8)) + list(range(6, 0, -1)) ):
             data = 1 << i    # 비트 쉬프트 연산
-            print(f"[{count:4d}] {data:>4d} = {data:>08b}")
+            print(f"[{count:4d}] {data:>4d} = {data:>08b} (b)")
             shift_out(data)  # 데이터 전송
             latch()          # 출력 갱신
             time.sleep( duration )  # 대기
@@ -52,7 +52,7 @@ try:
         # 0부터 255까지 모든 8비트 데이터 반복 출력
         for data in range(256):
             # 현재 카운트와 데이터 출력 (10진수와 2진수로 표시)
-            print(f"[{count:4d}] {data:>4d} = {data:>08b}")
+            print(f"[{count:4d}] {data:>4d} = {data:>08b} (b)")
             shift_out(data)  # 데이터 전송
             latch()          # 출력 갱신
             time.sleep( duration )  # 대기
