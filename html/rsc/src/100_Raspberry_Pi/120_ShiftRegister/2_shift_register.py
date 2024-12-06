@@ -44,8 +44,8 @@ try:
         for i in range(4) :
             data = i << 1    # 비트 쉬프트 연산
             print( f"[{count:4d}]", end="" )
-            print( f"    (1) {data:>4d} = {data:>08b} (b)", end="" )
-            print( f",   (2) {data2:>4d} = {data2:>08b} (b)", flush=1 )
+            print( f"   (1st) {data:>4d} = {data:>08b} (b)", end="" )
+            print( f"   (2nd) {data2:>4d} = {data2:>08b} (b)", flush=1 )
             shift_out(data)  # 데이터 전송
             latch()          # 출력 갱신
             time.sleep( duration )  # 대기
