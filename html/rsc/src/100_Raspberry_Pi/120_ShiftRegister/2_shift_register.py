@@ -1,4 +1,4 @@
-# shift_register.py
+# 2_shift_register.py
 
 import RPi.GPIO as GPIO
 import time
