@@ -1,6 +1,5 @@
 # oled_hello.py
-import board
-import busio
+import board, busio
 from adafruit_ssd1306 import SSD1306_I2C
 from PIL import Image, ImageDraw, ImageFont
 
@@ -21,6 +20,7 @@ draw = ImageDraw.Draw(image)
 # 폰트 설정 (Pillow에서 제공하는 TrueType 폰트 사용)
 # 시스템 폰트 경로 확인 후 적절한 폰트 파일 경로로 변경
 font_path = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
+font_path = "/usr/share/fonts/truetype/freefont/FreeSerif.ttf"
 font = ImageFont.truetype(font_path, 48)
 
 # 텍스트와 크기 설정
