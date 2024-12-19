@@ -1,4 +1,4 @@
-# oled_scroll_alphabet.py
+# oled_alphabet.py
 
 import board
 import busio

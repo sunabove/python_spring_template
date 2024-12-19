@@ -1,8 +1,8 @@
-from PIL import Image, ImageDraw
-import board
-import busio
+# oled_shapes.py
+
+import board, busio, math
 from adafruit_ssd1306 import SSD1306_I2C
-import math
+from PIL import Image, ImageDraw
 
 # I2C 초기화
 i2c = busio.I2C(board.SCL, board.SDA)

@@ -1,4 +1,5 @@
 # oled_hello.py
+
 import board, busio
 from adafruit_ssd1306 import SSD1306_I2C
 from PIL import Image, ImageDraw, ImageFont
@@ -12,18 +13,17 @@ h = height = 32
 
 oled = SSD1306_I2C(width, height, i2c)
 
-# 화면 지우기
-oled.fill(0)
-oled.show()
-
 # 이미지 생성
 image = Image.new("1", (oled.width, oled.height))
 draw = ImageDraw.Draw(image)
 
-# 폰트 설정 (Pillow에서 제공하는 TrueType 폰트 사용)
-# 시스템 폰트 경로 확인 후 적절한 폰트 파일 경로로 변경
+# 폰트 설정
 font_path = "/usr/share/fonts/truetype/freefont/FreeSerif.ttf"
 font = ImageFont.truetype(font_path, 22)
+
+# 화면 지우기
+oled.fill(0)
+oled.show()
 
 # 텍스트와 크기 설정
 text = "Hello, World"

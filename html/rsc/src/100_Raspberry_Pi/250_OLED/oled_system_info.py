@@ -1,11 +1,11 @@
+# oled_system_info.py
+
 import os, datetime, psutil, shutil 
 import board, busio
 from adafruit_ssd1306 import SSD1306_I2C
 from time import sleep 
 
 from PIL import Image, ImageOps, ImageDraw, ImageFont
-
-oled_alive = True 
 
 # I2C 설정
 i2c = busio.I2C(board.SCL, board.SDA)
@@ -18,7 +18,6 @@ oled = SSD1306_I2C(width, height, i2c)
 image = Image.new('1', [oled.width, oled.height], "WHITE")
 draw = ImageDraw.Draw(image)
 
-font_path = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
 font_path = "/usr/share/fonts/truetype/freefont/FreeSerif.ttf"
 font = ImageFont.truetype( font_path, 18 )
 
@@ -101,8 +100,6 @@ pass
 
 def main() :
     try:
-        global oled_alive
-
         idx = 0
         while 1 :
             display_system_info( idx) 
