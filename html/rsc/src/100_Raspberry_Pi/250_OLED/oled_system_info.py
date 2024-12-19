@@ -9,17 +9,18 @@ oled_alive = True
 
 # I2C 설정
 i2c = busio.I2C(board.SCL, board.SDA)
-oled = SSD1306_I2C(128, 64, i2c)
+w = width = 128
+h = height = 32
+
+oled = SSD1306_I2C(width, height, i2c)
 
 # Create blank image for drawing.
 image = Image.new('1', [oled.width, oled.height], "WHITE")
-draw = ImageDraw.Draw(image) 
+draw = ImageDraw.Draw(image)
 
-w, h = image.size
-
-font_path = "/usr/share/fonts/truetype/freefont/FreeSerif.ttf"
 font_path = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
-font = ImageFont.truetype( font_path, 30)
+font_path = "/usr/share/fonts/truetype/freefont/FreeSerif.ttf"
+font = ImageFont.truetype( font_path, 18 )
 
 def disp_text_scroll( text ) :
     text_bbox = draw.textbbox((0, 0), text, font=font)  # 텍스트 경계 사각형 계산
@@ -30,7 +31,7 @@ def disp_text_scroll( text ) :
     if tw < w*0.9 :
         # text center align
         x = (w - tw)/2
-        y = (h - th)/2 - 4
+        y = (h - th)/2
 
         draw.rectangle( [0, 0, w -1, h -1], fill=0, outline = 0)
         draw.rectangle( [0, 1, w -1, h -1], fill=0, outline = 1)
@@ -40,7 +41,7 @@ def disp_text_scroll( text ) :
         oled.show()
     else :
         x = w/4
-        y = (h - th)/2 - 4
+        y = (h - th)/2
         scroll_x = w/30
         duration = 0.01
         while x >= - tw - 2 :
@@ -91,19 +92,11 @@ def display_system_info( idx = 0 ) :
         text = f"RAM : {pct:02.1f} %" 
     pass
 
-    print( f"text = {text}")
+    print( f"[{idx}] Text = {text}")
 
     disp_text_scroll( text )
 
     sleep(2.5)
-
-    if idx >= 0 : 
-        print ("Turn off screen to prevent heating oled.")
-        oled.fill(0)  # 화면을 검은색(0)으로 채움
-        oled.show()   # 변경 사항 디스플레이에 반영
-    pass
-
-    sleep(0.5)
 pass
 
 def main() :

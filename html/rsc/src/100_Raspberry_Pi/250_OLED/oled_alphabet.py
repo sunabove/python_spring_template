@@ -10,12 +10,14 @@ import time
 i2c = busio.I2C(board.SCL, board.SDA)
 
 # 디스플레이 초기화
-oled = SSD1306_I2C(128, 64, i2c)
+w = width = 128
+h = height = 32
+
+oled = SSD1306_I2C(width, height, i2c)
 
 # 폰트 설정 (Pillow에서 제공하는 TrueType 폰트 사용)
-font_path = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
 font_path = "/usr/share/fonts/truetype/freefont/FreeSerif.ttf"
-font = ImageFont.truetype(font_path, 48)
+font = ImageFont.truetype(font_path, 22)
 
 # 텍스트 설정 (A-Z, 0-9)
 text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
@@ -37,12 +39,10 @@ duration = 0.1
 scroll_x_amount = oled.width//20
 # 새 화면 생성
 image = Image.new("1", (oled.width, oled.height))
-draw = ImageDraw.Draw(image)
-w = oled.width
-h = oled.height
+draw = ImageDraw.Draw(image) 
 while 1 :
     draw.rectangle( [0, 0, w -1, h -1], fill=0, outline = 0)
-    draw.rectangle( [0, 1, w -1, h -1], fill=0, outline = 1)
+    draw.rectangle( [0, 0, w -1, h -1], fill=0, outline = 1)
 
     # 텍스트 그리기 (스크롤 X 좌표에 따라 위치 지정)
     draw.text( (scroll_x, (h - text_height) // 2), text, font=font, fill=255)
