@@ -45,7 +45,7 @@ while 1 :
     draw.rectangle( [0, 1, w -1, h -1], fill=0, outline = 1)
 
     # 텍스트 그리기 (스크롤 X 좌표에 따라 위치 지정)
-    draw.text((scroll_x, (h - text_height) // 2), text, font=font, fill=255)
+    draw.text( (scroll_x, (h - text_height) // 2), text, font=font, fill=255)
 
     # 화면에 이미지 출력
     oled.image(image)

@@ -16,6 +16,7 @@ oled.show()
 # 이미지 생성
 image = Image.new("1", (oled.width, oled.height))
 draw = ImageDraw.Draw(image)
+w, h = image.size
 
 # 폰트 설정 (Pillow에서 제공하는 TrueType 폰트 사용)
 # 시스템 폰트 경로 확인 후 적절한 폰트 파일 경로로 변경
@@ -30,9 +31,12 @@ text_width = text_bbox[2] - text_bbox[0]
 text_height = text_bbox[3] - text_bbox[1]
 
 # 텍스트 중앙 정렬
-text_x = (oled.width - text_width) // 2
-text_y = (oled.height - text_height) // 2
+text_x = (w - text_width) // 2
+text_y = (h - text_height) // 2
 
+# 사각형 그리기
+draw.rectangle( [0, 0, w -1, h -1], fill=0, outline = 0)
+draw.rectangle( [0, 1, w -1, h -1], fill=0, outline = 1)
 # 텍스트 그리기
 draw.text((text_x, text_y), text, font=font, fill=255)
 
