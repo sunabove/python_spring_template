@@ -2,7 +2,7 @@
 
 cmds = """
 # vmware 데스크톱 툴 설치
-sudo apt install open-vm-tools-desktop
+#sudo apt install open-vm-tools-desktop
 
 # 프로그램 목록 업데이트
 sudo apt update
