@@ -16,6 +16,12 @@ sudo apt autoremove -y
 # 필요시 재부팅
 # sudo reboot
 
+# Rust Compiler 설치
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+# Rust 환경 변수 업데이트
+source ~/.cargo/env
+
 # python으로 python3 명령어 실행하는 프로그램
 sudo apt install python-is-python3
 

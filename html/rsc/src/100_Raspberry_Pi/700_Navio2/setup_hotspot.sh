@@ -35,9 +35,10 @@ EOF
 # 5. hostapd 설정
 echo "hostapd를 설정합니다..."
 sudo bash -c "cat > /etc/hostapd/hostapd.conf" <<EOF
+ssid=AA_NAVIO
+wpa_passphrase=12345678
 interface=wlan0
 driver=nl80211
-ssid=YourHotspotName
 hw_mode=g
 channel=7
 wmm_enabled=0
@@ -45,7 +46,6 @@ macaddr_acl=0
 auth_algs=1
 ignore_broadcast_ssid=0
 wpa=2
-wpa_passphrase=YourPassword
 wpa_key_mgmt=WPA-PSK
 rsn_pairwise=CCMP
 EOF
@@ -72,5 +72,5 @@ sudo systemctl start hostapd
 sudo systemctl start dnsmasq
 
 echo "핫스팟 설정이 완료되었습니다!"
-echo "SSID: YourHotspotName"
-echo "Password: YourPassword"
+echo "SSID: AA_NAVIO"
+echo "Password: 12345678"
