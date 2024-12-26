@@ -6,7 +6,6 @@ echo "Raspberry Pi 핫스팟 설정을 시작합니다."
 
 # 1. 필요한 패키지 설치
 echo "필요한 패키지를 설치 중입니다..."
-sudo apt update
 sudo apt install -y dnsmasq hostapd
 
 # 2. Wi-Fi 서비스 중지
