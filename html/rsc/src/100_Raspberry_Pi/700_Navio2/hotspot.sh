@@ -28,7 +28,7 @@ echo "dnsmasq를 설정합니다..."
 sudo mv /etc/dnsmasq.conf /etc/dnsmasq.conf.orig
 sudo bash -c "cat > /etc/dnsmasq.conf" <<EOF
 interface=wlan0
-dhcp-range=192.168.4.2,192.168.4.20,255.255.255.0,24h
+dhcp-range=192.168.4.2,192.168.4.254,255.255.255.0,24h
 EOF
 
 # 5. hostapd 설정
