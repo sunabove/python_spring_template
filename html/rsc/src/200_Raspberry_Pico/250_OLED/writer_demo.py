@@ -1,6 +1,6 @@
-import machine
-import ssd1306
+from machine import Pin, I2C
 from writer import Writer
+import ssd1306
 
 # Font
 import freesans20
