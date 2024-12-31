@@ -1,46 +1,33 @@
-# oled_hello.py
+from machine import Pin, I2C
+from time import sleep
+import ssd1306
+import os
 
-import board, busio
-from adafruit_ssd1306 import SSD1306_I2C
-from PIL import Image, ImageDraw, ImageFont
+# I2C 핀 설정 (Pico의 GP4 = SDA, GP5 = SCL)
 
-# I2C 설정
-i2c = busio.I2C(board.SCL, board.SDA)
+# OLED 디스플레이 설정 (128x32 해상도)
+i2c = I2C(0, scl=Pin(5), sda=Pin(4), freq=400000)
+oled = ssd1306.SSD1306_I2C( 128, 32, i2c)
 
-# 디스플레이 초기화
-w = width = 128
-h = height = 32
-
-oled = SSD1306_I2C(width, height, i2c)
-
-# 이미지 생성
-image = Image.new("1", (oled.width, oled.height))
-draw = ImageDraw.Draw(image)
-
-# 폰트 설정
-font_path = "/usr/share/fonts/truetype/freefont/FreeSerif.ttf"
-font = ImageFont.truetype(font_path, 22)
-
-# 화면 지우기
+# 화면 초기화 및 텍스트 출력
 oled.fill(0)
+oled.text("Hello, World!", 0, 0)  # 첫 번째 줄에 "Hello, World!" 출력
+oled.text(f"{os.uname().machine}", 0, 12)  # 두 번째 줄에 머신 정보 출력 (e.g., 'Raspberry Pi Pico with RP2040')
+oled.text(f"{os.uname().release}", 0, 24)  # 세 번째 줄에 MicroPython 펌웨어 버전 출력 (e.g., '1.19.1')
 oled.show()
 
-# 텍스트와 크기 설정
-text = "Hello, World"
-text_bbox = draw.textbbox((0, 0), text, font=font)  # 텍스트 경계 사각형 계산
-text_width = text_bbox[2] - text_bbox[0]
-text_height = text_bbox[3] - text_bbox[1]
+sleep(5)
 
-# 텍스트 중앙 정렬
-text_x = (w - text_width) // 2
-text_y = (h - text_height) // 2
+# 텍스트 이동 효과
+for x in range(width):
+    oled.fill(0)
+    # 텍스트를 오른쪽에서 왼쪽으로 이동하며 출력
+    oled.text( "Hello, World!", width - x - 1, 16)  
+    oled.show()
+    sleep(0.05)
 
-# 사각형 그리기
-draw.rectangle( [0, 0, w -1, h -1], fill=0, outline = 0)
-draw.rectangle( [0, 0, w -1, h -1], fill=0, outline = 1)
-# 텍스트 그리기
-draw.text((text_x, text_y), text, font=font, fill=255)
-
-# 디스플레이에 이미지 출력
-oled.image(image)
+# 마지막 텍스트 출력
+oled.fill(0)
+# 마지막으로 "Goodbye!"를 가운데 높이(12)에 출력
+oled.text("Hello, World!", 15, 16)
 oled.show()
