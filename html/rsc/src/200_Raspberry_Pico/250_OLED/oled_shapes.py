@@ -36,19 +36,48 @@ oled.line(x1, y1, x2, y2, 1)  # 왼쪽 변
 oled.line(x2, y2, x3, y3, 1)  # 밑변
 oled.line(x3, y3, x1, y1, 1)  # 오른쪽 변
 
-# 원 그리기 함수
-def draw_circle(cx, cy, radius):
-    for y in range(-radius, radius):
-        for x in range(-radius, radius):
-            if x*x + y*y <= radius*radius:
-                oled.pixel(cx + x, cy + y, 1)
+# 원 그리기 
+    
 
 # 원 중심과 반지름 설정
 radius = ss//2
 cx = x3 + radius + 2*m
 cy = h // 2 
 
-draw_circle( cx, cy, radius )
+for y in range(-radius, radius):
+    for x in range(-radius, radius):
+        if x*x + y*y <= radius*radius:
+            oled.pixel(cx + x, cy + y, 1)
+        pass
+    pass
+pass
+
+# 별 모양 그리기 
+
+# 별 중심과 크기 설정
+size = star_size = ss//2
+cx = star_cx = cx + radius + size + 2*m
+cy = star_cy = h // 2
+
+points = [
+    (cx, cy - size),  # 위쪽 점
+    (cx + size // 3, cy - size // 3),  # 오른쪽 위
+    (cx + size, cy - size // 3),  # 오른쪽 끝
+    (cx + size // 2, cy + size // 6),  # 오른쪽 아래
+    (cx + size * 3 // 4, cy + size),  # 아래쪽 오른쪽
+    (cx, cy + size // 2),  # 아래쪽 끝
+    (cx - size * 3 // 4, cy + size),  # 아래쪽 왼쪽
+    (cx - size // 2, cy + size // 6),  # 왼쪽 아래
+    (cx - size, cy - size // 3),  # 왼쪽 끝
+    (cx - size // 3, cy - size // 3),  # 왼쪽 위
+]
+
+# 점들을 연결하여 별 그리기
+for i in range(len(points)):
+    x1, y1 = points[i]
+    x2, y2 = points[(i + 1) % len(points)]
+    oled.line(x1, y1, x2, y2, 1)
+pass
 
 # 디스플레이에 출력
 oled.show() 
