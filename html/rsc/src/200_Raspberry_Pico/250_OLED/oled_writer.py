@@ -2,46 +2,29 @@ import framebuf
 from uctypes import bytearray_at, addressof
 from sys import implementation
 
-__version__ = (0, 5, 1)
-
-fast_mode = True  # Does nothing. Kept to avoid breaking code.
-
 class DisplayState():
     def __init__(self):
         self.text_row = 0
         self.text_col = 0
-
-def _get_id(device):
-    if not isinstance(device, framebuf.FrameBuffer):
-        raise ValueError('Device must be derived from FrameBuffer.')
-    return id(device)
+    pass
+pass 
 
 # Basic Writer class for monochrome displays
 class Writer():
 
-    state = {}  # Holds a display state for each device
-
-    @staticmethod
-    def set_textpos(device, row=None, col=None):
-        devid = _get_id(device)
-        if devid not in Writer.state:
-            Writer.state[devid] = DisplayState()
-        s = Writer.state[devid]  # Current state
-        if row is not None:
-            if row < 0 or row >= device.height:
-                raise ValueError('row is out of range')
-            s.text_row = row
-        if col is not None:
-            if col < 0 or col >= device.width:
-                raise ValueError('col is out of range')
-            s.text_col = col
-        return s.text_row,  s.text_col
+    def textpos(self, x=0, y=0):
+        state = self.state
+        device = self.device
+        
+        state.text_col = x
+        state.text_row = y 
+    pass
 
     def __init__(self, device, font, verbose=True):
-        self.devid = _get_id(device)
         self.device = device
-        if self.devid not in Writer.state:
-            Writer.state[self.devid] = DisplayState()
+        
+        self.state = DisplayState()
+        
         self.font = font
         if font.height() >= device.height or font.max_width() >= device.width:
             raise ValueError('Font too large for screen')
@@ -73,7 +56,7 @@ class Writer():
         self.clip_width = 0
 
     def _getstate(self):
-        return Writer.state[self.devid]
+        return self.state 
 
     def _newline(self):
         s = self._getstate()
@@ -101,7 +84,7 @@ class Writer():
     def height(self):  # Property for consistency with device
         return self.font.height()
 
-    def printstring(self, string, invert=False):
+    def print(self, string, invert=False):
         # word wrapping. Assumes words separated by single space.
         q = string.split('\n')
         last = len(q) - 1
@@ -238,7 +221,6 @@ if __name__ == '__main__':
     print("Hello...")
 
     from machine import Pin, I2C
-    from writer import Writer
     import ssd1306
 
     # Font
@@ -256,16 +238,17 @@ if __name__ == '__main__':
     writer = Writer(oled, freesans20, verbose=0)
 
     # "Hello World"를 화면 중간에 출력하기 위해 위치 계산
-    text = "Hello World"
     fw = font_width = writer.font.max_width()  # 폰트의 최대 글자 너비
     fh = font_height = writer.font.height()   # 폰트 높이
 
+    text = "Hello World!"
     text_width = len(text) * font_width
-    start_col = 10
-    start_row = (h - font_height) // 2  # 화면 가운데 행 계산
+    
+    x = 10
+    y = (h - fh) // 2  # 화면 가운데 행 계산
 
-    writer.set_textpos(oled, start_row, start_col)
-    writer.printstring(text)
+    writer.textpos( x, y )
+    writer.print(text)
     
     oled.show()
 pass
