@@ -254,11 +254,11 @@ if __name__ == '__main__':
 
     # "Hello World"를 화면 중간에 출력하기 위해 위치 계산
     text = "Hello World"
-    font_width = writer.font.max_width()  # 폰트의 최대 글자 너비
-    font_height = writer.font.height()   # 폰트 높이
+    fw = font_width = writer.font.max_width()  # 폰트의 최대 글자 너비
+    fh = font_height = writer.font.height()   # 폰트 높이
 
     text_width = len(text) * font_width
-    start_col = 0
+    start_col = 2
     start_row = (h - font_height) // 2  # 화면 가운데 행 계산
 
     writer.set_textpos(oled, start_row, start_col)
