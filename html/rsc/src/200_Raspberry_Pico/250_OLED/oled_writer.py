@@ -215,35 +215,47 @@ if __name__ == '__main__':
     print("Hello...")
 
     from machine import Pin, I2C
+    from time import sleep
     import ssd1306
-
-    # Font
-    import freesans20
+    import freesans20 # Font
 
     # OLED 디스플레이 설정 (128x32 해상도)
     i2c = I2C(0, scl=Pin(5), sda=Pin(4), freq=400000)
     w = width = 128
     h = height = 32
     oled = ssd1306.SSD1306_I2C(w, h, i2c)
-    # 정사각형 그리기
-    oled.fill(0)
-    oled.rect(0, 0, w, h, 1)
-
     writer = Writer(oled, freesans20, verbose=0)
 
     # "Hello World"를 화면 중간에 출력하기 위해 위치 계산
     fw = font_width = writer.font.max_width()  # 폰트의 최대 글자 너비
     fh = font_height = writer.font.height()   # 폰트 높이
 
-    text = "Hello World!"
+    text = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijiklmnopqrstuvwxyz0123456789"
     text_width = len(text) * font_width
     
     x = 10
-    y = (h - fh) // 2  # 화면 가운데 행 계산
-
-    #writer.text_pos( x, y )
-    writer.print(text)
+    y = (h - fh) // 2 + 2  # 화면 가운데 행 계산
+    duration = 0.03
     
-    oled.show()
+    idx = 0 
+    while 1 :
+        # 정사각형 그리기
+        oled.fill(0)
+        
+        writer.print(text, x=x, y=y)
+        
+        oled.rect(0, 0, w, h, 1)
+        oled.show()
+        
+        sleep( duration )
+        
+        idx += 1
+        
+        if x < - text_width*0.6 :
+            x = 10
+        else :
+            x = x - 5
+        pass
+    pass
 pass
 
