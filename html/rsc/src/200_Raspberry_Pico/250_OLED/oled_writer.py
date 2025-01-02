@@ -2,28 +2,11 @@ import framebuf
 from uctypes import bytearray_at, addressof
 from sys import implementation
 
-class DisplayState():
-    def __init__(self):
-        self.text_row = 0
-        self.text_col = 0
-    pass
-pass 
-
 # Basic Writer class for monochrome displays
 class Writer():
 
-    def text_pos(self, x=0, y=0):
-        state = self.state
-        device = self.device
-        
-        state.text_col = x
-        state.text_row = y 
-    pass
-
     def __init__(self, device, font, verbose=True):
         self.device = device
-        
-        self.state = DisplayState()
         
         self.font = font
         if font.height() >= device.height or font.max_width() >= device.width:
@@ -55,27 +38,23 @@ class Writer():
         self.char_width = 0
         self.clip_width = 0
         
-        x = 10
-        y = (device.height - font.height()) // 2  # 화면 가운데 행 계산
-        
-        self.text_pos( x, y )
+        self.x = 10
+        self.y = (device.height - font.height()) // 2
     pass
 
-    def _getstate(self):
-        return self.state 
-
     def _newline(self):
-        s = self._getstate()
         height = self.font.height()
-        s.text_row += height
-        s.text_col = 0
-        margin = self.screenheight - (s.text_row + height)
+        
+        self.y += height
+        self.x = 0
+        
+        margin = self.screenheight - (self.y + height)
         y = self.screenheight + margin
         if margin < 0:
             if not self.row_clip:
                 self.device.scroll(0, margin)
                 self.device.fill_rect(0, y, self.screenwidth, abs(margin), self.bgcolor)
-                s.text_row += margin
+                self.y += margin
 
     def set_clip(self, row_clip=None, col_clip=None, wrap=None):
         if row_clip is not None:
@@ -90,7 +69,15 @@ class Writer():
     def height(self):  # Property for consistency with device
         return self.font.height()
 
-    def print(self, string, invert=False):
+    def print(self, string, x=None, y=None, invert=False):
+        if x is not None :
+            self.x = x
+        pass
+    
+        if y is not None :
+            self.y = y
+        pass
+    
         # word wrapping. Assumes words separated by single space.
         q = string.split('\n')
         last = len(q) - 1
@@ -121,21 +108,22 @@ class Writer():
     def stringlen(self, string, oh=False):
         if not len(string):
             return 0
-        sc = self._getstate().text_col  # Start column
+        
+        x = self.x  # Start column
         wd = self.screenwidth
-        l = 0
+        str_len = 0
         for char in string[:-1]:
             _, _, char_width = self.font.get_ch(char)
-            l += char_width
-            if oh and l + sc > wd:
+            str_len += char_width
+            if oh and str_len + x > wd:
                 return True  # All done. Save time.
         char = string[-1]
         _, _, char_width = self.font.get_ch(char)
-        if oh and l + sc + char_width > wd:
-            l += self._truelen(char)  # Last char might have blank cols on RHS
+        if oh and str_len + x + char_width > wd:
+            str_len += self._truelen(char)  # Last char might have blank cols on RHS
         else:
-            l += char_width  # Public method. Return same value as old code.
-        return l + sc > wd if oh else l
+            str_len += char_width  # Public method. Return same value as old code.
+        return str_len + x > wd if oh else str_len
 
     # Return the printable width of a glyph less any blank columns on RHS
     def _truelen(self, char):
@@ -178,13 +166,14 @@ class Writer():
             self._newline()
             return
         glyph, char_height, char_width = self.font.get_ch(char)
-        s = self._getstate()
+        
         np = None  # Allow restriction on printable columns
-        if s.text_row + char_height > self.screenheight:
+        if self.y + char_height > self.screenheight:
             if self.row_clip:
                 return
             self._newline()
-        oh = s.text_col + char_width - self.screenwidth  # Overhang (+ve)
+        oh = self.x + char_width - self.screenwidth  # Overhang (+ve)
+        
         if oh > 0:
             if self.col_clip or self.wrap:
                 np = char_width - oh  # No. of printable columns
@@ -200,7 +189,6 @@ class Writer():
     # Method using blitting. Efficient rendering for monochrome displays.
     # Tested on SSD1306. Invert is for black-on-white rendering.
     def _printchar(self, char, invert=False, recurse=False):
-        s = self._getstate()
         self._get_char(char, recurse)
         if self.glyph is None:
             return  # All done
@@ -209,8 +197,8 @@ class Writer():
             for i, v in enumerate(buf):
                 buf[i] = 0xFF & ~ v
         fbc = framebuf.FrameBuffer(buf, self.clip_width, self.char_height, self.map)
-        self.device.blit(fbc, s.text_col, s.text_row)
-        s.text_col += self.char_width
+        self.device.blit(fbc, self.x, self.y)
+        self.x += self.char_width
         self.cpos += 1
 
     def tabsize(self, value=None):
