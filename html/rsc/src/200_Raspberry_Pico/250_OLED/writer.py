@@ -249,6 +249,9 @@ if __name__ == '__main__':
     w = width = 128
     h = height = 32
     oled = ssd1306.SSD1306_I2C(w, h, i2c)
+    # 정사각형 그리기
+    oled.fill(0)
+    oled.rect(0, 0, w, h, 1)
 
     writer = Writer(oled, freesans20, verbose=0)
 
@@ -258,7 +261,7 @@ if __name__ == '__main__':
     fh = font_height = writer.font.height()   # 폰트 높이
 
     text_width = len(text) * font_width
-    start_col = 2
+    start_col = 10
     start_row = (h - font_height) // 2  # 화면 가운데 행 계산
 
     writer.set_textpos(oled, start_row, start_col)
