@@ -13,7 +13,7 @@ oled = ssd1306.SSD1306_I2C( 128, 32, i2c)
 oled.fill(0)
 oled.text("Hello, World!", 0, 0)  # 첫 번째 줄에 "Hello, World!" 출력
 oled.text(f"{os.uname().machine}", 0, 12)  # 두 번째 줄에 머신 정보 출력 (e.g., 'Raspberry Pi Pico with RP2040')
-oled.text(f"{os.uname().release}", 0, 24)  # 세 번째 줄에 MicroPython 펌웨어 버전 출력 (e.g., '1.19.1')
+oled.text(f"V {os.uname().release}", 0, 24)  # 세 번째 줄에 MicroPython 펌웨어 버전 출력 (e.g., '1.19.1')
 oled.show()
 
 sleep(5)

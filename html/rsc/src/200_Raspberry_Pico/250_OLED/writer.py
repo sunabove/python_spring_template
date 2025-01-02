@@ -234,9 +234,9 @@ class Writer():
     pass
 pass
 
-if __name__ == '__main__' :
-    print( "Hello..." )
-    
+if __name__ == '__main__':
+    print("Hello...")
+
     from machine import Pin, I2C
     from writer import Writer
     import ssd1306
@@ -248,13 +248,21 @@ if __name__ == '__main__' :
     i2c = I2C(0, scl=Pin(5), sda=Pin(4), freq=400000)
     w = width = 128
     h = height = 32
-    oled = ssd1306.SSD1306_I2C( w, h, i2c)
+    oled = ssd1306.SSD1306_I2C(w, h, i2c)
 
-    writer = Writer( oled, freesans20, verbose=0 )
-    #Writer.set_textpos(ssd)
-    writer.printstring('Sunday\n')
-    #wri.printstring('12 Aug 2018\n')
-    writer.printstring('10.30am')
+    writer = Writer(oled, freesans20, verbose=0)
+
+    # "Hello World"를 화면 중간에 출력하기 위해 위치 계산
+    text = "Hello World"
+    font_width = writer.font.max_width()  # 폰트의 최대 글자 너비
+    font_height = writer.font.height()   # 폰트 높이
+
+    text_width = len(text) * font_width
+    start_col = 0
+    start_row = (h - font_height) // 2  # 화면 가운데 행 계산
+
+    writer.set_textpos(oled, start_row, start_col)
+    writer.printstring(text)
     
     oled.show()
 pass
