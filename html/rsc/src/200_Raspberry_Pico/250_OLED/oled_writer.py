@@ -12,7 +12,7 @@ pass
 # Basic Writer class for monochrome displays
 class Writer():
 
-    def textpos(self, x=0, y=0):
+    def text_pos(self, x=0, y=0):
         state = self.state
         device = self.device
         
@@ -54,6 +54,12 @@ class Writer():
         self.char_height = 0
         self.char_width = 0
         self.clip_width = 0
+        
+        x = 10
+        y = (device.height - font.height()) // 2  # 화면 가운데 행 계산
+        
+        self.text_pos( x, y )
+    pass
 
     def _getstate(self):
         return self.state 
@@ -247,7 +253,7 @@ if __name__ == '__main__':
     x = 10
     y = (h - fh) // 2  # 화면 가운데 행 계산
 
-    writer.textpos( x, y )
+    #writer.text_pos( x, y )
     writer.print(text)
     
     oled.show()
