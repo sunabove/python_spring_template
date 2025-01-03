@@ -1,7 +1,7 @@
 from machine import Pin, I2C
 from time import sleep
-import ssd1306
 import os
+import ssd1306
 
 # I2C 핀 설정 (Pico의 GP4 = SDA, GP5 = SCL)
 
@@ -25,6 +25,7 @@ for x in range(width):
     oled.text( "Hello, World!", width - x - 1, 16)  
     oled.show()
     sleep(0.05)
+pass
 
 # 마지막 텍스트 출력
 oled.fill(0)
