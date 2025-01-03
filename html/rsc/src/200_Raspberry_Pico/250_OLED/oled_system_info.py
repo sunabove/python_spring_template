@@ -1,118 +1,74 @@
-# oled_system_info.py
+import os
+import gc
+import time
+from machine import Pin, I2C, ADC, RTC, freq
+import ssd1306
+import oled_freesans20 as font
+from oled_writer import Writer
 
-import os, datetime, psutil, shutil 
-import board, busio
-from adafruit_ssd1306 import SSD1306_I2C
-from time import sleep 
-
-from PIL import Image, ImageOps, ImageDraw, ImageFont
-
-# I2C 설정
-i2c = busio.I2C(board.SCL, board.SDA)
+# OLED 디스플레이 설정
+i2c = I2C(0, scl=Pin(5), sda=Pin(4), freq=400000)
 w = width = 128
 h = height = 32
+oled = ssd1306.SSD1306_I2C(w, h, i2c)
 
-oled = SSD1306_I2C(width, height, i2c)
+# Writer 객체 초기화
+writer = Writer(oled, font, verbose=False)
 
-# Create blank image for drawing.
-image = Image.new('1', [oled.width, oled.height], "WHITE")
-draw = ImageDraw.Draw(image)
+# 온도 센서 설정
+sensor_temp = ADC(4)
+conversion_factor = 3.3 / 65535
 
-font_path = "/usr/share/fonts/truetype/freefont/FreeSerif.ttf"
-font = ImageFont.truetype( font_path, 18 )
+# RTC 설정
+rtc = RTC()
 
-def disp_text_scroll( text ) :
-    text_bbox = draw.textbbox((0, 0), text, font=font)  # 텍스트 경계 사각형 계산
-    tw = text_width = text_bbox[2] - text_bbox[0]
-    th = text_height = text_bbox[3] - text_bbox[1]
-    spacing = 8 
+# RTC 초기화 (필요 시 사용자 정의)
+rtc.datetime((2025, 1, 1, 0, 12, 30, 0, 0))  # (년도, 월, 일, 요일, 시, 분, 초, 밀리초)
 
-    if tw < w*0.9 :
-        # text center align
-        x = (w - tw)/2
-        y = (h - th)/2
-
-        draw.rectangle( [0, 0, w -1, h -1], fill=0, outline = 0)
-        draw.rectangle( [0, 1, w -1, h -1], fill=0, outline = 1)
-        draw.text( [ int(x), int(y) ], text, font = font, fill = 255, spacing=spacing)
-        
-        oled.image( image )
-        oled.show()
-    else :
-        x = w/4
-        y = (h - th)/2
-        scroll_x = w/30
-        duration = 0.01
-        while x >= - tw - 2 :
-            draw.rectangle( [0, 0, w -1, h -1], fill=0, outline = 0)
-            draw.rectangle( [0, 1, w -1, h -1], fill=0, outline = 1)
-            draw.text( [ int(x), int(y) ], text, font = font, fill = 255, spacing=spacing) 
-            
-            oled.image( image )
-            oled.show()
-
-            x -= scroll_x
-
-            sleep( duration )
-        pass
-    pass
-pass
-
-def display_system_info( idx = 0 ) :
-    idx = idx % 7
-
+def display_info(writer, idx=0):
+    """Pico 시스템 정보를 OLED에 출력."""
+    idx = idx % 5  # 5가지 정보를 순환 출력
     text = ""
 
-    if idx == 0 : # shutdown
-        text = "Hello"
-    elif idx == 1 : # current time
-        text = datetime.datetime.now().strftime("%H:%M:%S") 
-    elif idx == 2 : # hostname
-        hostname = os.popen("hostname").read().strip().split()[0]
-        text = f"host : {hostname}"
-    elif idx == 3 : # ip address
-        ipaddr = os.popen("hostname -I").read().strip().split()[-1]
-        text = f"IP : {ipaddr}"
-    elif idx == 4 : # disk usage
-        total, used, free = shutil.disk_usage("/")
-        total //= (2**30)
-        used //= (2**30)
-        free //= (2**30)
-        pct = used*100/total
-
-        text = f"Disk : {pct:02.1f} %"
-    elif idx == 5 : # CPU
-        pct = psutil.cpu_percent()
-
-        text = f"CPU : {pct:02.1f} %"
-    elif idx == 6 : # RAM
-        pct = psutil.virtual_memory()[2] 
-
-        text = f"RAM : {pct:02.1f} %" 
+    if idx == 0:  # CPU 클럭
+        text = f"CPU {freq()//1_000_000:.0f}Mhz"
+    elif idx == 1:  # 사용 가능한 메모리
+        gc.collect()
+        free_mem = gc.mem_free()
+        text = f"Free: {free_mem//1_000:.0f} Mb"
+    elif idx == 2:  # 온도 센서 값
+        reading = sensor_temp.read_u16() * conversion_factor
+        temperature = 27 - (reading - 0.706) / 0.001721
+        text = f"Temp: {temperature:.1f} C"
+    elif idx == 3:  # RTC 현재 시간
+        datetime = rtc.datetime()
+        text = f"{datetime[4]:02}:{datetime[5]:02}:{datetime[6]:02}"
+    elif idx == 4:  # 플래시 스토리지 상태
+        statvfs = os.statvfs('/')
+        total = statvfs[2] * statvfs[1]  # 전체 크기
+        free = statvfs[3] * statvfs[1]   # 사용 가능한 크기
+        used_pct = (1 - free / total) * 100
+        text = f"Disk: {used_pct:.1f} %"
     pass
 
-    print( f"[{idx}] Text = {text}")
+    print(f"[{idx}] Text = {text}")
 
-    disp_text_scroll( text )
+    # OLED에 출력
+    oled.fill(0)
+    text_width = writer.stringlen(text)
+    x = (w - text_width) // 2  # 가로 중앙
+    y = (h - writer.font.height()) // 2 + 2 # 세로 중앙
+    writer.print(text, x=x, y=y) 
+    oled.rect(0, 0, w, h, 1)
+    oled.show()
+pass 
 
-    sleep(2.5)
-pass
-
-def main() :
-    try:
-        idx = 0
-        while 1 :
-            display_system_info( idx) 
-            idx += 1
-
-            idx %= 1000
-        pass
-
-    except KeyboardInterrupt :
-        print("ctrl + c:") 
+if __name__ == "__main__":
+    """시스템 정보 순환 출력."""
+    idx = 0
+    while True:
+        display_info(writer, idx)
+        idx += 1
+        time.sleep( 5 )  # 출력 유지 시간
     pass
-pass
-
-if __name__ == '__main__':
-    main()
 pass
