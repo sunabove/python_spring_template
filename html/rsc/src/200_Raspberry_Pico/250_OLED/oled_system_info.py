@@ -1,6 +1,5 @@
-import os
-import gc
-import time
+import os, gc
+from time import sleep
 from machine import Pin, I2C, ADC, RTC, freq
 import ssd1306
 import oled_freesans20 as font
@@ -69,6 +68,6 @@ if __name__ == "__main__":
     while True:
         display_info(writer, idx)
         idx += 1
-        time.sleep( 3 )  # 출력 유지 시간
+        sleep( 3 )  # 출력 유지 시간
     pass
 pass
