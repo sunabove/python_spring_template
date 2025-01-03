@@ -36,9 +36,7 @@ oled.line(x1, y1, x2, y2, 1)  # 왼쪽 변
 oled.line(x2, y2, x3, y3, 1)  # 밑변
 oled.line(x3, y3, x1, y1, 1)  # 오른쪽 변
 
-# 원 그리기 
-    
-
+# 원 그리기
 # 원 중심과 반지름 설정
 radius = ss//2
 cx = x3 + radius + 2*m
@@ -52,8 +50,7 @@ for y in range(-radius, radius):
     pass
 pass
 
-# 별 모양 그리기 
-
+# 별 모양 그리기
 # 별 중심과 크기 설정
 size = star_size = ss//2
 cx = star_cx = cx + radius + size + 2*m
@@ -80,4 +77,4 @@ for i in range(len(points)):
 pass
 
 # 디스플레이에 출력
-oled.show() 
+oled.show()

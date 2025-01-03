@@ -5,8 +5,6 @@ from oled_writer import Writer
 import ssd1306
 import oled_freesans20 as font 
 
-print("Hello...")
-
 # OLED 디스플레이 설정 (128x32 해상도)
 i2c = I2C(0, scl=Pin(5), sda=Pin(4), freq=400000)
 w = width = 128
@@ -14,7 +12,7 @@ h = height = 32
 oled = ssd1306.SSD1306_I2C(w, h, i2c)
 writer = Writer(oled, font, verbose=0)
 
-# "Hello World"를 화면 중간에 출력하기 위해 위치 계산
+# 화면 중간에 출력하기 위해 위치 계산
 fw = font_width = writer.font.max_width()  # 폰트의 최대 글자 너비
 fh = font_height = writer.font.height()   # 폰트 높이
 
