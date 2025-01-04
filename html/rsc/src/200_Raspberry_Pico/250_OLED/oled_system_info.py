@@ -57,6 +57,6 @@ if __name__ == "__main__":
     while True:
         display_info(writer, idx)
         idx += 1
-        sleep( 3 )  # 출력 유지 시간
+        sleep( 5 )  # 출력 유지 시간
     pass
 pass

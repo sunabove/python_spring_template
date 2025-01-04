@@ -1,3 +1,5 @@
+# oled_writer.py
+
 import framebuf
 from uctypes import bytearray_at, addressof
 from sys import implementation
@@ -11,6 +13,7 @@ class Writer():
         self.font = font
         if font.height() >= device.height or font.max_width() >= device.width:
             raise ValueError('Font too large for screen')
+        
         # Allow to work with reverse or normal font mapping
         if font.hmap():
             self.map = framebuf.MONO_HMSB if font.reverse() else framebuf.MONO_HLSB
@@ -22,6 +25,7 @@ class Writer():
             fstr = 'Orientation: Horizontal. Reversal: {}. Width: {}. Height: {}.'
             print(fstr.format(font.reverse(), device.width, device.height))
             print('Start row = {} col = {}'.format(self._getstate().text_row, self._getstate().text_col))
+        pass
         
         self.screenwidth = device.width  # In pixels
         self.screenheight = device.height
@@ -55,6 +59,9 @@ class Writer():
                 self.device.scroll(0, margin)
                 self.device.fill_rect(0, y, self.screenwidth, abs(margin), self.bgcolor)
                 self.y += margin
+            pass
+        pass
+    pass
 
     def set_clip(self, row_clip=None, col_clip=None, wrap=None):
         if row_clip is not None:
@@ -63,11 +70,14 @@ class Writer():
             self.col_clip = col_clip
         if wrap is not None:
             self.wrap = wrap
+
         return self.row_clip, self.col_clip, self.wrap
+    pass
 
     @property
     def height(self):  # Property for consistency with device
         return self.font.height()
+    pass
 
     def print(self, string, x=None, y=None, invert=False):
         if x is not None :
@@ -81,11 +91,17 @@ class Writer():
         # word wrapping. Assumes words separated by single space.
         q = string.split('\n')
         last = len(q) - 1
+
         for n, s in enumerate(q):
             if s:
                 self._printline(s, invert)
+            pass
+
             if n != last:
                 self._printchar('\n')
+            pass
+        pass
+    pass
 
     def _printline(self, string, invert):
         rstr = None
@@ -98,12 +114,16 @@ class Writer():
             if pos > 0:
                 rstr = string[pos + 1:]
                 string = lstr
-                
+            pass
+        pass
+
         for char in string:
             self._printchar(char, invert)
         if rstr is not None:
             self._printchar('\n')
             self._printline(rstr, invert)  # Recurse
+        pass
+    pass
 
     def stringlen(self, string, oh=False):
         if not len(string):
@@ -117,6 +137,9 @@ class Writer():
             str_len += char_width
             if oh and str_len + x > wd:
                 return True  # All done. Save time.
+            pass
+        pass
+
         char = string[-1]
         _, _, char_width = self.font.get_ch(char)
         if oh and str_len + x + char_width > wd:
@@ -124,6 +147,7 @@ class Writer():
         else:
             str_len += char_width  # Public method. Return same value as old code.
         return str_len + x > wd if oh else str_len
+    pass
 
     # Return the printable width of a glyph less any blank columns on RHS
     def _truelen(self, char):
@@ -144,8 +168,12 @@ class Writer():
                     break
             if mc + 1 == wd:
                 break  # All done: no trailing space
+            pass
+        pass
+
         # print('Truelen', char, wd, mc + 1)  # TEST 
         return mc + 1
+    pass
 
     def _get_char(self, char, recurse):
         if not recurse:  # Handle tabs
@@ -160,6 +188,8 @@ class Writer():
                     self._printchar(' ', recurse=True)
                 self.glyph = None  # All done
                 return
+            pass
+        pass
 
         self.glyph = None  # Assume all done
         if char == '\n':
@@ -172,6 +202,8 @@ class Writer():
             if self.row_clip:
                 return
             self._newline()
+        pass
+
         oh = self.x + char_width - self.screenwidth  # Overhang (+ve)
         
         if oh > 0:
@@ -181,11 +213,15 @@ class Writer():
                     return
             else:
                 self._newline()
+            pass
+        pass
+
         self.glyph = glyph
         self.char_height = char_height
         self.char_width = char_width
         self.clip_width = char_width if np is None else np
-        
+    pass
+
     # Method using blitting. Efficient rendering for monochrome displays.
     # Tested on SSD1306. Invert is for black-on-white rendering.
     def _printchar(self, char, invert=False, recurse=False):
@@ -200,11 +236,13 @@ class Writer():
         self.device.blit(fbc, self.x, self.y)
         self.x += self.char_width
         self.cpos += 1
+    pass
 
     def tabsize(self, value=None):
         if value is not None:
             self.tab = value
         return self.tab
+    pass
 
     def setcolor(self, *_):
         return self.fgcolor, self.bgcolor
@@ -241,4 +279,3 @@ if __name__ == '__main__':
     oled.rect(0, 0, w, h, 1)
     oled.show()
 pass
-
