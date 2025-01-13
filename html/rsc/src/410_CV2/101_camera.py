@@ -2,7 +2,7 @@ import cv2
 import time
 
 # 웹캠 열기 (0은 기본 카메라를 의미)
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(1)
 
 if not cap.isOpened():
     print("카메라를 열 수 없습니다.")
@@ -28,7 +28,7 @@ while True:
 
     # 텍스트 추가 (FPS, 경과 시간, 종료 안내 메시지)
     fps_text = f"FPS: {fps:.2f}"
-    elapsed_text = f"Elapsed Time: {elapsed_time:.2f} s"
+    elapsed_text = f"Elapsed Time: {elapsed_time -20:.2f} s"
     quit_text = "Press 'q' to quit."
 
     cv2.putText(frame, fps_text, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
