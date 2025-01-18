@@ -213,31 +213,62 @@
 				</div>
 
 				<!-- card body -->
+				
 				<div class="card-body row">
 					<div class="col-12 col-sm-12 col-xl-12">
-						<div id="carouselIndicators" class="carousel slide" data-bs-ride="carousel">
+						<div id="carouselIndicators" class="carousel slide" data-bs-ride="false">
 				
 							<!-- Carousel Indicators -->
 							<div class="carousel-indicators">
-								<button type="button" th:each="group, groupStats : ${ partitionedBooks }" 
+								<button type="button" th:each="group, stats : ${ partitionedBooks }" 
 										data-bs-target="#carouselIndicators" 
-										data-bs-slide-to="${groupStats.index}" 
-										th:classappend="${groupStats.index == 0} ? 'active'" 
-										aria-current="${groupStats.index == 0} ? 'true' : 'false'" 
-										th:aria-label="'Slide ' + (groupStats.index + 1)">
+										th:data-bs-slide-to="${stats.index}" data-bs-slide-to="0" 
+										th:class="${stats.index == 0 ? 'active' : ''}" class="active" 
+										th:aria-current="${stats.index == 0}" aria-current="true" 
+								>
 								</button>
 							</div>
 				
 							<!-- Carousel Items -->
 							<div class="carousel-inner">
 								<div th:each="group, groupStats : ${ partitionedBooks }"
-									 th:class="|carousel-item ${groupStats.index == 0 ? 'active' : ''}|">
+									 th:class="|carousel-item ${groupStats.index == 0 ? 'active' : ''}|" 
+								>
 									<div class="row">
-										<div class="col-12 col-md-4 col-lg-2" th:each="book : ${group}">
-											<div class="card">
+										<div class="col-4" th:each="book : ${group}">
+											<div class="card" style="height: 100%;">
 												<div class="card-body">
-													<h5 class="card-title" th:text="${book.title}">Book Title</h5>
-													<p class="card-text" th:text="${book.summary}">Book Summary</p>
+
+													<!-- Book Title -->
+													<h5 class="card-title text-truncate mb-2" th:text="${book.title}">Book Title</h5>
+                  
+													<!-- Author -->
+													<p class="card-text text-nowrap mb-2" >
+													  <strong>저자:</strong> <span th:text="${book.author}">Author Name</span>
+													</p>
+													
+													<!-- Publisher -->
+													<p class="card-text text-nowrap mb-2">
+													  <strong>출판사:</strong> <span th:text="${book.publisher}">Publisher Name</span>
+													</p>
+													
+													<!-- Publication Year -->
+													<p class="card-text text-nowrap mb-2">
+													  <strong>년도:</strong> <span th:text="${book.publicationYear}">2023</span>년
+													</p>
+													
+													<!-- URL -->
+													<a th:href="${book.url}" class="btn btn-primary mb-2" target="_blank">
+													  더 보기
+													</a>
+
+													<br/>
+
+													<!-- Summary -->
+													<p class="card-text text-start mb-2">
+														<span th:text="${book.summary}">Book Summary</span>
+													</p>
+
 												</div>
 											</div>
 										</div>
@@ -260,6 +291,7 @@
 						</div>
 					</div>
 				</div>
+
 				<!-- // card body -->
 
 				<div class="card-footer text-muted">

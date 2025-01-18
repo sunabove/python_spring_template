@@ -1,16 +1,8 @@
 {
-    "title": "Spring Framework Guide",
-    "summary": "A comprehensive guide to the Spring Framework.",
-    "author": "John Doe",
-    "publicationYear": 2023,
-    "publisher": "Tech Books Publishing",
-    "url": "https://example.com/spring-framework-guide",
-    "tableOfContents": [
-    "Introduction",
-    "Getting Started",
-    "Core Concepts",
-    "Spring Boot Basics",
-    "Advanced Topics"
-    ]
+    "title": "점프 투 파이썬",
+    "author": "박응용",
+    "summary": "파이썬의 기본적인 문법부터 실습을 통해 배우는 책. 초보자에게 적합.",
+    "publicationYear": 2020,
+    "publisher": "한빛미디어",
+    "url": "https://wikidocs.net/book/1"
 }
-  
