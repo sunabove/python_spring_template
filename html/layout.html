@@ -109,9 +109,19 @@
 								</a>
 							  
 								<ul class="dropdown-menu" >
-									<li><a th:href="@{/pub/intro}" href="#" class="dropdown-item"> <i class="bi bi-book-half"></i> &nbsp; 파이썬 소개</a></li>
-									<li><a th:href="@{/pub/history}" href="#" class="dropdown-item"> <i class="fa-solid fa-landmark"></i> &nbsp; 파이썬 역사</a></li>
-									<li><a href="https://docs.python.org/ko/3/faq/index.html" target="_blank" class="dropdown-item"> <i class="bi bi-patch-question-fill"></i> &nbsp; 자주하는 질문</a></li>
+									<li>
+										<a th:href="@{/pub/intro}" href="#" class="dropdown-item"> <i class="bi bi-book-half"></i> &nbsp; 파이썬 소개</a>
+									</li>
+									<li>
+										<a th:href="@{/pub/history}" href="#" class="dropdown-item"> <i class="fa-solid fa-landmark"></i> &nbsp; 파이썬 역사</a>
+									</li>
+									<li>
+										<a th:href="@{/pub/books}" href="#" class="dropdown-item"> 
+											<i class="fa-solid fa-book"></i> &nbsp; 파이썬 서적</a>
+									</li>
+									<li>
+										<a href="https://docs.python.org/ko/3/faq/index.html" target="_blank" class="dropdown-item"> <i class="bi bi-patch-question-fill"></i> &nbsp; 자주하는 질문</a>
+									</li>
 								</ul>
 							  </div>
 						</li>
@@ -270,6 +280,12 @@
 								<li class="mt-1">
 									<a th:href="@{/pub/history}" href="#" class="link-dark rounded text-decoration-none">
 										<i class="fa-solid fa-landmark fa-xl"></i> &nbsp; 파이썬 역사
+									</a>
+								</li>
+
+								<li class="mt-1">
+									<a th:href="@{/pub/books}" href="#" class="link-dark rounded text-decoration-none">
+										<i class="fa-solid fa-book"></i> &nbsp; 파이썬 서적
 									</a>
 								</li>
 
