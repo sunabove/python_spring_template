@@ -1,0 +1,18 @@
+{
+  "title": "Effective Java",
+  "summary": "Best practices for Java programming, written by one of the creators of the Java platform.",
+  "author": "Joshua Bloch",
+  "publicationYear": 2018,
+  "publisher": "Addison-Wesley",
+  "url": "https://example.com/effective-java",
+  "tableOfContents": [
+    "Creating and Destroying Objects",
+    "Methods Common to All Objects",
+    "Classes and Interfaces",
+    "Generics",
+    "Enums and Annotations",
+    "Lambdas and Streams",
+    "Concurrency",
+    "Serialization"
+  ]
+}

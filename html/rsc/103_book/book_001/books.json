@@ -1,0 +1,16 @@
+{
+    "title": "Spring Framework Guide",
+    "summary": "A comprehensive guide to the Spring Framework.",
+    "author": "John Doe",
+    "publicationYear": 2023,
+    "publisher": "Tech Books Publishing",
+    "url": "https://example.com/spring-framework-guide",
+    "tableOfContents": [
+    "Introduction",
+    "Getting Started",
+    "Core Concepts",
+    "Spring Boot Basics",
+    "Advanced Topics"
+    ]
+}
+  
