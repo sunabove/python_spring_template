@@ -94,6 +94,28 @@ def convert_ppt_to_html( ) :
                 pass
             pass
 
+            if True :
+                # 1. viewBox 수정
+                content = content.replace('viewBox="0 0 720 540"', 'viewBox="0 0 960 540"')
+
+                # 2. <image> 태그의 width와 height 수정
+                content = content.replace('width="720"', 'width="960"')
+                content = content.replace('height="540"', 'height="540"')
+
+                # 2. CSS 수정
+                new_css = """
+                .slides-canvas {
+                    display: block;
+                    margin: 0 auto;
+                    width: 100%;
+                    max-width-: 960px;
+                    height: auto;
+                    aspect-ratio: 16 / 9;
+                }
+                """
+                content = content.replace( '<style>.slide {', '<style>' + new_css + '}\n.slide {' )
+            pass
+
             file.write( content )
         pass
     pass
