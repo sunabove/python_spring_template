@@ -1,17 +1,12 @@
 import aspose.slides as slides
 import argparse
+import os
 from pathlib import Path
 
 file_path = "/home/user/documents/example.txt"
 
-def convert_ppt_to_html( ) : 
-    parser = argparse.ArgumentParser()
-    parser.add_argument("ppt_file", help="ppt file")
-    args = parser.parse_args()
-
-    ppt_file_path = args.ppt_file
-
-    print( f"Converting ppt file to html : {ppt_file_path} ..." )
+def convert_ppt_to_html(ppt_file_path):
+    print(f"Converting ppt file to html : {ppt_file_path} ...")
 
     # Load the presentation file
     ppt = slides.Presentation( ppt_file_path )
@@ -37,7 +32,7 @@ def convert_ppt_to_html( ) :
         single_slide_presentation.slides.insert_clone(0, slide) 
         
         # 슬라이드를 HTML로 저장합니다.
-        html_file_path = str(folder_path / f"{html_file_name_prev}_{i+1:03d}.html")
+        html_file_path = str(folder_path / f"{i+1:04d}.html")
         
         print( f"saving a ppt slide to {html_file_path} ..." )    
         single_slide_presentation.save( html_file_path, slides.export.SaveFormat.HTML, options )
@@ -64,7 +59,7 @@ def convert_ppt_to_html( ) :
 
         with open(html_file_path, 'w', encoding='utf-8') as file:
 
-            if True : 
+            if "Created with Aspose.Slides" in content:
                 # remove water-mark
                 idxApose = content.index( "Created with Aspose.Slides" )
                 idxGtransform = content.rfind( "<g transform=\"matrix", 0, idxApose )
@@ -108,7 +103,6 @@ def convert_ppt_to_html( ) :
                     display: block;
                     margin: 0 auto;
                     width: 100%;
-                    max-width-: 960px;
                     height: auto;
                     aspect-ratio: 16 / 9;
                 }
@@ -121,8 +115,45 @@ def convert_ppt_to_html( ) :
     pass
 
     print( f"Converted {len(ppt.slides)} slides to HTML files." )
-pass
+pass # convert_slide_to_html
 
-if __name__ == "__main__" :
-    convert_ppt_to_html()
+def check_and_convert_ppts_in_folder(folder_path):
+    # Recursively search for .pptx files
+    for ppt_file in Path(folder_path).rglob("*.pptx"):
+        ppt = slides.Presentation(ppt_file)
+
+        # Get the modification time of the PPT file
+        ppt_mod_time = ppt_file.stat().st_mtime
+
+        # Get the list of all HTML files for the corresponding PPT file
+        html_files = [str(ppt_file.parent / f"{i+1:04d}.html") for i in range(len(ppt.slides))]
+
+        # Get the modification times of all the HTML files
+        html_files_mtime = {html_file: os.path.getmtime(html_file) for html_file in html_files if os.path.exists(html_file)}
+
+        # Check if the PPT file's modification time is newer than all HTML files
+        ppt_needs_conversion = False
+        for html_file in html_files:
+            html_mod_time = html_files_mtime.get(html_file, 0)  # If HTML doesn't exist, consider it as 0
+            if ppt_mod_time > html_mod_time:
+                ppt_needs_conversion = True
+                break
+
+        if ppt_needs_conversion:
+            print(f"PPT file {ppt_file} is newer than corresponding HTML files. Converting all slides...")
+            # Convert all slides to HTML
+            for i in range(len(ppt.slides)):
+                convert_ppt_to_html( ppt_file )
+        else:
+            print(f"Skipping PPT file {ppt_file}, as all HTML files are up-to-date.")
+        pass
+    pass
+pass # check_and_convert_ppts_in_folder
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("folder", help="Folder path to search for ppt files")
+    args = parser.parse_args()
+
+    check_and_convert_ppts_in_folder(args.folder)
 pass
