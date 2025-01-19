@@ -1,9 +1,16 @@
 import aspose.slides as slides
+import argparse
 from pathlib import Path
 
 file_path = "/home/user/documents/example.txt"
 
-def convert_ppt_to_html( ppt_file_path ) : 
+def convert_ppt_to_html( ) : 
+    parser = argparse.ArgumentParser()
+    parser.add_argument("ppt_file", help="ppt file")
+    args = parser.parse_args()
+
+    ppt_file_path = args.ppt_file
+
     print( f"Converting ppt file to html : {ppt_file_path} ..." )
 
     # Load the presentation file
@@ -90,7 +97,5 @@ def convert_ppt_to_html( ppt_file_path ) :
 pass
 
 if __name__ == "__main__" :
-    ppt_file_path = "c:/test/test.pptx"
-
-    convert_ppt_to_html( ppt_file_path )
+    convert_ppt_to_html()
 pass

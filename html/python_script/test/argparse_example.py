@@ -14,4 +14,5 @@ args = parser.parse_args()
 
 config = vars(args)
 
+print( "hello ...." )
 #print(config)
