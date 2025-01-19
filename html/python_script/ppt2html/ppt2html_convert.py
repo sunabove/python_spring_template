@@ -25,7 +25,7 @@ def convert_ppt_to_html( ) :
 
     folder_path = Path( ppt_file_path ).parent
     # ppt 확작자를 제외한 파일명의 앞 부분
-    file_name_prev = Path( ppt_file_path ).name.split( "." )[0]
+    html_file_name_prev = Path( ppt_file_path ).name.split( "." )[0]
 
     # 각 슬라이드를 개별 HTML 파일로 변환합니다.
     for i, slide in enumerate( ppt.slides ):
@@ -37,7 +37,7 @@ def convert_ppt_to_html( ) :
         single_slide_presentation.slides.insert_clone(0, slide) 
         
         # 슬라이드를 HTML로 저장합니다.
-        html_file_path = folder_path / f"{file_name_prev}_{i+1:03d}.html" 
+        html_file_path = folder_path / f"{html_file_name_prev}_{i+1:03d}.html" 
         
         print( f"saving a ppt slide to {html_file_path} ..." )    
         single_slide_presentation.save(html_file_path, slides.export.SaveFormat.HTML, options )
