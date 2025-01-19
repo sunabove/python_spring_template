@@ -6,10 +6,10 @@ from pathlib import Path
 file_path = "/home/user/documents/example.txt"
 
 def convert_ppt_to_html(ppt_file_path):
-    print(f"Converting ppt file to html : {ppt_file_path} ...")
+    print(f"Converting ppt file to html : {ppt_file_path} ...", flush=1 )
 
     # Load the presentation file
-    ppt = slides.Presentation( ppt_file_path )
+    ppt = slides.Presentation( str(ppt_file_path) )
 
     # Create HTML options
     options = slides.export.HtmlOptions()
@@ -32,7 +32,7 @@ def convert_ppt_to_html(ppt_file_path):
         single_slide_presentation.slides.insert_clone(0, slide) 
         
         # 슬라이드를 HTML로 저장합니다.
-        html_file_path = str(folder_path / f"{i+1:04d}.html")
+        html_file_path = str(folder_path / f"{i+1:03d}.html")
         
         print( f"saving a ppt slide to {html_file_path} ..." )    
         single_slide_presentation.save( html_file_path, slides.export.SaveFormat.HTML, options )
@@ -120,30 +120,30 @@ pass # convert_slide_to_html
 def check_and_convert_ppts_in_folder(folder_path):
     # Recursively search for .pptx files
     for ppt_file in Path(folder_path).rglob("*.pptx"):
-        ppt = slides.Presentation(ppt_file)
-
         # Get the modification time of the PPT file
         ppt_mod_time = ppt_file.stat().st_mtime
 
         # Get the list of all HTML files for the corresponding PPT file
-        html_files = [str(ppt_file.parent / f"{i+1:04d}.html") for i in range(len(ppt.slides))]
+        html_files = [f for f in os.listdir(folder_path) if f.endswith('.html')]
 
         # Get the modification times of all the HTML files
         html_files_mtime = {html_file: os.path.getmtime(html_file) for html_file in html_files if os.path.exists(html_file)}
 
         # Check if the PPT file's modification time is newer than all HTML files
-        ppt_needs_conversion = False
+        ppt_needs_conversion = len( html_files ) < 1
+
         for html_file in html_files:
             html_mod_time = html_files_mtime.get(html_file, 0)  # If HTML doesn't exist, consider it as 0
             if ppt_mod_time > html_mod_time:
                 ppt_needs_conversion = True
                 break
+            pass
+        pass
 
         if ppt_needs_conversion:
             print(f"PPT file {ppt_file} is newer than corresponding HTML files. Converting all slides...")
             # Convert all slides to HTML
-            for i in range(len(ppt.slides)):
-                convert_ppt_to_html( ppt_file )
+            convert_ppt_to_html( ppt_file )
         else:
             print(f"Skipping PPT file {ppt_file}, as all HTML files are up-to-date.")
         pass
