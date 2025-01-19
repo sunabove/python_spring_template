@@ -37,10 +37,10 @@ def convert_ppt_to_html( ) :
         single_slide_presentation.slides.insert_clone(0, slide) 
         
         # 슬라이드를 HTML로 저장합니다.
-        html_file_path = folder_path / f"{html_file_name_prev}_{i+1:03d}.html" 
+        html_file_path = str(folder_path / f"{html_file_name_prev}_{i+1:03d}.html")
         
         print( f"saving a ppt slide to {html_file_path} ..." )    
-        single_slide_presentation.save(html_file_path, slides.export.SaveFormat.HTML, options )
+        single_slide_presentation.save( html_file_path, slides.export.SaveFormat.HTML, options )
 
         content = ""
         
@@ -79,14 +79,19 @@ def convert_ppt_to_html( ) :
             pass
 
             if True : 
-                # remove slide title
-                idxSlideTtitleStart = content.index( "<div class=\"slideTitle\">" )
-                idxSlideTtitleClose = content.index( "</div>", idxSlideTtitleStart )
-
-                a = content[ 0 : idxSlideTtitleStart ]
-                b = content[ idxSlideTtitleClose + 5 : ]
-                content = a + b
-                # // remove slide title
+                # 슬라이드 제목 제거
+                slide_title_tag = "<div class=\"slideTitle\">"
+                slide_title_end_tag = "</div>"
+                
+                idxSlideTitleStart = content.find(slide_title_tag)
+                if idxSlideTitleStart > -1:
+                    idxSlideTitleClose = content.find(slide_title_end_tag, idxSlideTitleStart)
+                    if idxSlideTitleClose > -1:
+                        a = content[0:idxSlideTitleStart]
+                        b = content[idxSlideTitleClose + len(slide_title_end_tag):]
+                        content = a + b
+                    pass
+                pass
             pass
 
             file.write( content )
