@@ -130,10 +130,11 @@ def check_and_convert_ppts_in_folder(folder_path):
         html_files_mtime = {html_file: os.path.getmtime(html_file) for html_file in html_files if os.path.exists(html_file)}
 
         # Check if the PPT file's modification time is newer than all HTML files
-        ppt_needs_conversion = len( html_files ) < 1
+        ppt_needs_conversion = len( html_files ) == 0
 
         for html_file in html_files:
             html_mod_time = html_files_mtime.get(html_file, 0)  # If HTML doesn't exist, consider it as 0
+            print( f"ppt_mod_time = {ppt_mod_time}, html_mod_time = {html_mod_time}" )
             if ppt_mod_time > html_mod_time:
                 ppt_needs_conversion = True
                 break
