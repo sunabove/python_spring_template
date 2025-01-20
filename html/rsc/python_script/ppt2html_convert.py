@@ -118,35 +118,40 @@ def convert_ppt_to_html(ppt_file_path):
 pass # convert_slide_to_html
 
 def check_and_convert_ppts_in_folder(folder_path):
+    debug = False 
+
     # Recursively search for .pptx files
     for ppt_file in Path(folder_path).rglob("*.pptx"):
         # Get the modification time of the PPT file
         ppt_mod_time = ppt_file.stat().st_mtime
 
         # Get the list of all HTML files for the corresponding PPT file
-        html_files = [f for f in os.listdir(folder_path) if f.endswith('.html')]
+        html_files = [ ( ppt_file.parent / f ) for f in os.listdir(ppt_file.parent) if f.endswith('.html')]
 
-        # Get the modification times of all the HTML files
-        html_files_mtime = {html_file: os.path.getmtime(html_file) for html_file in html_files if os.path.exists(html_file)}
+        print( f"html_files len: {len( html_files )}" )
 
         # Check if the PPT file's modification time is newer than all HTML files
         ppt_needs_conversion = len( html_files ) == 0
 
         for html_file in html_files:
-            html_mod_time = html_files_mtime.get(html_file, 0)  # If HTML doesn't exist, consider it as 0
-            print( f"ppt_mod_time = {ppt_mod_time}, html_mod_time = {html_mod_time}" )
+            html_mod_time = html_file.stat().st_mtime 
+            
+            debug and print( f"ppt_mod_time = {ppt_mod_time}, html_mod_time = {html_mod_time}" )
+            
             if ppt_mod_time > html_mod_time:
                 ppt_needs_conversion = True
                 break
             pass
         pass
 
+        print( f"ppt_needs_conversion = {ppt_needs_conversion}" )
+
         if ppt_needs_conversion:
             print(f"PPT file {ppt_file} is newer than corresponding HTML files. Converting all slides...")
             # Convert all slides to HTML
             convert_ppt_to_html( ppt_file )
         else:
-            print(f"Skipping PPT file {ppt_file}, as all HTML files are up-to-date.")
+            print(f"All HTML files are up-to-date. Skipped converting PPT file {ppt_file}.")
         pass
     pass
 pass # check_and_convert_ppts_in_folder
