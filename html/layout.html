@@ -347,8 +347,8 @@
 						</a>
 						<div class="collapse show" th:id="${docFolderInfo.getId()}">
 							<!-- 최상위 폴더의 파일 목록 -->
-							<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-								<li th:each="file : ${docFolderInfo.normalFileInfos}" class="mt-2" style="padding-left: 10px;">
+							<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small" th:if="${docFolderInfo.normalFileInfos.size() > 0 }">
+								<li th:each="file : ${docFolderInfo.normalFileInfos}" class="mt-2" style="padding-left: 0px;">
 									<a th:href="@{'/pub/download/' + ${file.urlName}}" href="#" class="link-dark rounded text-decoration-none">
 										<i class="bi bi-journal-text fa-xl"></i> &nbsp;
 										<span th:text="${file.fileName}">File Name</span>
@@ -358,7 +358,7 @@
 
 							<!-- 1단계 하위 폴더 목록 -->
 							<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-								<li th:each="subFolder : ${docFolderInfo.subFolderInfos}" class="mt-2" style="padding-left: 10px;">
+								<li th:each="subFolder : ${docFolderInfo.subFolderInfos}" class="mt-1" style="padding-left: 0px;">
 									<a class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
 										th:data-bs-target="'#' + ${subFolder.getId()}" aria-expanded="false">
 										<i class="bi bi-folder-fill"></i> &nbsp;
@@ -367,8 +367,8 @@
 
 									<div class="collapse show_" th:id="${subFolder.getId()}">
 										<!-- 1단계 하위 폴더의 파일 목록 -->
-										<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-											<li th:each="file : ${subFolder.normalFileInfos}" class="mt-2" style="padding-left: 20px;">
+										<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small" th:if="${subFolder.normalFileInfos.size() > 0 }">
+											<li th:each="file : ${subFolder.normalFileInfos}" class="mt-1" style="padding-left: 10px;">
 												<a th:href="@{'/pub/download/' + ${file.urlName}}" href="#" class="link-dark rounded text-decoration-none">
 													<i class="bi bi-journal-text fa-xl"></i> &nbsp;
 													<span th:text="${file.fileName}">File Name</span>
@@ -378,7 +378,7 @@
 
 										<!-- 2단계 하위 폴더 목록 -->
 										<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-											<li th:each="subFolder2 : ${subFolder.subFolderInfos}" class="mt-2" style="padding-left: 20px;">
+											<li th:each="subFolder2 : ${subFolder.subFolderInfos}" class="mt-1" style="padding-left: 20px;">
 												<a class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
 													th:data-bs-target="'#' + ${subFolder2.getId()}" aria-expanded="false">
 													<i class="bi bi-folder-fill"></i> &nbsp;
@@ -386,8 +386,8 @@
 												</a>
 												<div class="collapse show_" th:id="${subFolder2.getId()}">
 													<!-- 2단계 하위 폴더의 파일 목록 -->
-													<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-														<li th:each="file : ${subFolder2.normalFileInfos}" class="mt-2" style="padding-left: 30px;">
+													<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small" th:if="${subFolder2.normalFileInfos.size() > 0 }">
+														<li th:each="file : ${subFolder2.normalFileInfos}" class="mt-1" style="padding-left: 20px;">
 															<a th:href="@{'/pub/download/' + ${file.urlName}}" href="#" class="link-dark rounded text-decoration-none">
 																<i class="bi bi-journal-text fa-xl"></i> &nbsp;
 																<span th:text="${file.fileName}">File Name</span>
