@@ -322,8 +322,6 @@
 									</a>
 								</li>
 
-								<li class="mt-1"> <hr/></li>
-								
 								<li class="mt-1">
 									<a href="https://docs.python.org/ko/3/using/index.html" target="_blank" class="link-dark rounded text-decoration-none">
 										<i class="fa-solid fa-hammer fa-xl"></i> &nbsp; 파이썬 설치 및 사용법
@@ -338,6 +336,72 @@
 							</ul>
 						</div>
 					</li>
+
+					<!-- 문서 폴더 메뉴 -->
+					<li class="mb-1" th:if="${docFolderInfo != null}">
+						<a class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+							th:data-bs-target="'#' + ${docFolderInfo.folderName.hashCode()}" aria-expanded="false">
+							<i class="bi bi-folder-fill"></i> &nbsp;
+							<span>기술 문서</span>
+						</a>
+						<div class="collapse show" th:id="${docFolderInfo.folderName.hashCode()}">
+							<!-- 최상위 폴더의 파일 목록 -->
+							<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+								<li th:each="file : ${docFolderInfo.normalFileInfos}" class="mt-2" style="padding-left: 10px;">
+									<a th:href="@{'/pub/download/' + ${file.urlName}}" href="#" class="link-dark rounded text-decoration-none">
+										<i class="bi bi-download fa-xl"></i> &nbsp;
+										<span th:text="${file.fileName}">File Name</span>
+									</a>
+								</li>
+							</ul>
+
+							<!-- 1단계 하위 폴더 목록 -->
+							<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+								<li th:each="subFolder : ${docFolderInfo.subFolderInfos}" class="mt-2" style="padding-left: 10px;">
+									<a class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+										th:data-bs-target="'#' + ${subFolder.folderName.hashCode()}" aria-expanded="false">
+										<i class="bi bi-folder-fill"></i> &nbsp;
+										<span th:text="${subFolder.folderName}">Sub Folder Name</span>
+									</a>
+
+									<div class="collapse show_" th:id="${subFolder.folderName.hashCode()}">
+										<!-- 1단계 하위 폴더의 파일 목록 -->
+										<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+											<li th:each="file : ${subFolder.normalFileInfos}" class="mt-2" style="padding-left: 20px;">
+												<a th:href="@{'/pub/download/' + ${file.urlName}}" href="#" class="link-dark rounded text-decoration-none">
+													<i class="bi bi-download fa-xl"></i> &nbsp;
+													<span th:text="${file.fileName}">File Name</span>
+												</a>
+											</li>
+										</ul>
+
+										<!-- 2단계 하위 폴더 목록 -->
+										<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+											<li th:each="subFolder2 : ${subFolder.subFolderInfos}" class="mt-2" style="padding-left: 20px;">
+												<a class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+													th:data-bs-target="'#' + ${subFolder2.folderName.hashCode()}" aria-expanded="false">
+													<i class="bi bi-folder-fill"></i> &nbsp;
+													<span th:text="${subFolder2.folderName}">Sub Folder Name</span>
+												</a>
+												<div class="collapse show_" th:id="${subFolder2.folderName.hashCode()}">
+													<!-- 2단계 하위 폴더의 파일 목록 -->
+													<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+														<li th:each="file : ${subFolder2.normalFileInfos}" class="mt-2" style="padding-left: 30px;">
+															<a th:href="@{'/pub/download/' + ${file.urlName}}" href="#" class="link-dark rounded text-decoration-none">
+																<i class="bi bi-download fa-xl"></i> &nbsp;
+																<span th:text="${file.fileName}">File Name</span>
+															</a>
+														</li>
+													</ul>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<!-- // 문서 폴더 메뉴 --> 
 
 					<li class="mb-1">
 						<a class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
