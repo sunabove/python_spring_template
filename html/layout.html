@@ -341,11 +341,11 @@
 					 
 					<li class="mb-1" th:if="${docFolderInfo != null}">
 						<a class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
-							th:data-bs-target="'#' + ${docFolderInfo.folderName.hashCode()}" aria-expanded="false">
+							th:data-bs-target="'#' + ${docFolderInfo.getId()}" aria-expanded="false">
 							<i class="bi bi-folder-fill"></i> &nbsp;
 							<span>기술 문서</span>
 						</a>
-						<div class="collapse show" th:id="${docFolderInfo.folderName.hashCode()}">
+						<div class="collapse show" th:id="${docFolderInfo.getId()}">
 							<!-- 최상위 폴더의 파일 목록 -->
 							<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
 								<li th:each="file : ${docFolderInfo.normalFileInfos}" class="mt-2" style="padding-left: 10px;">
@@ -360,12 +360,12 @@
 							<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
 								<li th:each="subFolder : ${docFolderInfo.subFolderInfos}" class="mt-2" style="padding-left: 10px;">
 									<a class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
-										th:data-bs-target="'#' + ${subFolder.folderName.hashCode()}" aria-expanded="false">
+										th:data-bs-target="'#' + ${subFolder.getId()}" aria-expanded="false">
 										<i class="bi bi-folder-fill"></i> &nbsp;
 										<span th:text="${subFolder.folderDesc}">Sub Folder Name</span>
 									</a>
 
-									<div class="collapse show_" th:id="${subFolder.folderName.hashCode()}">
+									<div class="collapse show_" th:id="${subFolder.getId()}">
 										<!-- 1단계 하위 폴더의 파일 목록 -->
 										<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
 											<li th:each="file : ${subFolder.normalFileInfos}" class="mt-2" style="padding-left: 20px;">
@@ -380,11 +380,11 @@
 										<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
 											<li th:each="subFolder2 : ${subFolder.subFolderInfos}" class="mt-2" style="padding-left: 20px;">
 												<a class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
-													th:data-bs-target="'#' + ${subFolder2.folderName.hashCode()}" aria-expanded="false">
+													th:data-bs-target="'#' + ${subFolder2.getId()}" aria-expanded="false">
 													<i class="bi bi-folder-fill"></i> &nbsp;
 													<span th:text="${subFolder2.folderDesc}">Sub Folder Name</span>
 												</a>
-												<div class="collapse show_" th:id="${subFolder2.folderName.hashCode()}">
+												<div class="collapse show_" th:id="${subFolder2.getId()}">
 													<!-- 2단계 하위 폴더의 파일 목록 -->
 													<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
 														<li th:each="file : ${subFolder2.normalFileInfos}" class="mt-2" style="padding-left: 30px;">
