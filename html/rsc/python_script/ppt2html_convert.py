@@ -1,9 +1,26 @@
-import aspose.slides as slides
 import argparse
 import os
-from pathlib import Path
 
-file_path = "/home/user/documents/example.txt"
+def import_or_install(package):
+    import importlib
+    import subprocess
+    import sys
+
+    try:
+        # 패키지를 임포트 시도
+        return importlib.import_module( package )
+    except ImportError:
+        # 패키지가 없으면 설치
+        print(f"'{package}' 패키지가 없으므로 설치를 진행합니다...")
+        subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+        return importlib.import_module(package)
+    pass
+pass
+
+import_or_install( "aspose.slides" )
+
+import aspose.slides as slides
+from pathlib import Path
 
 def convert_ppt_to_html(ppt_file_path):
     print(f"Converting ppt file to html : {ppt_file_path} ...", flush=1 )
@@ -19,9 +36,7 @@ def convert_ppt_to_html(ppt_file_path):
     options.html_formatter = slides.export.HtmlFormatter.create_custom_formatter(controller)
 
     folder_path = Path( ppt_file_path ).parent
-    # ppt 확작자를 제외한 파일명의 앞 부분
-    html_file_name_prev = Path( ppt_file_path ).name.split( "." )[0]
-
+    
     # 각 슬라이드를 개별 HTML 파일로 변환합니다.
     for i, slide in enumerate( ppt.slides ):
         # 새로운 프레젠테이션 객체를 생성합니다.
