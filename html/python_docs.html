@@ -215,7 +215,12 @@
 				<div class="card-header row" >
 
 					<div class="col-2">
-						<button class="btn btn-primary" th:onclick="'loadSlide(' + ${docSlideNumber - 1} + ')'">이전</button>
+						<a class="btn btn-primary" 
+							href="#" th:href="@{ '/pub/doc' + ${fileInfoPrev != null ? fileInfoPrev.url : '#' }}" 
+							th:classappend=" ${ fileInfoPrev != null ? '' : 'disabled' } "
+						>
+							이전
+						</a>
 					</div>
 
 					<div class="col-8 d-flex align-items-center justify-content-center">
@@ -232,7 +237,12 @@
 					</div>
 
 					<div class="col-2">
-						<button class="btn btn-primary" th:onclick="'loadSlide(' + ${docSlideNumber + 1} + ')'">다음</button>
+						<a class="btn btn-primary"
+						    href="#" th:href="@{ '/pub/doc' + ${fileInfoNext != null ? fileInfoNext.url : '#' }}" 
+							th:classappend=" ${ fileInfoNext != null ? '' : 'disabled' } "
+						>
+							다음 
+						</a>
 					</div>
 				</div>  
 			
