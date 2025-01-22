@@ -209,7 +209,7 @@
 			<div class="card text-center mt-3">
 				<!-- 카드 헤더 -->
 				<div class="card-header">
-					<span class="h5"> 기술 문서 </span>
+					<span class="h5" th:text="${ parentDocTitle }"> 기술 문서 </span>
 				</div> 
 				
 				<div class="card-header row" >
@@ -244,19 +244,45 @@
 					</div> 
 				</div>
 			
-				<!-- 카드 푸터 -->
-				<div class="card-footer text-muted">
-					<span th:text="${ docModDate }">문서 수정일</span> <!-- 문서 수정일 추가 -->
-				</div>
-			
 				<!-- 슬라이드 번호 및 페이저 -->
 				<div class="card-footer text-muted d-flex justify-content-center">
 					<!-- 페이저 -->
-					<div>
-						<button class="btn btn-primary" th:onclick="'loadSlide(' + ${docSlideNumber - 1} + ')'">이전</button>
-						<button class="btn btn-primary" th:onclick="'loadSlide(' + ${docSlideNumber + 1} + ')'">다음</button>
-					</div>
+					<ul class="m-0 pagination justify-content-center">
+						<!-- Previous button -->
+						<li class="page-item"> 
+							<a class="page-link" aria-label="Previous" 
+								href="#" th:href="@{ '/pub/doc' + ${fileInfoPrev != null ? fileInfoPrev.url : '#' }}" 
+								th:classappend=" ${ fileInfoPrev != null ? '' : 'disabled' } "
+							>
+								<span aria-hidden="true">&laquo; 이전 </span>
+							</a>
+						</li>
+						<!-- Page numbers -->
+						<li class="page-item" th:each="fileInfo, stats : ${docFileInfos}">
+							<a class="page-link" href="#" 
+								th:href="@{'/pub/doc' + ${fileInfo.url}}" 
+								th:classappend=" ${ docSlideNumber == stats.index + 1 ? 'active' : '' } "
+							>
+								<span th:text="${stats.index + 1}">1</span>
+							</a>
+						</li> 
+						<!-- Next button -->
+						<li class="page-item">
+							<a class="page-link" aria-label="Next"
+								href="#" th:href="@{ '/pub/doc' + ${ fileInfoNext != null ? fileInfoNext.url : '#' }}"
+								th:classappend=" ${ fileInfoNext != null ? '' : 'disabled' } "
+							>
+							<span aria-hidden="true"> 다음 &raquo;</span>
+							</a>
+						</li>
+					</ul>
 				</div>
+
+				<!-- 카드 푸터 -->
+				<div class="card-footer text-muted">
+					<span th:text="${ docModDate }">문서 수정일</span> <!-- 문서 수정일 추가 -->
+				</div> 
+				
 			</div> 
 			 
 		</main>
