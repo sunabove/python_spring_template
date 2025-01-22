@@ -263,6 +263,80 @@
 						</div>
 					</li>
 
+					<!-- 문서 폴더 메뉴 -->
+
+					<li class="mb-1" th:if="${docFolderInfo != null}">
+						<a class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+							th:data-bs-target="'#' + ${docFolderInfo.getId()}" aria-expanded="false">
+							<i class="bi bi-folder-fill"></i> &nbsp;
+							<span>기술 문서</span>
+						</a>
+						<div class="collapse show" th:id="${docFolderInfo.getId()}" >
+							<!-- 최상위 폴더의 파일 목록 -->
+							<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small" th:if="${docFolderInfo.normalFileInfos.size() > 0 }">
+								<li th:each="file : ${docFolderInfo.normalFileInfos}" class="mt-2" style="padding-left: 0px;">
+									<a th:href="@{'/pub/doc' + ${file.url}}" href="#" class="link-dark rounded text-decoration-none">
+										<i class="bi bi-journal-text fa-xl"></i> &nbsp;
+										<span th:text="${file.fileName}">File Name</span>
+									</a>
+								</li>
+							</ul>
+
+							<!-- 1단계 하위 폴더 목록 -->
+							<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+								<li th:each="subFolder : ${docFolderInfo.subFolderInfos}" class="mt-1" style="padding-left: 0px;">
+									<a class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+										th:data-bs-target="'#' + ${subFolder.getId()}" aria-expanded="false">
+										<i class="bi bi-folder-fill"></i> &nbsp;
+										<span th:text="${subFolder.fileDesc}">Sub Folder Name</span>
+									</a>
+
+									<div class="collapse " th:id="${subFolder.getId()}" 
+										th:classappend="${ subFolder.urlStartsWith( docPath ) ? 'show' : ''}" >
+										<!-- 1단계 하위 폴더의 파일 목록 -->
+										<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small" th:if="${subFolder.normalFileInfos.size() > 0 }">
+											<li th:each="file : ${subFolder.normalFileInfos}" class="mt-1" style="padding-left: 10px;">
+												<a th:href="@{'/pub/doc' + ${file.url}}" href="#" class="link-dark rounded text-decoration-none">
+													<i class="bi bi-journal-text fa-xl"></i> &nbsp;
+													<span th:text="${file.fileName}">File Name</span>
+												</a>
+											</li>
+										</ul>
+
+										<!-- 2단계 하위 폴더 목록 -->
+										<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+											<li th:each="subFolder2 : ${subFolder.subFolderInfos}" class="mt-1" style="padding-left: 20px;">
+												<a class="btn btn-toggle align-items-center rounded collapsed" 
+													data-bs-toggle="collapse" aria-expanded="false"
+													th:data-bs-target="'#' + ${subFolder2.getId()}" 
+													th:href="@{'/pub/doc' + ${subFolder2.url}}" href="#"
+													onclick="navigateWithCollapse(event, this)" >
+													<i class="bi bi-folder-fill" th:if="${ subFolder2.hasSubFolder() }" ></i> 
+													<i class="bi bi-journal-text fa-xl" th:if="${ ! subFolder2.hasSubFolder() }" ></i>
+													&nbsp;
+													<span th:text="${subFolder2.fileDesc}">Sub Folder Name</span>
+												</a>
+												<div class="collapse show_" th:id="${subFolder2.getId()}" 
+														th:classappend="${ subFolder2.urlStartsWith( docPath ) ? 'show' : ''}" >
+													<!-- 2단계 하위 폴더의 파일 목록 -->
+													<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small" th:if="${subFolder2.normalFileInfos.size() > 0 }">
+														<li th:each="file : ${subFolder2.normalFileInfos}" class="mt-1" style="padding-left: 24px;">
+															<a th:href="@{'/pub/doc' + ${file.url}}" href="#" class="link-dark rounded text-decoration-none">
+																<i class="bi bi-journal-text fa-2xl"></i> &nbsp;
+																<span th:text="${file.fileName}">File Name</span>
+															</a>
+														</li>
+													</ul>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<!-- // 문서 폴더 메뉴 --> 
+
 					<li class="mb-1">
 						<a class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
 							data-bs-target="#python_overview" aria-expanded="false">
@@ -336,73 +410,6 @@
 							</ul>
 						</div>
 					</li>
-
-					<!-- 문서 폴더 메뉴 -->
-					 
-					<li class="mb-1" th:if="${docFolderInfo != null}">
-						<a class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
-							th:data-bs-target="'#' + ${docFolderInfo.getId()}" aria-expanded="false">
-							<i class="bi bi-folder-fill"></i> &nbsp;
-							<span>기술 문서</span>
-						</a>
-						<div class="collapse show" th:id="${docFolderInfo.getId()}">
-							<!-- 최상위 폴더의 파일 목록 -->
-							<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small" th:if="${docFolderInfo.normalFileInfos.size() > 0 }">
-								<li th:each="file : ${docFolderInfo.normalFileInfos}" class="mt-2" style="padding-left: 0px;">
-									<a th:href="@{'/pub/doc/' + ${file.url}}" href="#" class="link-dark rounded text-decoration-none">
-										<i class="bi bi-journal-text fa-xl"></i> &nbsp;
-										<span th:text="${file.fileName}">File Name</span>
-									</a>
-								</li>
-							</ul>
-
-							<!-- 1단계 하위 폴더 목록 -->
-							<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-								<li th:each="subFolder : ${docFolderInfo.subFolderInfos}" class="mt-1" style="padding-left: 0px;">
-									<a class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
-										th:data-bs-target="'#' + ${subFolder.getId()}" aria-expanded="false">
-										<i class="bi bi-folder-fill"></i> &nbsp;
-										<span th:text="${subFolder.folderDesc}">Sub Folder Name</span>
-									</a>
-
-									<div class="collapse show_" th:id="${subFolder.getId()}">
-										<!-- 1단계 하위 폴더의 파일 목록 -->
-										<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small" th:if="${subFolder.normalFileInfos.size() > 0 }">
-											<li th:each="file : ${subFolder.normalFileInfos}" class="mt-1" style="padding-left: 10px;">
-												<a th:href="@{'/pub/doc/' + ${file.url}}" href="#" class="link-dark rounded text-decoration-none">
-													<i class="bi bi-journal-text fa-xl"></i> &nbsp;
-													<span th:text="${file.fileName}">File Name</span>
-												</a>
-											</li>
-										</ul>
-
-										<!-- 2단계 하위 폴더 목록 -->
-										<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-											<li th:each="subFolder2 : ${subFolder.subFolderInfos}" class="mt-1" style="padding-left: 20px;">
-												<a class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
-													th:data-bs-target="'#' + ${subFolder2.getId()}" aria-expanded="false">
-													<i class="bi bi-folder-fill"></i> &nbsp;
-													<span th:text="${subFolder2.folderDesc}">Sub Folder Name</span>
-												</a>
-												<div class="collapse show_" th:id="${subFolder2.getId()}">
-													<!-- 2단계 하위 폴더의 파일 목록 -->
-													<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small" th:if="${subFolder2.normalFileInfos.size() > 0 }">
-														<li th:each="file : ${subFolder2.normalFileInfos}" class="mt-1" style="padding-left: 20px;">
-															<a th:href="@{'/pub/doc/' + ${file.url}}" href="#" class="link-dark rounded text-decoration-none">
-																<i class="bi bi-journal-text fa-xl"></i> &nbsp;
-																<span th:text="${file.fileName}">File Name</span>
-															</a>
-														</li>
-													</ul>
-												</div>
-											</li>
-										</ul>
-									</div>
-								</li>
-							</ul>
-						</div>
-					</li>
-					<!-- // 문서 폴더 메뉴 --> 
 
 					<li class="mb-1">
 						<a class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
@@ -796,6 +803,29 @@
 			});
 
 		</script>
+
+		<script>
+			function navigateWithCollapse(event, element) {
+				// 폴더 메뉴를 클릭했을 때, URL로 이동하면서 Collapse를 토글하는 함수
+			
+				console.log( "navigateWithCollapse() called." )
+
+				// `aria-expanded` 속성 확인
+				const isExpanded = element.getAttribute('aria-expanded') === 'false';
+			
+				if ( ! isExpanded ) {
+					// 메뉴가 닫혀 있으면 URL로 이동
+					const href = element.getAttribute('href');
+					if (href && href !== '#') {
+						window.location.href = href; // 지정된 URL로 이동
+					}
+				} else {
+					// 메뉴가 열려 있으면 기본 동작만 수행 (e.g., 토글)
+					event.preventDefault();
+				}
+			}
+		</script>
+  
 		
 	</footer>
 	<!-- Footer -->
