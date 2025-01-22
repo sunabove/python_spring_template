@@ -204,29 +204,42 @@
 
 		<!-- main content --> 
 
-		<main class="me-2 container-fluid" style="overflow-y: auto; "> 
+		<main class="me-2 container-fluid" style="overflow-y: auto; ">  
 
 			<div class="card text-center mt-3">
-
+				<!-- 카드 헤더 -->
 				<div class="card-header">
 					<span class="h5"> 파이썬 문서 </span>
+				</div> 
+				
+				<div class="card-header">
+					<span class="h5" th:text="${docTitle}">문서 제목</span> 
+					&nbsp;
+					<span class="h5" th:text="'슬라이드 ' + ${ docSlideNumber } + ' / ' + ${ docTotalSlides }">슬라이드 번호</span> 
 				</div>  
-
-				<div class="card-body row">
-
-					<div class="col-12 col-sm-12 col-xl-12">
-
-						<span class="h6" th:text="${ docPath }"> docPath </span>
-
+			
+				<!-- 카드 본문 -->
+				<div class="card-body row p-0 m-0"> 
+					<!-- 동적으로 HTML 콘텐츠 삽입 -->
+					<div th:utext="${docHtmlContent}" class="p-0 m-0">
+						doc html content
 					</div> 
-
 				</div>
-
+			
+				<!-- 카드 푸터 -->
 				<div class="card-footer text-muted">
-					<span th:text="${ docFolderLastModDate }"> 푸터 </span>
+					<span th:text="${ docModDate }">문서 수정일</span> <!-- 문서 수정일 추가 -->
 				</div>
-
-			</div>
+			
+				<!-- 슬라이드 번호 및 페이저 -->
+				<div class="card-footer text-muted d-flex justify-content-center">
+					<!-- 페이저 -->
+					<div>
+						<button class="btn btn-primary" th:onclick="'loadSlide(' + ${docSlideNumber - 1} + ')'">이전</button>
+						<button class="btn btn-primary" th:onclick="'loadSlide(' + ${docSlideNumber + 1} + ')'">다음</button>
+					</div>
+				</div>
+			</div> 
 			 
 		</main>
 

@@ -1,0 +1,10 @@
+{
+    "title": "Python Resources",
+    "icon": "bi-folder-fill",
+    "tooltip": "This folder contains Python resources.",
+    "href": "/python/resources",
+    "target": "_self",
+    "order": 1,
+    "isVisible": true
+  }
+  
