@@ -209,13 +209,31 @@
 			<div class="card text-center mt-3">
 				<!-- 카드 헤더 -->
 				<div class="card-header">
-					<span class="h5"> 파이썬 문서 </span>
+					<span class="h5"> 기술 문서 </span>
 				</div> 
 				
-				<div class="card-header">
-					<span class="h5" th:text="${docTitle}">문서 제목</span> 
-					&nbsp;
-					<span class="h5" th:text="'슬라이드 ' + ${ docSlideNumber } + ' / ' + ${ docTotalSlides }">슬라이드 번호</span> 
+				<div class="card-header row" >
+
+					<div class="col-2">
+						<button class="btn btn-primary" th:onclick="'loadSlide(' + ${docSlideNumber - 1} + ')'">이전</button>
+					</div>
+
+					<div class="col-8 d-flex align-items-center justify-content-center">
+
+						<span class="h5 m-0" th:text="${ docTitle }">문서 제목</span> 
+						&nbsp;
+
+						<span class="h5 m-0" 
+							th:text=" '( ' + ${ docSlideNumber } + '/' + ${ docTotalSlideCount } + ' )' " 
+						>
+							슬라이드 번호
+						</span>
+
+					</div>
+
+					<div class="col-2">
+						<button class="btn btn-primary" th:onclick="'loadSlide(' + ${docSlideNumber + 1} + ')'">다음</button>
+					</div>
 				</div>  
 			
 				<!-- 카드 본문 -->
