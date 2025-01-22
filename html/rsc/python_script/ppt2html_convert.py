@@ -1,6 +1,9 @@
 import argparse
 import os
 
+# 환경 변수 설정
+os.environ['DOTNET_SYSTEM_GLOBALIZATION_INVARIANT'] = 'true'
+
 def import_or_install(package):
     import importlib
     import subprocess
