@@ -286,7 +286,10 @@
 							<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small" th:if="${rootDocFolderInfo.fileInfos.size() > 0 }">
 
 								<li th:each="file : ${rootDocFolderInfo.fileInfos}" class="mt-2" style="padding-left: 0px;">
-									<a th:href="@{'/pub/doc' + ${file.url}}" href="#" class="link-dark rounded text-decoration-none">
+									<a class="link-dark rounded text-decoration-none" 
+										th:title="${file.slideTitle}" 
+										th:href="@{'/pub/doc' + ${file.url}}" href="#" 
+									>
 										<i class="bi bi-journal-text fa-xl"></i> &nbsp;
 										<span th:text="${file.fileName}">File Name</span>
 									</a>
@@ -334,8 +337,9 @@
 														th:classappend="${ subFolder2.urlStartsWith( docPath ) ? 'show' : ''}" >
 													<!-- 2단계 하위 폴더의 파일 목록 -->
 													<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small" th:if="${subFolder2.fileInfos.size() > 0 }">
-														<li th:each="file : ${subFolder2.fileInfos}" class="mt-1" style="padding-left: 24px;">
+														<li th:each="file , fileIter : ${subFolder2.fileInfos}" class="mt-1" style="padding-left: 24px;">
 															<a class="link-dark rounded text-decoration-none" 
+																th:title="${file.slideTitle}"
 																th:href="@{'/pub/doc' + ${file.url}}" href="#"  >
 																<span th:if="${file.url == docPath }" 
 																	th:classappend="${file.url == docPath ? 'highlight-menu-link' : ''}">
@@ -345,7 +349,7 @@
 																	th:classappend="${file.url == docPath ? 'highlight-menu-link' : ''}" >
 																</i> 
 																&nbsp;
-																<span th:text="${file.fileName}" 
+																<span th:text="${ ''.format('%03d', fileIter.index + 1 )  + ' : ' + file.slideTitle }" 
 																	th:classappend="${file.url == docPath ? 'highlight-menu-link' : ''}" >
 																	File Name
 																</span>
