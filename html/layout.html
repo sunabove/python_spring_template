@@ -349,7 +349,8 @@
 																	th:classappend="${file.url == docPath ? 'highlight-menu-link' : ''}" >
 																</i> 
 																&nbsp;
-																<span th:text="${ ''.format('%03d', fileIter.index + 1 )  + ' : ' + file.slideTitle }" 
+																<span class="fs-6" style="max-width: 180px;" 
+																	th:text="${ '[' + ''.format('%03d', fileIter.index + 1 )  + '] ' + file.slideTitle }" 
 																	th:classappend="${file.url == docPath ? 'highlight-menu-link' : ''}" >
 																	File Name
 																</span>
