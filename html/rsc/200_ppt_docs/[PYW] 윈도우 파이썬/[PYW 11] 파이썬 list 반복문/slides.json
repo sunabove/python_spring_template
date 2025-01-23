@@ -33,7 +33,7 @@
     },
     {
         "number": 9,
-        "title": "0 부터 stop - 1 까지의 정수들을 생"
+        "title": "# 0부터 4까지 출력 for i in ra"
     },
     {
         "number": 10,
@@ -41,7 +41,7 @@
     },
     {
         "number": 11,
-        "title": "start 부터 stop - 1 까지의 정수"
+        "title": "# 2부터 5까지 출력 for i in ra"
     },
     {
         "number": 12,
@@ -49,7 +49,7 @@
     },
     {
         "number": 13,
-        "title": "start 부터 stop - 1 까지 ste"
+        "title": "# 0부터 9까지 2씩 증가 출력 for i"
     },
     {
         "number": 14,

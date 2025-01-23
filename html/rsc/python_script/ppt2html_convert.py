@@ -31,7 +31,7 @@ from pptx import Presentation
 
 def extract_slide_titles_to_json(ppt_file_path, output_json_path):
     print()
-    print(f"Extracting slide titles from {ppt_file_path}...")
+    print(f"Extracting slide titles \nfrom {ppt_file_path}...")
 
     ppt_file_path = Path(ppt_file_path)
     output_json_path = Path(output_json_path)
@@ -44,19 +44,39 @@ def extract_slide_titles_to_json(ppt_file_path, output_json_path):
         title = None
         slide_number = idx + 1
 
-        # 슬라이드의 제목을 찾아 추출
-        for shape in slide.shapes:
-            if shape.has_text_frame and shape.text_frame is not None:
-                t = shape.text_frame.text.strip()
-                if t and "" not in t :  # 텍스트가 비어있지 않은지 확인
-                    title = shape.text_frame.text.strip()
-                    # 정규 표현식을 사용하여 모든 화이트스페이스 문자를 단일 스페이스로 대체
-                    title = re.sub(r'[\u25A0-\u25FF\u2B50\uFFFD\u003F]+', '', title).strip()
-                    title = re.sub(r'\s+', ' ', title).strip()
-                    title = title[ 0 : 24 ]
-                    break
+        if slide.shapes.title :  # 슬라이드에 제목이 있는지 확인
+            title = slide.shapes.title.text.strip() 
+        pass
+
+        # 2. 제목이 없으면 텍스트 상자에서 텍스트 추출
+        if not title :
+            # 모든 shape의 중심 좌표 계산 후 정렬
+            shapes_with_position = []
+            for shape in slide.shapes:
+                if shape.has_text_frame and shape.text_frame.text.strip():
+                    # 중심 좌표 계산 (left + width/2, top + height/2)
+                    center_x = shape.left + shape.width / 2
+                    center_y = shape.top + shape.height / 2
+                    shapes_with_position.append((center_x, center_y, shape))
                 pass
             pass
+
+            # Y 좌표를 기준으로 먼저 정렬, 같은 Y일 경우 X 좌표로 정렬
+            shapes_with_position.sort(key=lambda item: (item[0], item[1]))
+
+            # 가장 먼저 나오는 텍스트를 제목으로 사용
+            for _, _, shape in shapes_with_position:
+                title = shape.text_frame.text.strip()
+                break  # 첫 번째 텍스트만 추출 
+            pass 
+        pass
+
+        if title is not None : 
+            title = title.strip()
+            # 정규 표현식을 사용하여 모든 화이트스페이스 문자를 단일 스페이스로 대체
+            title = re.sub(r'[\u25A0-\u25FF\u2B50\uFFFD\u003F]+', '', title).strip()
+            title = re.sub(r'\s+', ' ', title).strip()
+            title = title[ 0 : 24 ]
         pass
 
         # 슬라이드 제목 저장
@@ -71,7 +91,7 @@ def extract_slide_titles_to_json(ppt_file_path, output_json_path):
         json.dump(slide_titles, json_file, indent=4, ensure_ascii=False)
     pass
 
-    print(f"Slide titles have been saved to {output_json_path}")
+    print(f"Slide titles have been saved to \n{output_json_path}")
     print()
 pass # extract_slide_titles_to_json
 
@@ -243,7 +263,7 @@ def check_and_convert_ppts_in_folder(folder_path):
 
         json_file = ppt_file.parent / "slides.json" 
 
-        if True or not json_file.exists() :
+        if not json_file.exists() :
             extract_slide_titles_to_json( ppt_file, json_file )
         pass
     pass
