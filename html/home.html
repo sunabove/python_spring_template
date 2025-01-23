@@ -326,7 +326,33 @@
 					text-overflow: ellipsis;
 					height: calc(1.2em * 2.5); /* Approximate height for 2 lines of text */
 				}
+
+				/** carousel **/
+
+				.carousel-control-prev, .carousel-control-next {
+					width: 30px; /* 버튼의 너비를 30px로 설정 */
+					background-color: rgba(0, 0, 0, 0.1); /* 버튼 배경을 반투명 검정으로 설정 */
+				}
+
+				.carousel-control-prev-icon, .carousel-control-next-icon {
+					filter: invert(1); /* 아이콘 색상을 반전시켜 흰색으로 만듦 */
+				}
+
+				/* carousel-inner 내부 내용에 padding을 추가해 버튼과 겹치지 않도록 설정 */
+				.carousel-inner {
+					padding-left: 40px;  /* 왼쪽 여백 */
+					padding-right: 40px; /* 오른쪽 여백 */
+				}
+
+				.card {
+					height: 100%; /* 카드 높이를 100%로 확장 */
+					display: flex;
+					flex-direction: column; /* 카드 내부 콘텐츠를 세로 정렬 */
+				}
+
+				/** -- carousel **/
 			</style>
+
 
 			<div class="card text-center mt-3" th:if="${ partitionedBooks.size() > 0 }">
 
@@ -339,12 +365,12 @@
 				<!-- card body -->
 				
 				<div class="card-body row">
-					<div class="col-12 col-sm-12 col-xl-12">
-						
+					<div class="col-12 col-sm-12 col-xl-12 p-0">
+
 						<div id="carouselIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000" >
 				
 							<!-- Carousel Indicators -->
-							<div class="carousel-indicators">
+							<div class="carousel-indicators" th:if="${ false }">
 								<button type="button" th:each="group, stats : ${ partitionedBooks }" 
 										data-bs-target="#carouselIndicators" 
 										th:data-bs-slide-to="${stats.index}" data-bs-slide-to="0" 
@@ -423,15 +449,16 @@
 							</div>
 				
 							<!-- Carousel Controls -->
-							<button class="carousel-control-prev" type="button" data-bs-target="#carouselIndicators"
-									data-bs-slide="prev">
+							<button class="carousel-control-prev" type="button" 
+									data-bs-target="#carouselIndicators" data-bs-slide="prev">
 								<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-								<span class="visually-hidden">Previous</span>
+								<span class="visually-hidden"> 이전 </span>
 							</button>
-							<button class="carousel-control-next" type="button" data-bs-target="#carouselIndicators"
-									data-bs-slide="next">
+
+							<button class="carousel-control-next" type="button" 
+									data-bs-target="#carouselIndicators" data-bs-slide="next">
 								<span class="carousel-control-next-icon" aria-hidden="true"></span>
-								<span class="visually-hidden">Next</span>
+								<span class="visually-hidden"> 다음 </span>
 							</button>
 				
 						</div>
