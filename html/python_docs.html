@@ -208,8 +208,13 @@
 
 			<div class="card text-center mt-3">
 				<!-- 카드 헤더 -->
-				<div class="card-header">
-					<span class="h5" th:text="${ parentDocTitle }"> 기술 문서 </span>
+				<div class="card-header row">
+					<div class="col-10">
+						<span class="h5" th:text="${ parentDocTitle }"> 기술 문서 </span>
+					</div>
+					<div class="col-2 h7">
+						조회수 : <span class="text-primary" th:text="${ urlCount }">1,234</span>
+					</div>
 				</div> 
 				
 				<div class="card-header row" >
