@@ -1,5 +1,6 @@
 import argparse
 import os
+import re
 
 # 환경 변수 설정
 os.environ['DOTNET_SYSTEM_GLOBALIZATION_INVARIANT'] = 'true'
@@ -20,16 +21,64 @@ def import_or_install(package):
     pass
 pass
 
-import_or_install( "aspose.slides" )
+import_or_install( "aspose.slides" ) # Aspose.Slides 패키지 설치
 
 import aspose.slides as slides
 from pathlib import Path
+import json
 
-def convert_ppt_to_html(ppt_file_path):
-    print(f"Converting ppt file to html : {ppt_file_path} ...", flush=1 )
+from pptx import Presentation
+
+def extract_slide_titles_to_json(ppt_file_path, output_json_path):
+    print()
+    print(f"Extracting slide titles from {ppt_file_path}...")
+
+    ppt_file_path = Path(ppt_file_path)
+    output_json_path = Path(output_json_path)
+
+    # PowerPoint 프레젠테이션 열기
+    presentation = Presentation(ppt_file_path)
+    slide_titles = []
+
+    for slide_number, slide in enumerate(presentation.slides, start=1):
+        title = None
+
+        # 슬라이드의 제목을 찾아 추출
+        for shape in slide.shapes:
+            if shape.has_text_frame and shape.text_frame is not None:
+                t = shape.text_frame.text.strip()
+                if t and "" not in t :  # 텍스트가 비어있지 않은지 확인
+                    title = shape.text_frame.text.strip()
+                    # 정규 표현식을 사용하여 모든 화이트스페이스 문자를 단일 스페이스로 대체
+                    title = re.sub(r'[\u25A0-\u25FF\u2B50\uFFFD\u003F]+', '', title).strip()
+                    title = re.sub(r'\s+', ' ', title).strip()
+                    break
+                pass
+            pass
+        pass
+
+        # 슬라이드 제목 저장
+        slide_titles.append({
+            "slide_number": slide_number,
+            "title": title if title else ""
+        })
+    pass
+
+    # JSON 파일로 저장
+    with open(output_json_path, 'w', encoding='utf-8') as json_file:
+        json.dump(slide_titles, json_file, indent=4, ensure_ascii=False)
+    pass
+
+    print(f"Slide titles have been saved to {output_json_path}")
+    print()
+pass # extract_slide_titles_to_json
+
+def convert_ppt_to_html( ppt_file ):
+
+    print(f"Converting ppt file to html : {ppt_file} ...", flush=1 )
 
     # Load the presentation file
-    ppt = slides.Presentation( str(ppt_file_path) )
+    ppt = slides.Presentation( str(ppt_file) )
 
     # Create HTML options
     options = slides.export.HtmlOptions()
@@ -38,7 +87,7 @@ def convert_ppt_to_html(ppt_file_path):
     # Set controller as HTML formatter
     options.html_formatter = slides.export.HtmlFormatter.create_custom_formatter(controller)
 
-    folder_path = Path( ppt_file_path ).parent
+    folder_path = Path( ppt_file ).parent
 
     # 모든 HTML 파일을 삭제합니다.
     print( f"deleting all html files in the folder({folder_path})..." )
@@ -178,12 +227,22 @@ def check_and_convert_ppts_in_folder(folder_path):
 
         print( f"ppt_needs_conversion = {ppt_needs_conversion}" )
 
+        json_file = ppt_file.parent / "slides.json"
+
         if ppt_needs_conversion:
             print(f"PPT file {ppt_file} is newer than corresponding HTML files. Converting all slides...")
             # Convert all slides to HTML
             convert_ppt_to_html( ppt_file )
+
+            extract_slide_titles_to_json( ppt_file, json_file )
         else:
             print(f"All HTML files are up-to-date. Skipped converting PPT file {ppt_file}.")
+        pass
+
+        json_file = ppt_file.parent / "slides.json" 
+
+        if True or not json_file.exists() :
+            extract_slide_titles_to_json( ppt_file, json_file )
         pass
     pass
 pass # check_and_convert_ppts_in_folder

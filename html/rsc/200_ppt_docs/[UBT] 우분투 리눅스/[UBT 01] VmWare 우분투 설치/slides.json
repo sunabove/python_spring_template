@@ -1,0 +1,74 @@
+[
+    {
+        "slide_number": 1,
+        "title": "VMWare Player를 이용한 Ubuntu 24.04 설치 방법"
+    },
+    {
+        "slide_number": 2,
+        "title": "VMWare Player 를 이용한Ubuntu 24.04설 치 방 법"
+    },
+    {
+        "slide_number": 3,
+        "title": "주요 링크"
+    },
+    {
+        "slide_number": 4,
+        "title": "Ubuntu 24.04 LTS 출시"
+    },
+    {
+        "slide_number": 5,
+        "title": "Virtual Machine 개요"
+    },
+    {
+        "slide_number": 6,
+        "title": "VmWare Player를 이용한 Ubuntu 24.04 설치"
+    },
+    {
+        "slide_number": 7,
+        "title": "Virtual Machine 개념"
+    },
+    {
+        "slide_number": 8,
+        "title": "Virtual Machine Ware Player 가상 머신을 생성하고 실행하는 프로그램 VMWare Player를 사용하는 것으로 충분합니다. VMWare Workstation Pro를 굳이 사용할 필요는 없습니다. 다운로드 및 설치 https://www.vmware.com/products/workstation-player.html VMWare 사용자 매뉴얼 https://docs.vmware.com/en/VMware-Workstation-Player-for-Windows/15.0/workstation-player-15-windows-user-guide.pdf"
+    },
+    {
+        "slide_number": 9,
+        "title": "우분투 개요"
+    },
+    {
+        "slide_number": 10,
+        "title": "우분투 소개"
+    },
+    {
+        "slide_number": 11,
+        "title": "Ubuntu 배포판 업데이트 주기"
+    },
+    {
+        "slide_number": 12,
+        "title": "Ubuntu Release History"
+    },
+    {
+        "slide_number": 13,
+        "title": "Ubuntu LTS Version 비교"
+    },
+    {
+        "slide_number": 14,
+        "title": "VM 하드웨어 설정"
+    },
+    {
+        "slide_number": 15,
+        "title": "(1) VM 설정 : 메모리 최대 사용으로 설정"
+    },
+    {
+        "slide_number": 16,
+        "title": "(2) VM 설정 : 프로세스 개수 최대 설정"
+    },
+    {
+        "slide_number": 17,
+        "title": "(3) VM 설정 : 3D 가속 미사용 설정"
+    },
+    {
+        "slide_number": 18,
+        "title": "감사합니다."
+    }
+]

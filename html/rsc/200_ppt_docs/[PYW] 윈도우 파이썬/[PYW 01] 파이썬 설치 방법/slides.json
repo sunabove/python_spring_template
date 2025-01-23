@@ -1,0 +1,70 @@
+[
+    {
+        "slide_number": 1,
+        "title": "윈도우 파이썬 설치방법"
+    },
+    {
+        "slide_number": 2,
+        "title": "* 주요 링크 *"
+    },
+    {
+        "slide_number": 3,
+        "title": "파이썬 설치 버전 선택"
+    },
+    {
+        "slide_number": 4,
+        "title": "파이썬 버전의 출시 이력"
+    },
+    {
+        "slide_number": 5,
+        "title": "주요 패키지들의 지원 버전 현황"
+    },
+    {
+        "slide_number": 6,
+        "title": "파이썬 설치 버전 선택 시 고려 사항"
+    },
+    {
+        "slide_number": 7,
+        "title": "윈도우에서 파이썬 설치"
+    },
+    {
+        "slide_number": 8,
+        "title": "(0) 윈도우 파이썬 프로그램 설치 개요"
+    },
+    {
+        "slide_number": 9,
+        "title": "(1) 프로그램 다운로드 / 3.11 버전"
+    },
+    {
+        "slide_number": 10,
+        "title": "(2) 경로 추가 / 사용자 정의 설치"
+    },
+    {
+        "slide_number": 11,
+        "title": "(3) 옵션 선택 / 모든 사용자 확인"
+    },
+    {
+        "slide_number": 12,
+        "title": "(4) 고급 옵션 선택 / 모든 사용자 설치 선택"
+    },
+    {
+        "slide_number": 13,
+        "title": "(5) 파이썬 프로그램 설치 완료"
+    },
+    {
+        "slide_number": 14,
+        "title": "(6) 파이썬 프로그램 설치를 확인"
+    },
+    {
+        "slide_number": 15,
+        "title": "파이썬 제거 방법"
+    },
+    {
+        "slide_number": 16,
+        "title": "파이슨 프로그램 제거 방법"
+    },
+    {
+        "slide_number": 17,
+        "title": "감사합니다."
+    }
+]

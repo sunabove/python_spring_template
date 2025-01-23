@@ -1,0 +1,70 @@
+[
+    {
+        "slide_number": 1,
+        "title": "파이썬 PRINT 출력하기"
+    },
+    {
+        "slide_number": 2,
+        "title": "순서"
+    },
+    {
+        "slide_number": 3,
+        "title": "* 주요 링크 *"
+    },
+    {
+        "slide_number": 4,
+        "title": "PRINT 출력 개요"
+    },
+    {
+        "slide_number": 5,
+        "title": "print 함수"
+    },
+    {
+        "slide_number": 6,
+        "title": "print 함수의 주요 특징"
+    },
+    {
+        "slide_number": 7,
+        "title": "print 함수의 정의"
+    },
+    {
+        "slide_number": 8,
+        "title": "(1-1) 다양한 데이터를 출력"
+    },
+    {
+        "slide_number": 9,
+        "title": "(1-2) 변수 데이터를 출력"
+    },
+    {
+        "slide_number": 10,
+        "title": "(2) 여러 데이터들을 출력"
+    },
+    {
+        "slide_number": 11,
+        "title": "(3) 구분 문자 (sep=' ') 지정"
+    },
+    {
+        "slide_number": 12,
+        "title": "(4-1) 자동 줄 바꿈"
+    },
+    {
+        "slide_number": 13,
+        "title": "(4-2) 줄 바꿈 문자 지정"
+    },
+    {
+        "slide_number": 14,
+        "title": "(4-3) 구분 문자와 줄 바꿈 문자를 동시 지정"
+    },
+    {
+        "slide_number": 15,
+        "title": "(5) 버퍼 비우기 (실시간 출력)"
+    },
+    {
+        "slide_number": 16,
+        "title": "(6) 파일로 출력하기"
+    },
+    {
+        "slide_number": 17,
+        "title": "감사합니다."
+    }
+]

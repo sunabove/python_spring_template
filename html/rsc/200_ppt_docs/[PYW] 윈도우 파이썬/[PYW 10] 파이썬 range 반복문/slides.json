@@ -1,0 +1,62 @@
+[
+    {
+        "slide_number": 1,
+        "title": "파이썬 RANGE 반복문"
+    },
+    {
+        "slide_number": 2,
+        "title": "순서"
+    },
+    {
+        "slide_number": 3,
+        "title": "* 주요 링크 *"
+    },
+    {
+        "slide_number": 4,
+        "title": "Range 반복문 개요"
+    },
+    {
+        "slide_number": 5,
+        "title": "파이썬 반복문의 개요"
+    },
+    {
+        "slide_number": 6,
+        "title": "* range( ) 함수 *"
+    },
+    {
+        "slide_number": 7,
+        "title": "for 반복문에서 range 사용 방법"
+    },
+    {
+        "slide_number": 8,
+        "title": "range(stop) : 0 부터 stop - 1 까지의 정수들을 생성합니다. 아래의 range들은 동일합니다. range(stop) = range(0, stop) = range(0, stop, 1)"
+    },
+    {
+        "slide_number": 9,
+        "title": "0 부터 stop - 1 까지의 정수들을 생성합니다."
+    },
+    {
+        "slide_number": 10,
+        "title": "range(start, stop) : start부터 stop - 1까지의 정수들을 생성합니다. 아래의 range들은 동일합니다. range(start, stop) = range(start, stop, 1)"
+    },
+    {
+        "slide_number": 11,
+        "title": "start 부터 stop - 1 까지의 정수들을 생성합니다."
+    },
+    {
+        "slide_number": 12,
+        "title": "range(start, stop, step) : start 부터 stop - 1 까지 step 간격으로 정수들을 생성합니다. 음수 step : start 부터 stop + 1 까지 step 간격으로 큰 값부터 작은 값 방향으로 정수들을 생성합니다. 예) range( 5, 0, -1 ) => 5, 4, 3, 2, 1"
+    },
+    {
+        "slide_number": 13,
+        "title": "start 부터 stop - 1 까지 step 간격으로 정수들을 생성합니다."
+    },
+    {
+        "slide_number": 14,
+        "title": "(3-3) range 음수 step 예제"
+    },
+    {
+        "slide_number": 15,
+        "title": "감사합니다."
+    }
+]

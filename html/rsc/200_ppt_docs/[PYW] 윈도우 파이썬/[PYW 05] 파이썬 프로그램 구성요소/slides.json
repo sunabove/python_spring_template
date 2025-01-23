@@ -1,0 +1,66 @@
+[
+    {
+        "slide_number": 1,
+        "title": "Python 프로그램 구성요소 임포트 방법"
+    },
+    {
+        "slide_number": 2,
+        "title": "주요 링크"
+    },
+    {
+        "slide_number": 3,
+        "title": "Python Package & Module 구성 요소"
+    },
+    {
+        "slide_number": 4,
+        "title": "Python Module 구성 요소"
+    },
+    {
+        "slide_number": 5,
+        "title": "Python Package & Module"
+    },
+    {
+        "slide_number": 6,
+        "title": "패키지 생성 예제"
+    },
+    {
+        "slide_number": 7,
+        "title": "모듈 생성 예제"
+    },
+    {
+        "slide_number": 8,
+        "title": "패키지 및 모듈 임포트(import) 방법"
+    },
+    {
+        "slide_number": 9,
+        "title": "1. 모듈 소스 (myMod1.py) 예제"
+    },
+    {
+        "slide_number": 10,
+        "title": "2. 모듈 소스 (myMod2.py) 예제"
+    },
+    {
+        "slide_number": 11,
+        "title": "3. 패키지 모듈 임포트 예제"
+    },
+    {
+        "slide_number": 12,
+        "title": "4. 패키지 모듈 구성 요소 임포트 예제"
+    },
+    {
+        "slide_number": 13,
+        "title": "5. 패키지 모듈 닉네임 임포트 예제"
+    },
+    {
+        "slide_number": 14,
+        "title": "6. 서브 패키지 모듈 임포트 예제"
+    },
+    {
+        "slide_number": 15,
+        "title": "7. 서브 패키지 모듈 전체 임포트 예제"
+    },
+    {
+        "slide_number": 16,
+        "title": "감사합니다."
+    }
+]
