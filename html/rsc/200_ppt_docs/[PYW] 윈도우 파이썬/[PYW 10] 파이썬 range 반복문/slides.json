@@ -29,27 +29,27 @@
     },
     {
         "number": 8,
-        "title": "range(stop) : 0 부터 stop - 1 까지의 정수들을 생성합니다. 아래의 range들은 동일합니다. range(stop) = range(0, stop) = range(0, stop, 1)"
+        "title": "range(stop) : 0 부터 stop "
     },
     {
         "number": 9,
-        "title": "0 부터 stop - 1 까지의 정수들을 생성합니다."
+        "title": "0 부터 stop - 1 까지의 정수들을 생"
     },
     {
         "number": 10,
-        "title": "range(start, stop) : start부터 stop - 1까지의 정수들을 생성합니다. 아래의 range들은 동일합니다. range(start, stop) = range(start, stop, 1)"
+        "title": "range(start, stop) : sta"
     },
     {
         "number": 11,
-        "title": "start 부터 stop - 1 까지의 정수들을 생성합니다."
+        "title": "start 부터 stop - 1 까지의 정수"
     },
     {
         "number": 12,
-        "title": "range(start, stop, step) : start 부터 stop - 1 까지 step 간격으로 정수들을 생성합니다. 음수 step : start 부터 stop + 1 까지 step 간격으로 큰 값부터 작은 값 방향으로 정수들을 생성합니다. 예) range( 5, 0, -1 ) => 5, 4, 3, 2, 1"
+        "title": "range(start, stop, step)"
     },
     {
         "number": 13,
-        "title": "start 부터 stop - 1 까지 step 간격으로 정수들을 생성합니다."
+        "title": "start 부터 stop - 1 까지 ste"
     },
     {
         "number": 14,

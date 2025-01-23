@@ -53,6 +53,7 @@ def extract_slide_titles_to_json(ppt_file_path, output_json_path):
                     # 정규 표현식을 사용하여 모든 화이트스페이스 문자를 단일 스페이스로 대체
                     title = re.sub(r'[\u25A0-\u25FF\u2B50\uFFFD\u003F]+', '', title).strip()
                     title = re.sub(r'\s+', ' ', title).strip()
+                    title = title[ 0 : 24 ]
                     break
                 pass
             pass
@@ -242,7 +243,7 @@ def check_and_convert_ppts_in_folder(folder_path):
 
         json_file = ppt_file.parent / "slides.json" 
 
-        if not json_file.exists() :
+        if True or not json_file.exists() :
             extract_slide_titles_to_json( ppt_file, json_file )
         pass
     pass
