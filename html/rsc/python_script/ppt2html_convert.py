@@ -241,7 +241,7 @@ def check_and_convert_ppts_in_folder(folder_path):
 
         json_file = ppt_file.parent / "slides.json" 
 
-        if True or not json_file.exists() :
+        if not json_file.exists() :
             extract_slide_titles_to_json( ppt_file, json_file )
         pass
     pass
