@@ -317,6 +317,17 @@
 
 			<!-- 서적 -->
 
+			<style>
+				.book-summary {
+					display: -webkit-box;
+					-webkit-line-clamp: 2; /* Limit to 2 lines */
+					-webkit-box-orient: vertical;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					height: calc(1.2em * 2.5); /* Approximate height for 2 lines of text */
+				}
+			</style>
+
 			<div class="card text-center mt-3" th:if="${ partitionedBooks.size() > 0 }">
 
 				<div class="card-header">
@@ -349,41 +360,63 @@
 								>
 									<div class="row">
 										<div class="col-4" th:each="book : ${group}">
-											<div class="card" style="height: 100%;">
-												<div class="card-body">
 
+											<div class="card shadow-sm h-100 border-0">
+
+												<div class="card-body p-0 d-flex flex-column align-items-center">
+												  
+													<!-- Book Image -->
+													<img th:src="@{ ${book.imageUrl} }" 
+														th:if="${book.imageUrl != null}"
+														src="./rsc/103_books/book_001_jump_to_python/jump_to_python.jpg" 
+														class="rounded mb-1" alt="Book Image" 
+														style="width: auto; height: 180px;">
+													
 													<!-- Book Title -->
-													<h5 class="card-title text-truncate mb-2" th:text="${book.title}">Book Title</h5>
-                  
-													<!-- Author -->
-													<p class="card-text text-nowrap mb-2" >
-													  <strong>저자:</strong> <span th:text="${book.author}">Author Name</span>
-													</p>
+													<h5 class="card-title text-center text-truncate mt-1 mb-1 fw-bold" 
+														th:if="${book.imageUrl == null}"
+														th:text="${book.title}">
+														Book Title
+													</h5>
 													
-													<!-- Publisher -->
-													<p class="card-text text-nowrap mb-2">
-													  <strong>출판사:</strong> <span th:text="${book.publisher}">Publisher Name</span>
-													</p>
-													
-													<!-- Publication Year -->
-													<p class="card-text text-nowrap mb-2">
-													  <strong>년도:</strong> <span th:text="${book.publicationYear}">2023</span>년
-													</p>
-													
-													<!-- URL -->
-													<a th:href="${book.url}" class="btn btn-primary mb-2" target="_blank">
-													  더 보기
-													</a>
-
-													<br/>
+													<!-- Book Details Table -->
+													<table class="table table-borderless text-center m-0 p-0" style="width: auto;">
+														<tbody>
+														<tr>
+															<th scope="row" class="text-end p-1">
+																<i class="bi bi-person-fill me-2"></i> 저자 :
+															</th>
+															<td class="text-start p-1" >
+																<span class="badge bg-secondary" th:text="${book.author}">Author</span>
+															</td>
+														</tr>
+														<tr>
+															<th scope="row" class="text-end p-1">
+																<i class="bi bi-building me-2"></i> 출판사 :
+															</th>
+															<td class="text-start p-1" >
+																<span class="badge bg-secondary" th:text="${book.publisher}">Publisher</span>
+																&nbsp;
+																<span class="badge bg-secondary" th:text="${ '(' + book.publicationYear + '년' + ')'}" >2023</span> 
+															</td>
+														</tr>
+														</tbody>
+													</table>
 
 													<!-- Summary -->
-													<p class="card-text text-start mb-2">
+													<p class="card-text text-center text-muted mb-2 book-summary" style="font-size: 0.95rem;">
 														<span th:text="${book.summary}">Book Summary</span>
-													</p>
-
+													</p> 
+													
+													<!-- URL Button -->
+													<a th:href="${book.url}" class="btn btn-primary w-100" target="_blank">
+													<i class="bi bi-box-arrow-up-right me-2"></i> 더 보기
+													</a>
+												  
 												</div>
+
 											</div>
+
 										</div>
 									</div>
 								</div>
