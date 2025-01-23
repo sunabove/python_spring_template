@@ -41,7 +41,7 @@ def convert_ppt_to_html(ppt_file_path):
     folder_path = Path( ppt_file_path ).parent
 
     # 모든 HTML 파일을 삭제합니다.
-    print( "deleting all html files in the folder..." )
+    print( f"deleting all html files in the folder({folder_path})..." )
     [ html_file.unlink() for html_file in folder_path.glob("*.html") ]
     
     # 각 슬라이드를 개별 HTML 파일로 변환합니다.
@@ -155,16 +155,24 @@ def check_and_convert_ppts_in_folder(folder_path):
         print( f"html_files len: {len( html_files )}" )
 
         # Check if the PPT file's modification time is newer than all HTML files
-        ppt_needs_conversion = len( html_files ) == 0
+        ppt_needs_conversion = False
+        
+        if len( html_files ) == 0 :
+            ppt_needs_conversion = True
+        elif len( html_files ) < len( slides.Presentation( str(ppt_file) ).slides ) : 
+            ppt_needs_conversion = True
+        pass
 
-        for html_file in html_files:
-            html_mod_time = html_file.stat().st_mtime 
-            
-            debug and print( f"ppt_mod_time = {ppt_mod_time}, html_mod_time = {html_mod_time}" )
-            
-            if ppt_mod_time > html_mod_time:
-                ppt_needs_conversion = True
-                break
+        if not ppt_needs_conversion :
+            for html_file in html_files :
+                html_mod_time = html_file.stat().st_mtime 
+                
+                debug and print( f"ppt_mod_time = {ppt_mod_time}, html_mod_time = {html_mod_time}" )
+                
+                if ppt_mod_time > html_mod_time:
+                    ppt_needs_conversion = True
+                    break
+                pass
             pass
         pass
 
