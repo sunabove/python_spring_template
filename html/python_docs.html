@@ -298,7 +298,7 @@
 
 				<!-- 카드 푸터 -->
 				<div class="card-footer text-muted">
-					<span th:text="${ docModDate }">문서 수정일</span> <!-- 문서 수정일 추가 -->
+					<span th:text="${#dates.format(docModDate, 'yyyy-MM-dd HH:mm:ss')}">문서 수정일</span>
 				</div> 
 				
 			</div> 

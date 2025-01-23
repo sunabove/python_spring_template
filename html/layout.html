@@ -326,7 +326,9 @@
 													<i class="bi bi-folder-fill" th:if="${ subFolder2.hasSubFolder() }" ></i> 
 													<i class="bi bi-journal-text fa-xl" th:if="${ ! subFolder2.hasSubFolder() }" ></i>
 													&nbsp;
-													<span th:text="${subFolder2.fileDesc}">Sub Folder Name</span>
+													<span th:text="${subFolder2.fileDesc}" th:classappend="${subFolder2.url == docPath ? 'highlight-menu-link' : ''}">
+														Sub Folder Name
+													</span>
 												</a>
 												<div class="collapse show_" th:id="${subFolder2.getId()}" 
 														th:classappend="${ subFolder2.urlStartsWith( docPath ) ? 'show' : ''}" >
