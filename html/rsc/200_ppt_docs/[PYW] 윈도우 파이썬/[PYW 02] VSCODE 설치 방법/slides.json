@@ -1,54 +1,54 @@
 [
     {
-        "slide_number": 1,
+        "slideNo": 1,
         "title": "윈도우 VSCODE 설치방법"
     },
     {
-        "slide_number": 2,
+        "slideNo": 2,
         "title": "순서"
     },
     {
-        "slide_number": 3,
+        "slideNo": 3,
         "title": "* 주요 링크 *"
     },
     {
-        "slide_number": 4,
+        "slideNo": 4,
         "title": "VSCode 설치"
     },
     {
-        "slide_number": 5,
+        "slideNo": 5,
         "title": "VSCode(Visual Studio Code) 소개"
     },
     {
-        "slide_number": 6,
+        "slideNo": 6,
         "title": "VSCode 실행 플랫폼"
     },
     {
-        "slide_number": 7,
+        "slideNo": 7,
         "title": "VSCode 파이썬 코딩 개요"
     },
     {
-        "slide_number": 8,
+        "slideNo": 8,
         "title": "VSCode 다운로드"
     },
     {
-        "slide_number": 9,
+        "slideNo": 9,
         "title": "VSCode 익스텐션 설치"
     },
     {
-        "slide_number": 10,
+        "slideNo": 10,
         "title": "파이썬 코딩 방법"
     },
     {
-        "slide_number": 11,
+        "slideNo": 11,
         "title": "Jupyter Notebook 코딩 방법"
     },
     {
-        "slide_number": 12,
+        "slideNo": 12,
         "title": "VSCode 내장 터미널 사용법"
     },
     {
-        "slide_number": 13,
+        "slideNo": 13,
         "title": "감사합니다."
     }
 ]

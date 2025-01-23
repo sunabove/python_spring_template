@@ -59,7 +59,7 @@ def extract_slide_titles_to_json(ppt_file_path, output_json_path):
 
         # 슬라이드 제목 저장
         slide_titles.append({
-            "slide_number": slide_number,
+            "slideNo": slide_number,
             "title": title if title else ""
         })
     pass

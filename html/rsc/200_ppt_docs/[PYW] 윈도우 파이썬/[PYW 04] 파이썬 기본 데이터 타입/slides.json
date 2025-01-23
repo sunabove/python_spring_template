@@ -1,102 +1,102 @@
 [
     {
-        "slide_number": 1,
+        "slideNo": 1,
         "title": "Python 3 Basic Data Type"
     },
     {
-        "slide_number": 2,
+        "slideNo": 2,
         "title": "Python Basic Data Type 기본 데이터 타입"
     },
     {
-        "slide_number": 3,
+        "slideNo": 3,
         "title": "주요 링크 (Main Links)"
     },
     {
-        "slide_number": 4,
+        "slideNo": 4,
         "title": "Python 데이터 타입"
     },
     {
-        "slide_number": 5,
+        "slideNo": 5,
         "title": "Python 기본 데이터 타입"
     },
     {
-        "slide_number": 6,
+        "slideNo": 6,
         "title": "Basic Data Type 동의어(synonym)"
     },
     {
-        "slide_number": 7,
+        "slideNo": 7,
         "title": "Python Basic Data Type"
     },
     {
-        "slide_number": 8,
+        "slideNo": 8,
         "title": "문자열 동의어"
     },
     {
-        "slide_number": 9,
+        "slideNo": 9,
         "title": "논리형 동의어"
     },
     {
-        "slide_number": 10,
+        "slideNo": 10,
         "title": "1. Basic Data Type : 정수형"
     },
     {
-        "slide_number": 11,
+        "slideNo": 11,
         "title": "2. Basic Data Type : 실수형"
     },
     {
-        "slide_number": 12,
+        "slideNo": 12,
         "title": "3. Basic Data Type : 문자형"
     },
     {
-        "slide_number": 13,
+        "slideNo": 13,
         "title": "4. Basic Data Type : 논리형"
     },
     {
-        "slide_number": 14,
+        "slideNo": 14,
         "title": "5. Basic Data Type : 허수형"
     },
     {
-        "slide_number": 15,
+        "slideNo": 15,
         "title": "6. Basic Data Type : None"
     },
     {
-        "slide_number": 16,
+        "slideNo": 16,
         "title": "다른 언어와 기본형 비교"
     },
     {
-        "slide_number": 17,
+        "slideNo": 17,
         "title": "Python 수치 연산자 (Numeric Operator)"
     },
     {
-        "slide_number": 18,
+        "slideNo": 18,
         "title": "기본형 연산 결과"
     },
     {
-        "slide_number": 19,
+        "slideNo": 19,
         "title": "Python 기본형의 특징"
     },
     {
-        "slide_number": 20,
+        "slideNo": 20,
         "title": "1. 정수 연산 예제"
     },
     {
-        "slide_number": 21,
+        "slideNo": 21,
         "title": "2. 실수 연산 예제"
     },
     {
-        "slide_number": 22,
+        "slideNo": 22,
         "title": "3. 정수와 실수의 연산 예제"
     },
     {
-        "slide_number": 23,
+        "slideNo": 23,
         "title": "4. 문자열 수치 연산"
     },
     {
-        "slide_number": 24,
+        "slideNo": 24,
         "title": "5. 문자열 수치 연산 에러 예시"
     },
     {
-        "slide_number": 25,
+        "slideNo": 25,
         "title": "감사합니다."
     }
 ]
