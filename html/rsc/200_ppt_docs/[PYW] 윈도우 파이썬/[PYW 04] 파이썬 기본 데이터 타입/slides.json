@@ -1,102 +1,102 @@
 [
     {
-        "slideNo": 1,
+        "number": 1,
         "title": "Python 3 Basic Data Type"
     },
     {
-        "slideNo": 2,
+        "number": 2,
         "title": "Python Basic Data Type 기본 데이터 타입"
     },
     {
-        "slideNo": 3,
+        "number": 3,
         "title": "주요 링크 (Main Links)"
     },
     {
-        "slideNo": 4,
+        "number": 4,
         "title": "Python 데이터 타입"
     },
     {
-        "slideNo": 5,
+        "number": 5,
         "title": "Python 기본 데이터 타입"
     },
     {
-        "slideNo": 6,
+        "number": 6,
         "title": "Basic Data Type 동의어(synonym)"
     },
     {
-        "slideNo": 7,
+        "number": 7,
         "title": "Python Basic Data Type"
     },
     {
-        "slideNo": 8,
+        "number": 8,
         "title": "문자열 동의어"
     },
     {
-        "slideNo": 9,
+        "number": 9,
         "title": "논리형 동의어"
     },
     {
-        "slideNo": 10,
+        "number": 10,
         "title": "1. Basic Data Type : 정수형"
     },
     {
-        "slideNo": 11,
+        "number": 11,
         "title": "2. Basic Data Type : 실수형"
     },
     {
-        "slideNo": 12,
+        "number": 12,
         "title": "3. Basic Data Type : 문자형"
     },
     {
-        "slideNo": 13,
+        "number": 13,
         "title": "4. Basic Data Type : 논리형"
     },
     {
-        "slideNo": 14,
+        "number": 14,
         "title": "5. Basic Data Type : 허수형"
     },
     {
-        "slideNo": 15,
+        "number": 15,
         "title": "6. Basic Data Type : None"
     },
     {
-        "slideNo": 16,
+        "number": 16,
         "title": "다른 언어와 기본형 비교"
     },
     {
-        "slideNo": 17,
+        "number": 17,
         "title": "Python 수치 연산자 (Numeric Operator)"
     },
     {
-        "slideNo": 18,
+        "number": 18,
         "title": "기본형 연산 결과"
     },
     {
-        "slideNo": 19,
+        "number": 19,
         "title": "Python 기본형의 특징"
     },
     {
-        "slideNo": 20,
+        "number": 20,
         "title": "1. 정수 연산 예제"
     },
     {
-        "slideNo": 21,
+        "number": 21,
         "title": "2. 실수 연산 예제"
     },
     {
-        "slideNo": 22,
+        "number": 22,
         "title": "3. 정수와 실수의 연산 예제"
     },
     {
-        "slideNo": 23,
+        "number": 23,
         "title": "4. 문자열 수치 연산"
     },
     {
-        "slideNo": 24,
+        "number": 24,
         "title": "5. 문자열 수치 연산 에러 예시"
     },
     {
-        "slideNo": 25,
+        "number": 25,
         "title": "감사합니다."
     }
 ]

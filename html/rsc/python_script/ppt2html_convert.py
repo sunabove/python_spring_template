@@ -40,8 +40,9 @@ def extract_slide_titles_to_json(ppt_file_path, output_json_path):
     presentation = Presentation(ppt_file_path)
     slide_titles = []
 
-    for slide_number, slide in enumerate(presentation.slides, start=1):
+    for idx, slide in enumerate( presentation.slides ):
         title = None
+        slide_number = idx + 1
 
         # 슬라이드의 제목을 찾아 추출
         for shape in slide.shapes:
@@ -59,7 +60,7 @@ def extract_slide_titles_to_json(ppt_file_path, output_json_path):
 
         # 슬라이드 제목 저장
         slide_titles.append({
-            "slideNo": slide_number,
+            "number": slide_number,
             "title": title if title else ""
         })
     pass

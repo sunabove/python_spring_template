@@ -1,90 +1,90 @@
 [
     {
-        "slideNo": 1,
+        "number": 1,
         "title": "우분투 파이썬 전체패키지 업데이트"
     },
     {
-        "slideNo": 2,
+        "number": 2,
         "title": "* 주요 링크 *"
     },
     {
-        "slideNo": 3,
+        "number": 3,
         "title": "패키지 업데이트 개요"
     },
     {
-        "slideNo": 4,
+        "number": 4,
         "title": "파이썬 패키지 업데이트의 개요"
     },
     {
-        "slideNo": 5,
+        "number": 5,
         "title": "파이썬 패키지 업데이트의 절차"
     },
     {
-        "slideNo": 6,
+        "number": 6,
         "title": "PyPI 파이썬 패키지 저상소"
     },
     {
-        "slideNo": 7,
+        "number": 7,
         "title": "Pipdate 패키지 관리자"
     },
     {
-        "slideNo": 8,
+        "number": 8,
         "title": "Pipdate 경고(Warning) 메시지"
     },
     {
-        "slideNo": 9,
+        "number": 9,
         "title": "Pipdate 에러(Error) 메시지"
     },
     {
-        "slideNo": 10,
+        "number": 10,
         "title": "패키지 업데이트 스크립트 실행 방법"
     },
     {
-        "slideNo": 11,
+        "number": 11,
         "title": "전체 패키지 업데이트 스크립트"
     },
     {
-        "slideNo": 12,
+        "number": 12,
         "title": "패키지 업데이트 스크립트 소스 (1/9)"
     },
     {
-        "slideNo": 13,
+        "number": 13,
         "title": "패키지 업데이트 스크립트 소스 (2/9)"
     },
     {
-        "slideNo": 14,
+        "number": 14,
         "title": "패키지 업데이트 스크립트 소스 (3/9)"
     },
     {
-        "slideNo": 15,
+        "number": 15,
         "title": "패키지 업데이트 스크립트 소스 (4/9)"
     },
     {
-        "slideNo": 16,
+        "number": 16,
         "title": "패키지 업데이트 스크립트 소스 (5/9)"
     },
     {
-        "slideNo": 17,
+        "number": 17,
         "title": "패키지 업데이트 스크립트 소스 (6/9)"
     },
     {
-        "slideNo": 18,
+        "number": 18,
         "title": "패키지 업데이트 스크립트 소스 (7/9)"
     },
     {
-        "slideNo": 19,
+        "number": 19,
         "title": "패키지 업데이트 스크립트 소스 (8/9)"
     },
     {
-        "slideNo": 20,
+        "number": 20,
         "title": "패키지 업데이트 스크립트 소스 (9/9)"
     },
     {
-        "slideNo": 21,
+        "number": 21,
         "title": "우분투 파이썬 모든패키지 업데이트시연"
     },
     {
-        "slideNo": 22,
+        "number": 22,
         "title": "감사합니다."
     }
 ]
