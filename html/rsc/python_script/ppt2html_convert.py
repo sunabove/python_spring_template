@@ -39,6 +39,10 @@ def convert_ppt_to_html(ppt_file_path):
     options.html_formatter = slides.export.HtmlFormatter.create_custom_formatter(controller)
 
     folder_path = Path( ppt_file_path ).parent
+
+    # 모든 HTML 파일을 삭제합니다.
+    print( "deleting all html files in the folder..." )
+    [ html_file.unlink() for html_file in folder_path.glob("*.html") ]
     
     # 각 슬라이드를 개별 HTML 파일로 변환합니다.
     for i, slide in enumerate( ppt.slides ):
@@ -138,6 +142,8 @@ pass # convert_slide_to_html
 def check_and_convert_ppts_in_folder(folder_path):
     debug = False 
 
+    print( f"Checking and converting PPT files in folder {folder_path}..." )
+
     # Recursively search for .pptx files
     for ppt_file in Path(folder_path).rglob("*.pptx"):
         # Get the modification time of the PPT file
@@ -175,8 +181,24 @@ def check_and_convert_ppts_in_folder(folder_path):
 pass # check_and_convert_ppts_in_folder
 
 if __name__ == "__main__":
+
+    target_folder = "200_ppt_docs"
+    current_dir = Path(__file__).parent
+    # 현재 디렉토리와 상위 디렉토리에서 폴더 검색
+    search_folder = next((f for f in current_dir.glob("../**/") if f.is_dir() and f.name == target_folder), None)
+
+    print( "search_folder = " , search_folder )
+    
     parser = argparse.ArgumentParser()
-    parser.add_argument("folder", help="Folder path to search for ppt files")
+   
+    # parser.add_argument( "folder",  help="Folder path to search for ppt files" ) 
+    parser.add_argument(
+        "folder",
+        help="Folder path to search for ppt files",
+        nargs="?",  # 위치 인자를 선택적으로 변경
+        default=search_folder  # 기본값 설정
+    )
+
     args = parser.parse_args()
 
     check_and_convert_ppts_in_folder(args.folder)
