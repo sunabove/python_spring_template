@@ -333,10 +333,18 @@
 													<!-- 2단계 하위 폴더의 파일 목록 -->
 													<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small" th:if="${subFolder2.fileInfos.size() > 0 }">
 														<li th:each="file : ${subFolder2.fileInfos}" class="mt-1" style="padding-left: 24px;">
-															<a th:href="@{'/pub/doc' + ${file.url}}" href="#" class="link-dark rounded text-decoration-none" >
-																<span th:if="${file.url == docPath }" >&gt;</span>
-																<i class="bi bi-journal-text fa-2xl"></i> &nbsp;
-																<span th:text="${file.fileName}" th:classappend="${file.url == docPath ? 'highlight-menu-link' : ''}" >
+															<a class="link-dark rounded text-decoration-none" 
+																th:href="@{'/pub/doc' + ${file.url}}" href="#"  >
+																<span th:if="${file.url == docPath }" 
+																	th:classappend="${file.url == docPath ? 'highlight-menu-link' : ''}">
+																	&gt;
+																</span>
+																<i class="bi bi-journal-text fa-2xl" 
+																	th:classappend="${file.url == docPath ? 'highlight-menu-link' : ''}" >
+																</i> 
+																&nbsp;
+																<span th:text="${file.fileName}" 
+																	th:classappend="${file.url == docPath ? 'highlight-menu-link' : ''}" >
 																	File Name
 																</span>
 															</a>
