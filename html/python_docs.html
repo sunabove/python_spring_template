@@ -255,11 +255,8 @@
 				</div>  
 			
 				<!-- 카드 본문 -->
-				<div class="card-body row p-0 m-0"> 
-					<!-- 동적으로 HTML 콘텐츠 삽입 -->
-					<div th:utext="${docHtmlContent}" class="p-0 m-0">
-						doc html content
-					</div> 
+				<div class="card-body row p-0 m-0" th:utext="${docHtmlContent}" > 
+					<!-- 동적으로 HTML 콘텐츠 삽입 --> 
 				</div>
 			
 				<!-- 슬라이드 번호 및 페이저 -->
