@@ -209,7 +209,7 @@
 			<div class="card mt-3">
 				
 				<div class="card-header">
-					<p class="h3"> 파이썬 소스 </p> 
+					<p class="h4 text-center"> 파이썬 소스 </p> 
 				</div>
 
 				<div class="card-header d-flex" th:if="${ fileParentPath != '/rsc' }">
@@ -255,7 +255,8 @@
 					</ul>
 				</div>
 
-				<div class="card-footer text-muted" th:text="${ fileDate }">
+				<div class="card-footer text-muted text-center" 
+					th:text="${#dates.format(fileDate, 'yyyy-MM-dd HH:mm:ss')}" >
 					2 days ago
 				</div>
 			</div>
