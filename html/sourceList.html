@@ -243,9 +243,10 @@
 				</div>
 
 				<div class="card-body">
-					<ul class="h5 list-unstyled" th:each="fileInfo: ${fileInfos}">
+					<ul class="h5 list-unstyled" th:each="fileInfo: ${srcFileInfos}">
 						<li class="mt-1 p-0">
-							<a th:href="@{ ${path} + ${ fileInfo.fileName } }" href="#" class="text-decoration-none text-muted">
+							<a th:href="@{ ${path} + ${ fileInfo.urlPath } }" href="#" 
+								class="text-decoration-none text-muted" title="파일 다운로드" >
 								<!-- 파일 아이콘 -->
 								<i class="bi bi-card-text" th:class="${ fileInfo.fileIcon }"></i>
 								&nbsp;

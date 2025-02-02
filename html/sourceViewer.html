@@ -209,7 +209,7 @@
 			<div class="card text-center mt-3">
 
 				<div class="card-header d-flex">
-					<span class="h4 fw-bold p-0"> 소스 뷰어 </span>
+					<span class="h4 text-center fw-bold p-0"> 소스 뷰어 </span>
 				</div>
 
 				<div class="card-header d-flex">
@@ -227,7 +227,7 @@
 
 				<div class="card-header d-flex"> 
 
-					<a th:href="@{ ${filePath} }" href="#" class="text-decoration-none" title="다운로드">
+					<a th:href="@{ ${filePath} }" download href="#" class="text-decoration-none" title="다운로드">
 						<div class="input-group input-group-sm text-nowrap">
 							<div class="input-group-prepend">
 								<div class="input-group-text">
@@ -266,7 +266,7 @@
 				</script>
 				-->
 
-				<div class="card-body" th:if="${ fileInfo.isSrcFile }">
+				<div class="card-body" th:if="${ fileInfo.isSrcFile || fileInfo.isTextFile }">
 					<pre><code th:text="${fileSource}" class="python w-100 mt-0 text-start fs-5" style="min-height: 50vh;">def fib(n):
   a, b = 0, 1
     while a < n:
@@ -304,7 +304,8 @@
 					</video>
 				</div>
 
-				<div class="card-footer text-muted" th:text="${ fileDate }">
+				<div class="card-footer text-muted text-center" 
+					th:text="${#dates.format(fileDate, 'yyyy-MM-dd HH:mm:ss')}" >
 					2 days ago
 				</div>
 			</div> 
