@@ -261,19 +261,19 @@
 			
 				<!-- 슬라이드 번호 및 페이저 -->
 				<div class="card-footer text-muted d-flex justify-content-center">
-					<!-- 페이저 -->
 					<ul class="m-0 pagination justify-content-center">
 						<!-- Previous button -->
 						<li class="page-item"> 
 							<a class="page-link" aria-label="Previous" 
-								href="#" th:href="@{ '/pub/doc' + ${fileInfoPrev != null ? fileInfoPrev.url : '#' }}" 
-								th:classappend=" ${ fileInfoPrev != null ? '' : 'disabled' } "
+								href="#" th:href="@{ '/pub/doc' + ${docSlideNumber > 10 ? docFileInfos[docSlideNumber - 11].url : docFileInfos[0].url} }" 
+								th:classappend=" ${ docSlideNumber > 1 ? '' : 'disabled' } "
 							>
 								<span aria-hidden="true">&laquo; 이전 </span>
 							</a>
 						</li>
-						<!-- Page numbers -->
-						<li class="page-item" th:each="fileInfo, stats : ${docFileInfos}">
+						 <!-- Page numbers (limit to 10) -->
+						 <li class="page-item" th:each="fileInfo, stats : ${docFileInfos}"
+						 th:if="${stats.index >= ((docSlideNumber - 1) / 10 * 10) and stats.index < ((docSlideNumber - 1) / 10 * 10 + 10)}">
 							<a class="page-link" href="#" 
 								th:href="@{'/pub/doc' + ${fileInfo.url}}" 
 								th:classappend=" ${ docSlideNumber == stats.index + 1 ? 'active' : '' } "
@@ -284,14 +284,15 @@
 						<!-- Next button -->
 						<li class="page-item">
 							<a class="page-link" aria-label="Next"
-								href="#" th:href="@{ '/pub/doc' + ${ fileInfoNext != null ? fileInfoNext.url : '#' }}"
-								th:classappend=" ${ fileInfoNext != null ? '' : 'disabled' } "
+								href="#" th:href="@{ '/pub/doc' + ${ docFileInfos.size() > docSlideNumber + 10 ? docFileInfos[docSlideNumber + 9].url : docFileInfos[docFileInfos.size() - 1].url} }"
+								th:classappend=" ${ docFileInfos.size() > docSlideNumber ? '' : 'disabled' } "
 							>
-							<span aria-hidden="true"> 다음 &raquo;</span>
+							<span aria-hidden="true">다음 &raquo;</span>
 							</a>
 						</li>
 					</ul>
 				</div>
+				<!-- // 슬라이드 번호 및 페이저 -->
 
 				<!-- 카드 푸터 -->
 				<div class="card-footer text-muted">
