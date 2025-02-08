@@ -11,6 +11,7 @@ html {
 
 main {
   height: -webkit-fill-available;
+  /*background-color: lightcoral;*/
 }
 
 a {
