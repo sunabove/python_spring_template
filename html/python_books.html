@@ -34,102 +34,6 @@
 	<!--  start of header --> 
 
 	<div th:replace="~{layout.html :: header}" >
-
-		<!-- Message -->
-		<nav class="navbar navbar-expand-lg navbar-light bg-light" >
-			<div class="container-fluid">
-				<marquee width="100%" direction="left" >
-					파이썬은 행복한 언어입니다. 파이썬 코리아는 파이썬 커뮤니티와 개발자들을 지원합니다.
-				</marquee>
-			</div>
-
-		</nav>
-		<!-- end of message -->
-
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-
-			<!-- Container wrapper -->
-			<div class="container-fluid">
-
-				<!-- Toggle button -->
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-					<i class="fas fa-bars"></i>
-				</button>
-		
-				<!-- Collapsible wrapper -->
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<!-- Navbar brand -->
-					<a class="navbar-brand mt-2 mt-lg-0" th:href="@{/}" href="/" >
-						&nbsp;<i class="fa-brands fa-python fa-2xl" style="color:darkolivegreen"></i>
-						&nbsp;파이썬 코리아
-					</a>
-
-					<!-- Left links -->
-					<ul class="navbar-nav me-auto mb-2 mb-lg-0 text-nowrap">
-						<li>
-							<a th:href="@{/pub/download}" href="/pub/download" class="nav-link px-2 link-body-emphasis">
-								<i class="fa-solid fa-file-arrow-down fa-xl"></i>&nbsp;
-								파이썬 다운로드 (3.12.3)
-							</a>
-						</li>
-						<li>
-							<a th:href="@{/pub/intro}" href="/pub/intro" class="nav-link px-2 link-body-emphasis"> 
-								<i class="fa-brands fa-python fa-xl"></i> &nbsp;파이썬 소개
-							</a>
-						</li>
-						<li>
-							<a href="https://docs.python.org/ko/3" class="nav-link px-2 link-body-emphasis"> 
-								<i class="fa-solid fa-book fa-xl"></i> &nbsp;파이썬 문서
-							</a>
-						</li>
-						<li>
-							<a th:href="@{/pub/history}" href="/pub/history" class="nav-link px-2 link-body-emphasis">
-								<i class="fa-solid fa-landmark fa-xl"></i> &nbsp; 파이썬 역사
-							</a>
-						</li>
-						<li>
-							<a href="https://pypi.org" target="_new" class="nav-link px-2 link-body-emphasis">
-								<i class="fa-solid fa-box-open fa-xl"></i> &nbsp;패키지 검색
-							</a>
-						</li>
-						<li>
-							<a th:href="@{/pub/news}" href="/pub/news" target="_new" class="nav-link px-2 link-body-emphasis">
-								<i class="bi bi-newspaper fa-xl"></i> &nbsp; 뉴스
-							</a>
-						</li>
-					</ul>
-				<!-- Left links -->
-				</div>
-				<!-- Collapsible wrapper -->
-		
-				<!-- Right elements -->
-				<div class="d-flex align-items-center">
-					
-
-					<div class="col-auto dropdown text-end">
-						<a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-							<img src="rsc/img/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
-						</a>
-						<ul class="dropdown-menu text-small">
-							<li><a class="dropdown-item" href="#">New project...</a></li>
-							<li><a class="dropdown-item" href="#">Settings</a></li>
-							<li>
-								<a class="dropdown-item" href="#">
-									<span th:text="${session.loginUserName}"></span> Profile
-								</a>
-							</li>
-							<li><hr class="dropdown-divider"></li>
-							<li><a class="dropdown-item" href="logout.html" th:href="@{/logout}" >Sign out</a></li>
-						</ul>
-					</div>
-
-				</div>
-				<!-- Right elements -->
-			</div>
-			<!-- Container wrapper -->
-			
-		</nav>
-		<!-- Navbar -->
 	</div>
 	
 	<!-- end of header -->
@@ -140,249 +44,64 @@
 
 		<!--  side bar left -->
 		<nav th:replace="~{layout.html :: sidebarLeft}" id="sidebarLeft" class="container-fluid col-auto d-md-block bg-body-tertiary sidebar collapse">
-
-			<div class="position-sticky sidebar-sticky">
-
-				<ul class="nav flex-column nav-tabs nav-pills text-nowrap list-unstyled ps-0 mt-2">
-
-					<li class="mb-1">
-						<a class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#python_download" aria-expanded="false" >
-							파이썬 다운로드
-						</a> 
-						<div class="collapse show" id="python_download">
-							<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-								<li class="mt-2"><a th:href="@{pub/download}" href="#" class="link-dark rounded text-decoration-none">파이썬 3.12.3</a></li>
-							</ul>
-						</div>
-					</li>
-
-					<li class="mb-1">
-						<a class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
-							data-bs-target="#python_overview" aria-expanded="false">
-							파이썬 소개
-						</a>
-						<div class="collapse show" id="python_overview">
-							<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-
-								<li class="mt-2"><a th:href="@{/pub/intro}" href="#" class="link-dark rounded text-decoration-none">파이썬 소개</a></li>
-								<li><a th:href="@{/pub/history}" href="#" class="link-dark rounded text-decoration-none">파이썬 역사</a></li>
-								
-								<hr/>
-
-								<li><a href="https://docs.python.org/ko/3/tutorial/index.html" target="_new" class="link-dark rounded text-decoration-none">파이썬 자습서</a></li> 
-								<li><a href="https://docs.python.org/ko/3/reference/index.html" target="_new" class="link-dark rounded text-decoration-none">파이썬 레퍼런스</a></li> 
-								<li><a href="https://docs.python.org/ko/3/library/index.html" target="_new" class="link-dark rounded text-decoration-none">파이썬 표준 라이브러리</a></li>
-								
-								<hr/>
-								
-								<li><a href="https://docs.python.org/ko/3/using/index.html" target="_new" class="link-dark rounded text-decoration-none">파이썬 설치 및 사용법</a></li> 
-								<li><a href="https://docs.python.org/ko/3/glossary.html" target="_new" class="link-dark rounded text-decoration-none">파이썬 용어집</a></li> 
-							</ul>
-						</div>
-					</li>
-
-					<li class="mb-1">
-						<a class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
-							data-bs-target="#python_news" aria-expanded="false">
-							파이썬 뉴스
-						</a>
-						<div class="collapse show" id="python_news">
-							<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-								<li><a th:href="@{/pub/news}" href="#" class="link-dark rounded text-decoration-none">파이썬 뉴스</a></li> 
-							</ul>
-						</div>
-					</li>
-
-					<li class="border-top my-3"></li> 
-
-				</ul>
-
-			</div>
-
 		</nav>
 		<!-- // side bar left --> 
 
 		<!-- main content --> 
 
-		<main class="me-2 container-fluid" style="overflow-y: auto; "> 
+		<main class="container-fluid"> 
 
-			<div class="card text-center mt-3">
-
-				<div class="card-header">
-					<span class="h5"> <i class="fa-solid fa-book"></i> &nbsp; 파이썬 서적 </span>
-				</div>
-
-				<!-- card body -->
-
-				<style>
-					.book-summary {
-						display: -webkit-box;
-						-webkit-line-clamp: 2; /* Limit to 2 lines */
-						-webkit-box-orient: vertical;
-						overflow: hidden;
-						text-overflow: ellipsis;
-						height: calc(1.2em * 2.5); /* Approximate height for 2 lines of text */
-					}
-	
-					/** carousel **/
-	
-					.carousel-control-prev, .carousel-control-next {
-						width: 30px; /* 버튼의 너비를 30px로 설정 */
-						background-color: rgba(0, 0, 0, 0.1); /* 버튼 배경을 반투명 검정으로 설정 */
-					}
-	
-					.carousel-control-prev-icon, .carousel-control-next-icon {
-						filter: invert(1); /* 아이콘 색상을 반전시켜 흰색으로 만듦 */
-					}
-	
-					/* carousel-inner 내부 내용에 padding을 추가해 버튼과 겹치지 않도록 설정 */
-					.carousel-inner {
-						padding-left: 40px;  /* 왼쪽 여백 */
-						padding-right: 40px; /* 오른쪽 여백 */
-					}
-	
-					.card {
-						height: 100%; /* 카드 높이를 100%로 확장 */
-						display: flex;
-						flex-direction: column; /* 카드 내부 콘텐츠를 세로 정렬 */
-					}
-	
-					/** -- carousel **/
-				</style>
-				
-				<div class="card-body row">
-					<div class="col-12 col-sm-12 col-xl-12">
+			<div class="row mt-3 justify-content-center">
+				<span class="h4 m-0"><i class="fa-solid fa-book"></i> &nbsp; 파이썬 서적</span>
+			</div>
+		
+			<hr class="my-3">
+		
+			<div class="row justify-content-center overflow-x-auto"> 
+				<div class="col-12 col-md-6 col-lg-4 mb-4 d-flex" th:each="book : ${books}">
+					<div class="d-flex flex-column flex-sm-row align-items-stretch border rounded shadow-sm p-3 bg-white h-100 w-100" 
+						 style="min-width: 280px;">
 						
-						<div id="carouselIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000" >
-				
-							<!-- Carousel Indicators -->
-							<div class="carousel-indicators" th:if="${ false }" >
-								<button type="button" th:each="group, stats : ${ partitionedBooks }" 
-										data-bs-target="#carouselIndicators" 
-										th:data-bs-slide-to="${stats.index}" data-bs-slide-to="0" 
-										th:class="${stats.index == 0 ? 'active' : ''}" class="active" 
-										th:aria-current="${stats.index == 0}" aria-current="true" 
-								>
-								</button>
-							</div>
-				
-							<!-- Carousel Items -->
-							<div class="carousel-inner">
-								<div th:each="group, groupStats : ${ partitionedBooks }"
-									 th:class="|carousel-item ${groupStats.index == 0 ? 'active' : ''}|" 
-								>
-									<div class="row">
-										<div class="col-12 col-md-6 col-lg-4" th:each="book : ${group}">
-											<div class="card" style="height: 100%;">
-												
-												<div class="card-body p-0 d-flex flex-column align-items-center">
-												  
-													<br/>
-
-													<!-- Book Image -->
-													<img th:src="@{ ${book.imageUrl} }" 
-														th:if="${book.imageUrl != null}"
-														src="./rsc/103_books/book_001_jump_to_python/jump_to_python.jpg" 
-														class="rounded mb-1" alt="Book Image" 
-														style="width: auto; height: 180px;">
-													
-													<!-- Book Title -->
-													<h5 class="card-title text-center text-truncate mt-1 mb-1 fw-bold" 
-														th:if="${book.imageUrl == null}"
-														th:text="${book.title}">
-														Book Title
-													</h5>
-													
-													<!-- Book Details Table -->
-													<table class="table table-borderless text-center m-0 p-0" style="width: auto;">
-														<tbody>
-														<tr>
-															<th scope="row" class="text-end text-nowrap p-1">
-																<i class="bi bi-person-fill me-2"></i> 저자 :
-															</th>
-															<td class="text-start text-nowrap p-1" >
-																<span class="badge bg-secondary" th:text="${book.author}">Author</span>
-															</td>
-														</tr>
-														<tr>
-															<th scope="row" class="text-end text-nowrap p-1">
-																<i class="bi bi-building me-2"></i> 출판사 :
-															</th>
-															<td class="text-start text-nowrap p-1" >
-																<span class="badge bg-secondary" th:text="${book.publisher}">Publisher</span> 
-																<span class="badge bg-secondary" th:text="${ '(' + book.publicationYear + '년' + ')'}" >2023</span> 
-															</td>
-														</tr>
-														</tbody>
-													</table>
-
-													<!-- Summary -->
-													<p class="card-text text-center text-muted mb-2 book-summary" style="font-size: 0.95rem;">
-														<span th:text="${book.summary}">Book Summary</span>
-													</p> 
-													
-													<!-- URL Button -->
-													<a th:href="${book.url}" class="btn btn-primary w-100" target="_blank">
-													<i class="bi bi-box-arrow-up-right me-2"></i> 더 보기
-													</a>
-												  
-												</div>
-
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-				
-							<!-- Carousel Controls -->
-							<button class="carousel-control-prev" type="button" data-bs-target="#carouselIndicators"
-									data-bs-slide="prev">
-								<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-								<span class="visually-hidden">Previous</span>
-							</button>
-							<button class="carousel-control-next" type="button" data-bs-target="#carouselIndicators"
-									data-bs-slide="next">
-								<span class="carousel-control-next-icon" aria-hidden="true"></span>
-								<span class="visually-hidden">Next</span>
-							</button>
-				
+						<!-- 책 이미지 -->
+						<div class="flex-shrink-0 me-sm-3 mb-2 mb-sm-0 d-flex align-items-center">
+							<img th:src="@{ ${book.imageUrl} }" 
+								 th:if="${book.imageUrl != null}"
+								 src="./rsc/103_books/book_001_jump_to_python/jump_to_python.jpg" 
+								 class="rounded img-fluid" 
+								 style="max-width: 120px; height: auto; object-fit: cover;" 
+								 alt="Book Image">
 						</div>
+		
+						<!-- 책 정보 -->
+						<div class="flex-grow-1 d-flex flex-column justify-content-between text-center text-sm-start">
+							<div>
+								<h5 class="fw-bold" th:text="${book.title}">Book Title</h5>
+								<p class="mb-1"><strong>저자:</strong> <span th:text="${book.author}">Author</span></p>
+								<p class="mb-1"><strong>출판사:</strong> 
+									<span th:text="${book.publisher}">Publisher</span> 
+									(<span th:text="${book.publicationYear}">2023</span>)
+								</p>
+								<p class="text-muted small mb-2" th:text="${book.summary}">Book Summary</p>
+							</div>
+		
+							<!-- 더 보기 버튼 (하단 고정) -->
+							<div class="text-center mt-2">
+								<a th:href="${book.url}" class="btn btn-primary btn-sm w-100" target="_blank">
+									<i class="bi bi-box-arrow-up-right me-1"></i>더 보기
+								</a>
+							</div>
+						</div>
+		
 					</div>
 				</div>
-
-				<!-- // card body -->
-
-				<div class="card-footer text-muted">
-					<span th:text="${ lastModDate }">2024-01-18</span>
-				</div>
-
 			</div>
-			 
+		
 		</main>
 
 		<!-- // main content --> 
 
 		<!--  side bar right -->
-		<nav th:replace="~{layout.html :: sidebarRight}" id="sidebarRight" class="col-auto d-md-block bg-body-tertiary_ sidebar collapse">
-
-			<div class="position-sticky pt-3 sidebar-sticky">
-				
-				<h6><b>좋은 사이트</b></h6>
-
-				<a href="https://getbootstrap.com/docs/5.3/examples" target="_blank" class="text-decoration-none text-black" >
-					<i class="bi bi-bootstrap"></i> Bootstrap CSS
-				</a><br/>
-
-				<a href="https://icons.getbootstrap.com" target="_blank" class="text-decoration-none text-black" >
-					<i class="bi bi-bootstrap-fill"></i> Bootstrap Icon
-				</a><br/>
-
-				<a href="https://fontawesome.com/search" target="_blank" class="text-decoration-none text-black" >
-					<i class="fa-solid fa-font-awesome"></i> Font Awesome Icon
-				</a><br/>
-
-			</div>
-			
+		<nav th:replace="~{layout.html :: sidebarRight}" id="sidebarRight" class="col-auto d-md-block bg-body-tertiary_ sidebar collapse"> 
 		</nav>
 		<!-- // side bar right-->
 		
@@ -392,87 +111,10 @@
 
 	<!-- footer -->
 
-	<footer th:replace="~{layout.html :: footer}" class="text-center text-lg-start bg-light text-muted">
-
-		<!-- Section: Social media -->
-		<section class="d-flex justify-content-center p-2 border-bottom">
-			<a class="text-reset" href="https://www.youtube.com/@pythonkorea/videos" target="_new">
-				<i class="fa-brands fa-youtube fa-xl" ></i>
-			</a>
-			&nbsp;&nbsp;
-			<a class="text-reset" href="https://www.facebook.com/groups/python.co.kr" target="_new">
-				<i class="fa-brands fa-facebook fa-xl"></i>
-			</a>
-		</section>
-		<!-- Section: Social media -->
-	
-		<!-- Section: Links  -->
-		<section class="">
-		<div class="container text-center text-md-start mt-2">
-			<!-- Grid row -->
-			<div class="row mt-3">
-				<!-- Grid column -->
-				<div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-					<h6 class="fw-bold mb-3">
-						<i class="fas fa-gem me-3"></i>파이썬 코리아
-					</h6>
-					<p>
-						파이썬은 행복한 언어입니다.<br/>
-						커뮤니티와 개발자들을 지원합니다.
-					</p>
-				</div>
-				<!-- Grid column -->
-		
-				<!-- Grid column -->
-				<div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4 text-center">
-					<h6 class="text-uppercase fw-bold mb-3">
-						정책
-					</h6>
-					<p>
-						<a th:href="@{/public/privacy.html}" href="./privacy.html" class="text-decoration-none  text-reset">개인정보 처리방침</a>
-					</p> 
-				</div>
-				<!-- Grid column -->
-		
-				<!-- Grid column -->
-				<div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4  text-center">
-					<h6 class="text-uppercase fw-bold mb-3">
-						약관
-					</h6>
-					<p>
-						<a th:href="@{/public/service.html}" href="./service.html" class="text-decoration-none  text-reset">이용 약관</a>
-					</p>
-				</div>
-				<!-- Grid column -->
-		
-				<!-- Grid column -->
-				<div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-					<h6 class="text-uppercase fw-bold mb-3">Contact</h6>
-					<p class="text-nowrap">
-						<i class="fas fa-home me-3"></i> 대한민국 경기도 수원시
-					</p>
-					<p class="text-nowrap">
-						<i class="fas fa-envelope me-3"></i> skyslam.kr@gmail.com
-					</p>
-				</div>
-				<!-- Grid column -->
-			</div>
-			<!-- Grid row -->
-		</div>
-		</section>
-		<!-- Section: Links  -->
-	
-		<!-- Copyright -->
-		<div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
-			<span class="mb-3 mb-md-0 text-body-secondary"> &nbsp; © 2024 파이썬 코리아</span>
-		</div>
-		<!-- Copyright -->
+	<footer th:replace="~{layout.html :: footer}" class="text-center text-lg-start bg-light text-muted"> 
 	</footer>
 
 	<!-- // footer -->
-
-	<script> 
-	</script>
 
 </body>
 
