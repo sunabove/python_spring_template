@@ -207,7 +207,7 @@
 
 			<!-- 강의 자료 -->
 
-			<div class="card text-center mt-3" th:if="${ false && ession.now.getDay() == 6 && 15 > session.now.getHours() }">
+			<div class="card text-center mt-3" th:if="${ lectureContentsExists && session.now.getDay() == 6 }">
 
 				<div class="card-header">
 					<a th:href="@{ /public/src/800_lecture }" href="#" class="text-decoration-none">
