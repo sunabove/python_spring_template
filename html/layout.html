@@ -318,8 +318,9 @@
 								<li th:each="subFolder : ${rootDocFolderInfo.subFolderInfos}" class="mt-1" style="padding-left: 0px;">
 									<a class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
 										th:data-bs-target="'#' + ${subFolder.getId()}" aria-expanded="false">
-										<i class="bi bi-folder-fill"></i> &nbsp;
+										<i class="bi bi-folder-fill" th:class="${subFolder.folderIconClass}"></i> &nbsp;
 										<span th:text="${subFolder.fileDesc}">Sub Folder Name</span>
+										<span></span>
 									</a>
 
 									<div class="collapse " th:id="${subFolder.getId()}" 
@@ -328,7 +329,7 @@
 										<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small" th:if="${subFolder.fileInfos.size() > 0 }">
 											<li th:each="file : ${subFolder.fileInfos}" class="mt-1" style="padding-left: 10px;">
 												<a th:href="@{'/pub/doc' + ${file.url}}" href="#" class="link-dark rounded text-decoration-none">
-													<i class="bi bi-journal-text fa-xl"></i> &nbsp;
+													<i class="bi bi-journal-text fa-xl" th:class="${subFolder.fileIconClass}"></i> &nbsp;
 													<span th:text="${file.fileName}">File Name</span>
 												</a>
 											</li>
@@ -342,8 +343,8 @@
 													th:data-bs-target="'#' + ${subFolder2.getId()}" 
 													th:href="@{'/pub/doc' + ${subFolder2.url}}" href="#"
 													onclick="navigateWithCollapse(event, this)" >
-													<i class="bi bi-folder-fill" th:if="${ subFolder2.hasSubFolder() }" ></i> 
-													<i class="bi bi-journal-text fa-xl" th:if="${ ! subFolder2.hasSubFolder() }" ></i>
+													<i class="bi bi-folder-fill" th:class="${subFolder.folderIconClass}" th:if="${ subFolder2.hasSubFolder() }" ></i> 
+													<i class="bi bi-journal-text fa-xl" th:class="${subFolder.fileIconClass}" th:if="${ ! subFolder2.hasSubFolder() }" ></i>
 													&nbsp;
 													<span th:text="${subFolder2.fileDesc}" th:classappend="${subFolder2.url == docPath ? 'highlight-menu-link' : ''}">
 														Sub Folder Name
@@ -354,7 +355,7 @@
 													<!-- 2단계 하위 폴더의 파일 목록 -->
 													<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small" th:if="${subFolder2.fileInfos.size() > 0 }">
 														<li th:each="file , fileIter : ${subFolder2.fileInfos}" class="mt-1" style="padding-left: 24px;">
-															<a  class="link-dark rounded text-decoration-none" 
+															<a  class="link-dark rounded text-decoration-none d-flex align-items-center" 
 																data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-custom-class="menu-tooltip"
 																th:title="${file.slideTitle}"
 																th:href="@{'/pub/doc' + ${file.url}}" href="#"  >
@@ -363,9 +364,10 @@
 																	&gt;
 																</span>
 																<i class="bi bi-journal-text fa-2xl" 
+																	th:class="${file.fileIconClass}"
 																	th:classappend="${file.url == docPath ? 'highlight-menu-link' : ''}" >
 																</i> 
-																&nbsp;
+																&nbsp;&nbsp;
 																<span class="fs-6" 
 																	style="display: inline-block; overflow: hidden; text-overflow: ellipsis; max-width: 170px;" 
 																	th:text="${ '[' + ''.format('%03d', fileIter.index + 1 )  + '] ' + file.slideTitle }" 

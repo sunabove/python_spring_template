@@ -1,6 +1,6 @@
 {
     "keywords" : "윈도우, 파이썬, windows, python",
     "description" : "", 
-    "folderIconClass" : "bi bi-folder-fill",
+    "folderIconClass" : "fa-brands fa-python",
     "fileIconClass" : "bi bi-journal-text fa-xl" 
 }

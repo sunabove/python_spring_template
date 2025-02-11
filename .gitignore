@@ -4,6 +4,8 @@ html/rsc/102_satellite_image/sat_data
 ! html/rsc/200_ppt_docs/**/**/**/*.html
 .DS_store
 
+build/
+
 # Compiled class file
 *.class
 
