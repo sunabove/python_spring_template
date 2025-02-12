@@ -212,31 +212,27 @@
 					<p class="h4 text-center"> 파이썬 소스 </p>
 				</div>
 
-				<div class="card-header d-flex" th:if="${ fileParentPath != '/rsc' }">
+				<div class="card-header d-flex align-items-center" th:if="${ fileParentPath != '/rsc' }">
+
 					<a th:href="@{ ${fileParentPath} }" href="#" class="text-decoration-none" title="상위 폴더">
-						<div class="input-group input-group-sm text-nowrap">
+						<div class="input-group input-group-sm text-nowrap d-flex align-items-center">
 							<div class="input-group-prepend">
-								<div class="input-group-text">
+								<div class="input-group-text p-1">
 									<i class="fa-regular fa-folder-open fa-xl" style="width: 20px;"></i>
 								</div>
 							</div>
 							<button class="btn btn-sm btn-light ms-1">
-								<span class="fs-5" th:text="${ fileParentPathName.replace( '_', ' ' ) }">더상위 폴더 상위 폴더 상위 폴더</span> 
+								<span class="fs-5" th:text="${ fileParentPathName.replace( '_', ' ' ) }">상위 폴더</span> 
 							</button>
 						</div>
-					</a>
+					</a> 
 
-					&nbsp;
+					<i class="bi bi-slash fa-xl"></i>
 
-					<a th:href="@{ ${path} }" href="#" class="text-decoration-none" title="상위 폴더">
-						<div class="input-group input-group-sm text-nowrap">
-							<div class="input-group-prepend">
-								<div class="input-group-text">
-									<i class="bi bi-slash-square fa-xl"></i>
-								</div>
-							</div>
+					<a th:href="${ html.currentUrl }" href="#" class="text-decoration-none" title="현재 폴더">
+						<div class="input-group input-group-sm text-nowrap d-flex align-items-center">
 							<button class="btn btn-sm btn-light">
-								<span class="fs-5" th:text="${ fileNameOnly.replace( '_', ' ' ) }">상위 폴더 상위 폴더 상위 폴더</span> 
+								<span class="fs-5" th:text="${ fileNameOnly.replace( '_', ' ' ) }">현재 폴더</span> 
 							</button>
 						</div>
 					</a>
@@ -245,12 +241,12 @@
 				<div class="card-body">
 					<ul class="h5 list-unstyled" th:each="fileInfo: ${srcFileInfos}">
 						<li class="mt-1 p-0">
-							<a th:href="@{ ${path} + ${ fileInfo.urlPath } }" href="#" 
+							<a th:href="@{ ${html.currUrlPath} + '/' + ${ fileInfo.urlPath } }" href="#" 
 								class="text-decoration-none text-muted" title="파일 다운로드" >
 								<!-- 파일 아이콘 -->
 								<i class="bi bi-card-text" th:class="${ fileInfo.fileIcon }"></i>
-								&nbsp;
-								<span th:text="${ fileInfo.fileName.replace( '_', ' ' ) }" class="ms-0">file name</span>
+								&nbsp; 
+								<span th:text="${ fileInfo.fileDesc }" class="ms-0">file name</span>
 							</a>
 						</li>
 					</ul>
