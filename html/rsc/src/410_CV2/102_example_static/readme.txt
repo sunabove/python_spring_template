@@ -1,0 +1,1 @@
+정적 OpenCV 라이브러리를 사용하는 Visual Studio C++ 프로젝트를 생성하는 예제입니다.
