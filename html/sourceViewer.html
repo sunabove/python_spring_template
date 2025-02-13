@@ -145,6 +145,14 @@
 					</div>
 				</div>
 
+				<div class="card-body" th:if="${ jupyterToHtml }" >
+					<link rel="stylesheet" th:href="@{/rsc/css/jupyter_style.css}" href="./rsc/css/jupyter_style.css" /> 
+
+					<div class="text-start p-0 m-0" th:utext="${jupyterToHtml}"> 
+						jupyterToHtml
+					</div>
+				</div>
+
 				<div class="card-body" th:if="${ fileInfo.ext == 'pdf' }" >
 					<iframe th:src="@{ ${filePath} }" src="#" width="100%" height="800px" loading="lazy" title="PDF-file" ></iframe>
 				</div>
