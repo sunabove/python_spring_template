@@ -65,25 +65,32 @@
 									<i class="fa-regular fa-folder-open fa-xl" style="width: 20px;"></i>
 								</div>
 							</div>
-							<button class="btn btn-sm btn-light fs-5" th:text="${ fileParentPathName }"> 상위 폴더 상위 폴더 상위 폴더 </button>
+							<button class="btn btn-sm btn-light fs-5" th:text="${ fileParentPathName }"> 상위 폴더 </button>
 						</div>
 					</a>
 				</div>
 
 				<div class="card-header d-flex"> 
 
-					<a th:href="@{ ${filePath} }" download href="#" class="text-decoration-none" title="다운로드">
-						<div class="input-group input-group-sm text-nowrap">
-							<div class="input-group-prepend">
-								<div class="input-group-text">
-									<!-- 파일 아이콘 -->
-									<i class="bi bi-card-text" th:class="${ fileInfo.fileIcon }"></i> 
+					<div class="col-10 d-flex align-items-center"> 
+						<a th:href="@{ ${filePath} }" download href="#" class="text-decoration-none" title="다운로드">
+							<div class="input-group input-group-sm text-nowrap">
+								<div class="input-group-prepend">
+									<div class="input-group-text">
+										<!-- 파일 아이콘 -->
+										<i class="bi bi-card-text" th:class="${ fileInfo.fileIcon }"></i> 
+									</div>
 								</div>
+								<button class="btn btn-sm btn-light fs-5" th:text="${ fileNameOnly }"> 파일명 </button> 
+								<button class="btn btn-sm btn-primary">다운로드</button>
 							</div>
-							<button class="btn btn-sm btn-light fs-5" th:text="${ fileNameOnly }"> 파일명 </button> 
-							<button class="btn btn-sm btn-primary">다운로드</button>
-						</div>
-					</a> 
+						</a> 
+
+					</div>
+
+					<div class="col-2 h7 d-flex align-items-center justify-content-end">
+						조회수 : &nbsp; <span th:text="${ urlCount }">1,234</span>
+					</div>
 
 				</div>
 

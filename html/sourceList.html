@@ -208,34 +208,48 @@
 
 			<div class="card mt-3">
 				
-				<div class="card-header">
-					<p class="h4 text-center"> 파이썬 소스 </p>
+				<div class="card-header d-flex">
+					<div class="col-2">
+						&nbsp;
+					</div>
+					<div class="col-8 text-center">
+						<span class="h5" > 파이썬 소스 </span>
+					</div>
+					<div class="col-2 h7">
+						&nbsp;
+					</div>
 				</div>
 
-				<div class="card-header d-flex align-items-center" th:if="${ fileParentPath != '/rsc' }">
-
-					<a th:href="@{ ${fileParentPath} }" href="#" class="text-decoration-none" title="상위 폴더">
-						<div class="input-group input-group-sm text-nowrap d-flex align-items-center">
-							<div class="input-group-prepend">
-								<div class="input-group-text p-1">
-									<i class="fa-regular fa-folder-open fa-xl" style="width: 20px;"></i>
+				<div class="card-header d-flex " th:if="${ fileParentPath != '/rsc' }">
+					<div class="col-10 d-flex align-items-center"> 
+						<a th:href="@{ ${fileParentPath} }" href="#" class="text-decoration-none" title="상위 폴더">
+							<div class="input-group input-group-sm text-nowrap d-flex align-items-center">
+								<div class="input-group-prepend">
+									<div class="input-group-text p-1">
+										<i class="fa-regular fa-folder-open fa-xl" style="width: 20px;"></i>
+									</div>
 								</div>
+								<button class="btn btn-sm btn-light ms-1">
+									<span class="fs-5" th:text="${ fileParentPathName.replace( '_', ' ' ) }">상위 폴더</span> 
+								</button>
 							</div>
-							<button class="btn btn-sm btn-light ms-1">
-								<span class="fs-5" th:text="${ fileParentPathName.replace( '_', ' ' ) }">상위 폴더</span> 
-							</button>
-						</div>
-					</a> 
+						</a> 
+	
+						<i class="bi bi-slash fa-xl"></i>
+	
+						<a th:href="${ html.currentUrl }" href="#" class="text-decoration-none" title="현재 폴더">
+							<div class="input-group input-group-sm text-nowrap d-flex align-items-center">
+								<button class="btn btn-sm btn-light">
+									<span class="fs-5" th:text="${ fileNameOnly }">현재 폴더</span> 
+								</button>
+							</div>
+						</a>
+					</div>
 
-					<i class="bi bi-slash fa-xl"></i>
-
-					<a th:href="${ html.currentUrl }" href="#" class="text-decoration-none" title="현재 폴더">
-						<div class="input-group input-group-sm text-nowrap d-flex align-items-center">
-							<button class="btn btn-sm btn-light">
-								<span class="fs-5" th:text="${ fileNameOnly }">현재 폴더</span> 
-							</button>
-						</div>
-					</a>
+					<div class="col-2 h7 d-flex align-items-center justify-content-end">
+						조회수 : &nbsp; <span th:text="${ urlCount }">1,234</span>
+					</div>
+					
 				</div>
 
 				<div class="card-header py-3 d-flex align-items-center" th:if="${ html.isValid( readme ) }">
