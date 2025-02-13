@@ -238,6 +238,10 @@
 					</a>
 				</div>
 
+				<div class="card-header py-3 d-flex align-items-center" th:if="${ html.isValid( readme ) }">
+					<p class="h5 text-start m-0" th:text="${ readme }"> readme contents </p>
+				</div>
+
 				<div class="card-body">
 					<ul class="h5 list-unstyled" th:each="fileInfo: ${srcFileInfos}">
 						<li class="mt-1 p-0">
