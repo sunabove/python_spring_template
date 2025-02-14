@@ -5,16 +5,19 @@
     padding: 20px;
     background-color: #ffffff;
 }
+
 .jupyter-container .container {
     max-width: none !important;
     width: 100% !important;
 }
+
 .jupyter-container pre {
     background-color: #f8f9fa;
     padding: 10px;
     border-radius: 5px;
     overflow-x: auto;
 }
+
 .jupyter-container .output {
     overflow-x: auto;
     padding: 5px;
