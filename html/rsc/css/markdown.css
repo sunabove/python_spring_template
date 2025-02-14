@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+/* 🌟 기본 스타일 */
 .markdown-body {
   font-family: Arial, sans-serif;
   font-size: 16px;
@@ -9,7 +10,7 @@
   word-wrap: break-word;
 }
 
-/* 링크 스타일 */
+/* 📌 링크 스타일 */
 .markdown-body a {
   color: #0366d6;
   text-decoration: none;
@@ -19,24 +20,12 @@
   text-decoration: underline;
 }
 
-/* 코드 블록 스타일 */
-.markdown-body pre {
-  background-color: #f6f8fa;
-  border-radius: 6px;
-  padding: 10px;
-  overflow-x: auto;
-  font-size: 14px;
+/* 📌 문단 스타일 */
+.markdown-body p {
+  margin-bottom: 1em;
 }
 
-.markdown-body code {
-  background-color: #f6f8fa;
-  border-radius: 4px;
-  padding: 2px 4px;
-  font-family: "Courier New", Courier, monospace;
-  font-size: 14px;
-}
-
-/* 제목 스타일 */
+/* 📌 제목 스타일 */
 .markdown-body h1 {
   font-size: 2em;
   border-bottom: 2px solid #ddd;
@@ -63,7 +52,110 @@
   margin-bottom: 0.5em;
 }
 
-/* 테이블 스타일 */
+/* 📌 리스트 스타일 */
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 20px;
+  margin-bottom: 1em;
+}
+
+/* ✅ ul 리스트에서 기본 마커 제거 */
+.markdown-body ul {
+  list-style-type: none;
+}
+
+/* ✅ ul 리스트 앞에 "-" 추가 */
+.markdown-body ul li::before {
+  content: "-";
+  margin-right: 8px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* ✅ ol 내부의 ul 리스트에도 "-" 적용 */
+.markdown-body ol ul li::before {
+  content: "-";
+  margin-right: 8px;
+  font-weight: bold;
+  color: #333;
+  display: inline-block;
+}
+
+/* ✅ 두 번째 리스트 아이템(line-height 증가) */
+.markdown-body ul li:nth-child(2),
+.markdown-body ol li:nth-child(2) {
+  line-height: 2.4;
+}
+
+/* 📌 코드 블록 스타일 */
+.markdown-body pre {
+  background-color: #f6f8fa;
+  border-radius: 6px;
+  padding: 12px;
+  overflow-x: auto;
+  font-size: 14px;
+  line-height: 1.6;
+  font-family: "Courier New", Courier, monospace;
+  position: relative;
+  counter-reset: line-number; /* 줄 번호 초기화 */
+}
+
+/* ✅ 코드 블록 내부 스타일 */
+.markdown-body pre code {
+  display: block;
+  counter-reset: line-number;
+  white-space: pre-wrap; /* 줄바꿈 방지 */
+}
+
+/* ✅ 줄 번호 적용 */
+.markdown-body pre code span {
+  display: block;
+  counter-increment: line-number;
+  padding-left: 2.5em; /* 줄 번호 공간 확보 */
+  position: relative;
+}
+
+/* ✅ 줄 번호 스타일 */
+.markdown-body pre code span::before {
+  content: counter(line-number);
+  position: absolute;
+  left: 0;
+  width: 2em;
+  text-align: right;
+  margin-right: 10px;
+  color: #888;
+  border-right: 1px solid #ccc;
+  padding-right: 10px;
+  user-select: none;
+}
+
+/* 📌 Python 코드 블록 스타일 */
+.markdown-body pre.language-python {
+  background-color: #282c34; /* 어두운 테마 */
+  color: #abb2bf;
+  border-left: 5px solid #3572A5; /* Python 블록 강조 */
+}
+
+/* ✅ Python 코드 내부 요소 강조 */
+.markdown-body pre.language-python .keyword {
+  color: #c678dd; /* 키워드 (def, class 등) */
+  font-weight: bold;
+}
+
+.markdown-body pre.language-python .string {
+  color: #98c379; /* 문자열 ("text") */
+}
+
+.markdown-body pre.language-python .comment {
+  color: #5c6370; /* 주석 (# 주석) */
+  font-style: italic;
+}
+
+.markdown-body pre.language-python .number {
+  color: #d19a66; /* 숫자 */
+}
+
+/* 📌 테이블 스타일 */
 .markdown-body table {
   width: 100%;
   border-collapse: collapse;
@@ -79,52 +171,12 @@
 .markdown-body th {
   background-color: #f6f8fa;
   font-weight: bold;
-}
+} 
 
-/* 인용구 스타일 */
+/* 📌 인용구 스타일 */
 .markdown-body blockquote {
   border-left: 4px solid #ddd;
   padding-left: 10px;
   color: #666;
   margin-left: 0;
 }
-
-/* 문단 스타일 */
-.markdown-body p {
-  margin-bottom: 1em;
-}
-
-/* 리스트 스타일 */
-.markdown-body ul {
-  padding-left: 20px;
-  margin-bottom: 1em;
-
-  padding-left: 20px;
-  margin-bottom: 1em;
-  list-style-type: none; /* 기본 마커 제거 */
-}
-
-/* 리스트 아이템 앞에 `-` 추가 */
-.markdown-body ul li::before {
-  content: "-"; /* 대시(-) 추가 */
-  margin-right: 8px; /* 글자와 간격 조절 */
-  font-weight: bold;
-  color: #333; /* 색상 설정 */
-}
-
-.markdown-body ol {
-  padding-left: 20px;
-  margin-bottom: 1em;
-} 
-
-.markdown-body ol li {
-  list-style-type: decimal;
-}
-
-/* 두 번째 리스트 아이템(line-height 증가) */
-.markdown-body ul li:nth-child(2),
-.markdown-body ol li:nth-child(2) {
-    line-height: 2.4; /* 기본보다 조금 더 넓게 설정 */
-}
-
-
