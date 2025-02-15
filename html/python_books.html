@@ -58,11 +58,10 @@
 			<hr class="my-3">
 		
 			<div class="row justify-content-center overflow-x-auto"> 
-
+		
 				<div class="col-12 col-md-6 col-lg-4 mb-4 d-flex" th:each="book : ${books}">
-
-					<div class="d-flex flex-column flex-sm-row align-items-stretch border rounded shadow-sm p-3 bg-white h-100 w-100" 
-						 style="min-width: 280px;">
+		
+					<div class="d-flex flex-column flex-sm-row align-items-stretch border rounded shadow-sm p-3 bg-white h-100 w-100">
 						
 						<!-- 책 이미지 -->
 						<div class="flex-shrink-0 me-sm-3 mb-2 mb-sm-0 d-flex align-items-center">
@@ -70,12 +69,13 @@
 								 th:if="${book.imageUrl != null}"
 								 src="./rsc/103_books/book_001_jump_to_python/jump_to_python.jpg" 
 								 class="rounded img-fluid" 
-								 style="max-width: 120px; height: auto; object-fit: cover;" 
+								 style="max-width: 120px; height: 160px; object-fit: cover;" 
 								 alt="Book Image">
 						</div>
 		
-						<!-- 책 정보 -->
-						<div class="flex-grow-1 d-flex flex-column justify-content-between text-center text-sm-start">
+						<!-- 책 정보 및 버튼 -->
+						<div class="flex-grow-1 d-flex flex-column justify-content-between h-100 text-center text-sm-start"
+							 style="min-width: 120px;">
 							<div>
 								<h5 class="fw-bold" th:text="${book.title}">Book Title</h5>
 								<p class="mb-1"><strong>저자:</strong> <span th:text="${book.author}">Author</span></p>
@@ -86,12 +86,9 @@
 								<p class="text-muted small mb-2" th:text="${book.summary}">Book Summary</p>
 							</div>
 		
-							<!-- 더 보기 버튼 (하단 고정) -->
-							<div class="text-center mt-2">
-								<a th:href="${book.url}" class="btn btn-primary btn-sm w-100" target="_blank">
-									<i class="bi bi-box-arrow-up-right me-1"></i>더 보기
-								</a>
-							</div>
+							<a th:href="${book.url}" class="btn btn-primary btn-sm mt-2 w-100" target="_blank">
+								<i class="bi bi-box-arrow-up-right me-1"></i>더 보기
+							</a>
 						</div>
 		
 					</div>
