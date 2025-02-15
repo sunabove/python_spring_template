@@ -57,11 +57,11 @@
 		
 			<hr class="my-3">
 		
-			<div class="row justify-content-center overflow-x-auto"> 
+			<div class="row justify-content-center overflow-x-hidden"> 
 		
-				<div class="col-12 col-md-6 col-lg-4 mb-4 d-flex" th:each="book : ${books}">
+				<div class="col-12 col-md-6 col-lg-6 mb-4 d-flex" th:each="book : ${books}">
 		
-					<div class="d-flex flex-column flex-sm-row align-items-stretch border rounded shadow-sm p-3 bg-white h-100 w-100">
+					<div class="d-flex flex-column flex-sm-row align-items-stretch border rounded shadow-sm p-3 bg-white h-100 w-100" style="min-width: 320px;">
 						
 						<!-- 책 이미지 -->
 						<div class="flex-shrink-0 me-sm-3 mb-2 mb-sm-0 d-flex align-items-center">
