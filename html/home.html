@@ -281,7 +281,7 @@
 
 				<!-- // card body -->
 
-				<div class="card-footer text-muted">
+				<div class="card-footer text-muted" th:if="${ false }">
 					<span th:text="${ lastModDate }">2024-01-18</span>
 				</div>
 
@@ -299,194 +299,135 @@
 			</style>
 
 			<div class="card text-center mt-3">
-
 				<div class="card-header">
-					<span class="h5"> <i class="bi bi-box"></i> &nbsp; 주요 패키지</span>
+					<span class="h5"><i class="bi bi-box"></i> &nbsp; 주요 패키지</span>
 				</div>
-
-				<div class="card-body p-0 m-0 ">
-
-					<div class="container-fluid d-flex flex-wrap justify-content-center p-2 mt-0" style="overflow-x: auto;">
-
-						<ul class="border p-0 list-group" style="width: 145px; margin-left: 4px;" >
-							<li class="list-group-item list-group-item-primary p-0 fs-7">NumPy</li>
-							<li class="list-group-item p-2">
-								<a href="https://numpy.org" target="_blank" 
-								data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip"
-								title="CPU 전용 수치 연산 패키지로, 다차원 배열 객체와 다양한 수학 함수들을 제공합니다." >
-									<img src="https://numpy.org/images/logo.svg" height="118px" />
+			
+				<div class="card-body p-0">
+					<div id="package-container" class="container-fluid d-flex flex-wrap justify-content-center p-2" style="overflow-x: auto;">
+						<ul id="package-template" class="border list-group text-center m-1" style="width: 180px; display: none;">
+							<li class="list-group-item list-group-item-primary p-1 fs-7 package-name"> 
+								패키지 명 
+							</li>
+							<li class="list-group-item p-2 d-flex align-items-center justify-content-center" style="height: 120px;">
+								<a class="package-link" href="#" target="_blank" data-bs-toggle="tooltip" title="패키지 이미지">
+									<img class="package-image img-fluid" style="height: 100px; object-fit: contain;" />
 								</a>
 							</li>
-							<li class="list-group-item list-group-item-warning p-1 fs-8 text-nowrap">
-								수치 연산 패키지
+							<li class="list-group-item list-group-item-warning p-1 fs-8 package-category">
+								패키지 설명
 							</li>
 						</ul>
-	
-						<ul class="border p-0 list-group" style="width: 145px; margin-left: 4px;" >
-							<li class="list-group-item list-group-item-primary p-0 fs-7">CuPy</li>
-							<li class="list-group-item p-2">
-								<a href="https://cupy.dev/" target="_blank" 
-								data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip"
-								title="GPU 전용 수치 연산 가속화룰 위한 파이썬 패키지입니다. Numpy API 구조와 이름들이 호환됩니다." >
-									<img src="https://cupy.dev/images/cupy_icon.png" height="118px" />
-								</a>
-							</li>
-							<li class="list-group-item list-group-item-warning p-1 fs-8 text-nowrap">
-								수치 연산 패키지
-							</li>
-						</ul>
-	
-						<ul class="border p-0 list-group" style="width: 145px; margin-left: 4px;" >
-							<li class="list-group-item list-group-item-primary p-0 fs-7">Matplotlib</li>
-							<li class="list-group-item p-2">
-								<a href="https://matplotlib.org/" target="_blank" 
-								data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip"
-								title="데이터 시각화를 위한 패키지로, 다양한 그래프와 플롯을 그릴 수 있습니다." >
-									<img src="https://matplotlib.org/_static/images/documentation.svg" height="118px" />
-								</a>
-							</li>
-							<li class="list-group-item list-group-item-warning p-1 fs-8 text-nowrap">
-								그래프 챠트
-							</li>
-						</ul>
-	
-						<ul class="border p-0 list-group" style="width: 145px; margin-left: 4px;" >
-							<li class="list-group-item list-group-item-primary p-0 fs-7">Pandas</li>
-							<li class="list-group-item p-2">
-								<a href="https://pandas.pydata.org" target="_blank" 
-								data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip"
-								title="데이터 조작 및 분석을 위한 패키지로, 데이터프레임 객체를 중심으로 데이터 구조와 함수들을 제공합니다.">
-									<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSewsxrd4BWLZ46ezR8moPaoaz5WPtEFPPK0-b1-dX81A&s" height="118px" />
-								</a>
-							</li>
-							<li class="list-group-item list-group-item-warning p-1 fs-8 text-nowrap">
-								데이터 조작 분석
-							</li>
-						</ul>
-					
-						<ul class="border p-0 list-group" style="width: 145px; margin-left: 4px;" >
-							<li class="list-group-item list-group-item-primary p-0 fs-7">Scikit-Learn</li>
-							<li class="list-group-item p-2">
-								<a href="https://scikit-learn.org" target="_blank" 
-								data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip"
-								title="머신러닝을 위한 패키지로, 다양한 머신러닝 알고리즘과 도구들을 제공합니다.">
-									<img src="https://scikit-learn.org/stable/_images/sphx_glr_plot_release_highlights_1_4_0_001.png"
-									width="100%"  height="118px" />
-								</a>
-							</li>
-							<li class="list-group-item list-group-item-warning p-1 fs-8 text-nowrap">
-								머신 러닝 패키지
-							</li>
-						</ul>
-	
-						<ul class="border p-0 list-group" style="width: 145px; margin-left: 4px;" >
-							<li class="list-group-item list-group-item-primary p-0 fs-7">PyTorch</li>
-							<li class="list-group-item p-2">
-								<a href="https://pytorch.org" target="_blank" 
-								data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip"
-								title="딥러닝과 인공지능 연구에 사용됩니다." >
-									<img src="https://pytorch.org/tutorials/_static/img/thumbnails/cropped/torch-nn.png"  
-									width="100%" height="118px" />
-								</a>
-							</li>
-							<li class="list-group-item list-group-item-warning p-1 fs-8 text-nowrap">
-								딥 러닝 패키지
-							</li>
-						</ul>
-					
-						<ul class="border p-0 list-group" style="width: 145px; margin-left: 4px;" >
-							<li class="list-group-item list-group-item-primary p-0 fs-7">Tensorflow</li>
-							<li class="list-group-item p-2">
-								<a href="https://www.tensorflow.org" target="_blank" 
-								data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip"
-								title="딥러닝을 위한 오픈소스 라이브러리로, 다양한 딥러닝 모델을 구현할 수 있습니다.">
-									<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgdcxMo1kRE6OY7Xi_6sz1iah067JWj5Ic4-myeZwcwpqOVH9raRXhuxxp3xkra5arDS_IZHB6H_Aiwyjd-4daydjwFxtD9YohzAd7axB3260lTjwLo7PuQ1BxIBGZ83IK8WGKcwDyXJlGIPLOivTqG8FR3kzRUi8vOhlwxF-URAts2Vbc8ZXoEAwBxq50/s1600/image2.gif"  
-									width="100%" height="118px" />
-								</a>
-							</li>
-							<li class="list-group-item list-group-item-warning p-1 fs-8 text-nowrap">
-								딥 러닝 패키지
-							</li>
-						</ul>
-	
-						<ul class="border p-0 list-group" style="width: 145px; margin-left: 4px;" >
-							<li class="list-group-item list-group-item-primary p-0 fs-7">Keras</li>
-							<li class="list-group-item p-2">
-								<a href="https://keras.io/" target="_blank" 
-								data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip"
-								title="딥러닝을 위한 고수준 신경망 API로, TensorFlow를 기반으로 작동합니다.">
-									<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Keras_logo.svg/768px-Keras_logo.svg.png"  height="118px" />
-								</a>
-							</li>
-							<li class="list-group-item list-group-item-warning p-1 fs-8 text-nowrap">
-								딥 러닝 패키지
-							</li>
-						</ul>
-					
-						<ul class="border p-0 list-group" style="width: 145px; margin-left: 4px;" >
-							<li class="list-group-item list-group-item-primary p-0 fs-7">Flask</li>
-							<li class="list-group-item p-2">
-								<a href="https://flask.palletsprojects.com/" target="_blank" 
-								data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip"
-								title="웹 애플리케이션 개발을 위한 마이크로 웹 프레임워크로, 가벼운 구조와 유연성을 제공합니다." >
-									<img src="https://flask.palletsprojects.com/en/3.0.x/_static/flask-vertical.png"  height="118px" />
-								</a>
-							</li>
-							<li class="list-group-item list-group-item-warning p-1 fs-8 text-nowrap">
-								경량 웹프레임웍
-							</li>
-						</ul>
-	
-						<ul class="border p-0 list-group" style="width: 145px; margin-left: 4px;" >
-							<li class="list-group-item list-group-item-primary p-0 fs-7">Django</li>
-							<li class="list-group-item p-2">
-								<a href="https://www.djangoproject.com/" target="_blank" 
-								data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip"
-								title="고수준 웹 프레임워크로, 빠른 개발과 깨끗한 설계를 목표로 합니다." >
-									<img src="https://i0.wp.com/blog.knoldus.com/wp-content/uploads/2021/10/django-logo-big-removebg-preview.png?w=632&ssl=1"  width="100%" height="118px"/>
-								</a>
-							</li>
-							<li class="list-group-item list-group-item-warning p-1 fs-8 text-nowrap">
-								고성능 웹프레임웍
-							</li>
-						</ul>
-	
-						<ul class="border p-0 list-group" style="width: 145px; margin-left: 4px;" >
-							<li class="list-group-item list-group-item-primary p-0 fs-7">Fast API</li>
-							<li class="list-group-item p-2">
-								<a href="https://fastapi.tiangolo.com/" target="_blank" 
-								data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip"
-								title="FastAPI는 최신의 고성능 웹 프레임워크로, Python의 표준 타입 힌트를 기반으로 API를 구축하는 데 사용됩니다." >
-									<img src="https://try.direct/files/8400033b-cf2e-4fc4-ac91-45cadee082ed.svg" height="118px"/>
-								</a>
-							</li>
-							<li class="list-group-item list-group-item-warning p-1 fs-8 text-nowrap">
-								최신 웹프레임웍
-							</li>
-						</ul>
-	
-						<ul class="border p-0 list-group" style="width: 145px; margin-left: 4px;" >
-							<li class="list-group-item list-group-item-primary p-0 fs-7">OpenCV</li>
-							<li class="list-group-item p-2 bg-dark">
-								<a href="https://opencv.org/" target="_blank" 
-								data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip"
-								title="컴퓨터 비전 및 이미지 처리 작업을 위한 오픈 소스 라이브러리입니다. 1999년 인텔에서 시작하여 현재는 Willow Garage와 Itseez의 지원을 받고 있습니다. OpenCV는 다양한 프로그래밍 언어(C++, Python, Java 등)를 지원하며, 여러 운영 체제(Windows, Linux, macOS, Android, iOS 등)에서 사용할 수 있습니다." >
-									<img src="https://opencv.org/wp-content/uploads/2022/05/logo.png" height="118px"/>
-								</a>
-							</li>
-							<li class="list-group-item list-group-item-warning p-1 fs-8 text-nowrap">
-								영상처리 패키지
-							</li>
-						</ul>
-	
 					</div>
 				</div>
 
-				<div class="card-footer text-muted">
+				<div class="card-footer text-muted" th:if="${ false }">
 					&nbsp;
 				</div>
-
 			</div>
+			
+			<script>
+				const packages = [
+					{
+						"name": "NumPy",
+						"url": "https://numpy.org",
+						"tooltip": "CPU 전용 수치 연산 패키지로, 다차원 배열 객체와 다양한 수학 함수들을 제공합니다.",
+						"image": "https://numpy.org/images/logo.svg",
+						"category": "수치 연산 패키지"
+					},
+					{
+						"name": "CuPy",
+						"url": "https://cupy.dev/",
+						"tooltip": "GPU 전용 수치 연산 가속화룰 위한 파이썬 패키지입니다. Numpy API 구조와 이름들이 호환됩니다.",
+						"image": "https://cupy.dev/images/cupy_icon.png",
+						"category": "수치 연산 패키지"
+					},
+					{
+						"name": "Matplotlib",
+						"url": "https://matplotlib.org/",
+						"tooltip": "데이터 시각화를 위한 패키지로, 다양한 그래프와 플롯을 그릴 수 있습니다.",
+						"image": "https://matplotlib.org/_static/images/documentation.svg",
+						"category": "그래프 차트"
+					},
+					{
+						"name": "Pandas",
+						"url": "https://pandas.pydata.org",
+						"tooltip": "데이터 조작 및 분석을 위한 패키지로, 데이터프레임 객체를 중심으로 데이터 구조와 함수들을 제공합니다.",
+						"image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSewsxrd4BWLZ46ezR8moPaoaz5WPtEFPPK0-b1-dX81A&s",
+						"category": "데이터 조작 분석"
+					},
+					{
+						"name": "Scikit-Learn",
+						"url": "https://scikit-learn.org",
+						"tooltip": "머신러닝을 위한 패키지로, 다양한 머신러닝 알고리즘과 도구들을 제공합니다.",
+						"image": "https://scikit-learn.org/stable/_images/sphx_glr_plot_release_highlights_1_4_0_001.png",
+						"category": "머신 러닝 패키지"
+					},
+					{
+						"name": "PyTorch",
+						"url": "https://pytorch.org",
+						"tooltip": "딥러닝과 인공지능 연구에 사용됩니다.",
+						"image": "https://pytorch.org/tutorials/_static/img/thumbnails/cropped/torch-nn.png",
+						"category": "딥 러닝 패키지"
+					},
+					{
+						"name": "TensorFlow",
+						"url": "https://www.tensorflow.org",
+						"tooltip": "딥러닝을 위한 오픈소스 라이브러리로, 다양한 딥러닝 모델을 구현할 수 있습니다.",
+						"image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgdcxMo1kRE6OY7Xi_6sz1iah067JWj5Ic4-myeZwcwpqOVH9raRXhuxxp3xkra5arDS_IZHB6H_Aiwyjd-4daydjwFxtD9YohzAd7axB3260lTjwLo7PuQ1BxIBGZ83IK8WGKcwDyXJlGIPLOivTqG8FR3kzRUi8vOhlwxF-URAts2Vbc8ZXoEAwBxq50/s1600/image2.gif",
+						"category": "딥 러닝 패키지"
+					},
+					{
+						"name": "Keras",
+						"url": "https://keras.io/",
+						"tooltip": "딥러닝을 위한 고수준 신경망 API로, TensorFlow를 기반으로 작동합니다.",
+						"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Keras_logo.svg/768px-Keras_logo.svg.png",
+						"category": "딥 러닝 패키지"
+					},
+					{
+						"name": "Flask",
+						"url": "https://flask.palletsprojects.com/",
+						"tooltip": "웹 애플리케이션 개발을 위한 마이크로 웹 프레임워크로, 가벼운 구조와 유연성을 제공합니다.",
+						"image": "https://flask.palletsprojects.com/en/3.0.x/_static/flask-vertical.png",
+						"category": "경량 웹프레임웍"
+					},
+					{
+						"name": "Django",
+						"url": "https://www.djangoproject.com/",
+						"tooltip": "고수준 웹 프레임워크로, 빠른 개발과 깨끗한 설계를 목표로 합니다.",
+						"image": "https://i0.wp.com/blog.knoldus.com/wp-content/uploads/2021/10/django-logo-big-removebg-preview.png?w=632&ssl=1",
+						"category": "고성능 웹프레임웍"
+					},
+					{
+						"name": "FastAPI",
+						"url": "https://fastapi.tiangolo.com/",
+						"tooltip": "FastAPI는 최신의 고성능 웹 프레임워크로, Python의 표준 타입 힌트를 기반으로 API를 구축하는 데 사용됩니다.",
+						"image": "https://try.direct/files/8400033b-cf2e-4fc4-ac91-45cadee082ed.svg",
+						"category": "최신 웹프레임웍"
+					},
+					{
+						"name": "OpenCV",
+						"url": "https://opencv.org/",
+						"tooltip": "컴퓨터 비전 및 이미지 처리 작업을 위한 오픈 소스 라이브러리입니다.",
+						"image": "https://opencv.org/wp-content/uploads/2022/05/logo.png",
+						"category": "영상처리 패키지"
+					}
+				]
+			
+				$(document).ready(function () {
+					const $container = $("#package-container");
+					const $template = $("#package-template");
+					
+					packages.forEach(pkg => {
+						let $clone = $template.clone().removeAttr("id").show();
+						$clone.find(".package-name").text(pkg.name);
+						$clone.find(".package-link").attr("href", pkg.url).attr("title", pkg.tooltip);
+						$clone.find(".package-image").attr("src", pkg.image);
+						$clone.find(".package-category").text(pkg.category);
+						$container.append($clone);
+					});
+				});
+			</script>
 
 			<br/>
 
