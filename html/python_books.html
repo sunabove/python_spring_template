@@ -57,11 +57,12 @@
 		
 			<hr class="my-3">
 		
-			<div class="row justify-content-center overflow-x-hidden"> 
+			<!-- 그리드 레이아웃을 활용한 자동 크기 조정 -->
+			<div class="d-grid gap-3 justify-content-center" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
+			
+				<div class="d-flex" th:each="book : ${books}">
 		
-				<div class="col-12 col-md-6 col-lg-6 mb-4 d-flex" th:each="book : ${books}">
-		
-					<div class="d-flex flex-column flex-sm-row align-items-stretch border rounded shadow-sm p-3 bg-white h-100 w-100" style="min-width: 320px;">
+					<div class="d-flex flex-column flex-sm-row align-items-stretch border rounded shadow-sm p-3 bg-white h-100 w-100">
 						
 						<!-- 책 이미지 -->
 						<div class="flex-shrink-0 me-sm-3 mb-2 mb-sm-0 d-flex align-items-center">
@@ -74,8 +75,7 @@
 						</div>
 		
 						<!-- 책 정보 및 버튼 -->
-						<div class="flex-grow-1 d-flex flex-column justify-content-between h-100 text-center text-sm-start"
-							 style="min-width: 120px;">
+						<div class="flex-grow-1 d-flex flex-column justify-content-between h-100 text-center text-sm-start">
 							<div>
 								<h5 class="fw-bold" th:text="${book.title}">Book Title</h5>
 								<p class="mb-1"><strong>저자:</strong> <span th:text="${book.author}">Author</span></p>
@@ -96,8 +96,8 @@
 				</div>
 			</div>
 		
-		</main>
-
+		</main> 
+		
 		<!-- // main content --> 
 
 		<!--  side bar right -->
