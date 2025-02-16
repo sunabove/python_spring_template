@@ -1,0 +1,87 @@
+[
+	{
+	"version": "3.13.2",
+	"url": "https://www.python.org/ftp/python/3.13.2/python-3.13.2-amd64.exe",
+	"release_notes": "https://docs.python.org/release/3.13.2/whatsnew/changelog.html#python-3-13-2"
+	},
+	{
+	"version": "3.12.8",
+	"url": "https://www.python.org/ftp/python/3.12.8/python-3.12.8-amd64.exe",
+	"release_notes": "https://docs.python.org/release/3.12.8/whatsnew/changelog.html#python-3-12-8"
+	},
+	{
+	"version": "3.13.1",
+	"url": "https://www.python.org/downloads/release/python-3131/",
+	"release_notes": "https://docs.python.org/release/3.13.1/whatsnew/changelog.html#python-3-13-1"
+	},
+	{
+	"version": "3.13.0",
+	"url": "https://www.python.org/downloads/release/python-3130/",
+	"release_notes": "https://docs.python.org/release/3.13.0/whatsnew/changelog.html#python-3-13-0"
+	},
+	{
+	"version": "3.12.7",
+	"url": "https://www.python.org/downloads/release/python-3127/",
+	"release_notes": "https://docs.python.org/release/3.12.7/whatsnew/changelog.html#python-3-12-7"
+	},
+	{
+	"version": "3.12.6",
+	"url": "https://www.python.org/downloads/release/python-3126/",
+	"release_notes": "https://docs.python.org/release/3.12.6/whatsnew/changelog.html#python-3-12-6"
+	},
+	{
+	"version": "3.12.5",
+	"url": "https://www.python.org/downloads/release/python-3125/",
+	"release_notes": "https://docs.python.org/release/3.12.5/whatsnew/changelog.html#python-3-12-5"
+	},
+	{
+	"version": "3.12.4",
+	"url": "https://www.python.org/downloads/release/python-3124/",
+	"release_notes": "https://docs.python.org/release/3.12.4/whatsnew/changelog.html#python-3-12-4"
+	},
+	{
+	"version": "3.12.3",
+	"url": "https://www.python.org/downloads/release/python-3123/",
+	"release_notes": "https://docs.python.org/release/3.12.3/whatsnew/changelog.html#python-3-12-3"
+	},
+	{
+	"version": "3.11.9",
+	"url": "https://www.python.org/downloads/release/python-3119/",
+	"release_notes": "https://docs.python.org/release/3.11.9/whatsnew/changelog.html#python-3-11-9"
+	},
+	{
+	"version": "3.10.14",
+	"url": "https://www.python.org/downloads/release/python-31014/",
+	"release_notes": "https://docs.python.org/release/3.10.14/whatsnew/changelog.html"
+	},
+	{
+	"version": "3.9.19",
+	"url": "https://www.python.org/downloads/release/python-3919/",
+	"release_notes": "https://docs.python.org/release/3.9.19/whatsnew/changelog.html"
+	},
+	{
+	"version": "3.8.19",
+	"url": "https://www.python.org/downloads/release/python-3819/",
+	"release_notes": "https://docs.python.org/release/3.8.19/whatsnew/changelog.html"
+	},
+	{
+	"version": "3.11.8",
+	"url": "https://www.python.org/downloads/release/python-3118/",
+	"release_notes": "https://docs.python.org/release/3.11.8/whatsnew/changelog.html#python-3-11-8"
+	},
+	{
+	"version": "3.12.2",
+	"url": "https://www.python.org/downloads/release/python-3122/",
+	"release_notes": "https://docs.python.org/release/3.12.2/whatsnew/changelog.html#python-3-12-2"
+	},
+	{
+	"version": "3.12.1",
+	"url": "https://www.python.org/downloads/release/python-3121/",
+	"release_notes": "https://docs.python.org/release/3.12.1/whatsnew/changelog.html#python-3-12-1"
+	},
+	{
+	"version": "3.11.7",
+	"url": "https://www.python.org/downloads/release/python-3117/",
+	"release_notes": "https://docs.python.org/release/3.11.7/whatsnew/changelog.html#python-3-11-7"
+	}
+]

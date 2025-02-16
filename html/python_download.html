@@ -49,81 +49,57 @@
 
 		<!-- main content --> 
 
-		<main class="p-4 container" style="overflow-y: auto; max-width: 800px; margin: 20px auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
-			
-			<h3 class="h3" style="display: flex; align-items: center; gap: 10px;">
+		<main class="p-4 container" style="overflow-y: auto;">
+			<h3 class="h3">
 				<i class="fa-brands fa-python"></i>
-				파이썬 다운로드
-				<i class="fa-regular fa-circle-down"></i>
-			</h3> 
-
-			<div id="download-links">
-				<template id="download-template">
-					<a class='text-decoration-none' href='#' style='display: block; padding: 5px; margin: 10px 0; background: #007bff; color: white; text-align: center; border-radius: 5px; text-decoration: none;'>
-						<h3></h3>
-					</a>
-				</template>
-			</div>
-
-			<ol id="previous-versions" class="row mt-3 fs-5" style="list-style: none; padding: 0;">
-				<template id="previous-template">
-					<li class='p-1' style='background: #e9ecef; padding: 10px; margin: 5px 0; border-radius: 5px;'>
-						<span class='release-number'><a href='#' target='_blank'></a></span>
-						<span class='release-download'><a href='#' target='_blank'> Download </a></span>
-						<span class='release-enhancements'><a href='#' target='_blank'>Release Notes</a></span>
-					</li>
-				</template>
-			</ol>
-
-			<script>
-				const downloads = [
-					{ version: "3.13.2", url: "https://www.python.org/ftp/python/3.13.2/python-3.13.2-amd64.exe", autoDownload: false },
-					{ version: "3.12.8", url: "https://www.python.org/ftp/python/3.12.8/python-3.12.8-amd64.exe", autoDownload: true }
-				];
+				&nbsp; 파이썬 다운로드 <i class="fa-regular fa-circle-down"></i>
+			</h3>
 		
-				const previousVersions = [
-					{ version: "3.13.2", url: "https://www.python.org/downloads/release/python-3132/" },
-					{ version: "3.13.1", url: "https://www.python.org/downloads/release/python-3131/" },
-					{ version: "3.13.0", url: "https://www.python.org/downloads/release/python-3130/" },
-					{ version: "3.12.7", url: "https://www.python.org/downloads/release/python-3127/" },
-					{ version: "3.12.6", url: "https://www.python.org/downloads/release/python-3126/" },
-					{ version: "3.12.5", url: "https://www.python.org/downloads/release/python-3125/" },
-					{ version: "3.12.4", url: "https://www.python.org/downloads/release/python-3124/" },
-					{ version: "3.12.3", url: "https://www.python.org/downloads/release/python-3123/" },
-					{ version: "3.11.9", url: "https://www.python.org/downloads/release/python-3119/" },
-					{ version: "3.10.14", url: "https://www.python.org/downloads/release/python-31014/" },
-					{ version: "3.9.19", url: "https://www.python.org/downloads/release/python-3919/" },
-					{ version: "3.8.19", url: "https://www.python.org/downloads/release/python-3819/" },
-					{ version: "3.11.8", url: "https://www.python.org/downloads/release/python-3118/" },
-					{ version: "3.12.2", url: "https://www.python.org/downloads/release/python-3122/" },
-					{ version: "3.12.1", url: "https://www.python.org/downloads/release/python-3121/" },
-					{ version: "3.11.7", url: "https://www.python.org/downloads/release/python-3117/" }
-				];
+			<br/>
 		
-				$(document).ready(function () {
-					const $downloadTemplate = $("#download-template").contents(); 
-	
-					downloads.forEach(download => {
-						let $clone = $downloadTemplate.clone();
-						$clone.attr("href", download.url);
-						$clone.find("h3").text(`파이썬 ${download.version} 윈도우 64 비트 다운로드`);
-						$("#download-links").append($clone); 
-					});
+			<a th:if="${downloads != null and #lists.size(downloads) > 0}" 
+			   th:href="${downloads[0].url}" 
+			   class="text-decoration-none">
+				<h3 th:text="'파이썬 ' + ${downloads[0].version} + ' 윈도우 64 비트 다운로드'"></h3>
+			</a> 
 		
-					const $previousTemplate = $("#previous-template").contents();
-					
-					previousVersions.forEach(version => {
-						let $clone = $previousTemplate.clone();
-						$clone.find(".release-number a").attr("href", version.url).text(`Python ${version.version}`);
-						$clone.find(".release-download a").attr("href", version.url);
-						$clone.find(".release-enhancements a").attr("href", `https://docs.python.org/release/${version.version}/whatsnew/changelog.html`);
-						$("#previous-versions").append($clone);
-					});
-				});
-			</script>
-			
+			<table class="table table-hover text-center mt-4 fs-5 ">
+				<colgroup>
+					<col style="width: 5%;">
+					<col style="width: 30%;">
+					<col style="width: 30%;">
+					<col>
+				</colgroup>
+				
+				<thead>
+					<tr>
+						<th>No.</th>
+						<th>버전</th>
+						<th>다운로드</th>
+						<th>릴리즈 노트</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr th:each="download, iterStat : ${downloads}">
+						<td th:text="${iterStat.count}"></td>
+						<td>
+							<a th:href="'https://www.python.org/downloads/release/python-' + ${download.version.replace('.', '')}" 
+							   target="_blank" th:text="'Python ' + ${download.version}"></a>
+						</td>
+						<td>
+							<a th:href="${download.url}" target="_blank">
+								<span aria-hidden="true" class="icon-download"></span> Download
+							</a>
+						</td>
+						<td>
+							<a th:href="${download.release_notes}" target="_blank">Release Notes</a>
+						</td>
+					</tr>
+				</tbody>
+			</table> 
+
 		</main>
-		
 
 		<!-- // main content --> 
 
