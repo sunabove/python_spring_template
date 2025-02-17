@@ -161,44 +161,7 @@
 			
 			<!-- // Main Banner -->
 
-			<!-- 서적 -->
-
-			<style>
-				.book-summary {
-					display: -webkit-box;
-					-webkit-line-clamp: 2; /* Limit to 2 lines */
-					-webkit-box-orient: vertical;
-					overflow: hidden;
-					text-overflow: ellipsis;
-					height: calc(1.2em * 2.5); /* Approximate height for 2 lines of text */
-				}
-
-				/** carousel **/
-
-				.carousel-control-prev, .carousel-control-next {
-					width: 30px; 
-					/*background-color: rgba(0, 0, 0, 0.1); */
-				}
-
-				.carousel-control-prev-icon, .carousel-control-next-icon {
-					filter: invert(1); /* 아이콘 색상을 반전시켜 흰색으로 만듦 */
-				}
-
-				/* carousel-inner 내부 내용에 padding을 추가해 버튼과 겹치지 않도록 설정 */
-				.carousel-inner {
-					padding-left: 40px;  /* 왼쪽 여백 */
-					padding-right: 40px; /* 오른쪽 여백 */
-				}
-
-				.card {
-					height: 100%; /* 카드 높이를 100%로 확장 */
-					display: flex;
-					flex-direction: column; /* 카드 내부 콘텐츠를 세로 정렬 */
-				}
-
-				/** -- carousel **/
-			</style>
-
+			<!-- 서적 --> 
 
 			<div class="card text-center mt-3" th:if="${ partitionedBooks.size() > 0 }">
 
@@ -208,7 +171,7 @@
 					<a th:href="@{ /public/books }"href="#"> <span class="h5"> 파이썬 서적 </span> </a>
 				</div>
 
-				<!-- card body -->
+				<!-- card body --> 
 				
 				<div class="card-body row">
 					<div class="col-12 col-sm-12 col-xl-12 p-0">
