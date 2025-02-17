@@ -23,3 +23,8 @@ a {
   --bs-tooltip-bg: #6f42c1;
   --bs-tooltip-color: var(--bs-white);
 }
+
+.no-space {
+  padding: 0 !important;
+  margin: 0 !important;
+}
