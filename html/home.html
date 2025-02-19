@@ -69,9 +69,14 @@
 
 			<div class="card text-center mt-3">
 				
-				<div class="card-header">
-					<i class="bi bi-newspaper fa-xl"></i> &nbsp;
-					<a th:href="@{ /public/news }"href="#"> <span class="h5"> 파이썬 뉴스 </span> </a>
+				<div class="card-header d-flex align-items-center" >
+					<div class="col-10 h3 text-dark fw-bold m-0" >
+						<i class="bi bi-newspaper"></i> &nbsp;
+						<a th:href="@{ /public/news }"href="#"> <span class="h5"> 파이썬 뉴스 </span> </a>
+					</div>
+					<div class="col-2 h7" >
+						조회수 : &nbsp; <span th:text="${ urlCount }">1,234</span>
+					</div>
 				</div>
 
 				<div class="card-body row">
