@@ -110,14 +110,14 @@
 								 class="carousel-item"
 								 data-bs-interval="3000">
 								<a th:href="@{${banner.href}}" target="_blank">
-									<img th:src="@{${banner.imageUrl}}" class="d-block w-100 h-100 mx-auto"
+									<img th:src="@{${banner.imageUrl}}" class="img-fluid mx-auto"
 									th:alt="${banner.alt}">
 								</a>
 								<div class="carousel-caption d-none d-md-block" style="color: orange;">
 									<h5></h5>
 									<p></p>
 								</div>
-							</div>
+							</div> 
 						</div>
 			
 					</div>
@@ -165,57 +165,60 @@
 			
 			<!-- // Main Banner -->
 
-			<!-- 서적 리스트 -->
-			<div class="card text-center mt-3" th:if="${books.size() > 0}">
+			<!-- 서적 캐러셀 -->
+
+			<div class="card text-center mt-3" th:if="${partitionedBooks.size() > 0}">
 				<div class="card-header">
 					<span class="h5"><i class="fa-solid fa-book"></i></span>
 					&nbsp;
 					<a th:href="@{/public/books}" href="#"><span class="h5">파이썬 서적</span></a>
 				</div>
-
-				<div class="card-body position-relative py-0">
-					<div class="scroll-container d-flex overflow-auto" id="bookScrollContainer"
-						style="scroll-behavior: smooth; white-space: nowrap; display: flex; overflow-x: auto; padding: 10px; gap: 10px;">
-						<div class="book-item flex-shrink-0 p-0 m-0" th:each="book : ${books}">
-							<div class="card shadow-sm h-100 border-0" style="width: 220px;">
-								<div class="card-body d-flex flex-column align-items-center border rounded shadow-sm p-3 bg-white">
-									<div class="text-center">
-										<img th:src="@{${book.imageUrl}}" th:if="${book.imageUrl}"
-											class="rounded img-fluid"
-											style="max-width: 110px; height: auto; object-fit: cover;"
-											alt="Book Image">
-										<h5 class="fw-bold mt-2" th:text="${book.title}" style="font-size: 1rem;">Book Title</h5>
-										<p class="mb-1" style="font-size: 0.85rem;"><strong>저자:</strong> <span th:text="${book.author}">Author</span></p>
-										<p class="mb-1" style="font-size: 0.85rem;"><strong>출판사:</strong> <span th:text="${book.publisher}">Publisher</span> (<span th:text="${book.publicationYear}">2023</span>)</p>
+				
+				<div class="card-body position-relative py-2">
+					<div id="bookCarousel" class="carousel slide" data-bs-ride="false">
+						<div class="carousel-inner">
+							<div class="carousel-item" th:classappend="${iter.index == 0} ? 'active'" th:each="bookPage, iter : ${partitionedBooks}">
+								<div class="d-flex justify-content-around flex-wrap">
+									<div class="book-item flex-grow-1 p-2" th:each="book : ${bookPage}" style="min-width: 220px; max-width: 400px;">
+										<div class="card shadow-sm h-100 border-0 w-100">
+											<div class="card-body d-flex flex-column align-items-center border rounded shadow-sm p-3 bg-white">
+												<div class="text-center">
+													<img th:src="@{${book.imageUrl}}" th:if="${book.imageUrl}"
+														class="rounded img-fluid"
+														style="max-width: 110px; height: auto; object-fit: cover;"
+														alt="Book Image">
+													<h5 class="fw-bold mt-2" th:text="${book.title}" style="font-size: 1rem;">Book Title</h5>
+													<p class="mb-1" style="font-size: 0.85rem;"><strong>저자:</strong> <span th:text="${book.author}">Author</span></p>
+													<p class="mb-1" style="font-size: 0.85rem;"><strong>출판사:</strong> <span th:text="${book.publisher}">Publisher</span> (<span th:text="${book.publicationYear}">2023</span>)</p>
+												</div>
+												<a th:href="${book.url}" class="btn btn-primary btn-sm mt-auto w-100" target="_blank">
+													<i class="bi bi-box-arrow-up-right me-1"></i>더 보기
+												</a>
+											</div>
+										</div>
 									</div>
-									<a th:href="${book.url}" class="btn btn-primary btn-sm mt-auto w-100" target="_blank">
-										<i class="bi bi-box-arrow-up-right me-1"></i>더 보기
-									</a>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-
-				<!-- 좌우 스크롤 버튼 (card-footer에 배치) -->
-				<div class="card-footer bg-white d-flex justify-content-center">
-					<button class="btn btn-outline-secondary btn-sm " onclick="scrollBooks(-1)">
-						<i class="fa-solid fa-chevron-left"></i> 이전
-					</button>
-					&nbsp;
-					<button class="btn btn-outline-secondary btn-sm " onclick="scrollBooks(1)">
-						다음 <i class="fa-solid fa-chevron-right"></i>
-					</button>
+				
+				<!-- 인디케이터를 푸터로 이동 -->
+				<div class="card-footer p-0 m-0">
+					<div class="carousel-indicators position-relative d-flex justify-content-center p-0 m-1">
+						<button th:each="bookPage, iter : ${partitionedBooks}" 
+								type="button" data-bs-target="#bookCarousel" 
+								th:data-bs-slide-to="${iter.index}" 
+								th:classappend="${iter.index == 0} ? 'active'"
+								th:aria-current="${iter.index == 0}" 
+								th:aria-label="'Slide ' + ${iter.index + 1}"
+								style="border-radius: 50%; width: 20px; height: 20px; background-color: chocolate;">
+						</button>
+					</div>
 				</div>
+			</div>
+			
 
-				<script>
-					function scrollBooks(direction) {
-						const container = document.getElementById('bookScrollContainer');
-						const scrollAmount = 240; // 한 번에 스크롤할 거리 (책 한 권 + 여백)
-						container.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
-					}
-				</script>
-			</div> 
 			<!-- // 서적 캐러셀 -->
 
 			<!-- 주요 링크 -->
