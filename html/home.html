@@ -129,20 +129,26 @@
 
 								// 모든 슬라이드(.carousel-item)의 높이를 측정하여 최대값 찾기
 								$("#mainSlider .carousel-item").each(function () {
-									let itemHeight = $(this).prop("scrollHeight"); // div의 실제 높이 가져오기
+									let itemHeight = $(this).find("img").outerHeight(); // 이미지 높이를 기준으로 설정
 									maxHeight = Math.max(maxHeight, itemHeight);
 								});
 
 								// 최대 높이를 모든 .carousel-item에 적용
 								$("#mainSlider .carousel-item").height(maxHeight);
+								$("#mainSlider").height(maxHeight); // 캐러셀 전체 높이 설정
 							}
 
-							// 높이 조정 실행
+							// 초기 실행
 							adjustCarouselHeight();
 
-							// 창 크기 변경 시 높이 재조정
-							$(window).resize(adjustCarouselHeight);
+							// 창 크기 변경 시 높이 재조정 (디바운스 적용)
+							let resizeTimer;
+							$(window).resize(function () {
+								clearTimeout(resizeTimer);
+								resizeTimer = setTimeout(adjustCarouselHeight, 100); // 200ms 후 실행
+							});
 						});
+
 					</script>
 			
 				</div>
