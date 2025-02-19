@@ -51,9 +51,14 @@
 
 		<main class="p-4 container-fluid" style="overflow-y: auto; "> 
 
-			<span class="h2 text-dark fw-bold mb-4">
-				파이썬의 역사 
-			</span> 
+			<div class="row d-flex align-items-center" >
+				<div class="col-10 h2 text-dark fw-bold m-0" >
+					파이썬 역사 
+				</div>
+				<div class="col-2 h7" >
+					조회수 : &nbsp; <span th:text="${ urlCount }">1,234</span>
+				</div>
+			</div>
 			<hr/>
 
 			<div class="container-fluid markdown-body"> 

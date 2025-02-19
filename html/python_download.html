@@ -50,12 +50,17 @@
 		<!-- main content --> 
 
 		<main class="p-4 container" style="overflow-y: auto;">
-			<h3 class="h3">
-				<i class="fa-brands fa-python"></i>
-				&nbsp; 파이썬 다운로드 <i class="fa-regular fa-circle-down"></i>
-			</h3>
+
+			<div class="row d-flex align-items-center" >
+				<div class="col-10 h2 text-dark fw-bold m-0" >
+					파이썬 다운로드 <i class="fa-regular fa-circle-down"></i>
+				</div>
+				<div class="col-2 h7" >
+					조회수 : &nbsp; <span th:text="${ urlCount }">1,234</span>
+				</div>
+			</div>
 		
-			<br/>
+			<hr/>
 		
 			<a th:if="${downloads != null and #lists.size(downloads) > 0}" 
 			   th:href="${downloads[0].url}" 
