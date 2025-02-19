@@ -227,7 +227,7 @@
 
 			<!-- // 서적 캐러셀 -->
 
-			<!-- 주요 링크 -->
+			<!-- 주요 패키지지 -->
 
 			<div class="card text-center mt-3">
 				<div class="card-header">
@@ -235,25 +235,29 @@
 				</div>
 			
 				<div class="card-body p-0">
-					<div id="package-container" class="container-fluid d-flex flex-wrap justify-content-evenly p-2" style="gap: 10px; overflow-x: auto;">
-						<ul id="package-template" class="border list-group text-center" style="width: 100%; max-width: 240px; display: none;">
+					<div id="package-container" class="container-fluid p-2"
+						style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; width: 100%;">
+						<ul id="package-template" class="border list-group text-center"
+							style="display: none; width: 100%;">
 							<li class="list-group-item list-group-item-primary p-1 fs-7 package-name"> 
 								패키지 명 
 							</li>
-							<li class="list-group-item p-2 d-flex align-items-center justify-content-center" style="height: 120px;">
+							<li class="list-group-item p-2 d-flex align-items-center justify-content-center" 
+								style="height: 120px;">
 								<a class="package-link" href="#" target="_blank" data-bs-toggle="tooltip" title="패키지 이미지">
-									<img class="package-image img-fluid" style="height: 100px; object-fit: contain;" />
+									<img class="package-image img-fluid" 
+										style="height: 100px; object-fit: contain;" />
 								</a>
 							</li>
-							<li class="list-group-item list-group-item-warning p-1 fs-8 package-category">
+							<li class="list-group-item list-group-item-light p-1 fs-8 package-desc"
+								style="min-height: 100px; display: flex; vertical-align: text-top; text-align: center;">
 								패키지 설명
+							</li>
+							<li class="list-group-item list-group-item-warning p-1 fs-8 package-category">
+								패키지 카테고리
 							</li>
 						</ul>
 					</div>
-				</div> 
-
-				<div class="card-footer text-muted" th:if="${ false }">
-					&nbsp;
 				</div>
 			</div>
 			
@@ -332,7 +336,7 @@
 					{
 						"name": "FastAPI",
 						"url": "https://fastapi.tiangolo.com/",
-						"tooltip": "FastAPI는 최신의 고성능 웹 프레임워크로, Python의 표준 타입 힌트를 기반으로 API를 구축하는 데 사용됩니다.",
+						"tooltip": "FastAPI는 최신의 고성능 웹 프레임워크로, Python의 표준 타입 힌트를 기반으로 API를 구축합니다.",
 						"image": "https://try.direct/files/8400033b-cf2e-4fc4-ac91-45cadee082ed.svg",
 						"category": "최신 웹프레임웍"
 					},
@@ -355,6 +359,7 @@
 						$clone.find(".package-link").attr("href", pkg.url).attr("title", pkg.tooltip);
 						$clone.find(".package-image").attr("src", pkg.image);
 						$clone.find(".package-category").text(pkg.category);
+						$clone.find(".package-desc").text(pkg.tooltip);
 						$container.append($clone);
 					});
 				});
@@ -362,7 +367,7 @@
 
 			<br/>
 
-			<!-- // 주요 링크 -->
+			<!-- // 주요 패키지지 -->
 			 
 		</main>
 
